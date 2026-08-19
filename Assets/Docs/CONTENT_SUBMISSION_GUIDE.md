@@ -28,6 +28,8 @@
 填写“球员 Players”表，一行一名球员。
 
 - 公开字段：姓名、简介、公开位置、本人/经纪人声明、外部旁证、来源可靠性。
+- 薪资字段：`salary_min_weekly` 与 `salary_max_weekly`，单位欧元/周，均为非负整数且下限不大于上限；薪资范围是公开简历信息，会显示在球员简历区。
+- 经历字段：`career_history_zh`（英文可空），一两行俱乐部/年份履历，允许延续喜剧风格，但不得泄露隐藏数值。
 - 隐藏字段：真实能力、体能、职业性，均为 `0–100`。这些数字仅供结算，严禁写进公开邮件、期刊或 UI 文本。
 - 公开位置枚举：`Goalkeeper`、`Defender`、`WingBack`、`Midfielder`、`Winger`、`Forward`。
 - 可靠性枚举：`Unverified`、`Low`、`Medium`、`High`。

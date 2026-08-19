@@ -1,7 +1,7 @@
 # 技术规划
 
 - 状态：M1 实现基线
-- 最近更新：2026-08-10
+- 最近更新：2026-08-19
 
 ## 1. 技术基线
 
@@ -12,7 +12,7 @@
 - 输入：M1 优先鼠标点击和拖拽，底层使用 Input System。
 - 存档：Easy Save 3 保存运行时进度；核心规则不得直接依赖 Easy Save API。
 - 编辑器操作：场景、GameObject、组件、Prefab 和材质优先通过 Unity MCP 完成。
-- 场景结构：Game.unity 直接保存摄像机、2D 灯光、EventSystem、Canvas、信息/分配双工作区、80 个结构化邮件项、需求/简历/私人报价固定区、6 个期刊目录项与三类期刊页面、16 张可滚动球员卡、2 个招聘槽位和拖拽提示；运行时不得创建或销毁这些结构对象。
+- 场景结构：Game.unity 直接保存摄像机、2D 灯光、EventSystem、Canvas、信息/分配双工作区、80 个结构化邮件项、需求/简历/私人报价固定区、6 个期刊目录项与三类期刊页面、16 张可滚动球员卡、2 个招聘槽位、拖拽提示和周过渡遮罩；运行时不得创建或销毁这些结构对象。
 - 测试与自动化：Unity Test Framework、Unity CLI 和 Unity Pipeline。
 
 ## 2. 分层建议
@@ -35,13 +35,15 @@ ScriptableObject 或可导入的静态数据，描述球员原型、球队、委
 
 M1 使用场景预置 View 池：80 个邮件项、6 个期刊目录项、封面/专题/球探报告页面、16 张通用球员卡 View、两个招聘槽位和拖拽提示均序列化在 Game.unity。`GameController` 从 `GameContentCatalog` 绑定内容，维护已读与解锁稳定 ID，并只更新文本、图集 UV、颜色、监听与显隐。
 
-球员肖像与期刊封面使用两个固定图集。静态内容保存 `portraitIndex`/`coverIndex`，运行时只给 Scene 中已有 `RawImage` 绑定纹理与 UV；不会在运行时切图、创建图片对象或泄露隐藏信息。所有相关 `RawImage` 都带 1:1 `AspectRatioFitter`，内容附件统一按方形构图提交。
+球员肖像与期刊封面使用两个固定图集。静态内容保存 `portraitIndex`/`coverIndex`，运行时只给 Scene 中已有 `RawImage` 绑定纹理与 UV；不会在运行时切图、创建图片对象或泄露隐藏信息。所有图片位使用“容器锚定区域 + 子 `RawImage` 容器内 1:1 `AspectRatioFitter` 适配”结构，图片不会溢出容器与文字重叠；内容附件统一按方形构图提交。球员简历同时展示公开薪资范围（欧元/周）与球员经历。
 
 球员卡 View 不保存固定球员或固定位置映射。运行时从关联邮件的到达周与内容顺序得到稳定显示顺序，再过滤已放入本周招聘槽位、已经在历史周提交或已过可用期的球员并从顶部连续绑定；本周撤回安排后重新进入原排序位置。场景只提供容量，不决定球员类型。
 
 ### 2.5 Persistence
 
 把 Runtime State 转换为带版本号的存档快照，再交给 Easy Save 3。加载后通过统一入口恢复，不直接序列化场景对象引用。
+
+M1 已实现：`NewPlayerHunter.Domain` 提供纯 C# 的 `WeekStateSnapshot` 与 `WeekState.CreateSnapshot`/`ApplySnapshot`，随机序列通过 `SeededRandomSource` 的种子加消耗次数恢复。`NewPlayerHunter.Persistence` 程序集把快照映射为 JsonUtility 兼容的 `GameProgressSnapshot`（金额按字符串保存），再由 `SaveGameService` 以单键 JSON 字符串写入 Easy Save 3 默认存档文件；`schemaVersion` 当前为 1，版本不匹配即丢弃旧档并新开。Easy Save 3 自带 asmdef 已从 `.disabled` 启用（运行时装配件在插件根目录，Editor 装配件在 Editor 目录）。`GameController` 在每次结束本周后自动保存、启动时恢复、`RestartGame` 删除存档；自动保存失败只记录错误。
 
 ### 2.6 Content Submission
 
@@ -162,5 +164,4 @@ Assets/
 
 - MCP 在反射 Unity Pipeline 自带的 Roslyn 程序集时出现类型加载异常，可能影响 `unity_reflect` 的完整性。
 - Unity CLI 与 Unity Pipeline 都处于实验版本，自动化脚本应固定版本并保留 Editor 批处理回退方案。
-- GUI Pro - Casual Game 与 Easy Save 3 当前仍属于未提交导入内容，需要先建立清晰的第三方资源基线。
 - Asset Store“我的资源”没有纳入当前 MCP 的 Package Manager 查询能力，远端已购资源检索需要单独设计登录与导入流程。
