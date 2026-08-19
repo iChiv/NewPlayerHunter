@@ -1,0 +1,3754 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3c41b26794dd746b250e363b0efa7c, type: 3}
+  m_Name: M1ContentCatalog
+  m_EditorClassIdentifier: 
+  developmentLanguage: 0
+  players:
+  - id: player.rocket.rory
+    portraitIndex: 0
+    availableFromWeek: 1
+    availabilityWeeks: 3
+    displayName:
+      chineseSimplified: "\u7F57\u91CC\xB7\u594E\u514B"
+      english: 
+    biography:
+      chineseSimplified: "\u64C5\u957F\u53CD\u8D8A\u4F4D\u7684\u51B2\u523A\u578B\u524D\u950B\u3002\u7ECF\u7EAA\u4EBA\u575A\u6301\u53EA\u5728\u4E0B\u5761\u8DEF\u6BB5\u6D4B\u8BD5\u4ED6\u7684\u901F\u5EA6\u3002"
+      english: 
+    publicPosition: 5
+    hiddenAbility: 88
+    hiddenFitness: 86
+    hiddenProfessionalism: 76
+    publicClaim:
+      chineseSimplified: "\u7ECF\u7EAA\u516C\u53F8\u5BA3\u79F0\u4ED6\u4E0A\u8D5B\u5B63\u653B\u5165
+        41 \u7403\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u80FD\u627E\u5230\u7684\u4E24\u573A\u5B8C\u6574\u5F55\u50CF\u90FD\u8BC1\u660E\u8DD1\u4F4D\u806A\u660E\uFF0C\u4F46\u6CA1\u4EBA\u627E\u5230\u90A3
+        41 \u4E2A\u8FDB\u7403\u6240\u5728\u7684\u8054\u8D5B\u79EF\u5206\u699C\u3002"
+      english: 
+    evidenceReliability: 2
+    expiryMailSubject:
+      chineseSimplified: "\u7F57\u91CC\u4E0D\u7B49\u4E86\uFF1A\u5DF2\u4E0E\u5C71\u533A\u901F\u964D\u961F\u7B7E\u7EA6"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u7F57\u91CC\u7684\u7ECF\u7EAA\u4EBA\u8868\u793A\uFF0C\u8DB3\u7403\u4FF1\u4E50\u90E8\u8FDF\u8FDF\u6CA1\u6709\u62A5\u4EF7\uFF0C\u4ED6\u51B3\u5B9A\u63A5\u53D7\u4E00\u652F\u5C71\u533A\u7403\u961F\u7684\u9080\u8BF7\u3002\u5BF9\u65B9\u552F\u4E00\u627F\u8BFA\u662F\u4E3B\u573A\u786E\u5B9E\u6709\u5761\u3002"
+      english: 
+  - id: player.metronome.milo
+    portraitIndex: 1
+    availableFromWeek: 2
+    availabilityWeeks: 6
+    displayName:
+      chineseSimplified: "\u7C73\u6D1B\xB7\u9648"
+      english: 
+    biography:
+      chineseSimplified: "\u4F4D\u7F6E\u611F\u51FA\u8272\u7684\u7EC4\u7EC7\u578B\u4E2D\u573A\uFF0C\u8E22\u7403\u5B89\u9759\uFF0C\u91C7\u8BBF\u66F4\u5B89\u9759\u3002"
+      english: 
+    publicPosition: 3
+    hiddenAbility: 81
+    hiddenFitness: 82
+    hiddenProfessionalism: 91
+    publicClaim:
+      chineseSimplified: "\u524D\u6559\u7EC3\u79F0\u4ED6\u4E3A\u201C\u4E0D\u4F1A\u4E0A\u70ED\u641C\u7684\u53D1\u52A8\u673A\u201D\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u4E09\u573A\u5B8C\u6574\u6BD4\u8D5B\u91CC\uFF0C\u4ED6\u59CB\u7EC8\u80FD\u4E3A\u6301\u7403\u961F\u53CB\u63D0\u4F9B\u63A5\u5E94\uFF0C\u5E76\u8BA9\u9635\u578B\u4FDD\u6301\u5728\u540C\u4E00\u5F20\u6218\u672F\u677F\u4E0A\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u7C73\u6D1B\u63A5\u53D7\u4E86\u6570\u636E\u5206\u6790\u5E08\u5C97\u4F4D"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u7C73\u6D1B\u7B49\u4E86\u516D\u5468\u4ECD\u6CA1\u6709\u6B63\u5F0F\u5B89\u6392\uFF0C\u4E8E\u662F\u52A0\u5165\u4FF1\u4E50\u90E8\u5206\u6790\u90E8\u95E8\u3002\u4ED6\u8BF4\u81F3\u5C11\u7535\u5B50\u8868\u683C\u4F1A\u6309\u65F6\u56DE\u4F20\u7403\u3002"
+      english: 
+  - id: player.wall.walter
+    portraitIndex: 2
+    availableFromWeek: 3
+    availabilityWeeks: 4
+    displayName:
+      chineseSimplified: "\u6C83\u5C14\u7279\xB7\u79D1\u74E6\u5947"
+      english: 
+    biography:
+      chineseSimplified: "\u5F3A\u58EE\u7684\u4E2D\u540E\u536B\uFF0C\u8F6C\u8EAB\u901F\u5EA6\u4E00\u822C\uFF0C\u4F46\u6B63\u9762\u5BF9\u6297\u5F88\u5C11\u5403\u4E8F\u3002"
+      english: 
+    publicPosition: 1
+    hiddenAbility: 85
+    hiddenFitness: 73
+    hiddenProfessionalism: 84
+    publicClaim:
+      chineseSimplified: "\u4ED6\u7684\u8868\u54E5\u58F0\u79F0\uFF0C\u540C\u4E00\u4E2A\u4EBA\u4ECE\u6765\u4E0D\u53EF\u80FD\u7B2C\u4E8C\u6B21\u8FC7\u6389\u4ED6\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u5F55\u50CF\u8BC1\u5B9E\u7B2C\u4E00\u4E0B\u5BF9\u6297\u5F88\u786C\uFF1B\u5076\u5C14\u4E5F\u4F1A\u56E0\u4E3A\u8FFD\u7403\u592A\u6267\u7740\uFF0C\u8DD1\u51FA\u6574\u6761\u9632\u7EBF\u7684\u90AE\u653F\u7F16\u7801\u3002"
+      english: 
+    evidenceReliability: 2
+    expiryMailSubject:
+      chineseSimplified: "\u6C83\u5C14\u7279\u56DE\u8001\u5BB6\u63A5\u7BA1\u5BB6\u5177\u5E97"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u6C83\u5C14\u7279\u6CA1\u6709\u7B49\u5230\u5408\u9002\u5408\u540C\uFF0C\u51B3\u5B9A\u56DE\u5BB6\u7ECF\u8425\u8863\u67DC\u751F\u610F\u3002\u7ECF\u7EAA\u4EBA\u5F3A\u8C03\uFF0C\u8FD9\u4E0E\u7403\u63A2\u62A5\u544A\u4E2D\u9891\u7E41\u51FA\u73B0\u201C\u50CF\u8863\u67DC\u4E00\u6837\u7ED3\u5B9E\u201D\u6BEB\u65E0\u5173\u7CFB\u3002"
+      english: 
+  - id: player.turbo.tess
+    portraitIndex: 3
+    availableFromWeek: 2
+    availabilityWeeks: 5
+    displayName:
+      chineseSimplified: "\u6CF0\u4E1D\xB7\u5965\u79D1\u7F57"
+      english: 
+    biography:
+      chineseSimplified: "\u7206\u53D1\u529B\u7A81\u51FA\u7684\u8FB9\u950B\uFF0C\u542F\u52A8\u5F88\u5FEB\uFF0C\u6700\u540E\u4E00\u4F20\u8FD8\u5728\u5B66\u4E60\u51CF\u901F\u3002"
+      english: 
+    publicPosition: 4
+    hiddenAbility: 77
+    hiddenFitness: 94
+    hiddenProfessionalism: 67
+    publicClaim:
+      chineseSimplified: "\u9752\u8BAD\u4E2D\u5FC3\u79F0\u5979\u7684\u7B2C\u4E00\u6B65\u201C\u4EFB\u4F55\u8FB9\u540E\u536B\u90FD\u62E6\u4E0D\u4F4F\u201D\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u901F\u5EA6\u786E\u5B9E\u7A81\u51FA\uFF1B\u4F20\u4E2D\u8D28\u91CF\u4E0D\u7A33\u5B9A\uFF0C\u6709\u65F6\u7403\u4F1A\u6BD4\u7981\u533A\u91CC\u7684\u961F\u53CB\u65E9\u5230\u4E0B\u4E00\u5757\u5E7F\u544A\u724C\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u6CF0\u4E1D\u8F6C\u6295\u5BA4\u5185\u4E94\u4EBA\u5236\u8054\u8D5B"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u6CF0\u4E1D\u63A5\u53D7\u4E86\u4E94\u4EBA\u5236\u7403\u961F\u7684\u5408\u540C\u3002\u5979\u8BF4\u573A\u5730\u66F4\u5C0F\uFF0C\u81F3\u5C11\u4F20\u4E2D\u98DE\u51FA\u8FB9\u7EBF\u540E\u4E0D\u4F1A\u6D88\u5931\u592A\u4E45\u3002"
+      english: 
+  - id: player.gloves.gus
+    portraitIndex: 4
+    availableFromWeek: 4
+    availabilityWeeks: 3
+    displayName:
+      chineseSimplified: "\u683C\u65AF\xB7\u8D1D\u514B"
+      english: 
+    biography:
+      chineseSimplified: "\u5904\u7406\u9AD8\u7403\u7A33\u5065\u7684\u95E8\u5C06\uFF0C\u8BAD\u7EC3\u6001\u5EA6\u8BA4\u771F\uFF0C\u5076\u5C14\u4F1A\u5BF9\u516C\u4EA4\u8F66\u65F6\u523B\u8868\u5931\u8BEF\u3002"
+      english: 
+    publicPosition: 0
+    hiddenAbility: 79
+    hiddenFitness: 78
+    hiddenProfessionalism: 88
+    publicClaim:
+      chineseSimplified: "\u4ED6\u58F0\u79F0\u66FE\u5728\u4E00\u4E2A\u4E0B\u5348\u6251\u51FA\u4E94\u7C92\u70B9\u7403\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u5B98\u65B9\u8BB0\u5F55\u662F\u56DB\u6B21\u6251\u6551\uFF1B\u7B2C\u4E94\u540D\u7F5A\u7403\u624B\u5728\u52A9\u8DD1\u524D\u8BF7\u4E86\u75C5\u5047\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u683C\u65AF\u52A0\u5165\u70B9\u7403\u8BAD\u7EC3\u8425\u62C5\u4EFB\u6559\u7EC3"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u683C\u65AF\u6CA1\u6709\u6536\u5230\u804C\u4E1A\u5408\u540C\uFF0C\u8F6C\u800C\u6559\u6388\u9752\u5C11\u5E74\u95E8\u5C06\u6251\u70B9\u7403\u3002\u62DB\u751F\u6D77\u62A5\u4ECD\u5199\u7740\u201C\u4E94\u8FDE\u6251\u201D\uFF0C\u7B2C\u4E94\u540D\u5B66\u5458\u76EE\u524D\u4E5F\u8BF7\u4E86\u75C5\u5047\u3002"
+      english: 
+  - id: player.showboat.sonny
+    portraitIndex: 5
+    availableFromWeek: 5
+    availabilityWeeks: 2
+    displayName:
+      chineseSimplified: "\u6851\u5C3C\xB7\u5E03\u83B1\u5179"
+      english: 
+    biography:
+      chineseSimplified: "\u811A\u4E0B\u82B1\u6837\u5F88\u591A\u7684\u524D\u950B\uFF0C\u4E2A\u4EBA\u96C6\u9526\u6BD4\u5B8C\u6574\u6BD4\u8D5B\u5F55\u50CF\u957F\u3002"
+      english: 
+    publicPosition: 5
+    hiddenAbility: 63
+    hiddenFitness: 69
+    hiddenProfessionalism: 34
+    publicClaim:
+      chineseSimplified: "\u4ED6\u7684\u56E2\u961F\u628A\u6BCF\u6B21\u7A7F\u88C6\u90FD\u79F0\u4E3A\u4E00\u6B21\u6218\u672F\u9769\u547D\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u5730\u65B9\u5A92\u4F53\u8BA4\u53EF\u4ED6\u7684\u7075\u611F\uFF0C\u540C\u65F6\u8BB0\u5F55\u4E86\u591A\u6B21\u8FDF\u5230\uFF0C\u4EE5\u53CA\u4E00\u6B21\u9519\u8FC7\u7403\u961F\u5927\u5DF4\u540E\u8D23\u602A\u5BFC\u822A\u8F6F\u4EF6\u3002"
+      english: 
+    evidenceReliability: 2
+    expiryMailSubject:
+      chineseSimplified: "\u6851\u5C3C\u7B7E\u7EA6\u77ED\u89C6\u9891\u5E73\u53F0"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u6851\u5C3C\u8868\u793A\u4F20\u7EDF\u8DB3\u7403\u65E0\u6CD5\u5B8C\u6574\u5BB9\u7EB3\u4ED6\u7684\u521B\u610F\uFF0C\u5DF2\u8F6C\u578B\u4E3A\u5168\u804C\u6280\u5DE7\u4E3B\u64AD\u3002\u9996\u671F\u8282\u76EE\u662F\u300A\u5982\u4F55\u5728\u4E0D\u56DE\u9632\u7684\u60C5\u51B5\u4E0B\u4FDD\u6301\u955C\u5934\u611F\u300B\u3002"
+      english: 
+  - id: player.utility.uma
+    portraitIndex: 6
+    availableFromWeek: 3
+    availabilityWeeks: 7
+    displayName:
+      chineseSimplified: "\u4E4C\u739B\xB7\u8D39\u5C14\u5357\u5FB7\u65AF"
+      english: 
+    biography:
+      chineseSimplified: "\u80FD\u8E22\u5DE6\u53F3\u4E24\u4FA7\u7684\u7FFC\u536B\uFF0C\u8DD1\u52A8\u79EF\u6781\uFF0C\u5BF9\u4E34\u65F6\u6539\u9635\u9002\u5E94\u5F88\u5FEB\u3002"
+      english: 
+    publicPosition: 2
+    hiddenAbility: 75
+    hiddenFitness: 87
+    hiddenProfessionalism: 86
+    publicClaim:
+      chineseSimplified: "\u4E24\u5BB6\u65E7\u4FF1\u4E50\u90E8\u90FD\u63A8\u8350\u5979\u7684\u9002\u5E94\u80FD\u529B\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u72EC\u7ACB\u6BD4\u8D5B\u8BB0\u5F55\u663E\u793A\uFF0C\u5979\u5728\u4E24\u4FA7\u90FD\u80FD\u7A33\u5B9A\u56DE\u8FFD\u3001\u5957\u8FB9\u548C\u63A5\u5E94\uFF0C\u63A8\u8350\u5185\u5BB9\u53EF\u4FE1\u5EA6\u8F83\u9AD8\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u4E4C\u739B\u52A0\u5165\u6551\u706B\u6559\u7EC3\u7EC4"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u957F\u671F\u6CA1\u6709\u7403\u961F\u7ED9\u51FA\u7403\u5458\u5408\u540C\u540E\uFF0C\u4E4C\u739B\u63A5\u53D7\u4E86\u9752\u5E74\u961F\u52A9\u6559\u804C\u4F4D\u3002\u5979\u73B0\u5728\u8D1F\u8D23\u793A\u8303\u6240\u6709\u4F4D\u7F6E\uFF0C\u9664\u4E86\u8D22\u52A1\u4E3B\u7BA1\u3002"
+      english: 
+  - id: player.cousin.carlo
+    portraitIndex: 7
+    availableFromWeek: 1
+    availabilityWeeks: 2
+    displayName:
+      chineseSimplified: "\u5361\u6D1B\xB7\u8D1D\u5229\u5C3C"
+      english: 
+    biography:
+      chineseSimplified: "\u6BD4\u8D5B\u6837\u672C\u6781\u5C11\u7684\u4E2D\u573A\uFF0C\u7B80\u5386\u7531\u4EB2\u5C5E\u8F6C\u4EA4\uFF0C\u5E76\u9644\u5E26\u4E00\u987F\u89C4\u683C\u8FC7\u9AD8\u7684\u5348\u9910\u3002"
+      english: 
+    publicPosition: 3
+    hiddenAbility: 42
+    hiddenFitness: 58
+    hiddenProfessionalism: 51
+    publicClaim:
+      chineseSimplified: "\u5BB6\u4EBA\u575A\u79F0\u4ED6\u80FD\u63D0\u524D\u4E09\u6B65\u8BFB\u61C2\u6BD4\u8D5B\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u8FD1\u671F\u552F\u4E00\u53EF\u67E5\u8BC1\u7684\u6750\u6599\u662F\u4E00\u5F20\u66FF\u8865\u5E2D\u65C1\u7684\u7167\u7247\uFF0C\u7403\u8863\u53F7\u7801\u88AB\u4E09\u660E\u6CBB\u6321\u4F4F\u3002"
+      english: 
+    evidenceReliability: 1
+    expiryMailSubject:
+      chineseSimplified: "\u5361\u6D1B\u6539\u884C\u7ECF\u8425\u9AD8\u7EA7\u4E09\u660E\u6CBB\u5E97"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u6069\u4F50\u53D4\u53D4\u6765\u4FE1\u8BF4\u5361\u6D1B\u51B3\u5B9A\u5C0A\u91CD\u81EA\u5DF1\u7684\u771F\u6B63\u5929\u8D4B\uFF1A\u628A\u4EFB\u4F55\u4F1A\u8BAE\u53D8\u6210\u5348\u9910\u3002\u65B0\u5E97\u5F00\u4E1A\uFF0C\u5305\u53A2\u4ECD\u53EB\u201C\u4E2D\u573A\u63A7\u5236\u533A\u201D\u3002"
+      english: 
+  - id: player.zodiac.luna
+    portraitIndex: 8
+    availableFromWeek: 3
+    availabilityWeeks: 2
+    displayName:
+      chineseSimplified: "\u9732\u5A1C\xB7\u8428\u7EF4\u5947"
+      english: 
+    biography:
+      chineseSimplified: "\u4E60\u60EF\u5185\u5207\u7684\u5DE6\u8FB9\u950B\uFF0C\u505A\u5B9A\u4F4D\u7403\u51B3\u5B9A\u524D\u4F1A\u67E5\u770B\u661F\u8C61\u5E94\u7528\u3002"
+      english: 
+    publicPosition: 4
+    hiddenAbility: 74
+    hiddenFitness: 81
+    hiddenProfessionalism: 59
+    publicClaim:
+      chineseSimplified: "\u7ECF\u7EAA\u4EBA\u8BF4\u5979\u5728\u6EE1\u6708\u591C\u4ECE\u4E0D\u4E22\u5931\u7403\u6743\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u767D\u5929\u6BD4\u8D5B\u540C\u6837\u80FD\u770B\u5230\u4E0D\u9519\u7684\u5185\u5207\u80FD\u529B\uFF1B\u5B9A\u4F4D\u7403\u9009\u62E9\u5219\u4E0E\u5929\u6C14\u3001\u6708\u76F8\u548C\u624B\u673A\u7535\u91CF\u540C\u65F6\u76F8\u5173\u3002"
+      english: 
+    evidenceReliability: 2
+    expiryMailSubject:
+      chineseSimplified: "\u9732\u5A1C\u6682\u505C\u8DB3\u7403\uFF0C\u7B49\u5F85\u6C34\u661F\u987A\u884C"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u9732\u5A1C\u8BA4\u4E3A\u672C\u6708\u5408\u540C\u8C08\u5224\u7A97\u53E3\u4E0E\u884C\u661F\u8FD0\u884C\u65B9\u5411\u51B2\u7A81\uFF0C\u51B3\u5B9A\u6682\u65F6\u4F11\u606F\u3002\u7ECF\u7EAA\u4EBA\u62D2\u7EDD\u7ED9\u51FA\u56DE\u5F52\u65E5\u671F\uFF0C\u53EA\u53D1\u6765\u4E00\u5F20\u661F\u76D8\u3002"
+      english: 
+  - id: player.forms.felix
+    portraitIndex: 9
+    availableFromWeek: 4
+    availabilityWeeks: 5
+    displayName:
+      chineseSimplified: "\u8D39\u5229\u514B\u65AF\xB7\u6587\u4E66"
+      english: 
+    biography:
+      chineseSimplified: "\u57FA\u672C\u529F\u53EF\u9760\u7684\u95E8\u5C06\uFF0C\u505A\u4EFB\u4F55\u51FA\u51FB\u524D\u90FD\u5E0C\u671B\u6D41\u7A0B\u5B8C\u6574\u3002"
+      english: 
+    publicPosition: 0
+    hiddenAbility: 68
+    hiddenFitness: 72
+    hiddenProfessionalism: 94
+    publicClaim:
+      chineseSimplified: "\u4ED6\u58F0\u79F0\u804C\u4E1A\u751F\u6DAF\u4ECE\u672A\u6F0F\u4EA4\u8FC7\u4E00\u5F20\u51FA\u51FB\u7533\u8BF7\u8868\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u6251\u6551\u52A8\u4F5C\u7A33\u5B9A\uFF0C\u804C\u4E1A\u6001\u5EA6\u5F88\u597D\uFF1B\u5FEB\u901F\u53CD\u51FB\u5076\u5C14\u4F1A\u88AB\u4ED6\u7684\u4E09\u8054\u5355\u62D6\u6162\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u8D39\u5229\u514B\u65AF\u901A\u8FC7\u516C\u52A1\u5458\u8003\u8BD5"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u8D39\u5229\u514B\u65AF\u63A5\u53D7\u4E86\u8DB3\u534F\u6CE8\u518C\u5904\u804C\u4F4D\u3002\u4ED6\u8BF4\u8FD9\u91CC\u6BCF\u4E00\u6B21\u76D6\u7AE0\u90FD\u7B97\u6210\u529F\u51FA\u51FB\uFF0C\u800C\u4E14\u4E0D\u4F1A\u6709\u4EBA\u7A81\u7136\u8D77\u9AD8\u7403\u3002"
+      english: 
+  - id: player.rivet.rita
+    portraitIndex: 10
+    availableFromWeek: 5
+    availabilityWeeks: 6
+    displayName:
+      chineseSimplified: "\u4E3D\u5854\xB7\u54C8\u8FBE\u5FB7"
+      english: 
+    biography:
+      chineseSimplified: "\u4F4D\u7F6E\u611F\u7A33\u5B9A\u7684\u4E2D\u540E\u536B\uFF0C\u5904\u7406\u5371\u9669\u7403\u7B80\u5355\u76F4\u63A5\u3002"
+      english: 
+    publicPosition: 1
+    hiddenAbility: 82
+    hiddenFitness: 78
+    hiddenProfessionalism: 92
+    publicClaim:
+      chineseSimplified: "\u65E7\u961F\u957F\u8BF4\u5979\u80FD\u8BA9\u7981\u533A\u901A\u8FC7\u5B89\u5168\u68C0\u67E5\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u591A\u573A\u5F55\u50CF\u663E\u793A\u5979\u5F88\u5C11\u4E3A\u4E86\u955C\u5934\u8D38\u7136\u4E0A\u62A2\uFF0C\u89E3\u56F4\u8DEF\u7EBF\u4E5F\u6BD4\u5F88\u591A\u4FF1\u4E50\u90E8\u7684\u6D88\u9632\u901A\u9053\u6E05\u695A\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u4E3D\u5854\u63A5\u53D7\u6D77\u5916\u8054\u8D5B\u62A5\u4EF7"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u4E3D\u5854\u4E0E\u53E6\u4E00\u5BB6\u4FF1\u4E50\u90E8\u5B8C\u6210\u7B7E\u7EA6\u3002\u5BF9\u65B9\u4F53\u80B2\u4E3B\u7BA1\u53EA\u95EE\u4E86\u4E24\u4E2A\u95EE\u9898\uFF1A\u80FD\u4E0D\u80FD\u9632\u5B88\uFF0C\u4EE5\u53CA\u80FD\u4E0D\u80FD\u8BA9\u5176\u4ED6\u4EBA\u4E5F\u8BA4\u771F\u9632\u5B88\u3002"
+      english: 
+  - id: player.throwin.dino
+    portraitIndex: 11
+    availableFromWeek: 4
+    availabilityWeeks: 2
+    displayName:
+      chineseSimplified: "\u8FEA\u8BFA\xB7\u9A6C\u5C14\u51EF\u8482"
+      english: 
+    biography:
+      chineseSimplified: "\u62E5\u6709\u8D85\u8FDC\u8DDD\u79BB\u754C\u5916\u7403\u7684\u8FB9\u540E\u536B\uFF0C\u843D\u70B9\u63A7\u5236\u6BD4\u8F83\u968F\u7F18\u3002"
+      english: 
+    publicPosition: 1
+    hiddenAbility: 70
+    hiddenFitness: 83
+    hiddenProfessionalism: 48
+    publicClaim:
+      chineseSimplified: "\u4ED6\u628A\u6BCF\u6B21\u754C\u5916\u7403\u90FD\u79F0\u4E3A\u4E00\u6B21\u91CD\u65B0\u53D1\u660E\u5B9A\u4F4D\u7403\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u6295\u63B7\u8DDD\u79BB\u786E\u5B9E\u60CA\u4EBA\uFF1B\u4E24\u6B21\u8BAD\u7EC3\u56E0\u4E3A\u76AE\u7403\u98DE\u51FA\u573A\u9986\uFF0C\u9700\u8981\u5DE5\u4F5C\u4EBA\u5458\u53BB\u505C\u8F66\u573A\u5BFB\u627E\u3002"
+      english: 
+    evidenceReliability: 2
+    expiryMailSubject:
+      chineseSimplified: "\u8FEA\u8BFA\u52A0\u5165\u6807\u67AA\u4FF1\u4E50\u90E8"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u8FEA\u8BFA\u8BA4\u4E3A\u8DB3\u7403\u5BF9\u624B\u81C2\u5929\u8D4B\u7F3A\u4E4F\u5C0A\u91CD\uFF0C\u5DF2\u52A0\u5165\u5F53\u5730\u7530\u5F84\u961F\u3002\u7B2C\u4E00\u5802\u8BFE\u7684\u91CD\u70B9\u662F\u5B66\u4E60\u4E0D\u8981\u628A\u6807\u67AA\u6254\u5411\u89D2\u65D7\u533A\u3002"
+      english: 
+  - id: player.spreadsheet.nova
+    portraitIndex: 12
+    availableFromWeek: 5
+    availabilityWeeks: 8
+    displayName:
+      chineseSimplified: "\u8BFA\u74E6\xB7\u4F0A\u4E07\u8BFA\u5A03"
+      english: 
+    biography:
+      chineseSimplified: "\u64C5\u957F\u5728\u9AD8\u538B\u4E0B\u5411\u524D\u4F20\u7403\u7684\u4E2D\u573A\uFF0C\u4E5F\u70ED\u8877\u8D5B\u524D\u6570\u636E\u51C6\u5907\u3002"
+      english: 
+    publicPosition: 3
+    hiddenAbility: 84
+    hiddenFitness: 76
+    hiddenProfessionalism: 89
+    publicClaim:
+      chineseSimplified: "\u5979\u8BF4\u81EA\u5DF1\u80FD\u7528\u4E09\u5217\u516C\u5F0F\u627E\u51FA\u4F20\u7403\u7EBF\u8DEF\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u5B8C\u6574\u6BD4\u8D5B\u8BC1\u660E\u5979\u4E0D\u4EC5\u4F1A\u505A\u8868\u683C\uFF0C\u4E5F\u6562\u5728\u903C\u62A2\u4E0B\u5904\u7406\u7403\uFF1B\u961F\u53CB\u53EA\u662F\u4E0D\u559C\u6B22\u6536\u5230\u5E26\u7B5B\u9009\u5668\u7684\u65E9\u9910\u8BA1\u5212\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u8BFA\u74E6\u52A0\u5165\u51A0\u519B\u8054\u8D5B\u6570\u636E\u90E8\u95E8"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u8BFA\u74E6\u63A5\u53D7\u4E86\u4E00\u5BB6\u6D32\u9645\u8D5B\u4E8B\u6570\u636E\u4F9B\u5E94\u5546\u7684\u804C\u4F4D\u3002\u5979\u7559\u4E0B\u6700\u540E\u4E00\u53E5\u8BDD\uFF1A\u81F3\u5C11\u6570\u636E\u5E93\u4E0D\u4F1A\u5728\u7B2C\u516B\u5341\u5206\u949F\u7A81\u7136\u6539\u8E22\u56DB\u524D\u950B\u3002"
+      english: 
+  - id: player.bothfeet.echo
+    portraitIndex: 13
+    availableFromWeek: 6
+    availabilityWeeks: 8
+    displayName:
+      chineseSimplified: "\u827E\u53EF\xB7\u6469\u6839"
+      english: 
+    biography:
+      chineseSimplified: "\u5DE6\u53F3\u811A\u5747\u8861\u3001\u80FD\u8986\u76D6\u4E24\u6761\u8FB9\u8DEF\u7684\u7FFC\u536B\u3002"
+      english: 
+    publicPosition: 2
+    hiddenAbility: 80
+    hiddenFitness: 90
+    hiddenProfessionalism: 77
+    publicClaim:
+      chineseSimplified: "\u7ECF\u7EAA\u6750\u6599\u79F0\u5979\u662F\u201C\u4E24\u540D\u7403\u5458\u5171\u7528\u4E00\u53CC\u7403\u978B\u201D\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u5DE6\u53F3\u4E24\u4FA7\u6837\u672C\u90FD\u5F88\u7A33\u5B9A\uFF0C\u552F\u4E00\u4E89\u8BBA\u662F\u66F4\u8863\u5BA4\u7A76\u7ADF\u8BE5\u7ED9\u5979\u5DE6\u8FB9\u8FD8\u662F\u53F3\u8FB9\u7684\u67DC\u5B50\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u827E\u53EF\u52A0\u76DF\u7ADE\u4E89\u5BF9\u624B"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u827E\u53EF\u6CA1\u6709\u7EE7\u7EED\u7B49\u5F85\uFF0C\u5DF2\u4E0E\u53E6\u4E00\u5BB6\u4FF1\u4E50\u90E8\u7B7E\u7EA6\u3002\u53D1\u5E03\u4F1A\u4E0A\u5979\u5206\u522B\u7528\u5DE6\u53F3\u811A\u98A0\u7403\uFF0C\u516C\u5173\u90E8\u56E0\u6B64\u53D1\u4E86\u4E24\u4EFD\u65B0\u95FB\u7A3F\u3002"
+      english: 
+  - id: player.thermos.vic
+    portraitIndex: 14
+    availableFromWeek: 2
+    availabilityWeeks: 3
+    displayName:
+      chineseSimplified: "\u7EF4\u514B\xB7\u54C8\u73C0"
+      english: 
+    biography:
+      chineseSimplified: "\u7ECF\u9A8C\u4E30\u5BCC\u7684\u7981\u533A\u524D\u950B\uFF0C\u51B2\u523A\u4E0D\u591A\uFF0C\u4F46\u5BF9\u843D\u70B9\u5224\u65AD\u5F88\u597D\uFF0C\u968F\u8EAB\u5E26\u4FDD\u6E29\u676F\u3002"
+      english: 
+    publicPosition: 5
+    hiddenAbility: 78
+    hiddenFitness: 60
+    hiddenProfessionalism: 95
+    publicClaim:
+      chineseSimplified: "\u4ED6\u575A\u6301\u901F\u5EA6\u4F1A\u6D88\u5931\uFF0C\u4F46\u516D\u7801\u533A\u4E0D\u4F1A\u642C\u5BB6\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u8FD1\u5E74\u51B2\u523A\u6B21\u6570\u4E0B\u964D\u660E\u663E\uFF1B\u516D\u7801\u533A\u89E6\u7403\u9009\u62E9\u548C\u804C\u4E1A\u6001\u5EA6\u4ECD\u7136\u53EF\u9760\u3002"
+      english: 
+    evidenceReliability: 3
+    expiryMailSubject:
+      chineseSimplified: "\u7EF4\u514B\u5BA3\u5E03\u9000\u5F79"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u7EF4\u514B\u51B3\u5B9A\u7ED3\u675F\u7403\u5458\u751F\u6DAF\u3002\u4ED6\u8BF4\u819D\u76D6\u5DF2\u7ECF\u6295\u7968\u901A\u8FC7\uFF0C\u4FDD\u6E29\u676F\u4EE5\u5168\u7968\u5F53\u9009\u4E0B\u4E00\u4EFB\u7ECF\u7EAA\u4EBA\u3002"
+      english: 
+  - id: player.academy.perry
+    portraitIndex: 15
+    availableFromWeek: 1
+    availabilityWeeks: 5
+    displayName:
+      chineseSimplified: "\u4F69\u91CC\xB7\u91D1"
+      english: 
+    biography:
+      chineseSimplified: "\u901F\u5EA6\u51FA\u8272\u7684\u9752\u5E74\u524D\u950B\uFF0C\u6210\u5E74\u6BD4\u8D5B\u4E3A\u96F6\uFF0C\u4E2A\u4EBA\u7EAA\u5F55\u7247\u5DF2\u7ECF\u62CD\u5230\u7B2C\u4E8C\u5B63\u3002"
+      english: 
+    publicPosition: 5
+    hiddenAbility: 67
+    hiddenFitness: 91
+    hiddenProfessionalism: 43
+    publicClaim:
+      chineseSimplified: "\u56E2\u961F\u79F0\u4ED6\u4E3A\u201C\u65E0\u6CD5\u88AB\u5B9A\u4E49\u7684\u4E5D\u53F7\u534A\u201D\u3002"
+      english: 
+    publicEvidence:
+      chineseSimplified: "\u9752\u5E74\u6BD4\u8D5B\u80FD\u770B\u5230\u901F\u5EA6\u548C\u5C04\u95E8\u6F5C\u529B\uFF1B\u6210\u5E74\u5BF9\u6297\u3001\u51B3\u7B56\u548C\u51C6\u65F6\u6027\u4ECD\u672A\u5F97\u5230\u9A8C\u8BC1\u3002"
+      english: 
+    evidenceReliability: 2
+    expiryMailSubject:
+      chineseSimplified: "\u4F69\u91CC\u8FDB\u5165\u771F\u4EBA\u79C0\u5C01\u95ED\u62CD\u6444"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u4F69\u91CC\u7684\u56E2\u961F\u6682\u505C\u6240\u6709\u8BD5\u8BAD\uFF0C\u56E0\u4E3A\u7EAA\u5F55\u7247\u5E73\u53F0\u8981\u6C42\u5267\u60C5\u4FDD\u5BC6\u3002\u7ECF\u7EAA\u4EBA\u627F\u8BFA\u4E0B\u4E00\u5B63\u4F1A\u51FA\u73B0\u201C\u81F3\u5C11\u4E00\u6B21\u771F\u6B63\u7684\u6210\u5E74\u6BD4\u8D5B\u201D\u3002"
+      english: 
+  demands:
+  - id: demand.week1.emergency
+    clubId: club.rainy
+    clubDisplayName:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280"
+      english: 
+    clubStanding:
+      chineseSimplified: "\u4E0A\u8D5B\u5B63\u8054\u8D5B\u7B2C 4 \u540D\uFF0C\u76EE\u524D\u53C2\u52A0\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u8D44\u683C\u8D5B"
+      english: 
+    clubBestAchievement:
+      chineseSimplified: "\u5386\u53F2\u6700\u4F73\uFF1A\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u56DB\u5F3A\uFF0812
+        \u5E74\u524D\uFF09"
+      english: 
+    clubProfile:
+      chineseSimplified: "\u9884\u7B97\u5145\u8DB3\u3001\u8206\u8BBA\u538B\u529B\u5DE8\u5927\u3002\u8463\u4E8B\u4F1A\u628A\u201C\u91CD\u8FD4\u6B27\u6D32\u4E4B\u5DC5\u201D\u5370\u5728\u6BCF\u4E00\u4E2A\u5496\u5561\u676F\u4E0A\u3002"
+      english: 
+    title:
+      chineseSimplified: "\u8D44\u683C\u8D5B\u524D\u950B\u544A\u6025"
+      english: 
+    description:
+      chineseSimplified: "\u4E3B\u529B\u524D\u950B\u5728\u70ED\u8EAB\u8D5B\u62C9\u4F24\uFF0C\u4FF1\u4E50\u90E8\u9700\u8981\u4E00\u540D\u80FD\u7ACB\u5373\u53C2\u52A0\u5408\u7EC3\u3001\u7406\u89E3\u53CD\u8D8A\u4F4D\u5E76\u613F\u610F\u79EF\u6781\u903C\u62A2\u7684\u524D\u950B\u3002"
+      english: 
+    openedWeek: 1
+    activeWeeks: 2
+    baseReward: 1200
+    paymentTerms:
+      chineseSimplified: "\u63D0\u4EA4\u540E 1\u20132 \u5468\u53CD\u9988\uFF1B\u901A\u8FC7\u8BD5\u8BAD\u540E\u4ED8\u6B3E\u3002"
+      english: 
+    expiryMailSubject:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280\u5173\u95ED\u7D27\u6025\u524D\u950B\u62DB\u8058"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280\u5DF2\u4ECE\u9884\u5907\u961F\u63D0\u62D4\u4E00\u540D\u524D\u950B\u3002\u4F53\u80B2\u4E3B\u7BA1\u611F\u8C22\u6240\u6709\u63A8\u8350\uFF0C\u5E76\u8868\u793A\u4E0B\u6B21\u4F1A\u5728\u4E3B\u529B\u53D7\u4F24\u524D\u9605\u8BFB\u4F53\u68C0\u62A5\u544A\u3002"
+      english: 
+    slots:
+    - id: slot.week1.forward
+      requiredPosition: 5
+      minimumAbility: 74
+      preferredFitness: 68
+      preferredProfessionalism: 60
+      isRequired: 1
+  - id: demand.week2.group
+    clubId: club.dockyard
+    clubDisplayName:
+      chineseSimplified: "\u8239\u575E\u8054"
+      english: 
+    clubStanding:
+      chineseSimplified: "\u4E0A\u8D5B\u5B63\u8054\u8D5B\u7B2C 11 \u540D\uFF0C\u672C\u5B63\u76EE\u6807\u8FDB\u5165\u4E0A\u534A\u533A"
+      english: 
+    clubBestAchievement:
+      chineseSimplified: "\u5386\u53F2\u6700\u4F73\uFF1A\u8054\u8D5B\u4E9A\u519B\uFF1B\u6700\u8FD1\u4E00\u6B21\u53D1\u751F\u5728\u4FF1\u4E50\u90E8\u4ECD\u7528\u4F20\u771F\u673A\u7684\u5E74\u4EE3"
+      english: 
+    clubProfile:
+      chineseSimplified: "\u4E2D\u6E38\u4FF1\u4E50\u90E8\uFF0C\u9752\u8BAD\u548C\u5B9A\u4F4D\u7403\u51FA\u540D\uFF0C\u8D22\u52A1\u4E3B\u7BA1\u4F1A\u8BA4\u771F\u6838\u5BF9\u6BCF\u4E00\u676F\u8BAD\u7EC3\u996E\u6599\u3002"
+      english: 
+    title:
+      chineseSimplified: "\u524D\u573A\u4E0E\u4E2D\u573A\u8054\u5408\u8BD5\u8BAD"
+      english: 
+    description:
+      chineseSimplified: "\u7403\u961F\u9700\u8981\u4E00\u540D\u524D\u950B\u548C\u4E00\u540D\u80FD\u7EF4\u6301\u653B\u5B88\u8DDD\u79BB\u7684\u4E2D\u573A\u3002\u5141\u8BB8\u90E8\u5206\u63A8\u8350\uFF0C\u4F46\u5B8C\u6574\u65B9\u6848\u62A5\u916C\u66F4\u9AD8\u3002"
+      english: 
+    openedWeek: 2
+    activeWeeks: 3
+    baseReward: 2100
+    paymentTerms:
+      chineseSimplified: "\u6309\u5B9E\u9645\u5B8C\u6210\u7684\u69FD\u4F4D\u7ED3\u7B97\uFF1B\u7ED3\u679C\u5EF6\u8FDF
+        1\u20132 \u5468\u3002"
+      english: 
+    expiryMailSubject:
+      chineseSimplified: "\u8239\u575E\u8054\u7ED3\u675F\u8054\u5408\u8BD5\u8BAD"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u8239\u575E\u8054\u4ECE\u9752\u8BAD\u961F\u8865\u8FDB\u4E24\u4EBA\uFF0C\u62DB\u8058\u63D0\u524D\u7ED3\u675F\u3002\u4E3B\u6559\u7EC3\u79F0\u9635\u5BB9\u5DF2\u7ECF\u8DB3\u591F\u5B8C\u6574\uFF0C\u8D22\u52A1\u4E3B\u7BA1\u79F0\u9910\u8D39\u4E5F\u7EC8\u4E8E\u5B8C\u6574\u3002"
+      english: 
+    slots:
+    - id: slot.week2.forward
+      requiredPosition: 5
+      minimumAbility: 70
+      preferredFitness: 62
+      preferredProfessionalism: 58
+      isRequired: 1
+    - id: slot.week2.midfield
+      requiredPosition: 3
+      minimumAbility: 72
+      preferredFitness: 68
+      preferredProfessionalism: 70
+      isRequired: 1
+  - id: demand.week3.longterm
+    clubId: club.oldcastle
+    clubDisplayName:
+      chineseSimplified: "\u65E7\u5821\u738B\u51A0"
+      english: 
+    clubStanding:
+      chineseSimplified: "\u4E0A\u8D5B\u5B63\u8054\u8D5B\u7B2C 2 \u540D\uFF0C\u8FDE\u7EED\u516D\u5E74\u53C2\u52A0\u6D32\u9645\u51A0\u519B\u8054\u8D5B"
+      english: 
+    clubBestAchievement:
+      chineseSimplified: "\u5386\u53F2\u6700\u4F73\uFF1A3 \u6B21\u8054\u8D5B\u51A0\u519B\u30011
+        \u6B21\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u51B3\u8D5B"
+      english: 
+    clubProfile:
+      chineseSimplified: "\u4F20\u7EDF\u8C6A\u95E8\uFF0C\u7403\u8FF7\u8981\u6C42\u4E89\u51A0\uFF0C\u8463\u4E8B\u4F1A\u6BCF\u6B21\u6362\u6559\u7EC3\u90FD\u79F0\u5176\u4E3A\u201C\u957F\u671F\u89C4\u5212\u7684\u6700\u540E\u4E00\u5757\u62FC\u56FE\u201D\u3002"
+      english: 
+    title:
+      chineseSimplified: "\u4E89\u51A0\u9635\u5BB9\u8865\u5F3A\u8BA1\u5212"
+      english: 
+    description:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u9700\u8981\u4E00\u540D\u80FD\u5B88\u5927\u7A7A\u95F4\u7684\u4E2D\u540E\u536B\uFF0C\u4EE5\u53CA\u4E00\u540D\u80FD\u5728\u6B27\u6218\u4F4E\u4F4D\u9632\u5B88\u524D\u5236\u9020\u4E00\u5BF9\u4E00\u4F18\u52BF\u7684\u8FB9\u950B\u3002"
+      english: 
+    openedWeek: 3
+    activeWeeks: 3
+    baseReward: 2800
+    paymentTerms:
+      chineseSimplified: "\u53EF\u90E8\u5206\u5B8C\u6210\uFF1B\u4E24\u4E2A\u4F4D\u7F6E\u5168\u90E8\u6EE1\u8DB3\u65F6\u652F\u4ED8\u5B8C\u6574\u987E\u95EE\u8D39\u3002"
+      english: 
+    expiryMailSubject:
+      chineseSimplified: "\u65E7\u5821\u738B\u51A0\u505C\u6B62\u672C\u8F6E\u8865\u5F3A"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u8463\u4E8B\u4F1A\u51B3\u5B9A\u628A\u9884\u7B97\u7559\u7ED9\u51AC\u5B63\u7A97\u53E3\uFF0C\u5E76\u53D1\u5E03\u4E86\u7B2C\u4E5D\u7248\u957F\u671F\u89C4\u5212\u3002\u7B2C\u516B\u7248\u4ECD\u7136\u6709\u6548\uFF0C\u53EA\u662F\u4E0D\u518D\u88AB\u4EFB\u4F55\u4EBA\u63D0\u8D77\u3002"
+      english: 
+    slots:
+    - id: slot.week3.defender
+      requiredPosition: 1
+      minimumAbility: 78
+      preferredFitness: 70
+      preferredProfessionalism: 76
+      isRequired: 1
+    - id: slot.week3.winger
+      requiredPosition: 4
+      minimumAbility: 76
+      preferredFitness: 80
+      preferredProfessionalism: 65
+      isRequired: 1
+  - id: demand.week4.keeper
+    clubId: club.seaside
+    clubDisplayName:
+      chineseSimplified: "\u6D77\u6E2F\u84DD\u9E25"
+      english: 
+    clubStanding:
+      chineseSimplified: "\u4E0A\u8D5B\u5B63\u8054\u8D5B\u7B2C 15 \u540D\uFF0C\u901A\u8FC7\u9644\u52A0\u8D5B\u4FDD\u7EA7"
+      english: 
+    clubBestAchievement:
+      chineseSimplified: "\u5386\u53F2\u6700\u4F73\uFF1A\u56FD\u5185\u676F\u8D5B\u56DB\u5F3A"
+      english: 
+    clubProfile:
+      chineseSimplified: "\u9884\u7B97\u6709\u9650\u4F46\u4E3B\u573A\u98CE\u5F88\u5927\u3002\u4FF1\u4E50\u90E8\u628A\u6240\u6709\u4F20\u4E2D\u5931\u8BEF\u7EDF\u79F0\u4E3A\u201C\u6D77\u6D0B\u6C14\u5019\u53D8\u91CF\u201D\u3002"
+      english: 
+    title:
+      chineseSimplified: "\u4FDD\u7EA7\u961F\u95E8\u5C06\u77ED\u671F\u62DB\u8058"
+      english: 
+    description:
+      chineseSimplified: "\u4E00\u53F7\u95E8\u5C06\u80A9\u90E8\u53D7\u4F24\uFF0C\u9700\u8981\u80FD\u5904\u7406\u9AD8\u7403\u3001\u6307\u6325\u9632\u7EBF\u5E76\u627F\u53D7\u5BC6\u96C6\u5C04\u95E8\u7684\u95E8\u5C06\u3002"
+      english: 
+    openedWeek: 4
+    activeWeeks: 2
+    baseReward: 1300
+    paymentTerms:
+      chineseSimplified: "\u901A\u8FC7\u4F53\u68C0\u548C\u8BD5\u8BAD\u540E\u7ED3\u7B97\uFF0C\u53CD\u9988\u5EF6\u8FDF
+        1\u20132 \u5468\u3002"
+      english: 
+    expiryMailSubject:
+      chineseSimplified: "\u6D77\u6E2F\u84DD\u9E25\u64A4\u56DE\u95E8\u5C06\u9700\u6C42"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u4E00\u53F7\u95E8\u5C06\u6062\u590D\u901F\u5EA6\u5FEB\u4E8E\u9884\u671F\uFF0C\u4FF1\u4E50\u90E8\u64A4\u56DE\u62DB\u8058\u3002\u961F\u533B\u8868\u793A\u8FD9\u6B21\u6CA1\u6709\u53C2\u8003\u6F6E\u6C50\u8868\u3002"
+      english: 
+    slots:
+    - id: slot.week4.keeper
+      requiredPosition: 0
+      minimumAbility: 72
+      preferredFitness: 68
+      preferredProfessionalism: 74
+      isRequired: 1
+  - id: demand.week5.group
+    clubId: club.foundry
+    clubDisplayName:
+      chineseSimplified: "\u94C1\u7089\u7ADE\u6280"
+      english: 
+    clubStanding:
+      chineseSimplified: "\u4E0A\u8D5B\u5B63\u8054\u8D5B\u7B2C 7 \u540D\uFF0C\u6B63\u5728\u4E89\u53D6\u6D32\u9645\u6B21\u7EA7\u8D5B\u4E8B\u8D44\u683C"
+      english: 
+    clubBestAchievement:
+      chineseSimplified: "\u5386\u53F2\u6700\u4F73\uFF1A2 \u6B21\u56FD\u5185\u676F\u8D5B\u51A0\u519B"
+      english: 
+    clubProfile:
+      chineseSimplified: "\u5F3A\u8C03\u7EAA\u5F8B\u3001\u5BF9\u6297\u548C\u4E8C\u70B9\u7403\u3002\u4E3B\u6559\u7EC3\u529E\u516C\u5BA4\u53EA\u6709\u4E24\u672C\u4E66\uFF1A\u300A\u9632\u5B88\u300B\u4E0E\u300A\u7EE7\u7EED\u9632\u5B88\u300B\u3002"
+      english: 
+    title:
+      chineseSimplified: "\u676F\u8D5B\u9635\u5BB9\u53CC\u4EBA\u8865\u5145"
+      english: 
+    description:
+      chineseSimplified: "\u9700\u8981\u4E00\u540D\u53EF\u9760\u4E2D\u540E\u536B\u548C\u4E00\u540D\u613F\u610F\u53C2\u4E0E\u524D\u573A\u538B\u8FEB\u7684\u524D\u950B\u3002\u4E2A\u4EBA\u6444\u5236\u7EC4\u5FC5\u987B\u7559\u5728\u8BAD\u7EC3\u57FA\u5730\u5916\u3002"
+      english: 
+    openedWeek: 5
+    activeWeeks: 3
+    baseReward: 2400
+    paymentTerms:
+      chineseSimplified: "\u5141\u8BB8\u90E8\u5206\u63D0\u4EA4\uFF1B\u804C\u4E1A\u6001\u5EA6\u4F1A\u660E\u663E\u5F71\u54CD\u6700\u7EC8\u62A5\u916C\u3002"
+      english: 
+    expiryMailSubject:
+      chineseSimplified: "\u94C1\u7089\u7ADE\u6280\u7ED3\u675F\u62DB\u8058"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u4E3B\u6559\u7EC3\u4ECE\u9752\u5E74\u961F\u63D0\u62D4\u4E24\u540D\u7403\u5458\uFF0C\u5E76\u5BA3\u5E03\u4ED6\u4EEC\u5DF2\u7ECF\u5B66\u4F1A\u6700\u91CD\u8981\u7684\u6218\u672F\uFF1A\u542C\u89C1\u54E8\u58F0\u5C31\u56DE\u9632\u3002"
+      english: 
+    slots:
+    - id: slot.week5.defender
+      requiredPosition: 1
+      minimumAbility: 76
+      preferredFitness: 68
+      preferredProfessionalism: 78
+      isRequired: 1
+    - id: slot.week5.forward
+      requiredPosition: 5
+      minimumAbility: 75
+      preferredFitness: 72
+      preferredProfessionalism: 72
+      isRequired: 1
+  - id: demand.week6.future
+    clubId: club.comets
+    clubDisplayName:
+      chineseSimplified: "\u5F57\u661F\u57CE"
+      english: 
+    clubStanding:
+      chineseSimplified: "\u536B\u5195\u8054\u8D5B\u51A0\u519B\uFF0C\u672C\u5B63\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u593A\u51A0\u70ED\u95E8"
+      english: 
+    clubBestAchievement:
+      chineseSimplified: "\u5386\u53F2\u6700\u4F73\uFF1A5 \u6B21\u8054\u8D5B\u51A0\u519B\u3001\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u56DB\u5F3A"
+      english: 
+    clubProfile:
+      chineseSimplified: "\u6570\u636E\u90E8\u95E8\u89C4\u6A21\u4E0E\u4E00\u652F\u9752\u5E74\u961F\u76F8\u5F53\u3002\u6BCF\u6B21\u8BAD\u7EC3\u7ED3\u675F\u540E\uFF0C\u7403\u5458\u5148\u6062\u590D\u4F53\u80FD\uFF0C\u518D\u6062\u590D\u8D26\u53F7\u5BC6\u7801\u3002"
+      english: 
+    title:
+      chineseSimplified: "\u51A0\u519B\u9635\u5BB9\u672A\u6765\u8BA1\u5212"
+      english: 
+    description:
+      chineseSimplified: "\u5BFB\u627E\u4E00\u540D\u80FD\u5728\u9AD8\u538B\u4E0B\u7EC4\u7EC7\u8FDB\u653B\u7684\u4E2D\u573A\uFF0C\u4EE5\u53CA\u4E00\u540D\u8986\u76D6\u6574\u6761\u8FB9\u8DEF\u7684\u7FFC\u536B\uFF0C\u4E3A\u8054\u8D5B\u548C\u6D32\u9645\u8D5B\u4E8B\u53CC\u7EBF\u8F6E\u6362\u3002"
+      english: 
+    openedWeek: 6
+    activeWeeks: 4
+    baseReward: 3200
+    paymentTerms:
+      chineseSimplified: "\u4E24\u4E2A\u4F4D\u7F6E\u5168\u90E8\u6EE1\u8DB3\u65F6\u652F\u4ED8\u5B8C\u6574\u987E\u95EE\u8D39\uFF1B\u53CD\u9988\u5EF6\u8FDF
+        1\u20132 \u5468\u3002"
+      english: 
+    expiryMailSubject:
+      chineseSimplified: "\u5F57\u661F\u57CE\u5B8C\u6210\u5185\u90E8\u8865\u5F3A"
+      english: 
+    expiryMailBody:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u51B3\u5B9A\u542F\u7528\u4E24\u540D\u9752\u8BAD\u7403\u5458\u3002\u6570\u636E\u90E8\u95E8\u8868\u793A\u6A21\u578B\u65E9\u5DF2\u9884\u6D4B\u5230\u8FD9\u4E00\u7ED3\u679C\uFF0C\u53EA\u662F\u62A5\u544A\u76F4\u5230\u4ECA\u5929\u624D\u5B8C\u6210\u6E32\u67D3\u3002"
+      english: 
+    slots:
+    - id: slot.week6.midfield
+      requiredPosition: 3
+      minimumAbility: 80
+      preferredFitness: 72
+      preferredProfessionalism: 78
+      isRequired: 1
+    - id: slot.week6.wingback
+      requiredPosition: 2
+      minimumAbility: 76
+      preferredFitness: 82
+      preferredProfessionalism: 74
+      isRequired: 1
+  mails:
+  - id: mail.w1.rainy
+    kind: 0
+    publishedWeek: 1
+    sender:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280 \xB7 \u4F53\u80B2\u4E3B\u7BA1"
+      english: 
+    subject:
+      chineseSimplified: "\u8D44\u683C\u8D5B\u524D\u950B\u544A\u6025\uFF1A\u4E24\u5468\u5185\u5B8C\u6210\u63A8\u8350"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:20"
+      english: 
+    preview:
+      chineseSimplified: "\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u8D44\u683C\u8D5B\u4E34\u8FD1\uFF0C\u6211\u4EEC\u9700\u8981\u80FD\u7ACB\u523B\u53C2\u52A0\u5408\u7EC3\u7684\u524D\u950B\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E3B\u529B\u524D\u950B\u5728\u70ED\u8EAB\u8D5B\u62C9\u4F24\u3002\u7403\u961F\u5E0C\u671B\u5019\u9009\u4EBA\u5177\u5907\u53CD\u8D8A\u4F4D\u610F\u8BC6\u3001\u57FA\u672C\u903C\u62A2\u80FD\u529B\uFF0C\u5E76\u80FD\u627F\u53D7\u8D44\u683C\u8D5B\u4E3B\u573A\u56DB\u4E07\u540D\u7403\u8FF7\u540C\u65F6\u53F9\u6C14\u3002\u4FF1\u4E50\u90E8\u5B9E\u529B\u3001\u622A\u6B62\u65E5\u671F\u548C\u59D4\u6258\u4EF7\u89C1\u4E0B\u65B9\u56FA\u5B9A\u4FE1\u606F\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u6B63\u5F0F\u62DB\u8058 \xB7 \u7B2C\u4E00\u624B\u4FE1\u606F"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: demand.week1.emergency
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w1.rory
+    kind: 1
+    publishedWeek: 1
+    sender:
+      chineseSimplified: "\u6781\u901F\u7ECF\u7EAA\u516C\u53F8 \xB7 \u5DF4\u91CC"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u7F57\u91CC\xB7\u594E\u514B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u51B2\u523A\u80FD\u529B\u7A81\u51FA\uFF1B\u6240\u8C13
+        41 \u7403\u4ECD\u7F3A\u5C11\u53EF\u6838\u5B9E\u7684\u8D5B\u4E8B\u8BB0\u5F55\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7F57\u91CC\u76EE\u524D\u6CA1\u6709\u5408\u540C\uFF0C\u53EF\u4EE5\u7ACB\u5373\u53C2\u52A0\u8BD5\u8BAD\u3002\u6211\u4EEC\u786E\u8BA4\u4ED6\u7684\u65E0\u7403\u8DD1\u52A8\u548C\u542F\u52A8\u901F\u5EA6\u90FD\u5F88\u4F18\u79C0\u3002\u81F3\u4E8E\u201C\u4E0A\u8D5B\u5B63
+        41 \u7403\u201D\uFF0C\u7EDF\u8BA1\u4EBA\u5458\u6B63\u5728\u5BFB\u627E\u6B63\u786E\u7684\u8054\u8D5B\u7F51\u9875\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u7ECF\u7EAA\u4EBA\u6750\u6599 \xB7 \u5BA3\u4F20\u6210\u5206\u8F83\u9AD8"
+      english: 
+    relatedPlayerId: player.rocket.rory
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w1.perry
+    kind: 1
+    publishedWeek: 1
+    sender:
+      chineseSimplified: "\u738B\u51A0\u4F53\u80B2\u5F71\u4E1A"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u4F69\u91CC\xB7\u91D1\uFF08\u6210\u5E74\u6BD4\u8D5B\u5F85\u8865\uFF09"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u9752\u5E74\u961F\u660E\u661F\uFF0C\u901F\u5EA6\u548C\u66DD\u5149\u5EA6\u90FD\u5F88\u9AD8\uFF0C\u6210\u5E74\u6BD4\u8D5B\u6837\u672C\u4E3A\u96F6\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4F69\u91CC\u5E0C\u671B\u8FDB\u5165\u4E00\u7EBF\u961F\u73AF\u5883\u3002\u4ED6\u7684\u7EAA\u5F55\u7247\u5DF2\u7ECF\u62CD\u5230\u7B2C\u4E8C\u5B63\uFF0C\u4F46\u6210\u5E74\u6BD4\u8D5B\u5C1A\u672A\u5F00\u59CB\u3002\u9644\u4EF6\u4E2D\u6709\u9752\u5E74\u8D5B\u4E8B\u96C6\u9526\u3001\u54C1\u724C\u5408\u4F5C\u65B9\u6848\uFF0C\u4EE5\u53CA\u4E00\u4EFD\u957F\u8FBE\u5341\u4E8C\u9875\u7684\u8FDB\u7403\u5E86\u795D\u8BA1\u5212\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u7403\u5458\u56E2\u961F\u6750\u6599 \xB7 \u54C1\u724C\u503E\u5411\u660E\u663E"
+      english: 
+    relatedPlayerId: player.academy.perry
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w1.carlo
+    kind: 2
+    publishedWeek: 1
+    sender:
+      chineseSimplified: "\u6069\u4F50\u53D4\u53D4"
+      english: 
+    subject:
+      chineseSimplified: "\u5E2E\u5361\u6D1B\u8FDB\u96E8\u57CE\u7ADE\u6280\uFF0C\u5348\u996D\u548C\u8C22\u793C\u90FD\u7B97\u6211\u7684"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:40"
+      english: 
+    preview:
+      chineseSimplified: "\u8BF7\u6258\u6307\u5B9A\u4E0A\u8D5B\u5B63\u524D\u56DB\u3001\u53C2\u52A0\u6D32\u9645\u8D44\u683C\u8D5B\u7684\u96E8\u57CE\u7ADE\u6280\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u5361\u6D1B\u53EA\u662F\u7F3A\u4E00\u6B21\u88AB\u8C6A\u95E8\u770B\u89C1\u7684\u673A\u4F1A\u3002\u628A\u4ED6\u9001\u8FDB\u96E8\u57CE\u7ADE\u6280\u8FD9\u6B21\u524D\u950B\u62DB\u8058\uFF0C\u4F4D\u7F6E\u4E0D\u5B8C\u5168\u5339\u914D\u4E5F\u6CA1\u5173\u7CFB\u3002\u4F60\u4F1A\u7ACB\u5373\u6536\u5230\u8C22\u793C\uFF1B\u7403\u961F\u4EE5\u540E\u82E5\u8FFD\u95EE\u63A8\u8350\u4F9D\u636E\uFF0C\u5C31\u8BF4\u6211\u4EEC\u90FD\u76F8\u4FE1\u4ED6\u7684\u6F5C\u529B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u79C1\u4EBA\u5173\u7CFB \xB7 \u660E\u786E\u5229\u76CA\u51B2\u7A81
+        \xB7 \u8BC1\u636E\u4E0D\u8DB3"
+      english: 
+    relatedPlayerId: player.cousin.carlo
+    relatedDemandId: 
+    privateOfferAmount: 350
+    privateOfferTerms:
+      chineseSimplified: "\u5FC5\u987B\u5728\u672C\u5468\u628A\u5361\u6D1B\u63D0\u4EA4\u7ED9\u96E8\u57CE\u7ADE\u6280\uFF1B\u6295\u7ED9\u5176\u4ED6\u4FF1\u4E50\u90E8\u4E0D\u652F\u4ED8\u8C22\u793C\u3002"
+      english: 
+    privateRequiredClubId: club.rainy
+    privateTargetClubRequirement:
+      chineseSimplified: "\u76EE\u6807\u4FF1\u4E50\u90E8\uFF1A\u96E8\u57CE\u7ADE\u6280\uFF08\u4E0A\u8D5B\u5B63\u7B2C
+        4\uFF0C\u53C2\u52A0\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u8D44\u683C\u8D5B\uFF09"
+      english: 
+    privateRiskNote:
+      chineseSimplified: "\u4E0D\u5339\u914D\u5B89\u6392\u53EF\u80FD\u5728\u540E\u7EED\u8C03\u67E5\u4E2D\u635F\u5BB3\u58F0\u671B\u3002"
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w1.office
+    kind: 3
+    publishedWeek: 1
+    sender:
+      chineseSimplified: "\u7403\u63A2\u4E8B\u52A1\u6240 \xB7 \u7CFB\u7EDF\u901A\u77E5"
+      english: 
+    subject:
+      chineseSimplified: "\u65B0\u8D5B\u5B63\u5DE5\u4F5C\u8BF4\u660E\uFF1A\u5148\u770B\u6765\u6E90\uFF0C\u518D\u770B\u62A5\u4EF7"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6E38\u620F\u4ECE\u5B63\u524D\u8BAD\u7EC3\u5F00\u59CB\uFF0C\u5171
+        52 \u5468\uFF1B\u9876\u90E8\u65E5\u671F\u4F1A\u81EA\u52A8\u63A8\u8FDB\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u9605\u8BFB\u62DB\u8058\u90AE\u4EF6\u540E\uFF0C\u5BF9\u5E94\u9700\u6C42\u624D\u4F1A\u8FDB\u5165\u5206\u914D\u9875\uFF1B\u9605\u8BFB\u7B80\u5386\u6216\u79C1\u4EBA\u8BF7\u6258\u540E\uFF0C\u7403\u5458\u624D\u4F1A\u8FDB\u5165\u53EF\u7528\u540D\u5355\u3002\u7403\u5458\u4E00\u65E6\u63D0\u4EA4\u7ED9\u4FF1\u4E50\u90E8\u5C31\u4F1A\u79BB\u5F00\u53EF\u7528\u540D\u5355\uFF0C\u7ED3\u679C\u548C\u6B3E\u9879\u901A\u5E38\u5EF6\u8FDF\u4E00\u81F3\u4E24\u5468\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u7CFB\u7EDF\u89C4\u5219 \xB7 \u53EF\u76F4\u63A5\u4FE1\u8D56"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w2.dockyard
+    kind: 0
+    publishedWeek: 2
+    sender:
+      chineseSimplified: "\u8239\u575E\u8054 \xB7 \u62DB\u8058\u529E\u516C\u5BA4"
+      english: 
+    subject:
+      chineseSimplified: "\u8054\u5408\u8BD5\u8BAD\uFF1A\u524D\u950B\u4E0E\u4E2D\u573A\u5404\u4E00\u540D"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:20"
+      english: 
+    preview:
+      chineseSimplified: "\u4E2D\u6E38\u7403\u961F\u51C6\u5907\u8C03\u6574\u8FDB\u653B\u7ED3\u6784\uFF0C\u9700\u6C42\u6709\u6548\u4E09\u5468\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6211\u4EEC\u9700\u8981\u4E00\u540D\u80FD\u7EC8\u7ED3\u8FDB\u653B\u7684\u524D\u950B\uFF0C\u4EE5\u53CA\u4E00\u540D\u80FD\u8BA9\u4E09\u6761\u7EBF\u4FDD\u6301\u8054\u7CFB\u7684\u4E2D\u573A\u3002\u53EF\u4EE5\u53EA\u63A8\u8350\u5176\u4E2D\u4E00\u4EBA\uFF0C\u4F46\u5982\u679C\u4E24\u4EBA\u4E92\u76F8\u4E0D\u8BA4\u8BC6\u5374\u80FD\u7AD9\u5728\u6B63\u786E\u8DDD\u79BB\uFF0C\u4E3B\u6559\u7EC3\u4F1A\u975E\u5E38\u611F\u52A8\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u6B63\u5F0F\u62DB\u8058 \xB7 \u7B2C\u4E00\u624B\u4FE1\u606F"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: demand.week2.group
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w2.milo
+    kind: 1
+    publishedWeek: 2
+    sender:
+      chineseSimplified: "\u59AE\u5A05\u6559\u7EC3"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u7C73\u6D1B\xB7\u9648"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u4E0D\u62A2\u955C\u7684\u7EC4\u7EC7\u4E2D\u573A\uFF0C\u80FD\u8BA9\u8EAB\u8FB9\u961F\u53CB\u8E22\u5F97\u66F4\u8212\u670D\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7C73\u6D1B\u64C5\u957F\u89C2\u5BDF\u3001\u63A5\u5E94\u548C\u8F6C\u79FB\u7403\u3002\u4ED6\u6700\u597D\u7684\u5904\u7406\u901A\u5E38\u53D1\u751F\u5728\u8FDB\u7403\u524D\u4E24\u811A\uFF0C\u56E0\u6B64\u4E2A\u4EBA\u96C6\u9526\u5F88\u77ED\uFF0C\u4F46\u5B8C\u6574\u6BD4\u8D5B\u5F55\u50CF\u5F88\u597D\u770B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u524D\u6559\u7EC3\u63A8\u8350 \xB7 \u53EF\u7531\u5B8C\u6574\u6BD4\u8D5B\u6838\u5B9E"
+      english: 
+    relatedPlayerId: player.metronome.milo
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w2.vic
+    kind: 1
+    publishedWeek: 2
+    sender:
+      chineseSimplified: "\u8001\u9774\u7ECF\u7EAA\u793E"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u7EF4\u514B\xB7\u54C8\u73C0"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u7ECF\u9A8C\u4E30\u5BCC\u7684\u7981\u533A\u524D\u950B\uFF0C\u901F\u5EA6\u4E0B\u964D\uFF0C\u4F46\u843D\u70B9\u5224\u65AD\u4ECD\u5728\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7EF4\u514B\u4E0D\u627F\u8BFA\u8D62\u4E0B\u56DB\u5341\u7C73\u51B2\u523A\uFF0C\u4F46\u77E5\u9053\u5927\u591A\u6570\u89E3\u56F4\u4F1A\u843D\u5230\u54EA\u91CC\u3002\u4ED6\u81EA\u5E26\u4FDD\u6E29\u676F\uFF0C\u4E5F\u627F\u8BFA\u4E0D\u4F1A\u5360\u7528\u4FF1\u4E50\u90E8\u8425\u517B\u5E08\u7684\u5496\u5561\u673A\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u591A\u5E74\u6BD4\u8D5B\u8BB0\u5F55 \xB7 \u90E8\u5206\u6570\u636E\u65F6\u6548\u8F83\u65E7"
+      english: 
+    relatedPlayerId: player.thermos.vic
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w2.tess
+    kind: 1
+    publishedWeek: 2
+    sender:
+      chineseSimplified: "\u95EA\u7535\u9752\u8BAD\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u6CF0\u4E1D\xB7\u5965\u79D1\u7F57"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8FB9\u950B\uFF0C\u901F\u5EA6\u4F18\u52BF\u660E\u663E\uFF0C\u6700\u540E\u4E00\u4F20\u4ECD\u9700\u6253\u78E8\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6CF0\u4E1D\u7684\u7B2C\u4E00\u6B65\u8DB3\u4EE5\u8FEB\u4F7F\u8FB9\u540E\u536B\u63D0\u524D\u8F6C\u8EAB\u3002\u5979\u5DF2\u7ECF\u51C6\u5907\u597D\u53C2\u52A0\u6210\u5E74\u961F\u8BD5\u8BAD\uFF1B\u6211\u4EEC\u4E5F\u5EFA\u8BAE\u8BAD\u7EC3\u57FA\u5730\u628A\u8FB9\u7EBF\u5916\u7684\u5E7F\u544A\u724C\u56FA\u5B9A\u5F97\u66F4\u7262\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u9752\u8BAD\u62A5\u544A \xB7 \u57FA\u672C\u80FD\u529B\u53EF\u6838\u5B9E"
+      english: 
+    relatedPlayerId: player.turbo.tess
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w2.window
+    kind: 3
+    publishedWeek: 2
+    sender:
+      chineseSimplified: "\u8054\u76DF\u7ADE\u8D5B\u90E8"
+      english: 
+    subject:
+      chineseSimplified: "\u5B63\u524D\u6CE8\u518C\u63D0\u9192\uFF1A\u540D\u5355\u4E0D\u662F\u613F\u671B\u6E05\u5355"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u590F\u5B63\u6CE8\u518C\u7A97\u53E3\u5373\u5C06\u8FDB\u5165\u7E41\u5FD9\u9636\u6BB5\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u5404\u4FF1\u4E50\u90E8\u5FC5\u987B\u5728\u622A\u6B62\u65E5\u524D\u63D0\u4EA4\u7403\u5458\u6CE8\u518C\u8D44\u6599\u3002\u8054\u76DF\u7279\u522B\u63D0\u9192\uFF1A\u7403\u5458\u59D3\u540D\u3001\u51FA\u751F\u65E5\u671F\u548C\u5B9E\u9645\u5B58\u5728\u7684\u5408\u540C\u7F3A\u4E00\u4E0D\u53EF\uFF1B\u201C\u8463\u4E8B\u957F\u53E3\u5934\u4FDD\u8BC1\u201D\u4ECD\u4E0D\u662F\u6587\u4EF6\u7C7B\u578B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8054\u76DF\u516C\u544A \xB7 \u8D5B\u5B63\u65F6\u95F4\u4FE1\u606F"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w3.oldcastle
+    kind: 0
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u65E7\u5821\u738B\u51A0 \xB7 \u6280\u672F\u59D4\u5458\u4F1A"
+      english: 
+    subject:
+      chineseSimplified: "\u4E89\u51A0\u8865\u5F3A\uFF1A\u4E2D\u540E\u536B\u4E0E\u8FB9\u950B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:20"
+      english: 
+    preview:
+      chineseSimplified: "\u4F20\u7EDF\u8C6A\u95E8\u4E3A\u8054\u8D5B\u548C\u6D32\u9645\u8D5B\u4E8B\u5BFB\u627E\u8F6E\u6362\u7403\u5458\uFF0C\u9700\u6C42\u6709\u6548\u4E09\u5468\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E2D\u540E\u536B\u9700\u8981\u9002\u5E94\u9AD8\u4F4D\u9632\u7EBF\uFF0C\u8FB9\u950B\u9700\u8981\u5728\u9635\u5730\u6218\u4E2D\u5236\u9020\u4E00\u5BF9\u4E00\u4F18\u52BF\u3002\u8463\u4E8B\u4F1A\u4FDD\u8BC1\u8FD9\u662F\u957F\u671F\u89C4\u5212\uFF0C\u9644\u4EF6\u6587\u4EF6\u540D\u4E5F\u53EA\u5199\u5230\u4E86\u201C\u6700\u7EC8\u7248_\u7B2C\u516B\u6B21\u4FEE\u6539\u201D\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u6B63\u5F0F\u62DB\u8058 \xB7 \u7B2C\u4E00\u624B\u4FE1\u606F"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: demand.week3.longterm
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w3.walter
+    kind: 1
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u5317\u533A\u7403\u5458\u4EE3\u7406"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u6C83\u5C14\u7279\xB7\u79D1\u74E6\u5947"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6B63\u9762\u5BF9\u6297\u5F3A\u786C\u7684\u4E2D\u540E\u536B\uFF0C\u56DE\u8FFD\u8F6C\u8EAB\u5E76\u975E\u4F18\u52BF\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6C83\u5C14\u7279\u9002\u5408\u4FDD\u62A4\u7981\u533A\u548C\u5904\u7406\u76F4\u63A5\u5BF9\u6297\u3002\u5982\u679C\u7403\u961F\u957F\u671F\u628A\u56DB\u540D\u540E\u536B\u7559\u5728\u5BF9\u65B9\u534A\u573A\uFF0C\u4ED6\u4E5F\u4F1A\u52AA\u529B\u56DE\u8FFD\uFF0C\u53EA\u662F\u6444\u5F71\u5E08\u53EF\u80FD\u9700\u8981\u5E7F\u89D2\u955C\u5934\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4EE3\u7406\u4EBA\u6750\u6599 \xB7 \u6709\u5B8C\u6574\u6BD4\u8D5B\u65C1\u8BC1"
+      english: 
+    relatedPlayerId: player.wall.walter
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w3.luna
+    kind: 1
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u6EE1\u6708\u4F53\u80B2"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u9732\u5A1C\xB7\u8428\u7EF4\u5947"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u80FD\u5185\u5207\u548C\u5904\u7406\u5B9A\u4F4D\u7403\u7684\u5DE6\u8FB9\u950B\uFF0C\u51B3\u7B56\u65B9\u5F0F\u6BD4\u8F83\u72EC\u7279\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u9732\u5A1C\u7684\u6280\u672F\u548C\u901F\u5EA6\u90FD\u8FBE\u5230\u804C\u4E1A\u8BD5\u8BAD\u6C34\u5E73\u3002\u5979\u5076\u5C14\u4F1A\u6839\u636E\u661F\u8C61\u8C03\u6574\u7F5A\u7403\u987A\u5E8F\uFF1B\u7ECF\u7EAA\u516C\u53F8\u8BA4\u4E3A\u8FD9\u662F\u8D5B\u524D\u51C6\u5907\uFF0C\u524D\u6559\u7EC3\u79F0\u5176\u4E3A\u201C\u53E6\u4E00\u4E2A\u9700\u8981\u7BA1\u7406\u7684\u5E94\u7528\u7A0B\u5E8F\u201D\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u7ECF\u7EAA\u4EBA\u6750\u6599 \xB7 \u90E8\u5206\u8BF4\u6CD5\u65E0\u6CD5\u9A8C\u8BC1"
+      english: 
+    relatedPlayerId: player.zodiac.luna
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w3.uma
+    kind: 1
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u4E24\u4FA7\u90FD\u884C\u7ECF\u7EAA\u4E8B\u52A1\u6240"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u4E4C\u739B\xB7\u8D39\u5C14\u5357\u5FB7\u65AF"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:05"
+      english: 
+    preview:
+      chineseSimplified: "\u80FD\u8E22\u5DE6\u53F3\u7FFC\u536B\uFF0C\u8DD1\u52A8\u548C\u9002\u5E94\u80FD\u529B\u53EF\u9760\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E4C\u739B\u5728\u56DB\u540E\u536B\u548C\u4E09\u4E2D\u536B\u4F53\u7CFB\u4E2D\u90FD\u6709\u6BD4\u8D5B\u7ECF\u9A8C\u3002\u5979\u613F\u610F\u8E22\u5DE6\u53F3\u4E24\u4FA7\uFF0C\u552F\u4E00\u8981\u6C42\u662F\u8D5B\u524D\u544A\u8BC9\u5979\u7403\u961F\u4ECA\u5929\u7A76\u7ADF\u6253\u54EA\u5957\u9635\u578B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u591A\u5BB6\u65E7\u4FF1\u4E50\u90E8\u63A8\u8350 \xB7 \u53EF\u9760\u6027\u8F83\u9AD8"
+      english: 
+    relatedPlayerId: player.utility.uma
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w3.press
+    kind: 3
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u300A\u8FB9\u7EBF\u5468\u520A\u300B\u7F16\u8F91\u90E8"
+      english: 
+    subject:
+      chineseSimplified: "\u4F20\u95FB\u6838\u5BF9\uFF1A\u96C6\u9526\u91CC\u7684\u901F\u5EA6\u4E0D\u7B49\u4E8E\u4E5D\u5341\u5206\u949F\u901F\u5EA6"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u672C\u5468\u4E13\u680F\u6BD4\u8F83\u77ED\u89C6\u9891\u3001\u5B8C\u6574\u6BD4\u8D5B\u548C\u7ECF\u7EAA\u4EBA\u53E3\u8FF0\u7684\u5DEE\u5F02\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7403\u63A2\u90E8\u95E8\u63D0\u9192\uFF0C\u526A\u8F91\u80FD\u9690\u85CF\u56DE\u9632\u3001\u7AD9\u4F4D\u548C\u6BD4\u8D5B\u5F3A\u5EA6\u3002\u770B\u5B8C\u5341\u79D2\u949F\u9AD8\u5149\u540E\uFF0C\u8BF7\u81F3\u5C11\u518D\u95EE\u4E00\u6B21\uFF1A\u7403\u4E22\u6389\u4EE5\u540E\u8FD9\u4E2A\u4EBA\u53BB\u4E86\u54EA\u91CC\uFF1F"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72EC\u7ACB\u5A92\u4F53 \xB7 \u65B9\u6CD5\u8BF4\u660E"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w4.seaside
+    kind: 0
+    publishedWeek: 4
+    sender:
+      chineseSimplified: "\u6D77\u6E2F\u84DD\u9E25 \xB7 \u4F53\u80B2\u4E3B\u7BA1"
+      english: 
+    subject:
+      chineseSimplified: "\u77ED\u671F\u62DB\u8058\uFF1A\u80FD\u5904\u7406\u9AD8\u7403\u7684\u95E8\u5C06"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:20"
+      english: 
+    preview:
+      chineseSimplified: "\u4FDD\u7EA7\u7403\u961F\u4E00\u53F7\u95E8\u5C06\u53D7\u4F24\uFF0C\u9700\u6C42\u4EC5\u4FDD\u7559\u4E24\u5468\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6211\u4EEC\u9700\u8981\u4E00\u540D\u80FD\u591F\u6307\u6325\u9632\u7EBF\u3001\u5904\u7406\u4F20\u4E2D\u5E76\u627F\u53D7\u5BC6\u96C6\u5C04\u95E8\u7684\u95E8\u5C06\u3002\u4E3B\u573A\u6D77\u98CE\u5F88\u5927\uFF0C\u4F46\u8BF7\u4E0D\u8981\u628A\u6240\u6709\u5224\u65AD\u5931\u8BEF\u90FD\u5199\u8FDB\u6C14\u8C61\u62A5\u544A\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u6B63\u5F0F\u62DB\u8058 \xB7 \u65F6\u6548\u8F83\u9AD8"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: demand.week4.keeper
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w4.gus
+    kind: 1
+    publishedWeek: 4
+    sender:
+      chineseSimplified: "\u5B89\u5168\u624B\u5957\u7ECF\u7EAA\u516C\u53F8"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u683C\u65AF\xB7\u8D1D\u514B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u9AD8\u7403\u5904\u7406\u7A33\u5B9A\uFF0C\u8BAD\u7EC3\u6001\u5EA6\u53EF\u9760\uFF0C\u70B9\u7403\u5C65\u5386\u6709\u4E00\u5904\u5938\u5F20\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u683C\u65AF\u53EF\u4EE5\u7ACB\u5373\u53C2\u52A0\u8BD5\u8BAD\u3002\u4ED6\u786E\u5B9E\u5728\u516C\u5F00\u8BAD\u7EC3\u4E2D\u6251\u51FA\u56DB\u7C92\u70B9\u7403\uFF1B\u6240\u8C13\u7B2C\u4E94\u6B21\u6251\u6551\uFF0C\u662F\u7B2C\u4E94\u540D\u4E3B\u7F5A\u8005\u6CA1\u6709\u51FA\u573A\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u516C\u5F00\u8BAD\u7EC3\u8BB0\u5F55 \xB7 \u53EF\u9760\u6027\u8F83\u9AD8"
+      english: 
+    relatedPlayerId: player.gloves.gus
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w4.felix
+    kind: 1
+    publishedWeek: 4
+    sender:
+      chineseSimplified: "\u804C\u4E1A\u95E8\u5C06\u534F\u4F1A"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u8D39\u5229\u514B\u65AF\xB7\u6587\u4E66"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u57FA\u672C\u529F\u7A33\u5B9A\u3001\u804C\u4E1A\u6001\u5EA6\u4F18\u79C0\uFF0C\u51FA\u7403\u901F\u5EA6\u504F\u6162\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8D39\u5229\u514B\u65AF\u91CD\u89C6\u6C9F\u901A\u548C\u7AD9\u4F4D\uFF0C\u4E5F\u91CD\u89C6\u6BCF\u4E00\u9879\u6D41\u7A0B\u3002\u4ED6\u4E0D\u4F1A\u5FD8\u8BB0\u8BAD\u7EC3\u65F6\u95F4\uFF0C\u4F46\u53EF\u80FD\u8981\u6C42\u540E\u536B\u5728\u53D1\u52A8\u53CD\u51FB\u524D\u786E\u8BA4\u6536\u4EF6\u4EBA\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u534F\u4F1A\u63A8\u8350 \xB7 \u6837\u672C\u5B8C\u6574"
+      english: 
+    relatedPlayerId: player.forms.felix
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w4.dino
+    kind: 1
+    publishedWeek: 4
+    sender:
+      chineseSimplified: "\u8D85\u8FDC\u754C\u5916\u7403\u5B9E\u9A8C\u5BA4"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u8FEA\u8BFA\xB7\u9A6C\u5C14\u51EF\u8482"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8FB9\u540E\u536B\uFF0C\u754C\u5916\u7403\u8DDD\u79BB\u60CA\u4EBA\uFF0C\u9632\u5B88\u7EAA\u5F8B\u4E00\u822C\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8FEA\u8BFA\u628A\u754C\u5916\u7403\u5F53\u4F5C\u7981\u533A\u4F20\u4E2D\u4F7F\u7528\u3002\u4F18\u52BF\u662F\u80FD\u628A\u7403\u9001\u5F97\u5F88\u8FDC\uFF1B\u98CE\u9669\u662F\u6709\u65F6\u8FDE\u672C\u961F\u4E2D\u950B\u4E5F\u4E0D\u77E5\u9053\u7403\u4F1A\u4ECE\u54EA\u7247\u4E91\u4E0B\u9762\u843D\u4E0B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4E13\u9879\u8BAD\u7EC3\u62A5\u544A \xB7 \u6837\u672C\u504F\u7A84"
+      english: 
+    relatedPlayerId: player.throwin.dino
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w4.qualifier
+    kind: 3
+    publishedWeek: 4
+    sender:
+      chineseSimplified: "\u6D32\u9645\u8D5B\u4E8B\u89C2\u5BDF\u5BA4"
+      english: 
+    subject:
+      chineseSimplified: "\u8D44\u683C\u8D5B\u9996\u8F6E\u7ED3\u675F\uFF1A\u8C6A\u95E8\u5DF2\u7ECF\u5F00\u59CB\u7D27\u5F20"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8D5B\u5B63\u4ECD\u5728\u5B63\u524D\u9636\u6BB5\uFF0C\u4F46\u6D32\u9645\u8D44\u683C\u8D5B\u5DF2\u7ECF\u5236\u9020\u4E86\u7B2C\u4E00\u6279\u5371\u673A\u4F1A\u8BAE\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E24\u652F\u70ED\u95E8\u7403\u961F\u9996\u56DE\u5408\u672A\u80FD\u83B7\u80DC\u3002\u7535\u89C6\u8BC4\u8BBA\u5458\u79F0\u8FD9\u662F\u6218\u672F\u95EE\u9898\uFF0C\u4FF1\u4E50\u90E8\u8463\u4E8B\u4F1A\u79F0\u8FD9\u662F\u4F53\u80FD\u95EE\u9898\uFF0C\u7403\u8FF7\u8BA4\u4E3A\u552F\u4E00\u95EE\u9898\u662F\u590F\u5B63\u6CA1\u6709\u4E70\u591F\u4EBA\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u65B0\u95FB \xB7 \u8D5B\u5B63\u8FDB\u5EA6"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w5.foundry
+    kind: 0
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u94C1\u7089\u7ADE\u6280 \xB7 \u4E3B\u6559\u7EC3\u529E\u516C\u5BA4"
+      english: 
+    subject:
+      chineseSimplified: "\u676F\u8D5B\u9635\u5BB9\u8865\u5145\uFF1A\u4E2D\u540E\u536B\u4E0E\u524D\u950B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:20"
+      english: 
+    preview:
+      chineseSimplified: "\u4E89\u593A\u6D32\u9645\u8D44\u683C\u7684\u7403\u961F\u9700\u8981\u4E24\u540D\u53EF\u9760\u8F6E\u6362\uFF0C\u9700\u6C42\u6709\u6548\u4E09\u5468\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u540E\u536B\u9700\u8981\u5B88\u7EAA\u5F8B\uFF0C\u524D\u950B\u9700\u8981\u53C2\u4E0E\u903C\u62A2\u3002\u6211\u4EEC\u4E0D\u53CD\u5BF9\u4E2A\u4EBA\u54C1\u724C\uFF0C\u4F46\u6444\u5236\u7EC4\u3001\u65E0\u4EBA\u673A\u548C\u5E86\u795D\u52A8\u4F5C\u8BBE\u8BA1\u5E08\u4E0D\u80FD\u4E00\u8D77\u8FDB\u5165\u8BAD\u7EC3\u57FA\u5730\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u6B63\u5F0F\u62DB\u8058 \xB7 \u7B2C\u4E00\u624B\u4FE1\u606F"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: demand.week5.group
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w5.rita
+    kind: 1
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u5317\u65B9\u9632\u7EBF\u987E\u95EE"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u4E3D\u5854\xB7\u54C8\u8FBE\u5FB7"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u4F4D\u7F6E\u611F\u51FA\u8272\u3001\u5904\u7406\u7403\u679C\u65AD\u7684\u4E2D\u540E\u536B\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E3D\u5854\u4E60\u60EF\u5148\u89E3\u51B3\u5371\u9669\uFF0C\u518D\u8BA8\u8BBA\u955C\u5934\u89D2\u5EA6\u3002\u5979\u7684\u5B8C\u6574\u6BD4\u8D5B\u6570\u636E\u7A33\u5B9A\uFF0C\u9EC4\u724C\u6570\u91CF\u4E5F\u4F4E\u4E8E\u7ECF\u7EAA\u4EBA\u90AE\u4EF6\u4E2D\u7684\u611F\u53F9\u53F7\u6570\u91CF\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u5B8C\u6574\u6BD4\u8D5B\u8BB0\u5F55 \xB7 \u53EF\u9760\u6027\u9AD8"
+      english: 
+    relatedPlayerId: player.rivet.rita
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w5.sonny
+    kind: 1
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u95EA\u8000\u5341\u4E00\u4EBA\u5A31\u4E50"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u6851\u5C3C\xB7\u5E03\u83B1\u5179"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6280\u672F\u52A8\u4F5C\u5F88\u591A\uFF0C\u9632\u5B88\u53C2\u4E0E\u548C\u65F6\u95F4\u89C2\u5FF5\u9700\u8981\u6838\u5B9E\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6851\u5C3C\u80FD\u521B\u9020\u666E\u901A\u7403\u5458\u60F3\u4E0D\u5230\u7684\u5904\u7406\uFF0C\u4E5F\u4F1A\u5C1D\u8BD5\u6559\u7EC3\u6CA1\u8981\u6C42\u7684\u5904\u7406\u3002\u4ED6\u7684\u56E2\u961F\u4FDD\u8BC1\u8FD9\u6B21\u8BD5\u8BAD\u4E0D\u4F1A\u8FDF\u5230\uFF0C\u524D\u63D0\u662F\u5F00\u573A\u65F6\u95F4\u9002\u5408\u76F4\u64AD\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u7403\u5458\u56E2\u961F\u5BA3\u4F20 \xB7 \u98CE\u9669\u8F83\u9AD8"
+      english: 
+    relatedPlayerId: player.showboat.sonny
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w5.nova
+    kind: 1
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u4E1C\u5CB8\u5206\u6790\u5B66\u9662"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u8BFA\u74E6\xB7\u4F0A\u4E07\u8BFA\u5A03"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:05"
+      english: 
+    preview:
+      chineseSimplified: "\u80FD\u5728\u903C\u62A2\u4E0B\u7EC4\u7EC7\u8FDB\u653B\u7684\u6570\u636E\u578B\u4E2D\u573A\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8BFA\u74E6\u4F1A\u628A\u8D5B\u524D\u5206\u6790\u771F\u6B63\u5E26\u8FDB\u6BD4\u8D5B\uFF0C\u800C\u4E0D\u662F\u53EA\u5E26\u8FDB\u4F1A\u8BAE\u5BA4\u3002\u5979\u9605\u8BFB\u538B\u8FEB\u3001\u5BFB\u627E\u5411\u524D\u7EBF\u8DEF\u7684\u80FD\u529B\u90FD\u6709\u5B8C\u6574\u5F55\u50CF\u652F\u6301\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u5B66\u9662\u4E0E\u6BD4\u8D5B\u6570\u636E\u8054\u5408\u62A5\u544A
+        \xB7 \u53EF\u9760\u6027\u9AD8"
+      english: 
+    relatedPlayerId: player.spreadsheet.nova
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w5.camera
+    kind: 3
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u8BAD\u7EC3\u57FA\u5730\u7269\u4E1A\u90E8"
+      english: 
+    subject:
+      chineseSimplified: "\u901A\u77E5\uFF1A\u7403\u5458\u7EAA\u5F55\u7247\u6444\u5236\u7EC4\u4E0D\u5C5E\u4E8E\u533B\u7597\u8BBE\u5907"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u672C\u5468\u5DF2\u6709\u4E09\u652F\u6444\u5236\u7EC4\u7533\u8BF7\u8FDB\u5165\u66F4\u8863\u5BA4\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7269\u4E1A\u90E8\u518D\u6B21\u8BF4\u660E\uFF1A\u6444\u5F71\u673A\u4E0D\u80FD\u5360\u7528\u51B0\u6D74\u6C60\uFF0C\u5BFC\u6F14\u6905\u4E0D\u80FD\u653E\u5728\u6218\u672F\u901A\u9053\uFF0C\u201C\u5BFB\u627E\u771F\u5B9E\u611F\u201D\u4E5F\u4E0D\u80FD\u6210\u4E3A\u7FFB\u8D8A\u56F4\u680F\u7684\u7406\u7531\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u57FA\u5730\u516C\u544A \xB7 \u4FE1\u606F\u771F\u5B9E"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w6.comets
+    kind: 0
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u5F57\u661F\u57CE \xB7 \u8DB3\u7403\u6218\u7565\u90E8"
+      english: 
+    subject:
+      chineseSimplified: "\u51A0\u519B\u9635\u5BB9\u8865\u5F3A\uFF1A\u4E2D\u573A\u4E0E\u7FFC\u536B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:20"
+      english: 
+    preview:
+      chineseSimplified: "\u536B\u5195\u51A0\u519B\u4E3A\u53CC\u7EBF\u8D5B\u7A0B\u5BFB\u627E\u8F6E\u6362\u7403\u5458\uFF0C\u9700\u6C42\u6709\u6548\u56DB\u5468\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6211\u4EEC\u9700\u8981\u4E00\u540D\u80FD\u5728\u9AD8\u538B\u4E0B\u7EC4\u7EC7\u8FDB\u653B\u7684\u4E2D\u573A\uFF0C\u4EE5\u53CA\u4E00\u540D\u8986\u76D6\u6574\u6761\u8FB9\u8DEF\u7684\u7FFC\u536B\u3002\u6570\u636E\u90E8\u95E8\u4F1A\u63D0\u4F9B\u6A21\u578B\uFF0C\u4F46\u6700\u7EC8\u4ECD\u7531\u6559\u7EC3\u770B\u7403\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u6B63\u5F0F\u62DB\u8058 \xB7 \u7B2C\u4E00\u624B\u4FE1\u606F"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: demand.week6.future
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w6.echo
+    kind: 1
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u53CC\u8DB3\u4F53\u80B2"
+      english: 
+    subject:
+      chineseSimplified: "\u7403\u5458\u7B80\u5386\uFF1A\u827E\u53EF\xB7\u6469\u6839"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u5DE6\u53F3\u811A\u5747\u8861\u3001\u80FD\u591F\u80DC\u4EFB\u4E24\u4FA7\u7684\u7FFC\u536B\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u827E\u53EF\u5728\u4E24\u4FA7\u90FD\u6709\u5B8C\u6574\u6BD4\u8D5B\u6837\u672C\uFF0C\u56DE\u8FFD\u548C\u5957\u8FB9\u80FD\u529B\u7A33\u5B9A\u3002\u7ECF\u7EAA\u4EBA\u552F\u4E00\u6CA1\u6709\u56DE\u7B54\u7684\u95EE\u9898\uFF0C\u662F\u5979\u66F4\u613F\u610F\u5750\u7403\u961F\u5927\u5DF4\u5DE6\u8FB9\u8FD8\u662F\u53F3\u8FB9\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u591A\u573A\u6BD4\u8D5B\u8BB0\u5F55 \xB7 \u53EF\u9760\u6027\u9AD8"
+      english: 
+    relatedPlayerId: player.bothfeet.echo
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w6.scout
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u51A0\u519B\u8054\u8D5B\u7403\u63A2\u5706\u684C"
+      english: 
+    subject:
+      chineseSimplified: "\u89C2\u5BDF\u7B14\u8BB0\uFF1A\u9AD8\u4F4D\u9632\u7EBF\u6700\u6015\u7684\u4E0D\u662F\u6162\uFF0C\u662F\u5224\u65AD\u6162"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6D32\u9645\u8D5B\u4E8B\u5BF9\u7A7A\u95F4\u5904\u7406\u548C\u51B3\u7B56\u901F\u5EA6\u8981\u6C42\u66F4\u9AD8\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8BC4\u4EF7\u540E\u536B\u65F6\uFF0C\u4E0D\u8981\u53EA\u770B\u767E\u7C73\u901F\u5EA6\u3002\u63D0\u524D\u79FB\u52A8\u3001\u4FDD\u62A4\u8EAB\u540E\u548C\u4E0E\u95E8\u5C06\u6C9F\u901A\uFF0C\u5F80\u5F80\u6BD4\u4E00\u6B21\u6F02\u4EAE\u7684\u56DE\u8FFD\u66F4\u80FD\u8BF4\u660E\u95EE\u9898\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4E13\u4E1A\u8BA8\u8BBA \xB7 \u53EF\u4F5C\u4E3A\u5224\u65AD\u4F9D\u636E"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w6.finance
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u4E8B\u52A1\u6240\u8D22\u52A1"
+      english: 
+    subject:
+      chineseSimplified: "\u5E94\u6536\u6B3E\u63D0\u9192\uFF1A\u5DF2\u6210\u4EA4\u4E0D\u7B49\u4E8E\u5DF2\u5230\u8D26"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:05"
+      english: 
+    preview:
+      chineseSimplified: "\u7ED3\u679C\u4E0E\u4ED8\u6B3E\u53EF\u80FD\u8DE8\u5468\u5230\u8FBE\uFF0C\u8BF7\u5206\u522B\u67E5\u770B\u73B0\u91D1\u548C\u5E94\u6536\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u786E\u8BA4\u8BD5\u8BAD\u540E\uFF0C\u987E\u95EE\u8D39\u4F1A\u8FDB\u5165\u5E94\u6536\u6B3E\uFF1B\u9884\u8BA1\u5230\u8D26\u5468\u5230\u6765\u540E\u624D\u8BA1\u5165\u73B0\u91D1\u3002\u8BF7\u4E0D\u8981\u62FF\u5C1A\u672A\u5230\u8D26\u7684\u94B1\u9884\u8BA2\u8D5B\u5B63\u672B\u5E86\u529F\u5BB4\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u7CFB\u7EDF\u89C4\u5219 \xB7 \u53EF\u76F4\u63A5\u4FE1\u8D56"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.w6.calendar
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u8054\u76DF\u8D5B\u7A0B\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u5B63\u524D\u9636\u6BB5\u5373\u5C06\u7ED3\u675F\uFF1A\u8054\u8D5B\u5F00\u5E55\u5012\u8BA1\u65F6"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u4E0B\u5468\u5F00\u59CB\u8FDB\u5165\u590F\u5B63\u7A97\u53E3\u4E0E\u8054\u8D5B\u51C6\u5907\u7684\u5BC6\u96C6\u9636\u6BB5\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u5C06\u9646\u7EED\u516C\u5E03\u53F7\u7801\u3001\u6CE8\u518C\u540D\u5355\u548C\u6700\u540E\u70ED\u8EAB\u8D5B\u3002\u8D5B\u7A0B\u4E2D\u5FC3\u63D0\u9192\u5404\u961F\uFF1A\u628A\u53CB\u8C0A\u8D5B\u8F93\u7403\u79F0\u4E3A\u201C\u8D1F\u8377\u7BA1\u7406\u201D\u4E0D\u4F1A\u6539\u53D8\u6BD4\u5206\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8054\u76DF\u516C\u544A \xB7 \u8D5B\u5B63\u8FDB\u5EA6"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w7
+    kind: 3
+    publishedWeek: 7
+    sender:
+      chineseSimplified: "\u8054\u76DF\u8D5B\u7A0B\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u8054\u8D5B\u5F00\u5E55\u6708\uFF1A\u65B0\u8D5B\u5B63\u6B63\u5F0F\u8FDB\u5165\u6BD4\u8D5B\u8282\u594F"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u70ED\u8EAB\u8D5B\u7ED3\u675F\uFF0C\u8054\u8D5B\u6CE8\u518C\u540D\u5355\u9646\u7EED\u516C\u5E03\u3002\u63A5\u4E0B\u6765\u51E0\u5468\uFF0C\u7403\u961F\u4F1A\u5728\u8865\u5F3A\u51B2\u52A8\u548C\u8D22\u52A1\u73B0\u5B9E\u4E4B\u95F4\u53CD\u590D\u6A2A\u8DF3\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u70ED\u8EAB\u8D5B\u7ED3\u675F\uFF0C\u8054\u8D5B\u6CE8\u518C\u540D\u5355\u9646\u7EED\u516C\u5E03\u3002\u63A5\u4E0B\u6765\u51E0\u5468\uFF0C\u7403\u961F\u4F1A\u5728\u8865\u5F3A\u51B2\u52A8\u548C\u8D22\u52A1\u73B0\u5B9E\u4E4B\u95F4\u53CD\u590D\u6A2A\u8DF3\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w10
+    kind: 3
+    publishedWeek: 10
+    sender:
+      chineseSimplified: "\u8F6C\u4F1A\u7A97\u53E3\u529E\u516C\u5BA4"
+      english: 
+    subject:
+      chineseSimplified: "\u590F\u5B63\u7A97\u53E3\u5173\u95ED\uFF1A\u4F20\u771F\u673A\u518D\u6B21\u5E78\u5B58"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6CE8\u518C\u901A\u9053\u5DF2\u7ECF\u5173\u95ED\u3002\u6700\u540E\u4E00\u5206\u949F\u63D0\u4EA4\u7684\u6587\u4EF6\u4E2D\uFF0C\u6709\u4E24\u4EFD\u7F3A\u7B7E\u540D\u3001\u4E00\u4EFD\u5496\u5561\u6E0D\uFF0C\u4EE5\u53CA\u4E00\u5F20\u660E\u663E\u5C5E\u4E8E\u9910\u5385\u7684\u83DC\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6CE8\u518C\u901A\u9053\u5DF2\u7ECF\u5173\u95ED\u3002\u6700\u540E\u4E00\u5206\u949F\u63D0\u4EA4\u7684\u6587\u4EF6\u4E2D\uFF0C\u6709\u4E24\u4EFD\u7F3A\u7B7E\u540D\u3001\u4E00\u4EFD\u5496\u5561\u6E0D\uFF0C\u4EE5\u53CA\u4E00\u5F20\u660E\u663E\u5C5E\u4E8E\u9910\u5385\u7684\u83DC\u5355\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w14
+    kind: 3
+    publishedWeek: 14
+    sender:
+      chineseSimplified: "\u6D32\u9645\u8D5B\u4E8B\u7EC4\u59D4\u4F1A"
+      english: 
+    subject:
+      chineseSimplified: "\u51A0\u519B\u8054\u8D5B\u9636\u6BB5\u5F00\u6253\uFF1A\u5468\u4E2D\u591C\u8D5B\u5F00\u59CB"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8054\u8D5B\u4E4B\u5916\u7684\u6D32\u9645\u8D5B\u7A0B\u6B63\u5F0F\u5F00\u59CB\u3002\u9635\u5BB9\u6DF1\u5EA6\u3001\u65C5\u884C\u6062\u590D\u548C\u5BA2\u573A\u6297\u538B\u5C06\u9010\u6E10\u5F71\u54CD\u62DB\u8058\u53E3\u5F84\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8054\u8D5B\u4E4B\u5916\u7684\u6D32\u9645\u8D5B\u7A0B\u6B63\u5F0F\u5F00\u59CB\u3002\u9635\u5BB9\u6DF1\u5EA6\u3001\u65C5\u884C\u6062\u590D\u548C\u5BA2\u573A\u6297\u538B\u5C06\u9010\u6E10\u5F71\u54CD\u62DB\u8058\u53E3\u5F84\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w18
+    kind: 3
+    publishedWeek: 18
+    sender:
+      chineseSimplified: "\u8DB3\u7403\u65B0\u95FB\u53F0"
+      english: 
+    subject:
+      chineseSimplified: "\u79CB\u5B63\u5BC6\u96C6\u8D5B\u7A0B\uFF1A\u4F24\u75C5\u540D\u5355\u5F00\u59CB\u6BD4\u9996\u53D1\u540D\u5355\u957F"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8FDE\u7EED\u4E00\u5468\u53CC\u8D5B\u8BA9\u5404\u961F\u91CD\u65B0\u7406\u89E3\u201C\u8F6E\u6362\u201D\u7684\u610F\u4E49\u3002\u90E8\u5206\u4F53\u80B2\u4E3B\u7BA1\u5DF2\u7ECF\u5F00\u59CB\u7ED9\u51AC\u5B63\u76EE\u6807\u53D1\u5E76\u4E0D\u9690\u79D8\u7684\u95EE\u5019\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8FDE\u7EED\u4E00\u5468\u53CC\u8D5B\u8BA9\u5404\u961F\u91CD\u65B0\u7406\u89E3\u201C\u8F6E\u6362\u201D\u7684\u610F\u4E49\u3002\u90E8\u5206\u4F53\u80B2\u4E3B\u7BA1\u5DF2\u7ECF\u5F00\u59CB\u7ED9\u51AC\u5B63\u76EE\u6807\u53D1\u5E76\u4E0D\u9690\u79D8\u7684\u95EE\u5019\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w22
+    kind: 3
+    publishedWeek: 22
+    sender:
+      chineseSimplified: "\u6D32\u9645\u8D5B\u4E8B\u7EC4\u59D4\u4F1A"
+      english: 
+    subject:
+      chineseSimplified: "\u5C0F\u7EC4\u9636\u6BB5\u6536\u5B98\uFF1A\u6709\u4EBA\u664B\u7EA7\uFF0C\u6709\u4EBA\u5F00\u59CB\u89E3\u91CA"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u664B\u7EA7\u7403\u961F\u8BA8\u8BBA\u6DD8\u6C70\u8D5B\u7B7E\u4F4D\uFF0C\u51FA\u5C40\u7403\u961F\u8BA8\u8BBA\u8D5B\u5236\u3001\u8349\u76AE\u3001\u5929\u6C14\u548C\u7EDF\u8BA1\u53E3\u5F84\u3002\u6CA1\u6709\u4EBA\u8BA8\u8BBA\u590F\u5929\u90A3\u4EFD\u8FC7\u5EA6\u81EA\u4FE1\u7684\u6F14\u793A\u6587\u6863\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u664B\u7EA7\u7403\u961F\u8BA8\u8BBA\u6DD8\u6C70\u8D5B\u7B7E\u4F4D\uFF0C\u51FA\u5C40\u7403\u961F\u8BA8\u8BBA\u8D5B\u5236\u3001\u8349\u76AE\u3001\u5929\u6C14\u548C\u7EDF\u8BA1\u53E3\u5F84\u3002\u6CA1\u6709\u4EBA\u8BA8\u8BBA\u590F\u5929\u90A3\u4EFD\u8FC7\u5EA6\u81EA\u4FE1\u7684\u6F14\u793A\u6587\u6863\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w26
+    kind: 3
+    publishedWeek: 26
+    sender:
+      chineseSimplified: "\u8054\u76DF\u7ADE\u8D5B\u90E8"
+      english: 
+    subject:
+      chineseSimplified: "\u8282\u65E5\u8D5B\u7A0B\uFF1A\u56DB\u5929\u4E00\u573A\uFF0C\u7761\u7720\u5C5E\u4E8E\u6280\u672F\u7EDF\u8BA1"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u5BC6\u96C6\u8054\u8D5B\u8FDB\u5165\u6700\u56F0\u96BE\u9636\u6BB5\u3002\u7403\u961F\u9700\u8981\u63A7\u5236\u4F24\u75C5\u548C\u4F53\u80FD\uFF0C\u800C\u4E0D\u662F\u628A\u6240\u6709\u75B2\u52B3\u90FD\u89E3\u91CA\u6210\u7403\u5458\u7F3A\u4E4F\u6C42\u80DC\u6B32\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u5BC6\u96C6\u8054\u8D5B\u8FDB\u5165\u6700\u56F0\u96BE\u9636\u6BB5\u3002\u7403\u961F\u9700\u8981\u63A7\u5236\u4F24\u75C5\u548C\u4F53\u80FD\uFF0C\u800C\u4E0D\u662F\u628A\u6240\u6709\u75B2\u52B3\u90FD\u89E3\u91CA\u6210\u7403\u5458\u7F3A\u4E4F\u6C42\u80DC\u6B32\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w29
+    kind: 3
+    publishedWeek: 29
+    sender:
+      chineseSimplified: "\u51AC\u5B63\u6CE8\u518C\u7A97\u53E3"
+      english: 
+    subject:
+      chineseSimplified: "\u51AC\u5B63\u7A97\u53E3\u5F00\u542F\uFF1A\u8865\u6D1E\u3001\u8C6A\u8D4C\u4E0E\u79DF\u501F"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u53EF\u4EE5\u518D\u6B21\u6CE8\u518C\u65B0\u7403\u5458\u3002\u8C28\u614E\u7684\u7403\u961F\u4FEE\u8865\u9635\u5BB9\uFF0C\u7126\u8651\u7684\u7403\u961F\u4FEE\u6539\u6574\u4E2A\u8BA1\u5212\uFF0C\u5BCC\u6709\u7684\u7403\u961F\u4E24\u4EF6\u4E8B\u4E00\u8D77\u505A\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u53EF\u4EE5\u518D\u6B21\u6CE8\u518C\u65B0\u7403\u5458\u3002\u8C28\u614E\u7684\u7403\u961F\u4FEE\u8865\u9635\u5BB9\uFF0C\u7126\u8651\u7684\u7403\u961F\u4FEE\u6539\u6574\u4E2A\u8BA1\u5212\uFF0C\u5BCC\u6709\u7684\u7403\u961F\u4E24\u4EF6\u4E8B\u4E00\u8D77\u505A\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w32
+    kind: 3
+    publishedWeek: 32
+    sender:
+      chineseSimplified: "\u51AC\u5B63\u6CE8\u518C\u7A97\u53E3"
+      english: 
+    subject:
+      chineseSimplified: "\u51AC\u5B63\u7A97\u53E3\u5173\u95ED\uFF1A\u6240\u6709\u4EBA\u90FD\u8BF4\u5B8C\u6210\u4E86\u4E3B\u8981\u76EE\u6807"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u7A97\u53E3\u5DF2\u7ECF\u5173\u95ED\u3002\u6CA1\u6709\u4E70\u5230\u4EBA\u7684\u7403\u961F\u79F0\u8D5E\u73B0\u6709\u9635\u5BB9\uFF0C\u4E70\u4E86\u5F88\u591A\u4EBA\u7684\u7403\u961F\u5F3A\u8C03\u5E02\u573A\u673A\u4F1A\u4E0D\u53EF\u9519\u8FC7\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7A97\u53E3\u5DF2\u7ECF\u5173\u95ED\u3002\u6CA1\u6709\u4E70\u5230\u4EBA\u7684\u7403\u961F\u79F0\u8D5E\u73B0\u6709\u9635\u5BB9\uFF0C\u4E70\u4E86\u5F88\u591A\u4EBA\u7684\u7403\u961F\u5F3A\u8C03\u5E02\u573A\u673A\u4F1A\u4E0D\u53EF\u9519\u8FC7\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w36
+    kind: 3
+    publishedWeek: 36
+    sender:
+      chineseSimplified: "\u6D32\u9645\u8D5B\u4E8B\u7EC4\u59D4\u4F1A"
+      english: 
+    subject:
+      chineseSimplified: "\u6DD8\u6C70\u8D5B\u9636\u6BB5\uFF1A\u4E00\u4E2A\u5931\u8BEF\u53EF\u4EE5\u5199\u8FDB\u6574\u5E74\u7EAA\u5F55\u7247"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u4E24\u56DE\u5408\u6DD8\u6C70\u8D5B\u5F00\u59CB\u3002\u5BA2\u573A\u5E94\u5BF9\u3001\u9886\u5148\u540E\u7684\u63A7\u5236\u548C\u843D\u540E\u65F6\u7684\u51B3\u7B56\uFF0C\u4F1A\u6BD4\u666E\u901A\u8054\u8D5B\u66F4\u653E\u5927\u7403\u5458\u7279\u70B9\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E24\u56DE\u5408\u6DD8\u6C70\u8D5B\u5F00\u59CB\u3002\u5BA2\u573A\u5E94\u5BF9\u3001\u9886\u5148\u540E\u7684\u63A7\u5236\u548C\u843D\u540E\u65F6\u7684\u51B3\u7B56\uFF0C\u4F1A\u6BD4\u666E\u901A\u8054\u8D5B\u66F4\u653E\u5927\u7403\u5458\u7279\u70B9\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w40
+    kind: 3
+    publishedWeek: 40
+    sender:
+      chineseSimplified: "\u8054\u76DF\u6570\u636E\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u8054\u8D5B\u8FDB\u5165\u51B2\u523A\uFF1A\u79EF\u5206\u699C\u5F00\u59CB\u62D2\u7EDD\u793C\u8C8C"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u4E89\u51A0\u3001\u6B27\u6218\u8D44\u683C\u548C\u4FDD\u7EA7\u533A\u9010\u6E10\u6210\u5F62\u3002\u6BCF\u652F\u7403\u961F\u90FD\u8BF4\u53EA\u5173\u6CE8\u4E0B\u4E00\u573A\uFF0C\u4F46\u6240\u6709\u529E\u516C\u5BA4\u90FD\u5F00\u7740\u79EF\u5206\u8BA1\u7B97\u8868\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E89\u51A0\u3001\u6B27\u6218\u8D44\u683C\u548C\u4FDD\u7EA7\u533A\u9010\u6E10\u6210\u5F62\u3002\u6BCF\u652F\u7403\u961F\u90FD\u8BF4\u53EA\u5173\u6CE8\u4E0B\u4E00\u573A\uFF0C\u4F46\u6240\u6709\u529E\u516C\u5BA4\u90FD\u5F00\u7740\u79EF\u5206\u8BA1\u7B97\u8868\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w44
+    kind: 3
+    publishedWeek: 44
+    sender:
+      chineseSimplified: "\u676F\u8D5B\u59D4\u5458\u4F1A"
+      english: 
+    subject:
+      chineseSimplified: "\u676F\u8D5B\u534A\u51B3\u8D5B\u5468\uFF1A\u66FF\u8865\u5E2D\u6DF1\u5EA6\u63A5\u53D7\u68C0\u67E5"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6DD8\u6C70\u8D5B\u6CA1\u6709\u5E73\u5747\u503C\u3002\u4E00\u6B21\u5B9A\u4F4D\u7403\u3001\u4E00\u6B21\u6251\u6551\u6216\u4E00\u6B21\u9519\u8BEF\u6362\u4EBA\uFF0C\u90FD\u53EF\u80FD\u51B3\u5B9A\u6574\u5B63\u53D9\u4E8B\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6DD8\u6C70\u8D5B\u6CA1\u6709\u5E73\u5747\u503C\u3002\u4E00\u6B21\u5B9A\u4F4D\u7403\u3001\u4E00\u6B21\u6251\u6551\u6216\u4E00\u6B21\u9519\u8BEF\u6362\u4EBA\uFF0C\u90FD\u53EF\u80FD\u51B3\u5B9A\u6574\u5B63\u53D9\u4E8B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w48
+    kind: 3
+    publishedWeek: 48
+    sender:
+      chineseSimplified: "\u8DB3\u7403\u65B0\u95FB\u53F0"
+      english: 
+    subject:
+      chineseSimplified: "\u51A0\u519B\u8054\u8D5B\u51B3\u8D5B\u6708\u4E0E\u56FD\u5185\u8054\u8D5B\u6700\u540E\u51B2\u523A"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8D5B\u5B63\u6700\u91CD\u8981\u7684\u6BD4\u8D5B\u96C6\u4E2D\u5230\u6765\u3002\u4E89\u51A0\u7403\u961F\u8C08\u51B7\u9759\uFF0C\u4FDD\u7EA7\u7403\u961F\u8C08\u5947\u8FF9\uFF0C\u4E2D\u6E38\u7403\u961F\u5F00\u59CB\u53D1\u5E03\u4E0B\u8D5B\u5B63\u7403\u8863\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8D5B\u5B63\u6700\u91CD\u8981\u7684\u6BD4\u8D5B\u96C6\u4E2D\u5230\u6765\u3002\u4E89\u51A0\u7403\u961F\u8C08\u51B7\u9759\uFF0C\u4FDD\u7EA7\u7403\u961F\u8C08\u5947\u8FF9\uFF0C\u4E2D\u6E38\u7403\u961F\u5F00\u59CB\u53D1\u5E03\u4E0B\u8D5B\u5B63\u7403\u8863\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.season.w52
+    kind: 3
+    publishedWeek: 52
+    sender:
+      chineseSimplified: "\u8054\u76DF\u4E3B\u5E2D\u529E\u516C\u5BA4"
+      english: 
+    subject:
+      chineseSimplified: "\u8D5B\u5B63\u7ED3\u675F\uFF1A\u5E74\u5EA6\u7ED3\u7B97\u5C06\u5728\u672C\u5468\u5B8C\u6210"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u6700\u540E\u4E00\u8F6E\u5DF2\u7ECF\u7ED3\u675F\u3002\u8BF7\u5904\u7406\u672C\u5468\u4E8B\u52A1\uFF0C\u968F\u540E\u4E8B\u52A1\u6240\u4F1A\u7ED3\u7B97\u73B0\u91D1\u3001\u5E94\u6536\u3001\u58F0\u671B\u548C\u5168\u5E74\u5B89\u6392\u8BB0\u5F55\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6700\u540E\u4E00\u8F6E\u5DF2\u7ECF\u7ED3\u675F\u3002\u8BF7\u5904\u7406\u672C\u5468\u4E8B\u52A1\uFF0C\u968F\u540E\u4E8B\u52A1\u6240\u4F1A\u7ED3\u7B97\u73B0\u91D1\u3001\u5E94\u6536\u3001\u58F0\u671B\u548C\u5168\u5E74\u5B89\u6392\u8BB0\u5F55\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u8D5B\u4E8B\u4E0E\u8D5B\u5B63\u8FDB\u5EA6\u901A\u77E5"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: 
+  - id: mail.expiry.player.rocket.rory
+    kind: 3
+    publishedWeek: 4
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u7F57\u91CC\u4E0D\u7B49\u4E86\uFF1A\u5DF2\u4E0E\u5C71\u533A\u901F\u964D\u961F\u7B7E\u7EA6"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 13:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7F57\u91CC\u7684\u7ECF\u7EAA\u4EBA\u8868\u793A\uFF0C\u8DB3\u7403\u4FF1\u4E50\u90E8\u8FDF\u8FDF\u6CA1\u6709\u62A5\u4EF7\uFF0C\u4ED6\u51B3\u5B9A\u63A5\u53D7\u4E00\u652F\u5C71\u533A\u7403\u961F\u7684\u9080\u8BF7\u3002\u5BF9\u65B9\u552F\u4E00\u627F\u8BFA\u662F\u4E3B\u573A\u786E\u5B9E\u6709\u5761\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.rocket.rory
+    expiredDemandId: 
+  - id: mail.expiry.player.metronome.milo
+    kind: 3
+    publishedWeek: 8
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u7C73\u6D1B\u63A5\u53D7\u4E86\u6570\u636E\u5206\u6790\u5E08\u5C97\u4F4D"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7C73\u6D1B\u7B49\u4E86\u516D\u5468\u4ECD\u6CA1\u6709\u6B63\u5F0F\u5B89\u6392\uFF0C\u4E8E\u662F\u52A0\u5165\u4FF1\u4E50\u90E8\u5206\u6790\u90E8\u95E8\u3002\u4ED6\u8BF4\u81F3\u5C11\u7535\u5B50\u8868\u683C\u4F1A\u6309\u65F6\u56DE\u4F20\u7403\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.metronome.milo
+    expiredDemandId: 
+  - id: mail.expiry.player.wall.walter
+    kind: 3
+    publishedWeek: 7
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u6C83\u5C14\u7279\u56DE\u8001\u5BB6\u63A5\u7BA1\u5BB6\u5177\u5E97"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6C83\u5C14\u7279\u6CA1\u6709\u7B49\u5230\u5408\u9002\u5408\u540C\uFF0C\u51B3\u5B9A\u56DE\u5BB6\u7ECF\u8425\u8863\u67DC\u751F\u610F\u3002\u7ECF\u7EAA\u4EBA\u5F3A\u8C03\uFF0C\u8FD9\u4E0E\u7403\u63A2\u62A5\u544A\u4E2D\u9891\u7E41\u51FA\u73B0\u201C\u50CF\u8863\u67DC\u4E00\u6837\u7ED3\u5B9E\u201D\u6BEB\u65E0\u5173\u7CFB\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.wall.walter
+    expiredDemandId: 
+  - id: mail.expiry.player.turbo.tess
+    kind: 3
+    publishedWeek: 7
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u6CF0\u4E1D\u8F6C\u6295\u5BA4\u5185\u4E94\u4EBA\u5236\u8054\u8D5B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6CF0\u4E1D\u63A5\u53D7\u4E86\u4E94\u4EBA\u5236\u7403\u961F\u7684\u5408\u540C\u3002\u5979\u8BF4\u573A\u5730\u66F4\u5C0F\uFF0C\u81F3\u5C11\u4F20\u4E2D\u98DE\u51FA\u8FB9\u7EBF\u540E\u4E0D\u4F1A\u6D88\u5931\u592A\u4E45\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.turbo.tess
+    expiredDemandId: 
+  - id: mail.expiry.player.gloves.gus
+    kind: 3
+    publishedWeek: 7
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u683C\u65AF\u52A0\u5165\u70B9\u7403\u8BAD\u7EC3\u8425\u62C5\u4EFB\u6559\u7EC3"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 11:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u683C\u65AF\u6CA1\u6709\u6536\u5230\u804C\u4E1A\u5408\u540C\uFF0C\u8F6C\u800C\u6559\u6388\u9752\u5C11\u5E74\u95E8\u5C06\u6251\u70B9\u7403\u3002\u62DB\u751F\u6D77\u62A5\u4ECD\u5199\u7740\u201C\u4E94\u8FDE\u6251\u201D\uFF0C\u7B2C\u4E94\u540D\u5B66\u5458\u76EE\u524D\u4E5F\u8BF7\u4E86\u75C5\u5047\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.gloves.gus
+    expiredDemandId: 
+  - id: mail.expiry.player.showboat.sonny
+    kind: 3
+    publishedWeek: 7
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u6851\u5C3C\u7B7E\u7EA6\u77ED\u89C6\u9891\u5E73\u53F0"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 12:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6851\u5C3C\u8868\u793A\u4F20\u7EDF\u8DB3\u7403\u65E0\u6CD5\u5B8C\u6574\u5BB9\u7EB3\u4ED6\u7684\u521B\u610F\uFF0C\u5DF2\u8F6C\u578B\u4E3A\u5168\u804C\u6280\u5DE7\u4E3B\u64AD\u3002\u9996\u671F\u8282\u76EE\u662F\u300A\u5982\u4F55\u5728\u4E0D\u56DE\u9632\u7684\u60C5\u51B5\u4E0B\u4FDD\u6301\u955C\u5934\u611F\u300B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.showboat.sonny
+    expiredDemandId: 
+  - id: mail.expiry.player.utility.uma
+    kind: 3
+    publishedWeek: 10
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u4E4C\u739B\u52A0\u5165\u6551\u706B\u6559\u7EC3\u7EC4"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u957F\u671F\u6CA1\u6709\u7403\u961F\u7ED9\u51FA\u7403\u5458\u5408\u540C\u540E\uFF0C\u4E4C\u739B\u63A5\u53D7\u4E86\u9752\u5E74\u961F\u52A9\u6559\u804C\u4F4D\u3002\u5979\u73B0\u5728\u8D1F\u8D23\u793A\u8303\u6240\u6709\u4F4D\u7F6E\uFF0C\u9664\u4E86\u8D22\u52A1\u4E3B\u7BA1\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.utility.uma
+    expiredDemandId: 
+  - id: mail.expiry.player.cousin.carlo
+    kind: 3
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u5361\u6D1B\u6539\u884C\u7ECF\u8425\u9AD8\u7EA7\u4E09\u660E\u6CBB\u5E97"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 13:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u6069\u4F50\u53D4\u53D4\u6765\u4FE1\u8BF4\u5361\u6D1B\u51B3\u5B9A\u5C0A\u91CD\u81EA\u5DF1\u7684\u771F\u6B63\u5929\u8D4B\uFF1A\u628A\u4EFB\u4F55\u4F1A\u8BAE\u53D8\u6210\u5348\u9910\u3002\u65B0\u5E97\u5F00\u4E1A\uFF0C\u5305\u53A2\u4ECD\u53EB\u201C\u4E2D\u573A\u63A7\u5236\u533A\u201D\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.cousin.carlo
+    expiredDemandId: 
+  - id: mail.expiry.player.zodiac.luna
+    kind: 3
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u9732\u5A1C\u6682\u505C\u8DB3\u7403\uFF0C\u7B49\u5F85\u6C34\u661F\u987A\u884C"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 13:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u9732\u5A1C\u8BA4\u4E3A\u672C\u6708\u5408\u540C\u8C08\u5224\u7A97\u53E3\u4E0E\u884C\u661F\u8FD0\u884C\u65B9\u5411\u51B2\u7A81\uFF0C\u51B3\u5B9A\u6682\u65F6\u4F11\u606F\u3002\u7ECF\u7EAA\u4EBA\u62D2\u7EDD\u7ED9\u51FA\u56DE\u5F52\u65E5\u671F\uFF0C\u53EA\u53D1\u6765\u4E00\u5F20\u661F\u76D8\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.zodiac.luna
+    expiredDemandId: 
+  - id: mail.expiry.player.forms.felix
+    kind: 3
+    publishedWeek: 9
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u8D39\u5229\u514B\u65AF\u901A\u8FC7\u516C\u52A1\u5458\u8003\u8BD5"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8D39\u5229\u514B\u65AF\u63A5\u53D7\u4E86\u8DB3\u534F\u6CE8\u518C\u5904\u804C\u4F4D\u3002\u4ED6\u8BF4\u8FD9\u91CC\u6BCF\u4E00\u6B21\u76D6\u7AE0\u90FD\u7B97\u6210\u529F\u51FA\u51FB\uFF0C\u800C\u4E14\u4E0D\u4F1A\u6709\u4EBA\u7A81\u7136\u8D77\u9AD8\u7403\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.forms.felix
+    expiredDemandId: 
+  - id: mail.expiry.player.rivet.rita
+    kind: 3
+    publishedWeek: 11
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u4E3D\u5854\u63A5\u53D7\u6D77\u5916\u8054\u8D5B\u62A5\u4EF7"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E3D\u5854\u4E0E\u53E6\u4E00\u5BB6\u4FF1\u4E50\u90E8\u5B8C\u6210\u7B7E\u7EA6\u3002\u5BF9\u65B9\u4F53\u80B2\u4E3B\u7BA1\u53EA\u95EE\u4E86\u4E24\u4E2A\u95EE\u9898\uFF1A\u80FD\u4E0D\u80FD\u9632\u5B88\uFF0C\u4EE5\u53CA\u80FD\u4E0D\u80FD\u8BA9\u5176\u4ED6\u4EBA\u4E5F\u8BA4\u771F\u9632\u5B88\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.rivet.rita
+    expiredDemandId: 
+  - id: mail.expiry.player.throwin.dino
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u8FEA\u8BFA\u52A0\u5165\u6807\u67AA\u4FF1\u4E50\u90E8"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 13:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8FEA\u8BFA\u8BA4\u4E3A\u8DB3\u7403\u5BF9\u624B\u81C2\u5929\u8D4B\u7F3A\u4E4F\u5C0A\u91CD\uFF0C\u5DF2\u52A0\u5165\u5F53\u5730\u7530\u5F84\u961F\u3002\u7B2C\u4E00\u5802\u8BFE\u7684\u91CD\u70B9\u662F\u5B66\u4E60\u4E0D\u8981\u628A\u6807\u67AA\u6254\u5411\u89D2\u65D7\u533A\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.throwin.dino
+    expiredDemandId: 
+  - id: mail.expiry.player.spreadsheet.nova
+    kind: 3
+    publishedWeek: 13
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u8BFA\u74E6\u52A0\u5165\u51A0\u519B\u8054\u8D5B\u6570\u636E\u90E8\u95E8"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 08:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8BFA\u74E6\u63A5\u53D7\u4E86\u4E00\u5BB6\u6D32\u9645\u8D5B\u4E8B\u6570\u636E\u4F9B\u5E94\u5546\u7684\u804C\u4F4D\u3002\u5979\u7559\u4E0B\u6700\u540E\u4E00\u53E5\u8BDD\uFF1A\u81F3\u5C11\u6570\u636E\u5E93\u4E0D\u4F1A\u5728\u7B2C\u516B\u5341\u5206\u949F\u7A81\u7136\u6539\u8E22\u56DB\u524D\u950B\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.spreadsheet.nova
+    expiredDemandId: 
+  - id: mail.expiry.player.bothfeet.echo
+    kind: 3
+    publishedWeek: 14
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u827E\u53EF\u52A0\u76DF\u7ADE\u4E89\u5BF9\u624B"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u827E\u53EF\u6CA1\u6709\u7EE7\u7EED\u7B49\u5F85\uFF0C\u5DF2\u4E0E\u53E6\u4E00\u5BB6\u4FF1\u4E50\u90E8\u7B7E\u7EA6\u3002\u53D1\u5E03\u4F1A\u4E0A\u5979\u5206\u522B\u7528\u5DE6\u53F3\u811A\u98A0\u7403\uFF0C\u516C\u5173\u90E8\u56E0\u6B64\u53D1\u4E86\u4E24\u4EFD\u65B0\u95FB\u7A3F\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.bothfeet.echo
+    expiredDemandId: 
+  - id: mail.expiry.player.thermos.vic
+    kind: 3
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u7EF4\u514B\u5BA3\u5E03\u9000\u5F79"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 14:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u7EF4\u514B\u51B3\u5B9A\u7ED3\u675F\u7403\u5458\u751F\u6DAF\u3002\u4ED6\u8BF4\u819D\u76D6\u5DF2\u7ECF\u6295\u7968\u901A\u8FC7\uFF0C\u4FDD\u6E29\u676F\u4EE5\u5168\u7968\u5F53\u9009\u4E0B\u4E00\u4EFB\u7ECF\u7EAA\u4EBA\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.thermos.vic
+    expiredDemandId: 
+  - id: mail.expiry.player.academy.perry
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u7403\u5458\u52A8\u6001\u4E2D\u5FC3"
+      english: 
+    subject:
+      chineseSimplified: "\u4F69\u91CC\u8FDB\u5165\u771F\u4EBA\u79C0\u5C01\u95ED\u62CD\u6444"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 14:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u7403\u5458\u5DF2\u7ECF\u79BB\u5F00\u53EF\u5B89\u6392\u540D\u5355\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4F69\u91CC\u7684\u56E2\u961F\u6682\u505C\u6240\u6709\u8BD5\u8BAD\uFF0C\u56E0\u4E3A\u7EAA\u5F55\u7247\u5E73\u53F0\u8981\u6C42\u5267\u60C5\u4FDD\u5BC6\u3002\u7ECF\u7EAA\u4EBA\u627F\u8BFA\u4E0B\u4E00\u5B63\u4F1A\u51FA\u73B0\u201C\u81F3\u5C11\u4E00\u6B21\u771F\u6B63\u7684\u6210\u5E74\u6BD4\u8D5B\u201D\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u72B6\u6001\u53D8\u66F4 \xB7 \u7403\u5458\u4E0D\u518D\u53EF\u5B89\u6392"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: player.academy.perry
+    expiredDemandId: 
+  - id: mail.expiry.demand.week1.emergency
+    kind: 3
+    publishedWeek: 3
+    sender:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280"
+      english: 
+    subject:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280\u5173\u95ED\u7D27\u6025\u524D\u950B\u62DB\u8058"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 14:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u62DB\u8058\u9700\u6C42\u5DF2\u7ECF\u8FC7\u671F\u5E76\u4ECE\u5DE5\u4F5C\u53F0\u79FB\u9664\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u96E8\u57CE\u7ADE\u6280\u5DF2\u4ECE\u9884\u5907\u961F\u63D0\u62D4\u4E00\u540D\u524D\u950B\u3002\u4F53\u80B2\u4E3B\u7BA1\u611F\u8C22\u6240\u6709\u63A8\u8350\uFF0C\u5E76\u8868\u793A\u4E0B\u6B21\u4F1A\u5728\u4E3B\u529B\u53D7\u4F24\u524D\u9605\u8BFB\u4F53\u68C0\u62A5\u544A\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u901A\u77E5 \xB7 \u62DB\u8058\u9700\u6C42\u5DF2\u5173\u95ED"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: demand.week1.emergency
+  - id: mail.expiry.demand.week2.group
+    kind: 3
+    publishedWeek: 5
+    sender:
+      chineseSimplified: "\u8239\u575E\u8054"
+      english: 
+    subject:
+      chineseSimplified: "\u8239\u575E\u8054\u7ED3\u675F\u8054\u5408\u8BD5\u8BAD"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 15:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u62DB\u8058\u9700\u6C42\u5DF2\u7ECF\u8FC7\u671F\u5E76\u4ECE\u5DE5\u4F5C\u53F0\u79FB\u9664\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8239\u575E\u8054\u4ECE\u9752\u8BAD\u961F\u8865\u8FDB\u4E24\u4EBA\uFF0C\u62DB\u8058\u63D0\u524D\u7ED3\u675F\u3002\u4E3B\u6559\u7EC3\u79F0\u9635\u5BB9\u5DF2\u7ECF\u8DB3\u591F\u5B8C\u6574\uFF0C\u8D22\u52A1\u4E3B\u7BA1\u79F0\u9910\u8D39\u4E5F\u7EC8\u4E8E\u5B8C\u6574\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u901A\u77E5 \xB7 \u62DB\u8058\u9700\u6C42\u5DF2\u5173\u95ED"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: demand.week2.group
+  - id: mail.expiry.demand.week3.longterm
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u65E7\u5821\u738B\u51A0"
+      english: 
+    subject:
+      chineseSimplified: "\u65E7\u5821\u738B\u51A0\u505C\u6B62\u672C\u8F6E\u8865\u5F3A"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 15:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u62DB\u8058\u9700\u6C42\u5DF2\u7ECF\u8FC7\u671F\u5E76\u4ECE\u5DE5\u4F5C\u53F0\u79FB\u9664\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u8463\u4E8B\u4F1A\u51B3\u5B9A\u628A\u9884\u7B97\u7559\u7ED9\u51AC\u5B63\u7A97\u53E3\uFF0C\u5E76\u53D1\u5E03\u4E86\u7B2C\u4E5D\u7248\u957F\u671F\u89C4\u5212\u3002\u7B2C\u516B\u7248\u4ECD\u7136\u6709\u6548\uFF0C\u53EA\u662F\u4E0D\u518D\u88AB\u4EFB\u4F55\u4EBA\u63D0\u8D77\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u901A\u77E5 \xB7 \u62DB\u8058\u9700\u6C42\u5DF2\u5173\u95ED"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: demand.week3.longterm
+  - id: mail.expiry.demand.week4.keeper
+    kind: 3
+    publishedWeek: 6
+    sender:
+      chineseSimplified: "\u6D77\u6E2F\u84DD\u9E25"
+      english: 
+    subject:
+      chineseSimplified: "\u6D77\u6E2F\u84DD\u9E25\u64A4\u56DE\u95E8\u5C06\u9700\u6C42"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 16:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u62DB\u8058\u9700\u6C42\u5DF2\u7ECF\u8FC7\u671F\u5E76\u4ECE\u5DE5\u4F5C\u53F0\u79FB\u9664\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E00\u53F7\u95E8\u5C06\u6062\u590D\u901F\u5EA6\u5FEB\u4E8E\u9884\u671F\uFF0C\u4FF1\u4E50\u90E8\u64A4\u56DE\u62DB\u8058\u3002\u961F\u533B\u8868\u793A\u8FD9\u6B21\u6CA1\u6709\u53C2\u8003\u6F6E\u6C50\u8868\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u901A\u77E5 \xB7 \u62DB\u8058\u9700\u6C42\u5DF2\u5173\u95ED"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: demand.week4.keeper
+  - id: mail.expiry.demand.week5.group
+    kind: 3
+    publishedWeek: 8
+    sender:
+      chineseSimplified: "\u94C1\u7089\u7ADE\u6280"
+      english: 
+    subject:
+      chineseSimplified: "\u94C1\u7089\u7ADE\u6280\u7ED3\u675F\u62DB\u8058"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 09:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u62DB\u8058\u9700\u6C42\u5DF2\u7ECF\u8FC7\u671F\u5E76\u4ECE\u5DE5\u4F5C\u53F0\u79FB\u9664\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4E3B\u6559\u7EC3\u4ECE\u9752\u5E74\u961F\u63D0\u62D4\u4E24\u540D\u7403\u5458\uFF0C\u5E76\u5BA3\u5E03\u4ED6\u4EEC\u5DF2\u7ECF\u5B66\u4F1A\u6700\u91CD\u8981\u7684\u6218\u672F\uFF1A\u542C\u89C1\u54E8\u58F0\u5C31\u56DE\u9632\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u901A\u77E5 \xB7 \u62DB\u8058\u9700\u6C42\u5DF2\u5173\u95ED"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: demand.week5.group
+  - id: mail.expiry.demand.week6.future
+    kind: 3
+    publishedWeek: 10
+    sender:
+      chineseSimplified: "\u5F57\u661F\u57CE"
+      english: 
+    subject:
+      chineseSimplified: "\u5F57\u661F\u57CE\u5B8C\u6210\u5185\u90E8\u8865\u5F3A"
+      english: 
+    receivedTime:
+      chineseSimplified: "\u5468\u4E00 10:05"
+      english: 
+    preview:
+      chineseSimplified: "\u8BE5\u62DB\u8058\u9700\u6C42\u5DF2\u7ECF\u8FC7\u671F\u5E76\u4ECE\u5DE5\u4F5C\u53F0\u79FB\u9664\u3002"
+      english: 
+    body:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u51B3\u5B9A\u542F\u7528\u4E24\u540D\u9752\u8BAD\u7403\u5458\u3002\u6570\u636E\u90E8\u95E8\u8868\u793A\u6A21\u578B\u65E9\u5DF2\u9884\u6D4B\u5230\u8FD9\u4E00\u7ED3\u679C\uFF0C\u53EA\u662F\u62A5\u544A\u76F4\u5230\u4ECA\u5929\u624D\u5B8C\u6210\u6E32\u67D3\u3002"
+      english: 
+    sourceNote:
+      chineseSimplified: "\u4FF1\u4E50\u90E8\u901A\u77E5 \xB7 \u62DB\u8058\u9700\u6C42\u5DF2\u5173\u95ED"
+      english: 
+    relatedPlayerId: 
+    relatedDemandId: 
+    privateOfferAmount: 0
+    privateOfferTerms:
+      chineseSimplified: 
+      english: 
+    privateRequiredClubId: 
+    privateTargetClubRequirement:
+      chineseSimplified: 
+      english: 
+    privateRiskNote:
+      chineseSimplified: 
+      english: 
+    expiredPlayerId: 
+    expiredDemandId: demand.week6.future
+  magazineIssues:
+  - id: mag.touchline.01
+    coverIndex: 0
+    publishedWeek: 1
+    publicationName:
+      chineseSimplified: "\u300A\u8FB9\u7EBF\u5468\u520A\u300B"
+      english: 
+    issueTitle:
+      chineseSimplified: "\u8D44\u683C\u8D5B\u524D\u7684\u524D\u950B\u5E02\u573A"
+      english: 
+    issueNumber: "\u5B63\u524D\u53F7 01"
+    pages:
+    - layout: 0
+      kicker:
+        chineseSimplified: "\u5C01\u9762\u6545\u4E8B"
+        english: 
+      headline:
+        chineseSimplified: "\u56DB\u5341\u4E00\u7403\u5230\u5E95\u5728\u54EA\u513F\uFF1F"
+        english: 
+      deck:
+        chineseSimplified: "\u4ECE\u7ECF\u7EAA\u4EBA\u6570\u5B57\u56DE\u5230\u5B8C\u6574\u6BD4\u8D5B\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u4E00\u540D\u524D\u950B\u7684\u5BA3\u4F20\u6750\u6599\u5199\u7740\u56DB\u5341\u4E00\u7403\uFF0C\u4F46\u6CA1\u6709\u8054\u8D5B\u540D\u79F0\u3001\u51FA\u573A\u6570\u548C\u6BD4\u8D5B\u7EA7\u522B\u3002\u6570\u5B57\u8D8A\u6574\u9F50\uFF0C\u8D8A\u5E94\u8BE5\u5148\u95EE\u7EDF\u8BA1\u53E3\u5F84\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u96E8\u57CE\u7ADE\u6280\u9700\u8981\u7684\u662F\u80FD\u7ACB\u523B\u9002\u5E94\u8D44\u683C\u8D5B\u5F3A\u5EA6\u7684\u524D\u950B\u3002\u8DD1\u4F4D\u3001\u903C\u62A2\u548C\u8EAB\u4F53\u72B6\u6001\uFF0C\u6BD4\u4E00\u5F20\u5B64\u7ACB\u7684\u5C04\u624B\u699C\u622A\u56FE\u66F4\u91CD\u8981\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u7403\u63A2\u4E0D\u662F\u6765\u8BC1\u660E\u90AE\u4EF6\u6B63\u786E\uFF0C\u800C\u662F\u6765\u5224\u65AD\u54EA\u91CC\u53EF\u80FD\u4E0D\u6B63\u786E\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u6838\u5BF9\u6E05\u5355"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u8D5B\u4E8B\u7EA7\u522B\u3001\u51FA\u573A\u5206\u949F\u3001\u70B9\u7403\u5360\u6BD4\u3001\u5B8C\u6574\u5F55\u50CF\u3002"
+        english: 
+      relatedPlayerId: player.rocket.rory
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u6218\u672F\u5BA4"
+        english: 
+      headline:
+        chineseSimplified: "\u8D44\u683C\u8D5B\u4E3A\u4EC0\u4E48\u6BD4\u70ED\u8EAB\u8D5B\u5FEB\u534A\u62CD"
+        english: 
+      deck:
+        chineseSimplified: "\u9AD8\u538B\u6BD4\u8D5B\u9996\u5148\u8003\u9A8C\u51B3\u7B56\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u6D32\u9645\u8D44\u683C\u8D5B\u7684\u7A7A\u95F4\u66F4\u5C0F\uFF0C\u8F6C\u6362\u66F4\u5FEB\u3002\u524D\u950B\u5982\u679C\u53EA\u7B49\u5F85\u6700\u540E\u4E00\u811A\uFF0C\u7403\u961F\u5F88\u5BB9\u6613\u5728\u7B2C\u4E00\u9053\u903C\u62A2\u5C31\u5C11\u4E00\u4EBA\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u89C2\u5BDF\u5019\u9009\u4EBA\u65F6\uFF0C\u5E94\u8BB0\u5F55\u4ED6\u4E22\u7403\u540E\u7684\u4E94\u79D2\u3001\u65E0\u7403\u8DD1\u52A8\u548C\u4E0E\u4E2D\u573A\u7684\u8DDD\u79BB\uFF0C\u800C\u4E0D\u53EA\u662F\u5C04\u95E8\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u901F\u5EA6\u662F\u5230\u8FBE\u7A7A\u95F4\uFF0C\u5224\u65AD\u662F\u63D0\u524D\u77E5\u9053\u7A7A\u95F4\u4F1A\u51FA\u73B0\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u96E8\u57CE\u7ADE\u6280"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u4E0A\u5B63\u7B2C\u56DB\uFF0C\u76EE\u6807\u8FDB\u5165\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u6B63\u8D5B\u3002"
+        english: 
+      relatedPlayerId: player.rocket.rory
+    - layout: 2
+      kicker:
+        chineseSimplified: "\u7403\u63A2\u62A5\u544A"
+        english: 
+      headline:
+        chineseSimplified: "\u7F57\u91CC\xB7\u594E\u514B\uFF1A\u8DD1\u4F4D\u53EF\u4FE1\uFF0C\u6570\u5B57\u5F85\u67E5"
+        english: 
+      deck:
+        chineseSimplified: "\u516C\u5F00\u4FE1\u606F\u7684\u53EF\u4FE1\u90E8\u5206\u4E0E\u7A7A\u767D\u90E8\u5206\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u4E24\u573A\u5B8C\u6574\u5F55\u50CF\u8BC1\u660E\u4ED6\u7684\u53CD\u8D8A\u4F4D\u548C\u542F\u52A8\u5177\u5907\u804C\u4E1A\u6C34\u51C6\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u6CA1\u6709\u8BC1\u636E\u652F\u6301\u56DB\u5341\u4E00\u7403\uFF0C\u4E5F\u6CA1\u6709\u8BC1\u636E\u8BF4\u660E\u6BD4\u8D5B\u5F3A\u5EA6\u8DB3\u4EE5\u5BF9\u5E94\u9876\u7EA7\u8054\u8D5B\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u53EF\u4EE5\u63A8\u8350\u8BD5\u8BAD\uFF0C\u4F46\u4E0D\u80FD\u628A\u5BA3\u4F20\u6570\u5B57\u5F53\u7ED3\u8BBA\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u98CE\u9669"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u6837\u672C\u91CF\u5C0F\uFF1B\u7ECF\u7EAA\u4EBA\u53D9\u8FF0\u660E\u663E\u504F\u5411\u7403\u5458\u3002"
+        english: 
+      relatedPlayerId: player.rocket.rory
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u6587\u5316\u9875"
+        english: 
+      headline:
+        chineseSimplified: "\u5F53\u6BCF\u652F\u7403\u961F\u90FD\u8BF4\u81EA\u5DF1\u5728\u91CD\u5EFA"
+        english: 
+      deck:
+        chineseSimplified: "\u5B63\u524D\u53D1\u5E03\u4F1A\u5E38\u7528\u8BCD\u89C2\u5BDF\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u957F\u671F\u8BA1\u5212\u3001\u5E74\u8F7B\u5316\u548C\u56DE\u5F52\u4F20\u7EDF\u662F\u6700\u5E38\u89C1\u7684\u4E09\u53E5\u8BDD\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5982\u679C\u540C\u4E00\u5468\u51FA\u73B0\u7B2C\u56DB\u4F4D\u201C\u6700\u540E\u4E00\u5757\u62FC\u56FE\u201D\uFF0C\u8BF7\u68C0\u67E5\u4FF1\u4E50\u90E8\u662F\u5426\u8FD8\u4FDD\u7559\u524D\u4E09\u5757\u7684\u6536\u636E\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u8DB3\u7403\u6CA1\u6709\u6700\u7EC8\u7248\u6587\u4EF6\uFF0C\u53EA\u6709\u4E0B\u4E00\u6B21\u4FEE\u6539\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u672C\u5468\u672F\u8BED"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u8D1F\u8377\u7BA1\u7406\uFF1A\u70ED\u8EAB\u8D5B\u8F93\u7403\u540E\u7684\u5E38\u7528\u89E3\u91CA\u3002"
+        english: 
+      relatedPlayerId: 
+  - id: mag.touchline.02
+    coverIndex: 1
+    publishedWeek: 2
+    publicationName:
+      chineseSimplified: "\u300A\u8FB9\u7EBF\u5468\u520A\u300B"
+      english: 
+    issueTitle:
+      chineseSimplified: "\u4E2D\u573A\u4EF7\u503C\u4E0E\u770B\u4E0D\u89C1\u7684\u5DE5\u4F5C"
+      english: 
+    issueNumber: "\u5B63\u524D\u53F7 02"
+    pages:
+    - layout: 0
+      kicker:
+        chineseSimplified: "\u5C01\u9762\u6545\u4E8B"
+        english: 
+      headline:
+        chineseSimplified: "\u4E3A\u4EC0\u4E48\u6700\u91CD\u8981\u7684\u4F20\u7403\u5E38\u5E38\u8FDB\u4E0D\u4E86\u96C6\u9526"
+        english: 
+      deck:
+        chineseSimplified: "\u7C73\u6D1B\u5F0F\u4E2D\u573A\u7684\u89C2\u770B\u65B9\u6CD5\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u5B89\u5168\u63A5\u5E94\u3001\u8C03\u6574\u7AD9\u4F4D\u548C\u5438\u5F15\u903C\u62A2\u5F88\u5C11\u6210\u4E3A\u77ED\u89C6\u9891\u6807\u9898\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u4F46\u8FD9\u4E9B\u52A8\u4F5C\u51B3\u5B9A\u7403\u961F\u80FD\u5426\u628A\u4E00\u6B21\u63A7\u7403\u53D8\u6210\u7A33\u5B9A\u63A8\u8FDB\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u597D\u7684\u4E2D\u573A\u8BA9\u961F\u53CB\u770B\u8D77\u6765\u90FD\u65E9\u5230\u4E86\u4E00\u79D2\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u89C2\u5BDF\u91CD\u70B9"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u63A5\u7403\u524D\u626B\u63CF\u3001\u8EAB\u4F53\u671D\u5411\u3001\u4E22\u7403\u540E\u7684\u56DE\u4F4D\u3002"
+        english: 
+      relatedPlayerId: player.metronome.milo
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u6BD4\u8D5B\u5206\u6790"
+        english: 
+      headline:
+        chineseSimplified: "\u8239\u575E\u8054\u9700\u8981\u7684\u662F\u8FDE\u63A5\uFF0C\u4E0D\u662F\u7B2C\u4E8C\u4E2A\u524D\u950B"
+        english: 
+      deck:
+        chineseSimplified: "\u53CC\u4EBA\u62DB\u8058\u7684\u7ED3\u6784\u903B\u8F91\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u524D\u950B\u8D1F\u8D23\u5A01\u80C1\u7EB5\u6DF1\uFF0C\u4E2D\u573A\u8D1F\u8D23\u8BA9\u5A01\u80C1\u6301\u7EED\u5B58\u5728\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5982\u679C\u4E24\u4EBA\u90FD\u53EA\u8FFD\u6C42\u6700\u540E\u4E00\u811A\uFF0C\u7403\u961F\u4F1A\u50CF\u6563\u5F00\u7684\u96C6\u88C5\u7BB1\u4E00\u6837\u5931\u53BB\u8054\u7CFB\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u7EC4\u5408\u4EF7\u503C\u4E0D\u7B49\u4E8E\u4E24\u4EFD\u4E2A\u4EBA\u96C6\u9526\u76F8\u52A0\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u4FF1\u4E50\u90E8\u6863\u6848"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u4E0A\u5B63\u7B2C\u5341\u4E00\uFF0C\u5B9A\u4F4D\u7403\u5F3A\uFF0C\u8FD0\u52A8\u6218\u7EC4\u7EC7\u4E0D\u8DB3\u3002"
+        english: 
+      relatedPlayerId: player.metronome.milo
+    - layout: 2
+      kicker:
+        chineseSimplified: "\u8001\u5C06\u89C2\u5BDF"
+        english: 
+      headline:
+        chineseSimplified: "\u7EF4\u514B\uFF1A\u901F\u5EA6\u4E0B\u964D\u4E4B\u540E\u8FD8\u5269\u4EC0\u4E48"
+        english: 
+      deck:
+        chineseSimplified: "\u516D\u7801\u533A\u7ECF\u9A8C\u662F\u5426\u4ECD\u6709\u5E02\u573A\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u7EF4\u514B\u7684\u51B2\u523A\u9891\u7387\u660E\u663E\u4E0B\u964D\uFF0C\u4F46\u5BF9\u4E8C\u70B9\u7403\u548C\u89E3\u56F4\u843D\u70B9\u7684\u5224\u65AD\u4ECD\u7136\u53EF\u9760\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u9700\u8981\u6301\u7EED\u9AD8\u4F4D\u538B\u8FEB\u7684\u7403\u961F\u5E94\u8C28\u614E\uFF1B\u9700\u8981\u77ED\u65F6\u95F4\u7981\u533A\u6548\u7387\u7684\u7403\u961F\u53EF\u4EE5\u8BD5\u8BAD\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u8001\u5C06\u7684\u4EF7\u503C\u4E0D\u662F\u8DD1\u5F97\u548C\u5E74\u8F7B\u4EBA\u4E00\u6837\u5FEB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u9002\u914D\u6761\u4EF6"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u6709\u9650\u51FA\u573A\u65F6\u95F4\u3001\u660E\u786E\u7981\u533A\u804C\u8D23\u3001\u5408\u7406\u8F6E\u6362\u3002"
+        english: 
+      relatedPlayerId: player.thermos.vic
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u6570\u636E\u9875"
+        english: 
+      headline:
+        chineseSimplified: "\u5B8C\u6574\u6BD4\u8D5B\u6BD4\u70ED\u533A\u66F4\u4F1A\u8BF4\u8BDD"
+        english: 
+      deck:
+        chineseSimplified: "\u522B\u8BA9\u4E00\u5F20\u56FE\u66FF\u4F60\u770B\u5B8C\u4E5D\u5341\u5206\u949F\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u70ED\u533A\u80FD\u8BF4\u660E\u7403\u5458\u5728\u54EA\u91CC\u89E6\u7403\uFF0C\u5374\u4E0D\u4E00\u5B9A\u8BF4\u660E\u4ED6\u4E3A\u4EC0\u4E48\u5728\u90A3\u91CC\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u628A\u6570\u636E\u4E0E\u6BD4\u8D5B\u9636\u6BB5\u3001\u6BD4\u5206\u548C\u5BF9\u624B\u5F3A\u5EA6\u653E\u5728\u4E00\u8D77\uFF0C\u7ED3\u8BBA\u624D\u6709\u610F\u4E49\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u6CA1\u6709\u4E0A\u4E0B\u6587\u7684\u6570\u636E\uFF0C\u53EA\u662F\u7A7F\u897F\u88C5\u7684\u4F20\u95FB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u672C\u5468\u63D0\u9192"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u5148\u95EE\u6837\u672C\uFF0C\u518D\u95EE\u7ED3\u8BBA\u3002"
+        english: 
+      relatedPlayerId: 
+  - id: mag.touchline.03
+    coverIndex: 2
+    publishedWeek: 3
+    publicationName:
+      chineseSimplified: "\u300A\u6B27\u9646\u8DB3\u7403\u89C2\u5BDF\u300B"
+      english: 
+    issueTitle:
+      chineseSimplified: "\u8C6A\u95E8\u8865\u5F3A\u4E0E\u9AD8\u4F4D\u9632\u7EBF"
+      english: 
+    issueNumber: "\u7B2C 03 \u671F"
+    pages:
+    - layout: 0
+      kicker:
+        chineseSimplified: "\u5C01\u9762\u6545\u4E8B"
+        english: 
+      headline:
+        chineseSimplified: "\u4F20\u7EDF\u8C6A\u95E8\u9700\u8981\u600E\u6837\u7684\u4E2D\u540E\u536B"
+        english: 
+      deck:
+        chineseSimplified: "\u9AD8\u4F4D\u9632\u7EBF\u628A\u5224\u65AD\u653E\u5927\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u4E89\u51A0\u7403\u961F\u7684\u4E2D\u540E\u536B\u5E38\u5728\u66F4\u5927\u7A7A\u95F4\u91CC\u9632\u5B88\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u6B63\u9762\u5BF9\u6297\u5F3A\u4E0D\u7B49\u4E8E\u9002\u5408\u6240\u6709\u4F53\u7CFB\uFF0C\u63D0\u524D\u79FB\u52A8\u548C\u8F6C\u8EAB\u540C\u6837\u91CD\u8981\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u9AD8\u4F4D\u9632\u7EBF\u4E0D\u4F1A\u9690\u85CF\u77ED\u677F\uFF0C\u53EA\u4F1A\u7ED9\u77ED\u677F\u66F4\u5927\u7684\u8349\u5730\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u65E7\u5821\u738B\u51A0"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u4E0A\u5B63\u7B2C\u4E8C\uFF0C\u8FDE\u7EED\u516D\u5E74\u53C2\u52A0\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u3002"
+        english: 
+      relatedPlayerId: player.wall.walter
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u6218\u672F\u5BA4"
+        english: 
+      headline:
+        chineseSimplified: "\u8FB9\u950B\u7684\u4E00\u5BF9\u4E00\u4E0D\u662F\u4E2A\u4EBA\u8868\u6F14"
+        english: 
+      deck:
+        chineseSimplified: "\u7A81\u7834\u5FC5\u987B\u8FDE\u63A5\u540E\u7EED\u8FDB\u653B\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u771F\u6B63\u6709\u6548\u7684\u4E00\u5BF9\u4E00\u4F1A\u8FEB\u4F7F\u9632\u7EBF\u79FB\u52A8\uFF0C\u4E3A\u961F\u53CB\u521B\u9020\u5C04\u95E8\u6216\u4F20\u4E2D\u7A7A\u95F4\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u53EA\u6709\u52A8\u4F5C\u6CA1\u6709\u540E\u7EED\u9009\u62E9\uFF0C\u5F80\u5F80\u53EA\u662F\u628A\u4E22\u7403\u5730\u70B9\u5411\u524D\u79FB\u52A8\u5341\u7C73\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u8FC7\u6389\u7B2C\u4E00\u4E2A\u4EBA\u4EE5\u540E\uFF0C\u6BD4\u8D5B\u624D\u521A\u5F00\u59CB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u89C2\u5BDF\u91CD\u70B9"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u62AC\u5934\u9891\u7387\u3001\u5F31\u4FA7\u961F\u53CB\u3001\u4E22\u7403\u53CD\u5E94\u3002"
+        english: 
+      relatedPlayerId: player.zodiac.luna
+    - layout: 2
+      kicker:
+        chineseSimplified: "\u7403\u63A2\u62A5\u544A"
+        english: 
+      headline:
+        chineseSimplified: "\u6C83\u5C14\u7279\uFF1A\u7981\u533A\u53EF\u9760\uFF0C\u9AD8\u4F4D\u6709\u95EE\u53F7"
+        english: 
+      deck:
+        chineseSimplified: "\u5F3A\u9879\u660E\u786E\uFF0C\u4F53\u7CFB\u9002\u914D\u9700\u8981\u8BD5\u8BAD\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u6C83\u5C14\u7279\u5728\u7981\u533A\u9644\u8FD1\u7684\u5BF9\u6297\u548C\u89E3\u56F4\u503C\u5F97\u4FE1\u4EFB\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5F53\u9632\u7EBF\u538B\u5230\u4E2D\u7EBF\uFF0C\u4ED6\u7684\u8F6C\u8EAB\u548C\u8FFD\u8E2A\u7EBF\u8DEF\u53EF\u80FD\u6210\u4E3A\u98CE\u9669\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u4E0D\u662F\u80FD\u529B\u4E0D\u8DB3\uFF0C\u800C\u662F\u95EE\u9898\u5FC5\u987B\u95EE\u5BF9\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u5EFA\u8BAE"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u5B89\u6392\u9AD8\u4F4D\u9632\u7EBF\u4E13\u9879\u8BD5\u8BAD\uFF0C\u4E0D\u4EE5\u4EB2\u5C5E\u8BC4\u4EF7\u4F5C\u7ED3\u8BBA\u3002"
+        english: 
+      relatedPlayerId: player.wall.walter
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u770B\u53F0\u6587\u5316"
+        english: 
+      headline:
+        chineseSimplified: "\u6BCF\u4EFD\u4E94\u5E74\u8BA1\u5212\u4E3A\u4EC0\u4E48\u53EA\u6D3B\u5230\u661F\u671F\u4E94"
+        english: 
+      deck:
+        chineseSimplified: "\u8C6A\u95E8\u8463\u4E8B\u4F1A\u8BED\u8A00\u5B66\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u6210\u7EE9\u597D\u65F6\u53EB\u5EF6\u7EED\uFF0C\u6210\u7EE9\u5DEE\u65F6\u53EB\u91CD\u5EFA\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u8BA1\u5212\u672C\u8EAB\u901A\u5E38\u6CA1\u6709\u95EE\u9898\uFF0C\u95EE\u9898\u662F\u6587\u4EF6\u540D\u91CC\u7684\u201C\u6700\u7EC8\u7248\u201D\u5DF2\u7ECF\u51FA\u73B0\u516B\u6B21\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u957F\u671F\u4E3B\u4E49\u7684\u6700\u77ED\u5355\u4F4D\uFF0C\u662F\u4E0B\u4E00\u573A\u6BD4\u8D5B\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u8BCD\u6C47\u8868"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u5168\u9762\u652F\u6301\uFF1A\u901A\u5E38\u6301\u7EED\u5230\u4E0B\u4E00\u6B21\u4E3B\u573A\u5618\u58F0\u3002"
+        english: 
+      relatedPlayerId: 
+  - id: mag.touchline.04
+    coverIndex: 3
+    publishedWeek: 4
+    publicationName:
+      chineseSimplified: "\u300A\u95E8\u7EBF\u6708\u62A5\u300B"
+      english: 
+    issueTitle:
+      chineseSimplified: "\u95E8\u5C06\u3001\u4F20\u4E2D\u4E0E\u7B2C\u4E94\u7C92\u70B9\u7403"
+      english: 
+    issueNumber: "\u7B2C 04 \u671F"
+    pages:
+    - layout: 0
+      kicker:
+        chineseSimplified: "\u5C01\u9762\u6545\u4E8B"
+        english: 
+      headline:
+        chineseSimplified: "\u4E94\u8FDE\u6251\u4F20\u8BF4\u7684\u7B2C\u4E94\u4E2A\u4EBA\u53BB\u54EA\u4E86"
+        english: 
+      deck:
+        chineseSimplified: "\u6F02\u4EAE\u6570\u5B57\u4E5F\u8981\u6838\u5BF9\u51FA\u573A\u540D\u5355\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u683C\u65AF\u786E\u5B9E\u5B8C\u6210\u56DB\u6B21\u6251\u6551\uFF0C\u8FD9\u662F\u5F88\u5F3A\u7684\u8868\u73B0\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u7B2C\u4E94\u540D\u4E3B\u7F5A\u8005\u6CA1\u6709\u51FA\u573A\uFF0C\u56E0\u6B64\u4E0D\u80FD\u628A\u7F3A\u5E2D\u7EDF\u8BA1\u6210\u4E00\u6B21\u6251\u6551\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u597D\u7403\u63A2\u4E0D\u4F1A\u56E0\u4E3A\u7B11\u8BDD\u6709\u8DA3\u5C31\u505C\u6B62\u6838\u5B9E\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u95E8\u5C06\u6307\u6807"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u7AD9\u4F4D\u3001\u4E8C\u6B21\u53CD\u5E94\u3001\u9AD8\u7403\u5224\u65AD\u3001\u51FA\u7403\u9009\u62E9\u3002"
+        english: 
+      relatedPlayerId: player.gloves.gus
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u95E8\u5C06\u8BFE\u5802"
+        english: 
+      headline:
+        chineseSimplified: "\u6D77\u98CE\u4E0D\u662F\u6280\u672F\u6307\u6807"
+        english: 
+      deck:
+        chineseSimplified: "\u5904\u7406\u4F20\u4E2D\u9700\u8981\u53EF\u91CD\u590D\u7684\u5224\u65AD\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u98CE\u4F1A\u5F71\u54CD\u7403\u8DEF\uFF0C\u4F46\u95E8\u5C06\u4ECD\u9700\u901A\u8FC7\u7AD9\u4F4D\u3001\u542F\u52A8\u548C\u6C9F\u901A\u964D\u4F4E\u4E0D\u786E\u5B9A\u6027\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u628A\u6BCF\u6B21\u5931\u8BEF\u5F52\u56E0\u4E8E\u5929\u6C14\uFF0C\u53EA\u4F1A\u8BA9\u4E0B\u4E00\u6B21\u5931\u8BEF\u66F4\u51C6\u65F6\u5730\u5230\u6765\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u73AF\u5883\u80FD\u89E3\u91CA\u96BE\u5EA6\uFF0C\u4E0D\u80FD\u66FF\u4EE3\u8D23\u4EFB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u6D77\u6E2F\u84DD\u9E25"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u4E0A\u5B63\u9644\u52A0\u8D5B\u4FDD\u7EA7\uFF0C\u7981\u533A\u9632\u5B88\u538B\u529B\u5927\u3002"
+        english: 
+      relatedPlayerId: player.gloves.gus
+    - layout: 2
+      kicker:
+        chineseSimplified: "\u7403\u63A2\u62A5\u544A"
+        english: 
+      headline:
+        chineseSimplified: "\u8D39\u5229\u514B\u65AF\uFF1A\u53EF\u9760\uFF0C\u4F46\u53CD\u51FB\u9700\u8981\u5C11\u4E00\u5F20\u8868"
+        english: 
+      deck:
+        chineseSimplified: "\u804C\u4E1A\u6027\u5F88\u9AD8\uFF0C\u8282\u594F\u504F\u6162\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u8D39\u5229\u514B\u65AF\u7684\u7AD9\u4F4D\u548C\u57FA\u7840\u6251\u6551\u7A33\u5B9A\uFF0C\u8BAD\u7EC3\u8BB0\u5F55\u4E5F\u5F88\u5B8C\u6574\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5FEB\u901F\u51FA\u7403\u65F6\u5B58\u5728\u72B9\u8C6B\uFF0C\u9002\u5408\u5F3A\u8C03\u63A7\u5236\u800C\u975E\u6301\u7EED\u8F6C\u6362\u7684\u7403\u961F\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u624B\u7EED\u9F50\u5168\u4E0D\u4F1A\u4E22\u7403\uFF0C\u4F46\u4E5F\u4E0D\u4F1A\u81EA\u52A8\u5236\u9020\u53CD\u51FB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u5EFA\u8BAE"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u8BD5\u8BAD\u52A0\u5165\u5FEB\u901F\u624B\u629B\u7403\u548C\u957F\u4F20\u51B3\u7B56\u3002"
+        english: 
+      relatedPlayerId: player.forms.felix
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u89C4\u5219\u89D2"
+        english: 
+      headline:
+        chineseSimplified: "\u754C\u5916\u7403\u53EF\u4EE5\u5F88\u8FDC\uFF0C\u4E0D\u80FD\u79BB\u5F00\u7403\u573A"
+        english: 
+      deck:
+        chineseSimplified: "\u8FEA\u8BFA\u4E13\u9879\u89C2\u5BDF\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u8D85\u8FDC\u754C\u5916\u7403\u80FD\u521B\u9020\u7981\u533A\u538B\u529B\uFF0C\u4F46\u843D\u70B9\u5FC5\u987B\u53EF\u9884\u6D4B\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5982\u679C\u961F\u53CB\u4E5F\u5728\u5BFB\u627E\u76AE\u7403\uFF0C\u6218\u672F\u7A81\u7136\u6027\u5C31\u5DF2\u7ECF\u7528\u8FC7\u5934\u4E86\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u8DDD\u79BB\u662F\u6B66\u5668\uFF0C\u63A7\u5236\u624D\u662F\u7784\u51C6\u5668\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u6837\u672C\u98CE\u9669"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u4E13\u9879\u96C6\u9526\u65E0\u6CD5\u66FF\u4EE3\u9632\u5B88\u5F55\u50CF\u3002"
+        english: 
+      relatedPlayerId: player.throwin.dino
+  - id: mag.touchline.05
+    coverIndex: 4
+    publishedWeek: 5
+    publicationName:
+      chineseSimplified: "\u300A\u4E5D\u5341\u5206\u949F\u300B"
+      english: 
+    issueTitle:
+      chineseSimplified: "\u7EAA\u5F8B\u3001\u538B\u8FEB\u4E0E\u6444\u5236\u7EC4"
+      english: 
+    issueNumber: "\u7B2C 05 \u671F"
+    pages:
+    - layout: 0
+      kicker:
+        chineseSimplified: "\u5C01\u9762\u6545\u4E8B"
+        english: 
+      headline:
+        chineseSimplified: "\u6CA1\u6709\u955C\u5934\u65F6\u8FD8\u613F\u4E0D\u613F\u610F\u56DE\u9632"
+        english: 
+      deck:
+        chineseSimplified: "\u94C1\u7089\u7ADE\u6280\u7684\u62DB\u8058\u6807\u51C6\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u676F\u8D5B\u7403\u961F\u9700\u8981\u80FD\u6267\u884C\u91CD\u590D\u4EFB\u52A1\u7684\u7403\u5458\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u538B\u8FEB\u3001\u8865\u4F4D\u548C\u4FDD\u62A4\u4E8C\u70B9\u7403\u4E0D\u6F02\u4EAE\uFF0C\u5374\u51B3\u5B9A\u6DD8\u6C70\u8D5B\u80FD\u8D70\u591A\u8FDC\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u804C\u4E1A\u6027\uFF0C\u662F\u955C\u5934\u8F6C\u5F00\u4EE5\u540E\u4ECD\u7136\u505A\u6B63\u786E\u7684\u4E8B\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u94C1\u7089\u7ADE\u6280"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u4E0A\u5B63\u7B2C\u4E03\uFF0C\u4E24\u6B21\u56FD\u5185\u676F\u51A0\u519B\u3002"
+        english: 
+      relatedPlayerId: player.rivet.rita
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u9632\u5B88\u8BFE"
+        english: 
+      headline:
+        chineseSimplified: "\u4E3D\u5854\u4E3A\u4EC0\u4E48\u5F88\u5C11\u51FA\u73B0\u5728\u5931\u8BEF\u96C6\u9526\u91CC"
+        english: 
+      deck:
+        chineseSimplified: "\u4F4D\u7F6E\u611F\u7684\u4EF7\u503C\u662F\u8BA9\u5371\u9669\u4E0D\u53D1\u751F\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u5979\u4E0D\u4F1A\u4E3A\u4E86\u62A2\u955C\u79BB\u5F00\u9632\u533A\uFF0C\u5904\u7406\u5371\u9669\u7403\u4E5F\u5F88\u76F4\u63A5\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u8FD9\u7C7B\u540E\u536B\u7684\u4F18\u79C0\u8868\u73B0\u901A\u5E38\u662F\u4E00\u573A\u6BD4\u8D5B\u6CA1\u6709\u53D1\u751F\u503C\u5F97\u526A\u8F91\u7684\u4E8B\u6545\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u6700\u597D\u7684\u89E3\u56F4\uFF0C\u6709\u65F6\u662F\u63D0\u524D\u4E24\u6B65\u8BA9\u4F20\u7403\u6839\u672C\u8FDB\u4E0D\u6765\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u53EF\u9760\u6027"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u591A\u573A\u5B8C\u6574\u5F55\u50CF\u4E0E\u4E0D\u540C\u6765\u6E90\u8BC4\u4EF7\u4E00\u81F4\u3002"
+        english: 
+      relatedPlayerId: player.rivet.rita
+    - layout: 2
+      kicker:
+        chineseSimplified: "\u98CE\u9669\u62A5\u544A"
+        english: 
+      headline:
+        chineseSimplified: "\u6851\u5C3C\uFF1A\u7075\u611F\u5F88\u8D35\uFF0C\u7EAA\u5F8B\u4E5F\u6709\u4EF7\u683C"
+        english: 
+      deck:
+        chineseSimplified: "\u80FD\u529B\u4E0E\u53EF\u7528\u6027\u5FC5\u987B\u4E00\u8D77\u8BC4\u4F30\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u6851\u5C3C\u80FD\u5B8C\u6210\u9AD8\u96BE\u5EA6\u52A8\u4F5C\uFF0C\u4E5F\u4F1A\u5FFD\u7565\u7B80\u5355\u7684\u8DD1\u4F4D\u8981\u6C42\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5982\u679C\u7403\u961F\u6CA1\u6709\u7BA1\u7406\u7A7A\u95F4\uFF0C\u4ED6\u7684\u4E2A\u4EBA\u4EAE\u70B9\u53EF\u80FD\u62B5\u4E0D\u8FC7\u65E0\u7403\u9636\u6BB5\u7684\u635F\u5931\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u4E0D\u662F\u6240\u6709\u7A7F\u88C6\u90FD\u80FD\u8FDB\u5165\u79EF\u5206\u699C\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u8BD5\u8BAD\u5EFA\u8BAE"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u8BB0\u5F55\u51C6\u65F6\u6027\u3001\u65E0\u7403\u8DD1\u52A8\u548C\u4E22\u7403\u540E\u7684\u53CD\u5E94\u3002"
+        english: 
+      relatedPlayerId: player.showboat.sonny
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u5A92\u4F53\u9875"
+        english: 
+      headline:
+        chineseSimplified: "\u7EAA\u5F55\u7247\u4E0D\u662F\u7403\u63A2\u62A5\u544A"
+        english: 
+      deck:
+        chineseSimplified: "\u6444\u50CF\u673A\u6539\u53D8\u4EBA\u4EEC\u5C55\u793A\u81EA\u5DF1\u7684\u65B9\u5F0F\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u7403\u5458\u77E5\u9053\u955C\u5934\u5B58\u5728\u65F6\uFF0C\u4F1A\u66F4\u613F\u610F\u5C1D\u8BD5\u53EF\u4F20\u64AD\u7684\u52A8\u4F5C\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u56E0\u6B64\u9700\u8981\u65E0\u526A\u8F91\u8BAD\u7EC3\u3001\u5B8C\u6574\u6BD4\u8D5B\u548C\u4E0D\u540C\u6765\u6E90\u7684\u89C2\u5BDF\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u771F\u5B9E\u611F\u4E0D\u80FD\u7531\u5BFC\u6F14\u558A\u5F00\u59CB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u57FA\u5730\u89C4\u5B9A"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u65E0\u4EBA\u673A\u4E0D\u5F97\u8FDB\u5165\u5B9A\u4F4D\u7403\u8BAD\u7EC3\u3002"
+        english: 
+      relatedPlayerId: 
+  - id: mag.touchline.06
+    coverIndex: 5
+    publishedWeek: 6
+    publicationName:
+      chineseSimplified: "\u300A\u51A0\u519B\u4E4B\u8DEF\u300B"
+      english: 
+    issueTitle:
+      chineseSimplified: "\u53CC\u7EBF\u8D5B\u7A0B\u7684\u8F6E\u6362\u7B54\u6848"
+      english: 
+    issueNumber: "\u7B2C 06 \u671F"
+    pages:
+    - layout: 0
+      kicker:
+        chineseSimplified: "\u5C01\u9762\u6545\u4E8B"
+        english: 
+      headline:
+        chineseSimplified: "\u51A0\u519B\u7403\u961F\u4E3A\u4F55\u4ECD\u7136\u9700\u8981\u8865\u5F3A"
+        english: 
+      deck:
+        chineseSimplified: "\u8054\u8D5B\u4E0E\u6D32\u9645\u8D5B\u4E8B\u9700\u8981\u4E0D\u540C\u7684\u4F53\u80FD\u8D26\u672C\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u536B\u5195\u51A0\u519B\u9762\u5BF9\u66F4\u591A\u9AD8\u5F3A\u5EA6\u6BD4\u8D5B\uFF0C\u8F6E\u6362\u4E0D\u662F\u66FF\u8865\u5E2D\u4EBA\u6570\u95EE\u9898\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u7403\u5458\u5FC5\u987B\u80FD\u5728\u4E0D\u540C\u5BF9\u624B\u548C\u4E0D\u540C\u6BD4\u8D5B\u72B6\u6001\u4E0B\u5B8C\u6210\u660E\u786E\u804C\u8D23\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u51A0\u519B\u9635\u5BB9\u4E0D\u662F\u4E00\u5F20\u5408\u5F71\uFF0C\u800C\u662F\u4E00\u6574\u5B63\u90FD\u80FD\u7528\u7684\u5DE5\u5177\u7BB1\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u5F57\u661F\u57CE"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u536B\u5195\u51A0\u519B\uFF0C\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u593A\u51A0\u70ED\u95E8\u3002"
+        english: 
+      relatedPlayerId: player.bothfeet.echo
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u6218\u672F\u5BA4"
+        english: 
+      headline:
+        chineseSimplified: "\u7FFC\u536B\u4E3A\u4EC0\u4E48\u50CF\u4E24\u4EFD\u5DE5\u4F5C"
+        english: 
+      deck:
+        chineseSimplified: "\u4E00\u6761\u8FB9\u8DEF\u7684\u653B\u9632\u90FD\u5199\u5728\u804C\u4F4D\u8BF4\u660E\u91CC\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u7FFC\u536B\u9700\u8981\u63D0\u4F9B\u5BBD\u5EA6\u3001\u56DE\u8FFD\u3001\u534F\u9632\u548C\u53CD\u51FB\u51FA\u53E3\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u80FD\u8E22\u4E24\u4FA7\u7684\u7403\u5458\u4F1A\u63D0\u9AD8\u9635\u5BB9\u5F39\u6027\uFF0C\u4F46\u5FC5\u987B\u786E\u8BA4\u5DE6\u53F3\u811A\u80FD\u529B\u4E0D\u662F\u5BA3\u4F20\u7528\u8BED\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u8986\u76D6\u5168\u573A\u4E0D\u7B49\u4E8E\u65E0\u76EE\u7684\u5730\u8DD1\u904D\u5168\u573A\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u89C2\u5BDF\u91CD\u70B9"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u56DE\u8FFD\u8DEF\u7EBF\u3001\u5F31\u4FA7\u7AD9\u4F4D\u3001\u8FDE\u7EED\u51B2\u523A\u6062\u590D\u3002"
+        english: 
+      relatedPlayerId: player.bothfeet.echo
+    - layout: 2
+      kicker:
+        chineseSimplified: "\u7403\u63A2\u62A5\u544A"
+        english: 
+      headline:
+        chineseSimplified: "\u8BFA\u74E6\uFF1A\u6570\u636E\u4E0D\u662F\u5979\u552F\u4E00\u7684\u8BED\u8A00"
+        english: 
+      deck:
+        chineseSimplified: "\u9AD8\u538B\u4E0B\u5904\u7406\u7403\u7684\u6837\u672C\u53EF\u9760\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u8BFA\u74E6\u80FD\u5728\u903C\u62A2\u5230\u6765\u524D\u8C03\u6574\u8EAB\u4F53\u671D\u5411\uFF0C\u5E76\u4E3B\u52A8\u5BFB\u627E\u5411\u524D\u7EBF\u8DEF\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5979\u7684\u6570\u636E\u4E60\u60EF\u662F\u989D\u5916\u5DE5\u5177\uFF0C\u800C\u4E0D\u662F\u63A9\u76D6\u6BD4\u8D5B\u80FD\u529B\u7684\u5305\u88C5\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u771F\u6B63\u7684\u6570\u636E\u578B\u7403\u5458\uFF0C\u9996\u5148\u4ECD\u7136\u662F\u7403\u5458\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u9002\u914D"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u9002\u5408\u9700\u8981\u63A7\u5236\u8282\u594F\u548C\u538B\u8FEB\u4E0B\u51FA\u7403\u7684\u7403\u961F\u3002"
+        english: 
+      relatedPlayerId: player.spreadsheet.nova
+    - layout: 1
+      kicker:
+        chineseSimplified: "\u8D5B\u7A0B\u9875"
+        english: 
+      headline:
+        chineseSimplified: "\u4ECE\u5B63\u524D\u8BAD\u7EC3\u8D70\u5411\u4E94\u5341\u4E8C\u5468"
+        english: 
+      deck:
+        chineseSimplified: "\u4E00\u5E74\u4E0D\u4F1A\u53EA\u53D1\u751F\u5728\u8F6C\u4F1A\u7A97\u53E3\u3002"
+        english: 
+      bodyLeft:
+        chineseSimplified: "\u8054\u8D5B\u5F00\u5E55\u3001\u6D32\u9645\u5C0F\u7EC4\u8D5B\u3001\u51AC\u5B63\u7A97\u53E3\u3001\u6DD8\u6C70\u8D5B\u548C\u4E89\u51A0\u4FDD\u7EA7\u4F1A\u4F9D\u6B21\u5230\u6765\u3002"
+        english: 
+      bodyRight:
+        chineseSimplified: "\u5173\u6CE8\u9876\u90E8\u65E5\u671F\u548C\u8D5B\u4E8B\u90AE\u4EF6\uFF0C\u4E0D\u9700\u8981\u81EA\u5DF1\u6362\u7B97\u7B2C\u51E0\u5468\u3002"
+        english: 
+      pullQuote:
+        chineseSimplified: "\u201C\u8D5B\u5B63\u5F88\u957F\uFF0C\u4F46\u6BCF\u4E2A\u622A\u6B62\u65E5\u90FD\u6765\u5F97\u6BD4\u4F53\u80B2\u4E3B\u7BA1\u60F3\u8C61\u4E2D\u5FEB\u3002\u201D"
+        english: 
+      sidebarTitle:
+        chineseSimplified: "\u4E0B\u4E00\u9636\u6BB5"
+        english: 
+      sidebarBody:
+        chineseSimplified: "\u590F\u5B63\u7A97\u53E3\u4E0E\u8054\u8D5B\u5F00\u5E55\u3002"
+        english: 
+      relatedPlayerId: 
+  playerPortraitAtlas: {fileID: 2800000, guid: 54971507a216ca94e9243dec33f6306b, type: 3}
+  magazineCoverAtlas: {fileID: 2800000, guid: 4460e017038d7484897863269a61bf84, type: 3}

@@ -1,0 +1,22 @@
+{
+  "name": "NewPlayerHunter.Content.EditModeTests",
+  "rootNamespace": "NewPlayerHunter.Gameplay.Tests",
+  "references": [
+    "NewPlayerHunter.Domain",
+    "NewPlayerHunter.Gameplay"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}

@@ -1,0 +1,21 @@
+{
+  "name": "NewPlayerHunter.Domain.EditModeTests",
+  "rootNamespace": "NewPlayerHunter.Domain.Tests",
+  "references": [
+    "NewPlayerHunter.Domain"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}
