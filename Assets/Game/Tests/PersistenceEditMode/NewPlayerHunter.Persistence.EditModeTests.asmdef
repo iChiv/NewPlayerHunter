@@ -1,0 +1,23 @@
+{
+  "name": "NewPlayerHunter.Persistence.EditModeTests",
+  "rootNamespace": "NewPlayerHunter.Persistence.Tests",
+  "references": [
+    "NewPlayerHunter.Domain",
+    "NewPlayerHunter.Persistence",
+    "EasySave3"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}

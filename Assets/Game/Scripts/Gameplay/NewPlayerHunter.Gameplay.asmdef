@@ -3,6 +3,7 @@
   "rootNamespace": "NewPlayerHunter.Gameplay",
   "references": [
     "NewPlayerHunter.Domain",
+    "NewPlayerHunter.Persistence",
     "Unity.InputSystem",
     "Unity.TextMeshPro",
     "Unity.ugui"

@@ -324,13 +324,30 @@ namespace NewPlayerHunter.Editor
             BuildHeader(background);
             var assignmentWorkspace = CreateRect(
                 "AssignmentWorkspace", background, Vector2.zero, Vector2.one);
+            assignmentWorkspace.gameObject.AddComponent<CanvasGroup>();
             BuildDemandPanel(assignmentWorkspace);
             BuildPlayersPanel(assignmentWorkspace);
             var informationWorkspace = BuildInformationWorkspace(background);
+            informationWorkspace.gameObject.AddComponent<CanvasGroup>();
             BuildFooter(background);
             BuildDragGhost(canvasObject.transform);
+            BuildWeekTransitionOverlay(canvasObject.transform);
             assignmentWorkspace.gameObject.SetActive(false);
             informationWorkspace.gameObject.SetActive(true);
+        }
+
+        private static void BuildWeekTransitionOverlay(Transform parent)
+        {
+            var overlay = CreatePanel(
+                "WeekTransitionOverlay", parent, Color.black, Vector2.zero, Vector2.one);
+            overlay.GetComponent<Image>().raycastTarget = true;
+            var group = overlay.gameObject.AddComponent<CanvasGroup>();
+            group.alpha = 0f;
+            group.interactable = false;
+            group.blocksRaycasts = false;
+            CreateText(
+                "Text", overlay, "本周结算中…", 48f, Color.white,
+                TextAlignmentOptions.Center, Vector2.zero, Vector2.one);
         }
 
         private static void BuildHeader(RectTransform parent)
@@ -641,32 +658,38 @@ namespace NewPlayerHunter.Editor
             var block = CreatePanel(
                 "ResumeBlock", parent, new Color(0.10f, 0.13f, 0.18f, 1f),
                 new Vector2(0.035f, 0.035f), new Vector2(0.965f, 0.51f));
-            CreateText("Title", block, "固定信息 · 球员简历", 17f, Accent,
+            CreateText("Title", block, "固定信息 · 球员简历", 15f, Accent,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.025f, 0.83f), new Vector2(0.975f, 0.98f));
+                new Vector2(0.025f, 0.92f), new Vector2(0.975f, 1.00f));
             CreateRawImage("Portrait", block,
-                new Vector2(0.025f, 0.51f), new Vector2(0.20f, 0.82f));
-            CreateText("Player", block, "球员姓名", 24f, Color.white,
+                new Vector2(0.025f, 0.60f), new Vector2(0.18f, 0.90f));
+            CreateText("Player", block, "球员姓名", 22f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.22f, 0.66f), new Vector2(0.62f, 0.84f));
-            CreateText("Position", block, "公开位置", 16f, Warning,
+                new Vector2(0.20f, 0.76f), new Vector2(0.62f, 0.90f));
+            CreateText("Position", block, "公开位置", 15f, Warning,
                 TextAlignmentOptions.MidlineRight,
-                new Vector2(0.62f, 0.66f), new Vector2(0.975f, 0.84f));
-            CreateText("Biography", block, "公开简介", 15f, Muted,
-                TextAlignmentOptions.TopLeft,
-                new Vector2(0.22f, 0.50f), new Vector2(0.975f, 0.66f));
-            CreateText("Claim", block, "自述", 15f, Color.white,
-                TextAlignmentOptions.TopLeft,
-                new Vector2(0.025f, 0.30f), new Vector2(0.975f, 0.50f));
-            CreateText("Evidence", block, "旁证", 15f, Color.white,
-                TextAlignmentOptions.TopLeft,
-                new Vector2(0.025f, 0.13f), new Vector2(0.80f, 0.30f));
-            CreateText("Source", block, "可信度", 14f, Accent,
-                TextAlignmentOptions.BottomRight,
-                new Vector2(0.80f, 0.13f), new Vector2(0.975f, 0.30f));
-            CreateText("Availability", block, "可安排至", 14f, Warning,
+                new Vector2(0.62f, 0.76f), new Vector2(0.975f, 0.90f));
+            CreateText("Salary", block, "薪资期望", 16f, Warning,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.025f, 0.03f), new Vector2(0.975f, 0.13f));
+                new Vector2(0.20f, 0.61f), new Vector2(0.975f, 0.76f));
+            CreateText("Biography", block, "公开简介", 13f, Muted,
+                TextAlignmentOptions.TopLeft,
+                new Vector2(0.20f, 0.45f), new Vector2(0.975f, 0.61f));
+            CreateText("Career", block, "经历", 13f, Muted,
+                TextAlignmentOptions.TopLeft,
+                new Vector2(0.025f, 0.30f), new Vector2(0.975f, 0.45f));
+            CreateText("Claim", block, "自述", 13f, Color.white,
+                TextAlignmentOptions.TopLeft,
+                new Vector2(0.025f, 0.17f), new Vector2(0.975f, 0.30f));
+            CreateText("Evidence", block, "旁证", 13f, Color.white,
+                TextAlignmentOptions.TopLeft,
+                new Vector2(0.025f, 0.07f), new Vector2(0.80f, 0.17f));
+            CreateText("Source", block, "可信度", 13f, Accent,
+                TextAlignmentOptions.BottomRight,
+                new Vector2(0.80f, 0.07f), new Vector2(0.975f, 0.17f));
+            CreateText("Availability", block, "可安排至", 13f, Warning,
+                TextAlignmentOptions.MidlineLeft,
+                new Vector2(0.025f, 0.00f), new Vector2(0.975f, 0.07f));
             block.gameObject.SetActive(false);
         }
 
@@ -982,12 +1005,16 @@ namespace NewPlayerHunter.Editor
             Vector2 anchorMin,
             Vector2 anchorMax)
         {
+            // 容器锚定图片区域；RawImage 子节点在容器内按 1:1 适配并居中，
+            // 不会因为 AspectRatioFitter 相对父级放大而溢出到文字区。
+            var container = CreateRect(name, parent, anchorMin, anchorMax);
             var imageObject = new GameObject(
-                name, typeof(RectTransform), typeof(CanvasRenderer), typeof(RawImage),
+                "Image",
+                typeof(RectTransform), typeof(CanvasRenderer), typeof(RawImage),
                 typeof(AspectRatioFitter));
-            imageObject.transform.SetParent(parent, false);
+            imageObject.transform.SetParent(container, false);
             var rect = imageObject.GetComponent<RectTransform>();
-            Stretch(rect, anchorMin, anchorMax);
+            Stretch(rect, Vector2.zero, Vector2.one);
             var image = imageObject.GetComponent<RawImage>();
             image.raycastTarget = false;
             var aspect = imageObject.GetComponent<AspectRatioFitter>();

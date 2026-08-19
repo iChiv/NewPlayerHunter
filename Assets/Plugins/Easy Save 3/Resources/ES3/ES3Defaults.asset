@@ -36,7 +36,7 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
-    - Assembly-CSharp-firstpass
+    - EasySave3
     - glTFast
     - glTFast.Documentation.Examples
     - glTFast.dots
@@ -46,6 +46,7 @@ MonoBehaviour:
     - NewPlayerHunter.Domain
     - NewPlayerHunter.Gameplay
     - NewPlayerHunter.Gameplay.PlayModeTests
+    - NewPlayerHunter.Persistence
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

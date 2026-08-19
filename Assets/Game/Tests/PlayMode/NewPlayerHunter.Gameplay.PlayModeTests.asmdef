@@ -3,6 +3,8 @@
   "rootNamespace": "NewPlayerHunter.Gameplay.Tests",
   "references": [
     "NewPlayerHunter.Gameplay",
+    "NewPlayerHunter.Persistence",
+    "EasySave3",
     "Unity.InputSystem",
     "Unity.TextMeshPro",
     "Unity.ugui"

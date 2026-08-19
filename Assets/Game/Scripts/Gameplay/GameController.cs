@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NewPlayerHunter.Domain;
+using NewPlayerHunter.Persistence;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -57,13 +59,17 @@ namespace NewPlayerHunter.Gameplay
             new HashSet<string>(StringComparer.Ordinal);
         private readonly List<MailContentEntry> _visibleMails =
             new List<MailContentEntry>();
+        private readonly List<MailContentEntry> _resultMails =
+            new List<MailContentEntry>();
         private readonly List<MagazineIssueContent> _visibleIssues =
             new List<MagazineIssueContent>();
         private readonly List<string> _eventLog = new List<string>();
 
         private WeekState _state;
         private WeekEngine _engine;
+        private SeededRandomSource _random;
         private SeasonCalendar _seasonCalendar;
+        private SaveGameService _saveGameService = new SaveGameService();
         private ClubDemand _currentDemand;
         private string _selectedPlayerId;
         private string _selectedMailId;
@@ -102,6 +108,14 @@ namespace NewPlayerHunter.Gameplay
         private RectTransform _coverLayout;
         private RectTransform _featureLayout;
         private RectTransform _scoutReportLayout;
+        private CanvasGroup _weekTransitionOverlay;
+        private TextMeshProUGUI _weekTransitionText;
+        private bool _weekTransitionRunning;
+        private CanvasGroup _informationWorkspaceGroup;
+        private CanvasGroup _assignmentWorkspaceGroup;
+        private Coroutine _workspaceTransition;
+        private readonly Dictionary<Transform, Coroutine> _punchCoroutines =
+            new Dictionary<Transform, Coroutine>();
         private RawImage _coverImage;
         private Button _informationTabButton;
         private Button _assignmentTabButton;
@@ -140,6 +154,11 @@ namespace NewPlayerHunter.Gameplay
 
         public string CurrentDemandId =>
             _currentDemand == null ? string.Empty : _currentDemand.Id;
+
+        public IReadOnlyList<string> VisibleMailIds =>
+            _visibleMails.Select(mail => mail.id).ToArray();
+
+        public int ResultMailCount => _resultMails.Count(mail => mail.publishedWeek <= CurrentWeek);
 
         public int PlayerCardCount =>
             _playersContainer == null ? 0 : _playersContainer.childCount;
@@ -234,6 +253,7 @@ namespace NewPlayerHunter.Gameplay
             }
 
             BuildGameState();
+            LoadProgressIfAvailable();
             BindSceneUi();
             RefreshUi();
         }
@@ -336,6 +356,15 @@ namespace NewPlayerHunter.Gameplay
 
         public void RestartGame()
         {
+            try
+            {
+                _saveGameService.DeleteProgress();
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError($"[NewPlayerHunter] 删除存档失败：{exception.Message}");
+            }
+
             BuildGameState();
             BindPlayerCards();
             _activeWorkspace = WorkspaceMode.Information;
@@ -343,6 +372,80 @@ namespace NewPlayerHunter.Gameplay
             ApplyWorkspaceVisibility();
             RefreshUi();
             Debug.Log("[NewPlayerHunter] 游戏已重置到第 1 周。");
+        }
+
+        public bool HasSavedProgress => _saveGameService.HasProgress;
+
+        public void ConfigureSaveGameService(SaveGameService service)
+        {
+            _saveGameService = service ?? new SaveGameService();
+        }
+
+        public void SaveProgressForTests()
+        {
+            SaveProgress();
+        }
+
+        public void ReloadProgressForTests()
+        {
+            BuildGameState();
+            LoadProgressIfAvailable();
+            _activeWorkspace = WorkspaceMode.Information;
+            _informationMode = InformationMode.Mail;
+            ApplyWorkspaceVisibility();
+            RefreshUi();
+        }
+
+        private void SaveProgress()
+        {
+            try
+            {
+                var snapshot = new GameProgressSnapshot
+                {
+                    weekState = ProgressSnapshotMapper.FromDomain(_state.CreateSnapshot()),
+                    readMailIds = _readMailIds.ToList(),
+                    unlockedPlayerIds = _unlockedPlayerIds.ToList(),
+                    unlockedDemandIds = _unlockedDemandIds.ToList(),
+                    carloFavorAccepted = _carloFavorAccepted,
+                    carloFavorConsequenceApplied = _carloFavorConsequenceApplied,
+                    eventLog = new List<string>(_eventLog),
+                    lastStatus = LastStatus,
+                    randomDrawCount = _random.DrawCount
+                };
+                _saveGameService.Save(snapshot);
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError($"[NewPlayerHunter] 自动保存失败：{exception.Message}");
+            }
+        }
+
+        private void LoadProgressIfAvailable()
+        {
+            if (!_saveGameService.TryLoad(out var snapshot))
+            {
+                return;
+            }
+
+            _state.ApplySnapshot(ProgressSnapshotMapper.ToDomain(snapshot.weekState));
+            _readMailIds.UnionWith(snapshot.readMailIds ?? new List<string>());
+            _unlockedPlayerIds.UnionWith(snapshot.unlockedPlayerIds ?? new List<string>());
+            _unlockedDemandIds.UnionWith(snapshot.unlockedDemandIds ?? new List<string>());
+            _carloFavorAccepted = snapshot.carloFavorAccepted;
+            _carloFavorConsequenceApplied = snapshot.carloFavorConsequenceApplied;
+            if (snapshot.eventLog != null)
+            {
+                _eventLog.AddRange(snapshot.eventLog);
+            }
+
+            if (!string.IsNullOrEmpty(snapshot.lastStatus))
+            {
+                LastStatus = snapshot.lastStatus;
+            }
+
+            _random.FastForward(snapshot.randomDrawCount);
+            RegenerateResultMails();
+            AddLog($"已载入第 {_state.CurrentWeek} 周存档。");
         }
 
         public string GetPlayerDisplayName(string playerId)
@@ -354,7 +457,8 @@ namespace NewPlayerHunter.Gameplay
         private void BuildGameState()
         {
             _state = new WeekState(currentWeek: 1, initialCash: 500m, initialReputation: 10);
-            _engine = new WeekEngine(new WeekRules(), new SeededRandomSource(GameSeed));
+            _random = new SeededRandomSource(GameSeed);
+            _engine = new WeekEngine(new WeekRules(), _random);
             _seasonCalendar = new SeasonCalendar(SeasonStartDate);
             _players.Clear();
             _weeklyDemands.Clear();
@@ -366,6 +470,7 @@ namespace NewPlayerHunter.Gameplay
             _unlockedDemandIds.Clear();
             _eventLog.Clear();
             _visibleMails.Clear();
+            _resultMails.Clear();
             _visibleIssues.Clear();
             _selectedPlayerId = null;
             _selectedMailId = null;
@@ -519,7 +624,7 @@ namespace NewPlayerHunter.Gameplay
             _scoutReportLayout = RequireSceneComponent<RectTransform>(
                 "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/ScoutReportLayout");
             _coverImage = RequireSceneComponent<RawImage>(
-                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/CoverLayout/CoverImage");
+                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/CoverLayout/CoverImage/Image");
             _eventLogText = RequireSceneComponent<TextMeshProUGUI>(
                 "GameCanvas/Background/Footer/EventLog");
             _statusText = RequireSceneComponent<TextMeshProUGUI>(
@@ -528,24 +633,63 @@ namespace NewPlayerHunter.Gameplay
                 "GameCanvas/Background/Footer/EndWeekButton");
             var resetButton = RequireSceneComponent<Button>(
                 "GameCanvas/Background/Header/ResetButton");
+            _weekTransitionOverlay = RequireSceneComponent<CanvasGroup>(
+                "GameCanvas/WeekTransitionOverlay");
+            _weekTransitionText = RequireSceneComponent<TextMeshProUGUI>(
+                "GameCanvas/WeekTransitionOverlay/Text");
+            _informationWorkspaceGroup =
+                _informationWorkspace.GetComponent<CanvasGroup>();
+            _assignmentWorkspaceGroup =
+                _assignmentWorkspace.GetComponent<CanvasGroup>();
 
             resetButton.onClick.RemoveAllListeners();
-            resetButton.onClick.AddListener(RestartGame);
+            resetButton.onClick.AddListener(() =>
+            {
+                Punch(resetButton.transform);
+                RestartGame();
+            });
             _informationTabButton.onClick.RemoveAllListeners();
-            _informationTabButton.onClick.AddListener(ShowInformationWorkspace);
+            _informationTabButton.onClick.AddListener(() =>
+            {
+                Punch(_informationTabButton.transform);
+                ShowInformationWorkspaceAnimated();
+            });
             _assignmentTabButton.onClick.RemoveAllListeners();
-            _assignmentTabButton.onClick.AddListener(ShowAssignmentWorkspace);
+            _assignmentTabButton.onClick.AddListener(() =>
+            {
+                Punch(_assignmentTabButton.transform);
+                ShowAssignmentWorkspaceAnimated();
+            });
             _mailFilterButton.onClick.RemoveAllListeners();
-            _mailFilterButton.onClick.AddListener(() => SetInformationMode(InformationMode.Mail));
+            _mailFilterButton.onClick.AddListener(() =>
+            {
+                Punch(_mailFilterButton.transform);
+                SetInformationMode(InformationMode.Mail);
+            });
             _subscriptionFilterButton.onClick.RemoveAllListeners();
-            _subscriptionFilterButton.onClick.AddListener(
-                () => SetInformationMode(InformationMode.Magazine));
+            _subscriptionFilterButton.onClick.AddListener(() =>
+            {
+                Punch(_subscriptionFilterButton.transform);
+                SetInformationMode(InformationMode.Magazine);
+            });
             _previousPageButton.onClick.RemoveAllListeners();
-            _previousPageButton.onClick.AddListener(() => ChangeMagazinePage(-1));
+            _previousPageButton.onClick.AddListener(() =>
+            {
+                Punch(_previousPageButton.transform);
+                ChangeMagazinePage(-1);
+            });
             _nextPageButton.onClick.RemoveAllListeners();
-            _nextPageButton.onClick.AddListener(() => ChangeMagazinePage(1));
+            _nextPageButton.onClick.AddListener(() =>
+            {
+                Punch(_nextPageButton.transform);
+                ChangeMagazinePage(1);
+            });
             _endWeekButton.onClick.RemoveAllListeners();
-            _endWeekButton.onClick.AddListener(EndWeek);
+            _endWeekButton.onClick.AddListener(() =>
+            {
+                Punch(_endWeekButton.transform);
+                BeginWeekTransition();
+            });
             BindPlayerCards();
             _uiBound = true;
         }
@@ -571,6 +715,164 @@ namespace NewPlayerHunter.Gameplay
             LastStatus = "信息中心已打开：邮件负责正式解锁，期刊负责交叉判断。";
             ApplyWorkspaceVisibility();
             RefreshUi();
+        }
+
+        private void ShowInformationWorkspaceAnimated()
+        {
+            if (_activeWorkspace == WorkspaceMode.Information || _weekTransitionRunning)
+            {
+                return;
+            }
+
+            StartWorkspaceTransition(ShowInformationWorkspace);
+        }
+
+        private void ShowAssignmentWorkspaceAnimated()
+        {
+            if (_activeWorkspace == WorkspaceMode.Assignment || _weekTransitionRunning)
+            {
+                return;
+            }
+
+            StartWorkspaceTransition(ShowAssignmentWorkspace);
+        }
+
+        private void StartWorkspaceTransition(Action apply)
+        {
+            if (!_uiBound)
+            {
+                apply();
+                return;
+            }
+
+            if (_workspaceTransition != null)
+            {
+                StopCoroutine(_workspaceTransition);
+            }
+
+            _workspaceTransition = StartCoroutine(WorkspaceTransitionRoutine(apply));
+        }
+
+        private IEnumerator WorkspaceTransitionRoutine(Action apply)
+        {
+            var outgoing = _activeWorkspace == WorkspaceMode.Information
+                ? _informationWorkspaceGroup
+                : _assignmentWorkspaceGroup;
+            yield return FadeCanvasGroup(outgoing, outgoing == null ? 1f : outgoing.alpha, 0f, 0.22f);
+
+            apply();
+            if (outgoing != null)
+            {
+                outgoing.alpha = 1f;
+            }
+
+            var incoming = _activeWorkspace == WorkspaceMode.Information
+                ? _informationWorkspaceGroup
+                : _assignmentWorkspaceGroup;
+            if (incoming != null)
+            {
+                incoming.alpha = 0f;
+            }
+
+            yield return FadeCanvasGroup(incoming, 0f, 1f, 0.25f);
+            _workspaceTransition = null;
+        }
+
+        private void BeginWeekTransition()
+        {
+            if (_weekTransitionRunning || IsGameComplete)
+            {
+                return;
+            }
+
+            StartCoroutine(WeekTransitionRoutine());
+        }
+
+        private IEnumerator WeekTransitionRoutine()
+        {
+            _weekTransitionRunning = true;
+            if (_weekTransitionOverlay == null)
+            {
+                EndWeek();
+                _weekTransitionRunning = false;
+                yield break;
+            }
+
+            _weekTransitionOverlay.blocksRaycasts = true;
+            _weekTransitionText.text = "本周结算中…";
+            yield return FadeCanvasGroup(
+                _weekTransitionOverlay, _weekTransitionOverlay.alpha, 1f, 0.5f);
+
+            var weekBefore = CurrentWeek;
+            EndWeek();
+            if (CurrentWeek == weekBefore && !IsGameComplete)
+            {
+                // 提交被拦下（空缺确认或校验失败），不展示新日期，直接淡回。
+                yield return FadeCanvasGroup(_weekTransitionOverlay, 1f, 0f, 0.3f);
+                _weekTransitionOverlay.blocksRaycasts = false;
+                _weekTransitionRunning = false;
+                yield break;
+            }
+
+            _weekTransitionText.text = IsGameComplete
+                ? $"赛季结束 · {_seasonCalendar.DateAfterFinalWeek:yyyy年M月d日}"
+                : $"{FormatCurrentDate()} · {SeasonPhaseName(CurrentSeasonPhase)}";
+            yield return new WaitForSeconds(1.0f);
+            yield return FadeCanvasGroup(_weekTransitionOverlay, 1f, 0f, 0.5f);
+            _weekTransitionOverlay.blocksRaycasts = false;
+            _weekTransitionRunning = false;
+        }
+
+        private IEnumerator FadeCanvasGroup(
+            CanvasGroup group,
+            float from,
+            float to,
+            float duration)
+        {
+            if (group == null)
+            {
+                yield break;
+            }
+
+            for (var elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
+            {
+                group.alpha = Mathf.Lerp(from, to, elapsed / duration);
+                yield return null;
+            }
+
+            group.alpha = to;
+        }
+
+        private void Punch(Transform target)
+        {
+            if (target == null)
+            {
+                return;
+            }
+
+            if (_punchCoroutines.TryGetValue(target, out var running) && running != null)
+            {
+                StopCoroutine(running);
+            }
+
+            _punchCoroutines[target] = StartCoroutine(PunchRoutine(target));
+        }
+
+        private IEnumerator PunchRoutine(Transform target)
+        {
+            const float duration = 0.2f;
+            for (var elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
+            {
+                var progress = elapsed / duration;
+                var scale = progress < 0.5f
+                    ? Mathf.Lerp(1f, 0.95f, progress * 2f)
+                    : Mathf.Lerp(0.95f, 1f, (progress - 0.5f) * 2f);
+                target.localScale = new Vector3(scale, scale, 1f);
+                yield return null;
+            }
+
+            target.localScale = Vector3.one;
+            _punchCoroutines.Remove(target);
         }
 
         private void ShowAssignmentWorkspace()
@@ -603,6 +905,12 @@ namespace NewPlayerHunter.Gameplay
         {
             var mail = contentCatalog.Mails.FirstOrDefault(item =>
                 item.id == mailId && ShouldDisplayMail(item));
+            if (mail == null)
+            {
+                mail = _resultMails.FirstOrDefault(item =>
+                    item.id == mailId && item.publishedWeek <= CurrentWeek);
+            }
+
             if (mail == null)
             {
                 return;
@@ -750,6 +1058,7 @@ namespace NewPlayerHunter.Gameplay
             foreach (var outcome in advance.DeliveredOutcomes)
             {
                 AddLog(DescribeOutcome(outcome));
+                RegisterResultMail(outcome);
             }
 
             foreach (var payment in advance.PaidPayments)
@@ -792,6 +1101,7 @@ namespace NewPlayerHunter.Gameplay
             Debug.Log(
                 $"[NewPlayerHunter] 已推进至第 {_state.CurrentWeek} 周。Cash={_state.Cash:0.00}, Receivables={_state.OutstandingReceivables:0.00}, Reputation={_state.Reputation}.");
             RefreshUi();
+            SaveProgress();
         }
 
         private void RefreshUi()
@@ -927,7 +1237,7 @@ namespace NewPlayerHunter.Gameplay
                 var player = availablePlayers[index];
                 card.GetComponent<PlayerCardDragHandler>().Configure(this, player.PlayerId);
                 var playerContent = _playerContentById[player.PlayerId];
-                ApplyAtlasImage(card.Find("Portrait").GetComponent<RawImage>(),
+                ApplyAtlasImage(card.Find("Portrait/Image").GetComponent<RawImage>(),
                     contentCatalog.PlayerPortraitAtlas, playerContent.portraitIndex, 4, 4);
                 card.Find("Name").GetComponent<TextMeshProUGUI>().text = player.DisplayName;
                 card.Find("Position").GetComponent<TextMeshProUGUI>().text =
@@ -1016,12 +1326,17 @@ namespace NewPlayerHunter.Gameplay
             _visibleMails.Clear();
             _visibleMails.AddRange(contentCatalog.Mails
                 .Where(ShouldDisplayMail)
-                .OrderByDescending(mail => mail.publishedWeek));
+                .Concat(_resultMails.Where(mail => mail.publishedWeek <= CurrentWeek))
+                .OrderByDescending(mail => _readMailIds.Contains(mail.id) ? 0 : 1)
+                .ThenByDescending(mail => mail.publishedWeek));
 
-            if (_mailListContainer.childCount < _visibleMails.Count)
+            if (_visibleMails.Count > _mailListContainer.childCount)
             {
-                throw new InvalidOperationException(
-                    $"Game scene needs {_visibleMails.Count} authored mail list items.");
+                Debug.LogWarning(
+                    $"[NewPlayerHunter] 邮件超过 {_mailListContainer.childCount} 封预置容量，最旧的已读邮件暂不显示。");
+                _visibleMails.RemoveRange(
+                    _mailListContainer.childCount,
+                    _visibleMails.Count - _mailListContainer.childCount);
             }
 
             for (var index = 0; index < _mailListContainer.childCount; index++)
@@ -1056,7 +1371,11 @@ namespace NewPlayerHunter.Gameplay
                 var button = listItem.GetComponent<Button>();
                 var capturedId = mail.id;
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => OpenMail(capturedId));
+                button.onClick.AddListener(() =>
+                {
+                    Punch(listItem);
+                    OpenMail(capturedId);
+                });
                 listItem.GetComponent<Image>().color = mail.id == _selectedMailId
                     ? new Color(0.13f, 0.31f, 0.23f, 1f)
                     : isRead ? ReadColor : PanelLightColor;
@@ -1135,7 +1454,7 @@ namespace NewPlayerHunter.Gameplay
                 return;
             }
 
-            ApplyAtlasImage(_mailResumeBlock.Find("Portrait").GetComponent<RawImage>(),
+            ApplyAtlasImage(_mailResumeBlock.Find("Portrait/Image").GetComponent<RawImage>(),
                 contentCatalog.PlayerPortraitAtlas, player.portraitIndex, 4, 4);
             _mailResumeBlock.Find("Title").GetComponent<TextMeshProUGUI>().text =
                 "固定信息 · 球员简历";
@@ -1145,6 +1464,10 @@ namespace NewPlayerHunter.Gameplay
                 "公开位置：" + PositionName(player.publicPosition);
             _mailResumeBlock.Find("Biography").GetComponent<TextMeshProUGUI>().text =
                 Resolve(player.biography);
+            _mailResumeBlock.Find("Salary").GetComponent<TextMeshProUGUI>().text =
+                $"薪资期望：€{player.salaryMinWeekly}–€{player.salaryMaxWeekly} / 周";
+            _mailResumeBlock.Find("Career").GetComponent<TextMeshProUGUI>().text =
+                "经历：" + Resolve(player.careerHistory);
             _mailResumeBlock.Find("Claim").GetComponent<TextMeshProUGUI>().text =
                 "自述：" + Resolve(player.publicClaim);
             _mailResumeBlock.Find("Evidence").GetComponent<TextMeshProUGUI>().text =
@@ -1423,6 +1746,8 @@ namespace NewPlayerHunter.Gameplay
                     return new Color(0.18f, 0.34f, 0.52f, 1f);
                 case MailContentKind.PrivateRequest:
                     return new Color(0.55f, 0.30f, 0.12f, 1f);
+                case MailContentKind.ClubFeedback:
+                    return new Color(0.58f, 0.47f, 0.16f, 1f);
                 default:
                     return new Color(0.32f, 0.34f, 0.38f, 1f);
             }
@@ -1480,6 +1805,8 @@ namespace NewPlayerHunter.Gameplay
                     return "球员简历";
                 case MailContentKind.PrivateRequest:
                     return "私人请托";
+                case MailContentKind.ClubFeedback:
+                    return "俱乐部回函";
                 default:
                     return "普通邮件";
             }
@@ -1538,6 +1865,44 @@ namespace NewPlayerHunter.Gameplay
         private void AddLog(string message)
         {
             _eventLog.Add(message);
+        }
+
+        private void RegisterResultMail(PlacementOutcome outcome)
+        {
+            var mailId = ResultMailFactory.BuildMailId(outcome);
+            if (_resultMails.Any(mail => mail.id == mailId))
+            {
+                return;
+            }
+
+            _demandContentById.TryGetValue(outcome.Assignment.DemandId, out var demandContent);
+            var mail = ResultMailFactory.Create(
+                outcome,
+                demandContent == null ? outcome.Assignment.DemandId : Resolve(demandContent.title),
+                demandContent == null ? string.Empty : Resolve(demandContent.clubDisplayName),
+                GetPlayerDisplayName(outcome.Assignment.PlayerId));
+            _resultMails.Add(mail);
+            AddLog($"收到 {Resolve(mail.sender)} 的正式回函，详情见收件箱。");
+        }
+
+        private void RegenerateResultMails()
+        {
+            _resultMails.Clear();
+            foreach (var outcome in _state.DeliveredOutcomes)
+            {
+                var mailId = ResultMailFactory.BuildMailId(outcome);
+                if (_resultMails.Any(mail => mail.id == mailId))
+                {
+                    continue;
+                }
+
+                _demandContentById.TryGetValue(outcome.Assignment.DemandId, out var demandContent);
+                _resultMails.Add(ResultMailFactory.Create(
+                    outcome,
+                    demandContent == null ? outcome.Assignment.DemandId : Resolve(demandContent.title),
+                    demandContent == null ? string.Empty : Resolve(demandContent.clubDisplayName),
+                    GetPlayerDisplayName(outcome.Assignment.PlayerId)));
+            }
         }
 
         private static string FormatMoney(decimal amount)

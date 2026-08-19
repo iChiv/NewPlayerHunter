@@ -16,7 +16,8 @@ namespace NewPlayerHunter.Gameplay
         ClubRequest,
         PlayerResume,
         PrivateRequest,
-        General
+        General,
+        ClubFeedback
     }
 
     public enum MagazinePageLayout
@@ -57,6 +58,9 @@ namespace NewPlayerHunter.Gameplay
         [Range(0, 100)] public int hiddenAbility;
         [Range(0, 100)] public int hiddenFitness;
         [Range(0, 100)] public int hiddenProfessionalism;
+        [Min(0)] public int salaryMinWeekly;
+        [Min(0)] public int salaryMaxWeekly;
+        public LocalizedText careerHistory;
         public LocalizedText publicClaim;
         public LocalizedText publicEvidence;
         public EvidenceReliability evidenceReliability;

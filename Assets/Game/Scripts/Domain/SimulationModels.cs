@@ -188,6 +188,19 @@ namespace NewPlayerHunter.Domain
             IsPaid = true;
             PaidWeek = week;
         }
+
+        internal void RestorePaid(int week)
+        {
+            if (week < ExpectedWeek)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(week),
+                    $"Payment {Id} cannot have been paid before week {ExpectedWeek}.");
+            }
+
+            IsPaid = true;
+            PaidWeek = week;
+        }
     }
 
     public sealed class WeekRules
@@ -382,6 +395,58 @@ namespace NewPlayerHunter.Domain
         internal void AdvanceWeek()
         {
             CurrentWeek++;
+        }
+
+        public WeekStateSnapshot CreateSnapshot()
+        {
+            return WeekStateSnapshot.FromState(this);
+        }
+
+        public void ApplySnapshot(WeekStateSnapshot snapshot)
+        {
+            if (snapshot == null)
+            {
+                throw new ArgumentNullException(nameof(snapshot));
+            }
+
+            if (snapshot.CurrentWeek < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(snapshot), "Snapshot week must be at least 1.");
+            }
+
+            if (snapshot.Cash < 0m)
+            {
+                throw new ArgumentOutOfRangeException(nameof(snapshot), "Snapshot cash cannot be negative.");
+            }
+
+            CurrentWeek = snapshot.CurrentWeek;
+            Cash = snapshot.Cash;
+            Reputation = snapshot.Reputation;
+
+            _committedAssignments.Clear();
+            _pendingOutcomes.Clear();
+            _deliveredOutcomes.Clear();
+            _payments.Clear();
+
+            foreach (var assignment in snapshot.CommittedAssignments)
+            {
+                _committedAssignments.Add(assignment.ToAssignment());
+            }
+
+            foreach (var outcome in snapshot.PendingOutcomes)
+            {
+                _pendingOutcomes.Add(outcome.ToOutcome());
+            }
+
+            foreach (var outcome in snapshot.DeliveredOutcomes)
+            {
+                _deliveredOutcomes.Add(outcome.ToOutcome());
+            }
+
+            foreach (var payment in snapshot.Payments)
+            {
+                _payments.Add(payment.ToPayment());
+            }
         }
 
         internal IReadOnlyList<PlacementOutcome> DeliverDueOutcomes()

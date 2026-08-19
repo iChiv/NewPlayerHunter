@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,6 +15,7 @@ namespace NewPlayerHunter.Gameplay
         private string _playerId;
         private CanvasGroup _canvasGroup;
         private RectTransform _dragGhost;
+        private Coroutine _punchCoroutine;
 
         public string PlayerId => _playerId;
 
@@ -79,6 +81,29 @@ namespace NewPlayerHunter.Gameplay
         public void OnPointerClick(PointerEventData eventData)
         {
             _controller?.SelectPlayer(_playerId);
+            if (_punchCoroutine != null)
+            {
+                StopCoroutine(_punchCoroutine);
+            }
+
+            _punchCoroutine = StartCoroutine(PunchRoutine());
+        }
+
+        private IEnumerator PunchRoutine()
+        {
+            const float duration = 0.2f;
+            for (var elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
+            {
+                var progress = elapsed / duration;
+                var scale = progress < 0.5f
+                    ? Mathf.Lerp(1f, 0.95f, progress * 2f)
+                    : Mathf.Lerp(0.95f, 1f, (progress - 0.5f) * 2f);
+                transform.localScale = new Vector3(scale, scale, 1f);
+                yield return null;
+            }
+
+            transform.localScale = Vector3.one;
+            _punchCoroutine = null;
         }
     }
 

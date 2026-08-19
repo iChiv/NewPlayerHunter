@@ -175,6 +175,23 @@ namespace NewPlayerHunter.Gameplay.Tests
         }
 
         [Test]
+        public void EveryPlayer_HasSalaryRangeAndCareerHistory()
+        {
+            foreach (var player in _catalog.Players)
+            {
+                Assert.That(player.salaryMinWeekly, Is.GreaterThan(0), player.id);
+                Assert.That(
+                    player.salaryMaxWeekly,
+                    Is.GreaterThanOrEqualTo(player.salaryMinWeekly),
+                    player.id);
+                Assert.That(
+                    string.IsNullOrWhiteSpace(player.careerHistory.chineseSimplified),
+                    Is.False,
+                    player.id);
+            }
+        }
+
+        [Test]
         public void CarloPrivateRequest_HasFixedImmediateOfferAndDelayedRiskCopy()
         {
             var mail = _catalog.Mails.Single(item => item.id == "mail.w1.carlo");

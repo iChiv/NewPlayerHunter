@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using NewPlayerHunter.Persistence;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,18 @@ namespace NewPlayerHunter.Gameplay.Tests
 {
     public sealed class FormalGameSceneTests
     {
+        [SetUp]
+        public void DeleteDefaultSaveBeforeSceneLoad()
+        {
+            new SaveGameService().DeleteProgress();
+        }
+
+        [TearDown]
+        public void DeleteDefaultSaveAfterTest()
+        {
+            new SaveGameService().DeleteProgress();
+        }
+
         [UnityTest]
         public IEnumerator GameScene_ReadMailUnlocksAssignment_AndMagazineHasPages()
         {
@@ -84,10 +97,18 @@ namespace NewPlayerHunter.Gameplay.Tests
             controller.OpenMailForTests("mail.w1.rory");
             yield return null;
             Assert.That(
-                demandBlock.parent.Find("ResumeBlock/Portrait").GetComponent<RawImage>().texture,
+                demandBlock.parent.Find("ResumeBlock/Portrait/Image").GetComponent<RawImage>().texture,
                 Is.Not.Null);
             Assert.That(controller.ReadMailCount, Is.EqualTo(3));
             Assert.That(controller.UnlockedPlayerCount, Is.EqualTo(2));
+            Assert.That(
+                demandBlock.parent.Find("ResumeBlock/Salary").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("/ 周"),
+                "The resume block must show the player's weekly salary range.");
+            Assert.That(
+                demandBlock.parent.Find("ResumeBlock/Career").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("经历"),
+                "The resume block must show the player's career history.");
             Assert.That(
                 controller.VisiblePlayerIds,
                 Is.EqualTo(new[] { "player.rocket.rory", "player.cousin.carlo" }),
@@ -100,10 +121,10 @@ namespace NewPlayerHunter.Gameplay.Tests
             Assert.That(controller.CurrentMagazinePageIndex, Is.Zero);
             Assert.That(controller.CurrentMagazinePageLayout, Is.EqualTo("Cover"));
             Assert.That(
-                magazineBrowser.Find("PagePanel/CoverLayout/CoverImage").GetComponent<RawImage>().texture,
+                magazineBrowser.Find("PagePanel/CoverLayout/CoverImage/Image").GetComponent<RawImage>().texture,
                 Is.Not.Null);
             Assert.That(
-                magazineBrowser.Find("PagePanel/CoverLayout/CoverImage")
+                magazineBrowser.Find("PagePanel/CoverLayout/CoverImage/Image")
                     .GetComponent<AspectRatioFitter>().aspectRatio,
                 Is.EqualTo(1f));
             controller.NextMagazinePageForTests();
@@ -125,10 +146,10 @@ namespace NewPlayerHunter.Gameplay.Tests
                 cards.GetChild(1).Find("Name").GetComponent<TextMeshProUGUI>().text,
                 Is.EqualTo("卡洛·贝利尼"));
             Assert.That(
-                cards.GetChild(0).Find("Portrait").GetComponent<RawImage>().texture,
+                cards.GetChild(0).Find("Portrait/Image").GetComponent<RawImage>().texture,
                 Is.Not.Null);
             Assert.That(
-                cards.GetChild(0).Find("Portrait")
+                cards.GetChild(0).Find("Portrait/Image")
                     .GetComponent<AspectRatioFitter>().aspectRatio,
                 Is.EqualTo(1f));
             Assert.That(
@@ -260,6 +281,135 @@ namespace NewPlayerHunter.Gameplay.Tests
             var eventLog = controller.transform.Find("GameCanvas/Background/Footer/EventLog")
                 .GetComponent<TextMeshProUGUI>().text;
             Assert.That(eventLog, Does.Contain("声望 -3"));
+        }
+
+        [UnityTest]
+        public IEnumerator GameScene_SavesAfterEndWeek_AndReloadRestoresProgress()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            yield return null;
+
+            var settings = new ES3Settings("nph-playmode-test-save.es3");
+            var controller = Object.FindFirstObjectByType<GameController>();
+            controller.ConfigureSaveGameService(new SaveGameService(settings));
+            controller.RestartGame();
+            yield return null;
+
+            Assert.That(controller.CurrentWeek, Is.EqualTo(1));
+            Assert.That(controller.HasSavedProgress, Is.False);
+
+            controller.OpenMailForTests("mail.w1.rainy");
+            controller.OpenMailForTests("mail.w1.carlo");
+            controller.ShowAssignmentForTests();
+            Assert.That(
+                controller.AssignPlayerForTests(
+                    controller.VisibleSlotIds[0], "player.cousin.carlo"),
+                Is.True);
+            controller.EndWeekForTests();
+            yield return null;
+
+            Assert.That(controller.CurrentWeek, Is.EqualTo(2));
+            Assert.That(controller.HasSavedProgress, Is.True);
+            Assert.That(controller.CarloFavorAccepted, Is.True);
+            var savedCash = controller.CurrentCash;
+            var savedReadCount = controller.ReadMailCount;
+            var savedStatus = controller.LastStatus;
+
+            controller.ReloadProgressForTests();
+            yield return null;
+
+            Assert.That(controller.CurrentWeek, Is.EqualTo(2),
+                "Reload must restore the saved week instead of starting over.");
+            Assert.That(controller.CurrentCash, Is.EqualTo(savedCash));
+            Assert.That(controller.ReadMailCount, Is.EqualTo(savedReadCount));
+            Assert.That(controller.UnlockedPlayerCount, Is.EqualTo(1));
+            Assert.That(controller.UnlockedDemandCount, Is.EqualTo(1));
+            Assert.That(controller.CarloFavorAccepted, Is.True);
+            Assert.That(controller.LastStatus, Is.EqualTo(savedStatus));
+            Assert.That(controller.VisiblePlayerIds, Does.Not.Contain("player.cousin.carlo"),
+                "Committed players stay out of the pool after a reload.");
+            Assert.That(controller.CurrentDemandId, Is.Empty,
+                "Week 2 demand remains locked because its mail was not read before saving.");
+
+            controller.RestartGame();
+            yield return null;
+            Assert.That(controller.CurrentWeek, Is.EqualTo(1));
+            Assert.That(controller.HasSavedProgress, Is.False,
+                "Restarting must delete the save slot.");
+
+            if (ES3.FileExists(settings))
+            {
+                ES3.DeleteFile(settings);
+            }
+        }
+
+        [UnityTest]
+        public IEnumerator GameScene_ResultMailArrivesWithClubEvaluation_AndSurvivesReload()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            yield return null;
+
+            var settings = new ES3Settings("nph-playmode-test-save.es3");
+            var controller = Object.FindFirstObjectByType<GameController>();
+            controller.ConfigureSaveGameService(new SaveGameService(settings));
+            controller.RestartGame();
+            yield return null;
+
+            var overlay = controller.transform.Find("GameCanvas/WeekTransitionOverlay");
+            Assert.That(overlay, Is.Not.Null,
+                "The week transition overlay must be authored in the scene.");
+            Assert.That(overlay.Find("Text"), Is.Not.Null);
+            var overlayGroup = overlay.GetComponent<CanvasGroup>();
+            Assert.That(overlayGroup.alpha, Is.EqualTo(0f));
+            Assert.That(overlayGroup.blocksRaycasts, Is.False);
+
+            controller.OpenMailForTests("mail.w1.rainy");
+            controller.OpenMailForTests("mail.w1.carlo");
+            controller.ShowAssignmentForTests();
+            Assert.That(
+                controller.AssignPlayerForTests(
+                    controller.VisibleSlotIds[0], "player.cousin.carlo"),
+                Is.True);
+
+            var guard = 0;
+            while (controller.ResultMailCount == 0 && guard < 3)
+            {
+                controller.EndWeekForTests();
+                guard++;
+            }
+
+            yield return null;
+            Assert.That(controller.ResultMailCount, Is.EqualTo(1),
+                "A committed placement must produce a club feedback mail within two weeks.");
+
+            var resultMailId = controller.VisibleMailIds
+                .First(id => id.StartsWith("result.w", System.StringComparison.Ordinal));
+            controller.OpenMailForTests(resultMailId);
+            yield return null;
+            Assert.That(controller.SelectedInformationSubject, Does.Contain("试训反馈"));
+            Assert.That(controller.SelectedInformationSubject, Does.Contain("卡洛"));
+            var bodyText = controller.transform
+                .Find("GameCanvas/Background/InformationWorkspace/MailBrowser/DetailPanel/Body")
+                .GetComponent<TextMeshProUGUI>().text;
+            Assert.That(bodyText, Does.Contain("雨城竞技"),
+                "The feedback mail must name the evaluating club.");
+            Assert.That(bodyText, Does.Contain("€"),
+                "The feedback mail must state the payment.");
+            Assert.That(controller.ReadMailCount, Is.EqualTo(3));
+
+            controller.SaveProgressForTests();
+            controller.ReloadProgressForTests();
+            yield return null;
+            Assert.That(controller.ResultMailCount, Is.EqualTo(1),
+                "Result mails must be regenerated from delivered outcomes after a reload.");
+            Assert.That(controller.VisibleMailIds, Does.Contain(resultMailId));
+            Assert.That(controller.ReadMailCount, Is.EqualTo(3),
+                "Result mail read state must persist through the save.");
+
+            if (ES3.FileExists(settings))
+            {
+                ES3.DeleteFile(settings);
+            }
         }
     }
 }

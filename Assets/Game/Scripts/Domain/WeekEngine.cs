@@ -23,14 +23,35 @@ namespace NewPlayerHunter.Domain
 
         public int Seed { get; }
 
+        public int DrawCount { get; private set; }
+
         public int NextInt(int minimumInclusive, int maximumExclusive)
         {
+            DrawCount++;
             return _random.Next(minimumInclusive, maximumExclusive);
         }
 
         public double NextDouble()
         {
+            DrawCount++;
             return _random.NextDouble();
+        }
+
+        // NextInt and NextDouble each consume exactly one underlying sample,
+        // so replaying that many samples restores the sequence position.
+        public void FastForward(int drawCount)
+        {
+            if (drawCount < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(drawCount));
+            }
+
+            for (var index = 0; index < drawCount; index++)
+            {
+                _random.NextDouble();
+            }
+
+            DrawCount += drawCount;
         }
     }
 

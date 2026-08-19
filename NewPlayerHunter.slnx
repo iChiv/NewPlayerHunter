@@ -1,11 +1,13 @@
 ﻿<Solution>
-  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="EasySave3.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="NewPlayerHunter.Gameplay.csproj" />
-  <Project Path="Assembly-CSharp-Editor-firstpass.csproj" />
+  <Project Path="NewPlayerHunter.Persistence.csproj" />
+  <Project Path="EasySave3Editor.csproj" />
   <Project Path="NewPlayerHunter.Domain.csproj" />
   <Project Path="NewPlayerHunter.Gameplay.PlayModeTests.csproj" />
-  <Project Path="NewPlayerHunter.Gameplay.Editor.csproj" />
   <Project Path="NewPlayerHunter.Domain.EditModeTests.csproj" />
+  <Project Path="NewPlayerHunter.Gameplay.Editor.csproj" />
   <Project Path="NewPlayerHunter.Content.EditModeTests.csproj" />
+  <Project Path="NewPlayerHunter.Persistence.EditModeTests.csproj" />
 </Solution>
