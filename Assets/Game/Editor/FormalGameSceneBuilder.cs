@@ -395,7 +395,7 @@ namespace NewPlayerHunter.Editor
             var list = CreateRect(
                 "DemandListItems", viewport, new Vector2(0f, 1f), new Vector2(1f, 1f));
             list.pivot = new Vector2(0.5f, 1f);
-            list.sizeDelta = new Vector2(0f, 8 * 64f);
+            list.sizeDelta = new Vector2(0f, 8 * 72f);
             list.anchoredPosition = Vector2.zero;
             var scroll = scrollObject.GetComponent<ScrollRect>();
             scroll.viewport = viewport;
@@ -416,10 +416,10 @@ namespace NewPlayerHunter.Editor
             CreateText(
                 "DemandBody", panel, "请先打开招聘邮件。", 16f, Muted,
                 TextAlignmentOptions.TopLeft,
-                new Vector2(0.04f, 0.30f), new Vector2(0.96f, 0.48f));
+                new Vector2(0.04f, 0.32f), new Vector2(0.96f, 0.48f));
             var slots = CreateRect(
                 "Slots", panel,
-                new Vector2(0.04f, 0.15f), new Vector2(0.96f, 0.30f));
+                new Vector2(0.04f, 0.13f), new Vector2(0.96f, 0.31f));
             for (var index = 0; index < 2; index++)
             {
                 BuildDemandSlot(slots, index);
@@ -433,7 +433,7 @@ namespace NewPlayerHunter.Editor
 
         private static void BuildDemandListItem(RectTransform parent, int index)
         {
-            const float height = 56f;
+            const float height = 64f;
             const float gap = 8f;
             var item = CreateTopItem(
                 $"DemandListItem{index + 1:00}", parent, PanelLight,
@@ -442,18 +442,18 @@ namespace NewPlayerHunter.Editor
             var button = item.gameObject.AddComponent<Button>();
             ConfigureButtonColors(button, image, PanelLight);
             CreateText(
-                "Title", item, "俱乐部 · 需求标题", 15f, Color.white,
+                "Title", item, "俱乐部 · 需求标题", 14f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.05f, 0.50f), new Vector2(0.95f, 0.94f));
+                new Vector2(0.05f, 0.45f), new Vector2(0.95f, 0.97f));
             CreateText(
-                "Meta", item, "截止 日期 · 委托价 €0 · 0 槽", 13f, Muted,
+                "Meta", item, "截止 日期 · 委托价 €0 · 0 槽", 12f, Muted,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.05f, 0.08f), new Vector2(0.95f, 0.48f));
+                new Vector2(0.05f, 0.05f), new Vector2(0.95f, 0.45f));
         }
 
         private static void BuildDemandSlot(RectTransform parent, int index)
         {
-            const float height = 52f;
+            const float height = 60f;
             const float gap = 6f;
             var slot = CreateTopItem(
                 $"DemandSlot{index + 1:00}", parent, PanelLight,
@@ -465,11 +465,11 @@ namespace NewPlayerHunter.Editor
             CreateText(
                 "Requirement", slot, "位置 · 必需", 15f, Accent,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.035f, 0.54f), new Vector2(0.965f, 0.96f));
+                new Vector2(0.035f, 0.48f), new Vector2(0.965f, 0.98f));
             CreateText(
                 "Assignment", slot, "把球员拖到这里 / 选中球员后点击", 14f, Muted,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.035f, 0.06f), new Vector2(0.965f, 0.52f));
+                new Vector2(0.035f, 0.02f), new Vector2(0.965f, 0.48f));
         }
 
         private static void BuildPlayersPanel(RectTransform parent)

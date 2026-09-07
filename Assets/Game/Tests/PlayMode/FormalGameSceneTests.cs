@@ -452,6 +452,18 @@ namespace NewPlayerHunter.Gameplay.Tests
             Assert.That(
                 activeItems[1].Find("Meta").GetComponent<TextMeshProUGUI>().text,
                 Does.Contain("1 槽"));
+            var firstTitle = activeItems[0].Find("Title").GetComponent<TextMeshProUGUI>();
+            controller.ShowAssignmentForTests();
+            yield return null;
+            firstTitle.ForceMeshUpdate();
+            Assert.That(firstTitle.textInfo.characterCount, Is.GreaterThan(0),
+                "Demand list title must fit its band and actually render glyphs.");
+            var slotRequirement = controller.transform.Find(
+                    "GameCanvas/Background/AssignmentWorkspace/DemandPanel/Slots/DemandSlot01/Requirement")
+                .GetComponent<TextMeshProUGUI>();
+            slotRequirement.ForceMeshUpdate();
+            Assert.That(slotRequirement.textInfo.characterCount, Is.GreaterThan(0),
+                "Demand slot requirement text must fit its band and actually render glyphs.");
 
             var demandTitle = controller.transform.Find(
                     "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandTitle")
