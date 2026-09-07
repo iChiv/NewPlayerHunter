@@ -97,3 +97,11 @@
 - 附件的授权来源、创作者和用途已填写。
 
 整合时会先复制原文件备份，再运行引用、枚举、重复 ID、长度和内容边界检查；发现问题会按行号退回，不会直接猜测或改写内容人员的原意。
+
+## 8. 整合管线（2026-09-07 起）
+
+1. `python output/spreadsheet/extract_batch.py <xlsx>`：提取为 `content_batch_XX.json` 并打印校验报告。
+2. 整合者在 `content_design.json` 补齐结构字段（稳定 ID、周次、俱乐部、薪资、槽位门槛、图集索引）；缺失文案在独立 prose JSON 中补齐。
+3. `python output/spreadsheet/build_factory.py`：生成 `LateSeasonContentFactory.cs`，由 `PopulateM1Defaults()` 合并进目录。
+4. 美术：`make_art_manifest.py` 生成生图清单，`output/art_raw/gen_art_serial.sh` 调用本地 grok 批量生成，`rebuild_atlases.py` 合成 8×8 肖像与 6×6 封面图集。
+5. 重建正式场景（Tools/New Player Hunter/Rebuild Game Scene）并跑 EditMode/PlayMode 测试。

@@ -162,3 +162,31 @@
 - 状态：已确认
 - 决定：Domain 定义纯 C# 快照模型与导出入口，不依赖 Easy Save 或 UnityEngine。Persistence 程序集把快照转换为 JsonUtility 兼容的 JSON 字符串，再经 Easy Save 3 以单个键值写入默认存档文件；Easy Save 3 自带的 asmdef 从 `.disabled` 启用（运行时装配件置于插件根目录，Editor 装配件置于 Editor 目录）。
 - 影响：替换或升级存储插件时不改动 Domain；快照往返与版本校验分别在 Domain 与 Persistence 的 EditMode 测试中覆盖。
+
+## D-024 内容批次 01 通过结构化 JSON 管线整合
+
+- 日期：2026-09-07
+- 状态：已确认
+- 决定：内容人员提交的 Excel 先提取为 JSON 工作副本（`output/spreadsheet/extract_batch.py`），整合者在 `content_design.json` 中补齐稳定 ID、周次、俱乐部、薪资、槽位门槛与图集索引等结构字段，文案补充在独立 prose JSON 中完成，最后由 `build_factory.py` 生成 `LateSeasonContentFactory.cs`；`PopulateM1Defaults()` 合并六周工厂与赛季工厂。批次 01 包含 35 名球员、29 条招聘、64 封解锁邮件与 28 期期刊，排布到第 7–52 周（前密后疏，冬窗与决赛周加密）。
+- 影响：新内容不手改 `.asset`；内容变更走"改 JSON → 重新生成"的流水线；结构字段缺省时由整合者按内容规范补齐而非退回。
+
+## D-025 美术图集扩容为 8×8 肖像与 6×6 封面，网格参数常量化
+
+- 日期：2026-09-07
+- 状态：已确认
+- 决定：球员肖像图集扩为 8×8 @256px（2048²），期刊封面图集扩为 6×6 @256px（1536²）；旧图集单元格按比例裁切保留索引 0–15 / 0–5，新内容由 grok 本地 CLI 生成后经 `rebuild_atlases.py` 合成。`GameController` 的网格参数改为常量 `PlayerAtlasColumns/Rows`、`CoverAtlasColumns/Rows`。
+- 影响：新增球员/期刊只分配新索引，不复用旧格；图集变更后必须重跑该脚本并更新索引范围测试。
+
+## D-026 存档兼容延后到游戏完成后统一梳理
+
+- 日期：2026-09-07
+- 状态：已确认
+- 决定：开发期内存档字段变更直接递增 `schemaVersion` 并丢弃旧档（当前版本 2，新增选中委托 ID）；不再为每个版本写迁移。游戏整体完成后再统一设计存档兼容与迁移方案，届时重写 D-020 的迁移条款。
+- 影响：版本不匹配即新开游戏的既有行为保持不变；Persistence 测试只需覆盖当前版本往返与旧版本拒绝。
+
+## D-027 结果邮件叙事变体由既有数据确定性派生
+
+- 日期：2026-09-07
+- 状态：已确认
+- 决定：试训回函的叙事键在 `placement.accepted/trial_extended/rejected` 基础上扩展变体（意外发挥、性格冲突、体能疑虑、隐藏伤病），由结果类型、匹配分、隐藏体能/职业性与 `randomRoll` 小数分位确定性映射，不新增随机消耗次数；文案选择同样使用 `randomRoll` 质数分位，保证存档恢复后文本一致。
+- 影响：D-021 的随机序列恢复策略不受影响；`ResultMailFactory` 以 NarrativeKey 精确匹配优先、旧键回退原有分档文案。
