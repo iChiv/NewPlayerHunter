@@ -110,3 +110,4 @@ InitTestScene*.unity*
 output/art_raw/
 output/spreadsheet/xlsx_tmp/
 Assets/Screenshots/
+Assets/Screenshots.meta
