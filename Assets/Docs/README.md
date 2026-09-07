@@ -23,10 +23,10 @@
 
 ## 当前阶段
 
-- 阶段：M1 可玩周循环与内容/存档迭代（Easy Save 3 自动存档已接入）
+- 阶段：M1-B 内容与存档主体已完成（批次 01 覆盖全部 52 周：51 球员、35 招聘、193 目录邮件、34 期期刊）；剩余英文翻译与发布构建
 - 平台：Windows
 - 当前可玩版本：Assets/Game/Scenes/Game.unity
-- 最近更新：2026-08-19
+- 最近更新：2026-09-07
 
 ## 在 Unity Editor 中试玩
 
@@ -34,6 +34,22 @@
 2. 确认 Game View 使用 16:9 比例。
 3. 点击 Play。
 4. 默认进入邮件页；点击“邮件”与“订阅期刊”对照来源、立场和互相冲突的球员信息。
-5. 点击左上角“球员分配”进入工作台。
+5. 点击左上角“球员分配”进入工作台；多条招聘同时有效时，点击左上列表切换当前委托。
 6. 点击或拖拽一张可用球员卡到左侧招聘槽位，再点击“结束本周”。
 7. 多槽位委托允许空缺，但需要再次点击“结束本周”确认部分提交。
+8. 试训回函会在 1–2 周后到达收件箱，包含定性评价（可能有意外发挥、性格冲突、体能疑虑、隐藏伤病变体）与报酬到账说明。
+
+## 内容与美术管线（批次整合）
+
+1. `python output/spreadsheet/extract_batch.py <xlsx>`：提取内容人员 Excel 并打印校验报告。
+2. 编辑 `content_design.json`（结构字段）与 prose JSON（文案）。
+3. `python output/spreadsheet/build_factory.py`：重新生成 `LateSeasonContentFactory.cs`。
+4. 美术：`make_art_manifest.py` 生成清单 → `bash output/art_raw/gen_art_serial.sh` 调本地 grok 批量生图 → `python output/spreadsheet/rebuild_atlases.py` 合成 8×8 肖像与 6×6 封面图集。
+5. Unity 菜单 Tools/New Player Hunter/Rebuild Game Scene 重建正式场景（会同时刷新内容目录资产），然后跑 EditMode/PlayMode 测试。
+
+## 测试与已知环境问题
+
+- EditMode/PlayMode 全部通过（35 + 7，2026-09-07）。通过 Unity MCP `run_tests` 执行。
+- 域重载后立即 `run_tests` 偶发“初始化超时”，重试即通过。
+- Console 既有噪音（不影响编译与测试）：`scripting_class_is_subclass_of(NULL)` 断言、MCP/Pipeline Roslyn 反射异常、"Editor is not in automated mode" 警告。
+- 存档版本为 schemaVersion 2；开发期内不做旧档兼容（D-026），游戏完成后统一梳理。

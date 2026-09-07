@@ -109,3 +109,4 @@ InitTestScene*.unity*
 # Content pipeline intermediates (regenerable)
 output/art_raw/
 output/spreadsheet/xlsx_tmp/
+Assets/Screenshots/
