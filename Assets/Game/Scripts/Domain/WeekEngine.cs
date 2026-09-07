@@ -376,11 +376,7 @@ namespace NewPlayerHunter.Domain
                     : resultKind == PlacementResultKind.Rejected
                         ? -1
                         : 0;
-                var narrativeKey = resultKind == PlacementResultKind.Accepted
-                    ? "placement.accepted"
-                    : resultKind == PlacementResultKind.TrialExtended
-                        ? "placement.trial_extended"
-                        : "placement.rejected";
+                var narrativeKey = DetermineNarrativeKey(resultKind, matchScore, randomRoll, truth);
 
                 var outcome = new PlacementOutcome(
                     assignment,
@@ -436,6 +432,41 @@ namespace NewPlayerHunter.Domain
             }
 
             return PlacementResultKind.Rejected;
+        }
+
+        internal static string DetermineNarrativeKey(
+            PlacementResultKind kind,
+            double matchScore,
+            double randomRoll,
+            PlayerTruth truth)
+        {
+            if (kind == PlacementResultKind.Accepted)
+            {
+                return matchScore < 0.80d
+                    ? "placement.accepted.surprise"
+                    : "placement.accepted";
+            }
+
+            if (kind == PlacementResultKind.TrialExtended)
+            {
+                if (truth.Professionalism < 45 && Fraction(randomRoll * 13d) < 0.5d)
+                {
+                    return "placement.trial_extended.personality_conflict";
+                }
+
+                return truth.Fitness < 40
+                    ? "placement.trial_extended.fitness_doubt"
+                    : "placement.trial_extended";
+            }
+
+            return truth.Fitness < 40 && Fraction(randomRoll * 7d) < 0.5d
+                ? "placement.rejected.hidden_injury"
+                : "placement.rejected";
+        }
+
+        private static double Fraction(double value)
+        {
+            return value - Math.Floor(value);
         }
 
         private static string SlotKey(string demandId, string slotId)

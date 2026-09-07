@@ -28,6 +28,10 @@ namespace NewPlayerHunter.Gameplay
 
         private const int FinalPlayableWeek = SeasonCalendar.MaximumPlayableWeeks;
         private const int GameSeed = 20260810;
+        private const int PlayerAtlasColumns = 8;
+        private const int PlayerAtlasRows = 8;
+        private const int CoverAtlasColumns = 6;
+        private const int CoverAtlasRows = 6;
         private static readonly DateTime SeasonStartDate = new DateTime(2026, 7, 6);
 
         private static readonly Color PanelLightColor =
@@ -44,6 +48,8 @@ namespace NewPlayerHunter.Gameplay
         private readonly List<PlayerPublicViewModel> _players =
             new List<PlayerPublicViewModel>();
         private readonly List<ClubDemand> _weeklyDemands =
+            new List<ClubDemand>();
+        private readonly List<ClubDemand> _eligibleDemands =
             new List<ClubDemand>();
         private readonly Dictionary<string, PlayerContentEntry> _playerContentById =
             new Dictionary<string, PlayerContentEntry>(StringComparer.Ordinal);
@@ -71,6 +77,7 @@ namespace NewPlayerHunter.Gameplay
         private SeasonCalendar _seasonCalendar;
         private SaveGameService _saveGameService = new SaveGameService();
         private ClubDemand _currentDemand;
+        private string _selectedDemandId;
         private string _selectedPlayerId;
         private string _selectedMailId;
         private string _selectedIssueId;
@@ -86,6 +93,7 @@ namespace NewPlayerHunter.Gameplay
         private RectTransform _mailBrowser;
         private RectTransform _magazineBrowser;
         private RectTransform _slotsContainer;
+        private RectTransform _demandListContainer;
         private RectTransform _playersContainer;
         private RectTransform _mailListContainer;
         private RectTransform _issueListContainer;
@@ -154,6 +162,9 @@ namespace NewPlayerHunter.Gameplay
 
         public string CurrentDemandId =>
             _currentDemand == null ? string.Empty : _currentDemand.Id;
+
+        public string SelectedDemandId =>
+            _selectedDemandId == null ? string.Empty : _selectedDemandId;
 
         public IReadOnlyList<string> VisibleMailIds =>
             _visibleMails.Select(mail => mail.id).ToArray();
@@ -270,6 +281,27 @@ namespace NewPlayerHunter.Gameplay
             LastStatus = string.IsNullOrEmpty(_selectedPlayerId)
                 ? "已取消选择球员。"
                 : $"已选择 {GetPlayerDisplayName(_selectedPlayerId)}，请点击或拖入招聘槽位。";
+            RefreshUi();
+        }
+
+        public void SelectDemand(string demandId)
+        {
+            if (IsGameComplete)
+            {
+                return;
+            }
+
+            UpdateCurrentDemand();
+            var demand = _eligibleDemands.FirstOrDefault(item => item.Id == demandId);
+            if (demand == null || demand.Id == _selectedDemandId)
+            {
+                return;
+            }
+
+            _selectedDemandId = demand.Id;
+            _pendingEmptyConfirmation = false;
+            var entry = _demandContentById[demand.Id];
+            LastStatus = $"正在处理：{Resolve(entry.clubDisplayName)} · {demand.Title}。";
             RefreshUi();
         }
 
@@ -406,6 +438,7 @@ namespace NewPlayerHunter.Gameplay
                     readMailIds = _readMailIds.ToList(),
                     unlockedPlayerIds = _unlockedPlayerIds.ToList(),
                     unlockedDemandIds = _unlockedDemandIds.ToList(),
+                    selectedDemandId = _selectedDemandId,
                     carloFavorAccepted = _carloFavorAccepted,
                     carloFavorConsequenceApplied = _carloFavorConsequenceApplied,
                     eventLog = new List<string>(_eventLog),
@@ -431,6 +464,7 @@ namespace NewPlayerHunter.Gameplay
             _readMailIds.UnionWith(snapshot.readMailIds ?? new List<string>());
             _unlockedPlayerIds.UnionWith(snapshot.unlockedPlayerIds ?? new List<string>());
             _unlockedDemandIds.UnionWith(snapshot.unlockedDemandIds ?? new List<string>());
+            _selectedDemandId = snapshot.selectedDemandId;
             _carloFavorAccepted = snapshot.carloFavorAccepted;
             _carloFavorConsequenceApplied = snapshot.carloFavorConsequenceApplied;
             if (snapshot.eventLog != null)
@@ -473,6 +507,7 @@ namespace NewPlayerHunter.Gameplay
             _resultMails.Clear();
             _visibleIssues.Clear();
             _selectedPlayerId = null;
+            _selectedDemandId = null;
             _selectedMailId = null;
             _selectedIssueId = null;
             _magazinePageIndex = 0;
@@ -581,6 +616,8 @@ namespace NewPlayerHunter.Gameplay
                 "GameCanvas/Background/AssignmentWorkspace/DemandPanel/Selection");
             _slotsContainer = RequireSceneComponent<RectTransform>(
                 "GameCanvas/Background/AssignmentWorkspace/DemandPanel/Slots");
+            _demandListContainer = RequireSceneComponent<RectTransform>(
+                "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandList/Viewport/DemandListItems");
             _playersContainer = RequireSceneComponent<RectTransform>(
                 "GameCanvas/Background/AssignmentWorkspace/PlayersPanel/PlayerScroll/Viewport/PlayerCards");
             _mailFilterButton = RequireSceneComponent<Button>(
@@ -978,11 +1015,14 @@ namespace NewPlayerHunter.Gameplay
             var startingPhase = CurrentSeasonPhase;
             var assignments = _currentDemand == null
                 ? new List<Assignment>()
-                : _slotAssignments.Select(pair => new Assignment(
-                    _currentDemand.Id,
-                    pair.Key,
-                    pair.Value,
-                    _state.CurrentWeek)).ToList();
+                : _slotAssignments
+                    .Where(pair => _currentDemand.Slots.Any(slot => slot.Id == pair.Key))
+                    .Select(pair => new Assignment(
+                        _currentDemand.Id,
+                        pair.Key,
+                        pair.Value,
+                        _state.CurrentWeek))
+                    .ToList();
 
             if (_currentDemand != null)
             {
@@ -1124,6 +1164,7 @@ namespace NewPlayerHunter.Gameplay
             _endWeekButton.interactable = !IsGameComplete;
 
             RefreshDemandPanel();
+            RefreshDemandList();
             RefreshSlots();
             RefreshPlayerCards();
             RefreshMailBrowser();
@@ -1133,7 +1174,8 @@ namespace NewPlayerHunter.Gameplay
 
         private void UpdateCurrentDemand()
         {
-            _currentDemand = _weeklyDemands
+            _eligibleDemands.Clear();
+            _eligibleDemands.AddRange(_weeklyDemands
                 .Where(demand =>
                     _unlockedDemandIds.Contains(demand.Id) &&
                     demand.OpenedWeek <= CurrentWeek &&
@@ -1141,8 +1183,17 @@ namespace NewPlayerHunter.Gameplay
                     !_state.CommittedAssignments.Any(assignment =>
                         assignment.DemandId == demand.Id))
                 .OrderBy(demand => demand.DeadlineWeek)
-                .ThenBy(demand => demand.OpenedWeek)
-                .FirstOrDefault();
+                .ThenBy(demand => demand.OpenedWeek));
+
+            var selected = _eligibleDemands.FirstOrDefault(demand =>
+                demand.Id == _selectedDemandId);
+            if (selected == null)
+            {
+                selected = _eligibleDemands.FirstOrDefault();
+                _selectedDemandId = selected == null ? null : selected.Id;
+            }
+
+            _currentDemand = selected;
         }
 
         private void RefreshDemandPanel()
@@ -1176,6 +1227,44 @@ namespace NewPlayerHunter.Gameplay
             _selectionText.text = string.IsNullOrEmpty(_selectedPlayerId)
                 ? "未选择球员。已填槽位可在未选中球员时点击清空。"
                 : $"已选择：{GetPlayerDisplayName(_selectedPlayerId)}";
+        }
+
+        private void RefreshDemandList()
+        {
+            if (!IsGameComplete && _eligibleDemands.Count > _demandListContainer.childCount)
+            {
+                Debug.LogWarning(
+                    $"[NewPlayerHunter] 有效委托超过 {_demandListContainer.childCount} 条预置容量，仅显示截止最近的前 {_demandListContainer.childCount} 条。");
+            }
+
+            for (var index = 0; index < _demandListContainer.childCount; index++)
+            {
+                var item = (RectTransform)_demandListContainer.GetChild(index);
+                var isUsed = !IsGameComplete && index < _eligibleDemands.Count;
+                item.gameObject.SetActive(isUsed);
+                if (!isUsed)
+                {
+                    continue;
+                }
+
+                var demand = _eligibleDemands[index];
+                var entry = _demandContentById[demand.Id];
+                item.Find("Title").GetComponent<TextMeshProUGUI>().text =
+                    $"{Resolve(entry.clubDisplayName)} · {demand.Title}";
+                item.Find("Meta").GetComponent<TextMeshProUGUI>().text =
+                    $"截止 {FormatWeekDate(demand.DeadlineWeek)} · 委托价 {FormatMoney(demand.BaseReward)} · {demand.Slots.Count} 槽";
+                var button = item.GetComponent<Button>();
+                var capturedId = demand.Id;
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() =>
+                {
+                    Punch(item);
+                    SelectDemand(capturedId);
+                });
+                item.GetComponent<Image>().color = demand.Id == _selectedDemandId
+                    ? new Color(0.16f, 0.36f, 0.25f, 1f)
+                    : PanelLightColor;
+            }
         }
 
         private void RefreshSlots()
@@ -1238,7 +1327,8 @@ namespace NewPlayerHunter.Gameplay
                 card.GetComponent<PlayerCardDragHandler>().Configure(this, player.PlayerId);
                 var playerContent = _playerContentById[player.PlayerId];
                 ApplyAtlasImage(card.Find("Portrait/Image").GetComponent<RawImage>(),
-                    contentCatalog.PlayerPortraitAtlas, playerContent.portraitIndex, 4, 4);
+                    contentCatalog.PlayerPortraitAtlas, playerContent.portraitIndex,
+                    PlayerAtlasColumns, PlayerAtlasRows);
                 card.Find("Name").GetComponent<TextMeshProUGUI>().text = player.DisplayName;
                 card.Find("Position").GetComponent<TextMeshProUGUI>().text =
                     string.Join(" / ", player.ClaimedPositions.Select(PositionName));
@@ -1455,7 +1545,8 @@ namespace NewPlayerHunter.Gameplay
             }
 
             ApplyAtlasImage(_mailResumeBlock.Find("Portrait/Image").GetComponent<RawImage>(),
-                contentCatalog.PlayerPortraitAtlas, player.portraitIndex, 4, 4);
+                contentCatalog.PlayerPortraitAtlas, player.portraitIndex,
+                PlayerAtlasColumns, PlayerAtlasRows);
             _mailResumeBlock.Find("Title").GetComponent<TextMeshProUGUI>().text =
                 "固定信息 · 球员简历";
             _mailResumeBlock.Find("Player").GetComponent<TextMeshProUGUI>().text =
@@ -1562,7 +1653,7 @@ namespace NewPlayerHunter.Gameplay
             if (page.layout == MagazinePageLayout.Cover)
             {
                 ApplyAtlasImage(_coverImage, contentCatalog.MagazineCoverAtlas,
-                    issueSelected.coverIndex, 3, 2);
+                    issueSelected.coverIndex, CoverAtlasColumns, CoverAtlasRows);
                 SetText(_coverLayout, "Publication", Resolve(issueSelected.publicationName));
                 SetText(_coverLayout, "IssueNumber", issueSelected.issueNumber);
                 SetText(_coverLayout, "Headline", Resolve(page.headline));

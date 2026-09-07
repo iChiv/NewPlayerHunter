@@ -196,9 +196,13 @@ namespace NewPlayerHunter.Gameplay
         {
             developmentLanguage = GameLanguage.ChineseSimplified;
             players = SixWeekContentFactory.BuildPlayers();
+            players.AddRange(LateSeasonContentFactory.BuildPlayers());
             demands = SixWeekContentFactory.BuildDemands();
+            demands.AddRange(LateSeasonContentFactory.BuildDemands());
             mails = SixWeekContentFactory.BuildMails(players, demands);
+            mails.AddRange(LateSeasonContentFactory.BuildMails());
             magazineIssues = SixWeekContentFactory.BuildMagazineIssues();
+            magazineIssues.AddRange(LateSeasonContentFactory.BuildMagazineIssues());
             EnsureMailTimestamps();
         }
 

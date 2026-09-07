@@ -1,0 +1,318 @@
+"""Merge batch extraction + design + prose JSON into LateSeasonContentFactory.cs.
+
+Usage: python output/spreadsheet/build_factory.py
+Reads:  content_batch_01.json, content_design.json, prose_players.json,
+        prose_demands.json, prose_magazines_a.json, prose_magazines_b.json
+Writes: Assets/Game/Scripts/Gameplay/LateSeasonContentFactory.cs
+"""
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+PROJ = ROOT.parent.parent
+OUT_CS = PROJ / "Assets/Game/Scripts/Gameplay/LateSeasonContentFactory.cs"
+
+POSITIONS = {"Goalkeeper", "Defender", "WingBack", "Midfielder", "Winger", "Forward"}
+RELIABILITY = {"Unverified", "Low", "Medium", "High"}
+
+
+def load(name):
+    return json.loads((ROOT / name).read_text(encoding="utf-8"))
+
+
+def cs(value):
+    s = "" if value is None else str(value)
+    s = s.replace("\\", "\\\\").replace('"', '\\"').replace("\r\n", "\n").replace("\r", "\n")
+    return '"' + s.replace("\n", "\\n") + '"'
+
+
+def id_suffix(stable_id, parts=2):
+    segs = stable_id.split(".")
+    return ".".join(segs[-parts:])
+
+
+def main():
+    batch = load("content_batch_01.json")
+    design = load("content_design.json")
+    prose_players = load("prose_players.json")
+    prose_demands = load("prose_demands.json")
+    prose_mags = {**load("prose_magazines_a.json"), **load("prose_magazines_b.json")}
+
+    players_src = {p["_row"]: p for p in batch["players"]}
+    demands_src = {d["_row"]: d for d in batch["demands"]}
+
+    player_calls, demand_calls, mail_calls, issue_calls = [], [], [], []
+    all_mail_ids = set()
+    problems = []
+
+    for dp in design["players"]:
+        pid = dp["id"]
+        src = players_src[dp["source_row"]]
+        prose = prose_players.get(pid)
+        if prose is None:
+            problems.append(f"missing prose for {pid}")
+            continue
+        fix = prose.get("fix") or {}
+        evidence = (fix.get("public_evidence_zh") or src.get("public_evidence_zh") or "").strip()
+        reliability = (fix.get("evidence_reliability") or src.get("evidence_reliability") or "").strip()
+        biography = (fix.get("biography_zh") or src.get("biography_zh") or "").strip()
+        name = src["display_name_zh"].strip()
+        pos = src["public_position"].strip()
+        if pos not in POSITIONS or reliability not in RELIABILITY:
+            problems.append(f"{pid}: bad enum")
+            continue
+        rm = prose["resumeMail"]
+        player_calls.append(
+            f'                Player({cs(pid)}, {dp["portraitIndex"]}, {dp["availableFromWeek"]}, {dp["availabilityWeeks"]},\n'
+            f'                    {cs(name)}, PlayerPosition.{pos}, {int(src["hidden_ability"])}, {int(src["hidden_fitness"])}, {int(src["hidden_professionalism"])},\n'
+            f'                    {dp["salaryMin"]}, {dp["salaryMax"]}, {cs(prose["careerHistory"])},\n'
+            f'                    {cs(biography)}, {cs(src["public_claim_zh"].strip())}, {cs(evidence)}, EvidenceReliability.{reliability},\n'
+            f'                    {cs(prose["expirySubject"])}, {cs(prose["expiryBody"])})')
+        mail_id = f'mail.w{dp["availableFromWeek"]}.{id_suffix(pid)}'
+        if mail_id in all_mail_ids:
+            problems.append(f"duplicate mail id {mail_id}")
+        all_mail_ids.add(mail_id)
+        mail_calls.append(
+            f'                Mail({cs(mail_id)}, MailContentKind.PlayerResume, {dp["availableFromWeek"]},\n'
+            f'                    {cs(rm["sender"])}, {cs(rm["subject"])}, {cs(rm["preview"])}, {cs(rm["body"])},\n'
+            f'                    {cs(rm["sourceNote"])}, playerId: {cs(pid)})')
+
+    for dd in design["demands"]:
+        did = dd["id"]
+        src = demands_src[dd["source_row"]]
+        prose = prose_demands.get(did)
+        if prose is None:
+            problems.append(f"missing prose for {did}")
+            continue
+        slots = ",\n".join(
+            f'                    Slot({cs("slot." + id_suffix(did, 2) + "." + s["position"].lower())}, '
+            f'PlayerPosition.{s["position"]}, {s["ability"]}, {s["fitness"]}, {s["professionalism"]})'
+            for s in dd["slots"])
+        demand_calls.append(
+            f'                Demand({cs(did)}, {cs(dd["clubId"])},\n'
+            f'                    {cs(prose["clubName"])}, {cs(prose["clubStanding"])}, {cs(prose["clubBest"])}, {cs(prose["clubProfile"])},\n'
+            f'                    {cs(src["title_zh"].strip())}, {cs(src["description_zh"].strip())},\n'
+            f'                    {dd["openedWeek"]}, {dd["activeWeeks"]}, {dd["baseReward"]}, {cs(src["payment_terms_zh"].strip())},\n'
+            f'                    {cs(prose["expirySubject"])}, {cs(prose["expiryBody"])},\n'
+            f'{slots})')
+        mail_id = f'mail.w{dd["openedWeek"]}.{id_suffix(did, 1)}'
+        if mail_id in all_mail_ids:
+            problems.append(f"duplicate mail id {mail_id}")
+        all_mail_ids.add(mail_id)
+        cm = prose["clubRequestMail"]
+        mail_calls.append(
+            f'                Mail({cs(mail_id)}, MailContentKind.ClubRequest, {dd["openedWeek"]},\n'
+            f'                    {cs(cm["sender"])}, {cs(cm["subject"])}, {cs(cm["preview"])}, {cs(cm["body"])},\n'
+            f'                    {cs(cm["sourceNote"])}, demandId: {cs(did)})')
+
+    for di in design["issues"]:
+        iid = di["id"]
+        prose = prose_mags.get(iid)
+        if prose is None:
+            problems.append(f"missing prose for {iid}")
+            continue
+        pages = []
+        for pg in prose["pages"]:
+            pages.append(
+                f'                    Page(MagazinePageLayout.{pg["layout"]},\n'
+                f'                        {cs(pg["kicker"])}, {cs(pg["headline"])}, {cs(pg["deck"])},\n'
+                f'                        {cs(pg["bodyLeft"])}, {cs(pg["bodyRight"])},\n'
+                f'                        {cs(pg["pullQuote"])}, {cs(pg["sidebarTitle"])}, {cs(pg["sidebarBody"])},\n'
+                f'                        {cs(pg.get("relatedPlayerId") or "")})')
+        issue_calls.append(
+            f'                Issue({cs(iid)}, {di["coverIndex"]}, {di["week"]},\n'
+            f'                    {cs(di["publication"])}, {cs(prose["issueTitle"])}, {cs(di["issueNumber"])},\n'
+            + ",\n".join(pages) + ")")
+
+    if problems:
+        print("PROBLEMS:")
+        for p in problems:
+            print(" -", p)
+        sys.exit(1)
+
+    template = f"""// <auto-generated> 由 output/spreadsheet/build_factory.py 从内容批次 01 生成；请勿手改，改数据后重新生成。 </auto-generated>
+using System.Collections.Generic;
+using NewPlayerHunter.Domain;
+
+namespace NewPlayerHunter.Gameplay
+{{
+    internal static class LateSeasonContentFactory
+    {{
+        public static List<PlayerContentEntry> BuildPlayers()
+        {{
+            return new List<PlayerContentEntry>
+            {{
+{",\n".join(player_calls)}
+            }};
+        }}
+
+        public static List<DemandContentEntry> BuildDemands()
+        {{
+            return new List<DemandContentEntry>
+            {{
+{",\n".join(demand_calls)}
+            }};
+        }}
+
+        public static List<MailContentEntry> BuildMails()
+        {{
+            return new List<MailContentEntry>
+            {{
+{",\n".join(mail_calls)}
+            }};
+        }}
+
+        public static List<MagazineIssueContent> BuildMagazineIssues()
+        {{
+            return new List<MagazineIssueContent>
+            {{
+{",\n".join(issue_calls)}
+            }};
+        }}
+
+        private static PlayerContentEntry Player(
+            string id, int portraitIndex, int availableFromWeek, int availabilityWeeks,
+            string name, PlayerPosition position, int ability, int fitness, int professionalism,
+            int salaryMinWeekly, int salaryMaxWeekly, string careerHistory,
+            string biography, string claim, string evidence, EvidenceReliability reliability,
+            string expirySubject, string expiryBody)
+        {{
+            return new PlayerContentEntry
+            {{
+                id = id,
+                portraitIndex = portraitIndex,
+                availableFromWeek = availableFromWeek,
+                availabilityWeeks = availabilityWeeks,
+                displayName = Zh(name),
+                biography = Zh(biography),
+                publicPosition = position,
+                hiddenAbility = ability,
+                hiddenFitness = fitness,
+                hiddenProfessionalism = professionalism,
+                salaryMinWeekly = salaryMinWeekly,
+                salaryMaxWeekly = salaryMaxWeekly,
+                careerHistory = Zh(careerHistory),
+                publicClaim = Zh(claim),
+                publicEvidence = Zh(evidence),
+                evidenceReliability = reliability,
+                expiryMailSubject = Zh(expirySubject),
+                expiryMailBody = Zh(expiryBody)
+            }};
+        }}
+
+        private static DemandContentEntry Demand(
+            string id, string clubId, string clubName, string standing, string bestAchievement,
+            string clubProfile, string title, string description, int openedWeek, int activeWeeks,
+            int reward, string paymentTerms, string expirySubject, string expiryBody,
+            params DemandSlotContentEntry[] slots)
+        {{
+            return new DemandContentEntry
+            {{
+                id = id,
+                clubId = clubId,
+                clubDisplayName = Zh(clubName),
+                clubStanding = Zh(standing),
+                clubBestAchievement = Zh(bestAchievement),
+                clubProfile = Zh(clubProfile),
+                title = Zh(title),
+                description = Zh(description),
+                openedWeek = openedWeek,
+                activeWeeks = activeWeeks,
+                baseReward = reward,
+                paymentTerms = Zh(paymentTerms),
+                expiryMailSubject = Zh(expirySubject),
+                expiryMailBody = Zh(expiryBody),
+                slots = new List<DemandSlotContentEntry>(slots)
+            }};
+        }}
+
+        private static DemandSlotContentEntry Slot(
+            string id, PlayerPosition position, int ability, int fitness, int professionalism)
+        {{
+            return new DemandSlotContentEntry
+            {{
+                id = id,
+                requiredPosition = position,
+                minimumAbility = ability,
+                preferredFitness = fitness,
+                preferredProfessionalism = professionalism,
+                isRequired = true
+            }};
+        }}
+
+        private static MailContentEntry Mail(
+            string id, MailContentKind kind, int week, string sender, string subject,
+            string preview, string body, string source,
+            string playerId = "", string demandId = "")
+        {{
+            return new MailContentEntry
+            {{
+                id = id,
+                kind = kind,
+                publishedWeek = week,
+                sender = Zh(sender),
+                subject = Zh(subject),
+                preview = Zh(preview),
+                body = Zh(body),
+                sourceNote = Zh(source),
+                relatedPlayerId = playerId,
+                relatedDemandId = demandId
+            }};
+        }}
+
+        private static MagazineIssueContent Issue(
+            string id, int coverIndex, int week, string publication, string title,
+            string issueNumber, params MagazinePageContent[] pages)
+        {{
+            return new MagazineIssueContent
+            {{
+                id = id,
+                coverIndex = coverIndex,
+                publishedWeek = week,
+                publicationName = Zh(publication),
+                issueTitle = Zh(title),
+                issueNumber = issueNumber,
+                pages = new List<MagazinePageContent>(pages)
+            }};
+        }}
+
+        private static MagazinePageContent Page(
+            MagazinePageLayout layout, string kicker, string headline, string deck,
+            string left, string right, string quote, string sidebarTitle, string sidebarBody,
+            string relatedPlayerId)
+        {{
+            return new MagazinePageContent
+            {{
+                layout = layout,
+                kicker = Zh(kicker),
+                headline = Zh(headline),
+                deck = Zh(deck),
+                bodyLeft = Zh(left),
+                bodyRight = Zh(right),
+                pullQuote = Zh(quote),
+                sidebarTitle = Zh(sidebarTitle),
+                sidebarBody = Zh(sidebarBody),
+                relatedPlayerId = relatedPlayerId
+            }};
+        }}
+
+        private static LocalizedText Zh(string value)
+        {{
+            return new LocalizedText
+            {{
+                chineseSimplified = value ?? string.Empty,
+                english = string.Empty
+            }};
+        }}
+    }}
+}}
+"""
+    OUT_CS.write_text(template, encoding="utf-8")
+    print(f"players={len(player_calls)} demands={len(demand_calls)} mails={len(mail_calls)} issues={len(issue_calls)}")
+    print(f"written: {OUT_CS}")
+
+
+if __name__ == "__main__":
+    main()

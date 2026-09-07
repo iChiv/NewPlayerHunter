@@ -58,6 +58,7 @@ namespace NewPlayerHunter.Persistence
         public List<string> readMailIds = new List<string>();
         public List<string> unlockedPlayerIds = new List<string>();
         public List<string> unlockedDemandIds = new List<string>();
+        public string selectedDemandId;
         public bool carloFavorAccepted;
         public bool carloFavorConsequenceApplied;
         public List<string> eventLog = new List<string>();

@@ -42,10 +42,10 @@ namespace NewPlayerHunter.Gameplay.Tests
                 Is.Null,
                 "The top-left header no longer reserves space for a game title.");
 
-            Assert.That(controller.PlayerPoolCount, Is.EqualTo(16));
-            Assert.That(controller.DemandPoolCount, Is.EqualTo(6));
-            Assert.That(controller.MailPoolCount, Is.EqualTo(65));
-            Assert.That(controller.MagazineIssueCount, Is.EqualTo(6));
+            Assert.That(controller.PlayerPoolCount, Is.EqualTo(51));
+            Assert.That(controller.DemandPoolCount, Is.EqualTo(35));
+            Assert.That(controller.MailPoolCount, Is.EqualTo(193));
+            Assert.That(controller.MagazineIssueCount, Is.EqualTo(34));
             Assert.That(controller.UnlockedPlayerCount, Is.Zero);
             Assert.That(controller.UnlockedDemandCount, Is.Zero);
             Assert.That(controller.CurrentDemandId, Is.Empty);
@@ -61,9 +61,9 @@ namespace NewPlayerHunter.Gameplay.Tests
             var issueItems = magazineBrowser.Find("IssueRail/IssueList");
             var privateOfferBlock = controller.transform.Find(
                 "GameCanvas/Background/InformationWorkspace/MailBrowser/DetailPanel/PrivateOfferBlock");
-            Assert.That(cards.childCount, Is.EqualTo(16));
-            Assert.That(mailItems.childCount, Is.EqualTo(80));
-            Assert.That(issueItems.childCount, Is.EqualTo(6));
+            Assert.That(cards.childCount, Is.EqualTo(51));
+            Assert.That(mailItems.childCount, Is.EqualTo(256));
+            Assert.That(issueItems.childCount, Is.EqualTo(36));
             Assert.That(privateOfferBlock, Is.Not.Null);
             Assert.That(demandBlock.Find("ClubProfile"), Is.Not.Null);
             Assert.That(privateOfferBlock.Find("TargetClub"), Is.Not.Null);
@@ -405,6 +405,155 @@ namespace NewPlayerHunter.Gameplay.Tests
             Assert.That(controller.VisibleMailIds, Does.Contain(resultMailId));
             Assert.That(controller.ReadMailCount, Is.EqualTo(3),
                 "Result mail read state must persist through the save.");
+
+            if (ES3.FileExists(settings))
+            {
+                ES3.DeleteFile(settings);
+            }
+        }
+
+        [UnityTest]
+        public IEnumerator GameScene_DemandListSwitchesBetweenEligibleDemands()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            yield return null;
+
+            var controller = Object.FindFirstObjectByType<GameController>();
+            for (var week = 1; week < 7; week++)
+            {
+                controller.EndWeekForTests();
+            }
+
+            yield return null;
+            Assert.That(controller.CurrentWeek, Is.EqualTo(7));
+
+            controller.OpenMailForTests("mail.w7.pub");
+            controller.OpenMailForTests("mail.w7.relegation");
+            yield return null;
+
+            var demandItems = controller.transform.Find(
+                "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandList/Viewport/DemandListItems");
+            Assert.That(demandItems, Is.Not.Null);
+            Assert.That(demandItems.childCount, Is.EqualTo(8));
+            var activeItems = demandItems.Cast<Transform>()
+                .Where(item => item.gameObject.activeSelf)
+                .ToArray();
+            Assert.That(activeItems.Length, Is.EqualTo(2),
+                "Both week 7 recruitment mails unlock one demand list entry each.");
+            Assert.That(
+                activeItems[0].Find("Title").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("黑麦酒馆"));
+            Assert.That(
+                activeItems[1].Find("Title").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("灯塔港"));
+            Assert.That(
+                activeItems[1].Find("Meta").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("2600"));
+            Assert.That(
+                activeItems[1].Find("Meta").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("1 槽"));
+
+            var demandTitle = controller.transform.Find(
+                    "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandTitle")
+                .GetComponent<TextMeshProUGUI>();
+            Assert.That(controller.CurrentDemandId, Is.EqualTo("demand.w7.pub"),
+                "The earliest deadline becomes the default selected demand.");
+            Assert.That(controller.SelectedDemandId, Is.EqualTo("demand.w7.pub"));
+            Assert.That(demandTitle.text, Does.Contain("黑麦酒馆"));
+            Assert.That(controller.VisibleSlotIds,
+                Is.EqualTo(new[] { "slot.w7.pub.forward" }));
+            var selectedColor = activeItems[0].GetComponent<Image>().color;
+            Assert.That(activeItems[1].GetComponent<Image>().color,
+                Is.Not.EqualTo(selectedColor));
+
+            controller.SelectDemand("demand.w7.relegation");
+            yield return null;
+            Assert.That(controller.SelectedDemandId, Is.EqualTo("demand.w7.relegation"));
+            Assert.That(controller.CurrentDemandId, Is.EqualTo("demand.w7.relegation"));
+            Assert.That(demandTitle.text, Does.Contain("灯塔港"));
+            Assert.That(controller.VisibleSlotIds,
+                Is.EqualTo(new[] { "slot.w7.relegation.defender" }));
+            Assert.That(activeItems[1].GetComponent<Image>().color,
+                Is.EqualTo(selectedColor),
+                "The selected demand list entry stays highlighted.");
+
+            controller.OpenMailForTests("mail.w7.ferreira.antonio");
+            Assert.That(controller.VisiblePlayerIds,
+                Does.Contain("player.ferreira.antonio"));
+            Assert.That(
+                controller.AssignPlayerForTests(
+                    "slot.w7.relegation.defender", "player.ferreira.antonio"),
+                Is.True);
+            Assert.That(controller.VisiblePlayerIds,
+                Does.Not.Contain("player.ferreira.antonio"));
+
+            controller.HandleSlotClicked("slot.w7.relegation.defender");
+            yield return null;
+            Assert.That(controller.VisiblePlayerIds,
+                Does.Contain("player.ferreira.antonio"),
+                "Removing an assignment still works after switching demands.");
+            Assert.That(
+                controller.AssignPlayerForTests(
+                    "slot.w7.relegation.defender", "player.ferreira.antonio"),
+                Is.True);
+
+            controller.EndWeekForTests();
+            yield return null;
+            Assert.That(controller.CurrentWeek, Is.EqualTo(8),
+                "A filled required slot commits without the empty confirmation.");
+            Assert.That(controller.CurrentDemandId, Is.Empty,
+                "The pub demand expired and the relegation demand was committed.");
+            Assert.That(controller.SelectedDemandId, Is.Empty);
+            Assert.That(
+                demandItems.Cast<Transform>().Count(item => item.gameObject.activeSelf),
+                Is.Zero,
+                "The demand list hides completely when no demand is eligible.");
+            Assert.That(demandTitle.text, Does.Contain("当前没有有效招聘"));
+        }
+
+        [UnityTest]
+        public IEnumerator GameScene_SelectedDemandSurvivesSaveReload()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            yield return null;
+
+            var settings = new ES3Settings("nph-playmode-test-save.es3");
+            var controller = Object.FindFirstObjectByType<GameController>();
+            controller.ConfigureSaveGameService(new SaveGameService(settings));
+            controller.RestartGame();
+            yield return null;
+
+            for (var week = 1; week < 7; week++)
+            {
+                controller.EndWeekForTests();
+            }
+
+            controller.OpenMailForTests("mail.w7.pub");
+            controller.OpenMailForTests("mail.w7.relegation");
+            controller.SelectDemand("demand.w7.relegation");
+            controller.SaveProgressForTests();
+            controller.ReloadProgressForTests();
+            yield return null;
+
+            Assert.That(controller.CurrentWeek, Is.EqualTo(7));
+            Assert.That(controller.SelectedDemandId, Is.EqualTo("demand.w7.relegation"),
+                "The selected demand must survive a save/reload cycle.");
+            Assert.That(controller.CurrentDemandId, Is.EqualTo("demand.w7.relegation"));
+            Assert.That(controller.VisibleSlotIds,
+                Is.EqualTo(new[] { "slot.w7.relegation.defender" }));
+            var demandTitle = controller.transform.Find(
+                    "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandTitle")
+                .GetComponent<TextMeshProUGUI>();
+            Assert.That(demandTitle.text, Does.Contain("灯塔港"));
+            var demandItems = controller.transform.Find(
+                "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandList/Viewport/DemandListItems");
+            Assert.That(
+                demandItems.Cast<Transform>().Count(item => item.gameObject.activeSelf),
+                Is.EqualTo(2));
+            Assert.That(
+                demandItems.GetChild(1).GetComponent<Image>().color,
+                Is.Not.EqualTo(demandItems.GetChild(0).GetComponent<Image>().color),
+                "Only the restored selection stays highlighted after reload.");
 
             if (ES3.FileExists(settings))
             {

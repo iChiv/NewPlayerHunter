@@ -383,17 +383,43 @@ namespace NewPlayerHunter.Editor
                 "DemandLabel", panel, "当前有效的球队招聘", 18f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.04f, 0.9f), new Vector2(0.96f, 0.98f));
+            var scrollObject = new GameObject(
+                "DemandList", typeof(RectTransform), typeof(ScrollRect));
+            scrollObject.transform.SetParent(panel, false);
+            var scrollTransform = scrollObject.GetComponent<RectTransform>();
+            Stretch(scrollTransform,
+                new Vector2(0.04f, 0.60f), new Vector2(0.96f, 0.88f));
+            var viewport = CreateRect(
+                "Viewport", scrollTransform, Vector2.zero, Vector2.one);
+            viewport.gameObject.AddComponent<RectMask2D>();
+            var list = CreateRect(
+                "DemandListItems", viewport, new Vector2(0f, 1f), new Vector2(1f, 1f));
+            list.pivot = new Vector2(0.5f, 1f);
+            list.sizeDelta = new Vector2(0f, 8 * 64f);
+            list.anchoredPosition = Vector2.zero;
+            var scroll = scrollObject.GetComponent<ScrollRect>();
+            scroll.viewport = viewport;
+            scroll.content = list;
+            scroll.horizontal = false;
+            scroll.vertical = true;
+            scroll.movementType = ScrollRect.MovementType.Clamped;
+            scroll.scrollSensitivity = 26f;
+            for (var index = 0; index < 8; index++)
+            {
+                BuildDemandListItem(list, index);
+            }
+
             CreateText(
                 "DemandTitle", panel, "需求尚未录入", 30f, Color.white,
                 TextAlignmentOptions.TopLeft,
-                new Vector2(0.04f, 0.76f), new Vector2(0.96f, 0.9f));
+                new Vector2(0.04f, 0.48f), new Vector2(0.96f, 0.58f));
             CreateText(
                 "DemandBody", panel, "请先打开招聘邮件。", 16f, Muted,
                 TextAlignmentOptions.TopLeft,
-                new Vector2(0.04f, 0.54f), new Vector2(0.96f, 0.77f));
+                new Vector2(0.04f, 0.30f), new Vector2(0.96f, 0.48f));
             var slots = CreateRect(
                 "Slots", panel,
-                new Vector2(0.04f, 0.18f), new Vector2(0.96f, 0.52f));
+                new Vector2(0.04f, 0.15f), new Vector2(0.96f, 0.30f));
             for (var index = 0; index < 2; index++)
             {
                 BuildDemandSlot(slots, index);
@@ -402,13 +428,33 @@ namespace NewPlayerHunter.Editor
             CreateText(
                 "Selection", panel, "当前没有可分配的招聘需求。", 18f, Warning,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.04f, 0.07f), new Vector2(0.96f, 0.17f));
+                new Vector2(0.04f, 0.03f), new Vector2(0.96f, 0.14f));
+        }
+
+        private static void BuildDemandListItem(RectTransform parent, int index)
+        {
+            const float height = 56f;
+            const float gap = 8f;
+            var item = CreateTopItem(
+                $"DemandListItem{index + 1:00}", parent, PanelLight,
+                height, -index * (height + gap));
+            var image = item.GetComponent<Image>();
+            var button = item.gameObject.AddComponent<Button>();
+            ConfigureButtonColors(button, image, PanelLight);
+            CreateText(
+                "Title", item, "俱乐部 · 需求标题", 15f, Color.white,
+                TextAlignmentOptions.MidlineLeft,
+                new Vector2(0.05f, 0.50f), new Vector2(0.95f, 0.94f));
+            CreateText(
+                "Meta", item, "截止 日期 · 委托价 €0 · 0 槽", 13f, Muted,
+                TextAlignmentOptions.MidlineLeft,
+                new Vector2(0.05f, 0.08f), new Vector2(0.95f, 0.48f));
         }
 
         private static void BuildDemandSlot(RectTransform parent, int index)
         {
-            const float height = 105f;
-            const float gap = 14f;
+            const float height = 52f;
+            const float gap = 6f;
             var slot = CreateTopItem(
                 $"DemandSlot{index + 1:00}", parent, PanelLight,
                 height, -index * (height + gap));
@@ -417,13 +463,13 @@ namespace NewPlayerHunter.Editor
             outline.effectDistance = new Vector2(1.5f, -1.5f);
             slot.gameObject.AddComponent<DemandSlotDropTarget>();
             CreateText(
-                "Requirement", slot, "位置 · 必需", 20f, Accent,
+                "Requirement", slot, "位置 · 必需", 15f, Accent,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.035f, 0.56f), new Vector2(0.965f, 0.94f));
+                new Vector2(0.035f, 0.54f), new Vector2(0.965f, 0.96f));
             CreateText(
-                "Assignment", slot, "把球员拖到这里 / 选中球员后点击", 20f, Muted,
+                "Assignment", slot, "把球员拖到这里 / 选中球员后点击", 14f, Muted,
                 TextAlignmentOptions.MidlineLeft,
-                new Vector2(0.035f, 0.08f), new Vector2(0.965f, 0.58f));
+                new Vector2(0.035f, 0.06f), new Vector2(0.965f, 0.52f));
         }
 
         private static void BuildPlayersPanel(RectTransform parent)
@@ -432,7 +478,7 @@ namespace NewPlayerHunter.Editor
                 "PlayersPanel", parent, Panel,
                 new Vector2(0.5f, 0.205f), new Vector2(0.985f, 0.89f));
             CreateText(
-                "PlayersLabel", panel, "当前可用 0 人 · 已读简历 0 / 16 · 按收到顺序排列", 17f, Accent,
+                "PlayersLabel", panel, "当前可用 0 人 · 已读简历 0 / 51 · 按收到顺序排列", 17f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.91f), new Vector2(0.965f, 0.985f));
             var scrollObject = new GameObject(
@@ -447,7 +493,7 @@ namespace NewPlayerHunter.Editor
             var cards = CreateRect(
                 "PlayerCards", viewport, new Vector2(0f, 1f), new Vector2(1f, 1f));
             cards.pivot = new Vector2(0.5f, 1f);
-            cards.sizeDelta = new Vector2(0f, 16 * 84f);
+            cards.sizeDelta = new Vector2(0f, 51 * 84f);
             cards.anchoredPosition = Vector2.zero;
             var scroll = scrollObject.GetComponent<ScrollRect>();
             scroll.viewport = viewport;
@@ -456,7 +502,7 @@ namespace NewPlayerHunter.Editor
             scroll.vertical = true;
             scroll.movementType = ScrollRect.MovementType.Clamped;
             scroll.scrollSensitivity = 26f;
-            for (var index = 0; index < 16; index++)
+            for (var index = 0; index < 51; index++)
             {
                 BuildPlayerCard(cards, index);
             }
@@ -542,7 +588,7 @@ namespace NewPlayerHunter.Editor
             var list = CreateRect(
                 "MessageList", viewport, new Vector2(0f, 1f), new Vector2(1f, 1f));
             list.pivot = new Vector2(0.5f, 1f);
-            list.sizeDelta = new Vector2(0f, 80 * 108f);
+            list.sizeDelta = new Vector2(0f, 256 * 108f);
             list.anchoredPosition = Vector2.zero;
             var scroll = scrollObject.GetComponent<ScrollRect>();
             scroll.viewport = viewport;
@@ -551,7 +597,7 @@ namespace NewPlayerHunter.Editor
             scroll.vertical = true;
             scroll.movementType = ScrollRect.MovementType.Clamped;
             scroll.scrollSensitivity = 28f;
-            for (var index = 0; index < 80; index++)
+            for (var index = 0; index < 256; index++)
             {
                 BuildMailListItem(list, index);
             }
@@ -735,7 +781,7 @@ namespace NewPlayerHunter.Editor
             var issueList = CreateRect(
                 "IssueList", rail,
                 new Vector2(0.05f, 0.06f), new Vector2(0.95f, 0.78f));
-            for (var index = 0; index < 6; index++)
+            for (var index = 0; index < 36; index++)
             {
                 BuildIssueListItem(issueList, index);
             }

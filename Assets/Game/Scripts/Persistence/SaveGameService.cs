@@ -5,7 +5,7 @@ namespace NewPlayerHunter.Persistence
 {
     public sealed class SaveGameService
     {
-        public const int CurrentSchemaVersion = 1;
+        public const int CurrentSchemaVersion = 2;
         public const string SaveKey = "newplayerhunter.progress";
 
         private readonly ES3Settings _settings;

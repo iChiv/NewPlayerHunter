@@ -25,10 +25,10 @@ namespace NewPlayerHunter.Gameplay.Tests
         public void M1Defaults_HaveConfigurablePoolsAndChineseDevelopmentLanguage()
         {
             Assert.That(_catalog.DevelopmentLanguage, Is.EqualTo(GameLanguage.ChineseSimplified));
-            Assert.That(_catalog.Players, Has.Count.EqualTo(16));
-            Assert.That(_catalog.Demands, Has.Count.EqualTo(6));
-            Assert.That(_catalog.Mails, Has.Count.EqualTo(65));
-            Assert.That(_catalog.MagazineIssues, Has.Count.EqualTo(6));
+            Assert.That(_catalog.Players, Has.Count.EqualTo(51));
+            Assert.That(_catalog.Demands, Has.Count.EqualTo(35));
+            Assert.That(_catalog.Mails, Has.Count.EqualTo(193));
+            Assert.That(_catalog.MagazineIssues, Has.Count.EqualTo(34));
             Assert.That(
                 _catalog.Mails.All(mail => !string.IsNullOrWhiteSpace(mail.receivedTime.chineseSimplified)),
                 Is.True);
@@ -154,10 +154,10 @@ namespace NewPlayerHunter.Gameplay.Tests
                 Is.True);
             Assert.That(
                 _catalog.Mails.Count(mail => !string.IsNullOrEmpty(mail.expiredPlayerId)),
-                Is.EqualTo(16));
+                Is.EqualTo(51));
             Assert.That(
                 _catalog.Mails.Count(mail => !string.IsNullOrEmpty(mail.expiredDemandId)),
-                Is.EqualTo(6));
+                Is.EqualTo(35));
         }
 
         [Test]
@@ -165,13 +165,45 @@ namespace NewPlayerHunter.Gameplay.Tests
         {
             Assert.That(
                 _catalog.Players.Select(player => player.portraitIndex).Distinct().Count(),
-                Is.EqualTo(16));
+                Is.EqualTo(51));
             Assert.That(
-                _catalog.Players.All(player => player.portraitIndex >= 0 && player.portraitIndex < 16),
+                _catalog.Players.All(player => player.portraitIndex >= 0 && player.portraitIndex < 64),
                 Is.True);
             Assert.That(
                 _catalog.MagazineIssues.Select(issue => issue.coverIndex),
-                Is.EquivalentTo(new[] { 0, 1, 2, 3, 4, 5 }));
+                Is.EquivalentTo(Enumerable.Range(0, 34).ToArray()));
+        }
+
+        [Test]
+        public void LateSeasonExperience_SpreadsContentAcrossTheWholeSeason()
+        {
+            var unlockMails = _catalog.Mails
+                .Where(mail => mail.kind == MailContentKind.PlayerResume ||
+                               mail.kind == MailContentKind.ClubRequest)
+                .ToList();
+            Assert.That(
+                unlockMails.Count(mail => mail.publishedWeek >= 7),
+                Is.EqualTo(64));
+            foreach (var week in new[]
+                         { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21 })
+            {
+                Assert.That(
+                    unlockMails.Count(mail => mail.publishedWeek == week),
+                    Is.GreaterThanOrEqualTo(2),
+                    $"week {week}");
+            }
+
+            var lateIssues = _catalog.MagazineIssues
+                .Where(issue => issue.publishedWeek >= 7)
+                .ToList();
+            Assert.That(lateIssues, Has.Count.EqualTo(28));
+            Assert.That(lateIssues.Any(issue => issue.publishedWeek == 51), Is.True);
+            Assert.That(
+                _catalog.Players.Count(player => player.availableFromWeek >= 7),
+                Is.EqualTo(35));
+            Assert.That(
+                _catalog.Demands.Count(demand => demand.openedWeek >= 7),
+                Is.EqualTo(29));
         }
 
         [Test]
