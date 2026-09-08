@@ -171,7 +171,7 @@ namespace NewPlayerHunter.Editor
             }
 
             var characters = new StringBuilder(
-                "新星猎手收件箱期刊球员分配第周现金应收声望重新开始信息筛选中心先读邮件再交叉判断订阅打开邮件才算阅读请先再安排本周工作招聘需求简历私人请托固定委托价付款截止位置必需可选结束本周上一页下一页已读未读门将中卫翼卫中场边锋前锋可靠性较高中等较低未经核实");
+                "新星猎手收件箱期刊球员分配第周现金应收声望重新开始信息筛选中心先读邮件再交叉判断订阅打开邮件才算阅读请先再安排本周工作招聘需求简历私人请托固定委托价付款截止位置必需可选结束本周上一页下一页已读未读门将中卫翼卫中场边锋前锋可靠性较高中等较低未经核实菜单继续游戏存档将被删除，再点一次确认语言：中文退出返回");
             foreach (var player in catalog.Players)
             {
                 Append(characters, player.displayName);
@@ -335,6 +335,7 @@ namespace NewPlayerHunter.Editor
             BuildFooter(background);
             BuildDragGhost(canvasObject.transform);
             BuildWeekTransitionOverlay(canvasObject.transform);
+            BuildMainMenuOverlay(canvasObject.transform);
             assignmentWorkspace.gameObject.SetActive(false);
             informationWorkspace.gameObject.SetActive(true);
         }
@@ -349,8 +350,54 @@ namespace NewPlayerHunter.Editor
             group.interactable = false;
             group.blocksRaycasts = false;
             CreateText(
-                "Text", overlay, "本周结算中…", 48f, Color.white,
+                "Text", overlay, Ui("status.weekSettling"), 48f, Color.white,
                 TextAlignmentOptions.Center, Vector2.zero, Vector2.one);
+        }
+
+        private static void BuildMainMenuOverlay(Transform parent)
+        {
+            var overlay = CreatePanel(
+                "MainMenuOverlay", parent,
+                new Color(0.02f, 0.03f, 0.045f, 0.92f), Vector2.zero, Vector2.one);
+            overlay.GetComponent<Image>().raycastTarget = true;
+            var group = overlay.gameObject.AddComponent<CanvasGroup>();
+            group.alpha = 0f;
+            group.interactable = false;
+            group.blocksRaycasts = false;
+
+            var panel = CreatePanel(
+                "Panel", overlay, Panel,
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f));
+            panel.sizeDelta = new Vector2(520f, 620f);
+            var outline = panel.gameObject.AddComponent<Outline>();
+            outline.effectColor = new Color(0.25f, 0.32f, 0.38f, 1f);
+            outline.effectDistance = new Vector2(1.5f, -1.5f);
+
+            CreateText(
+                "Title", panel, Ui("menu.title"), 44f, Accent,
+                TextAlignmentOptions.Center,
+                new Vector2(0f, 0.84f), new Vector2(1f, 0.97f));
+            CreateButton(
+                "ContinueButton", panel, Ui("menu.continue"),
+                new Vector2(0.14f, 0.68f), new Vector2(0.86f, 0.79f), Accent, Background);
+            CreateButton(
+                "NewGameButton", panel, Ui("menu.newGame"),
+                new Vector2(0.14f, 0.53f), new Vector2(0.86f, 0.64f), PanelLight, Color.white);
+            CreateButton(
+                "LanguageButton", panel, Ui("menu.language"),
+                new Vector2(0.14f, 0.38f), new Vector2(0.86f, 0.49f), PanelLight, Color.white);
+            CreateButton(
+                "QuitButton", panel, Ui("menu.quit"),
+                new Vector2(0.14f, 0.23f), new Vector2(0.86f, 0.34f), PanelLight, Warning);
+            var resumeButton = CreateButton(
+                "ResumeButton", panel, Ui("menu.resume"),
+                new Vector2(0.14f, 0.08f), new Vector2(0.86f, 0.19f), Accent, Background);
+            resumeButton.gameObject.SetActive(false);
+        }
+
+        private static string Ui(string key)
+        {
+            return UiStrings.Get(key, GameLanguage.ChineseSimplified);
         }
 
         private static void BuildHeader(RectTransform parent)
@@ -359,21 +406,21 @@ namespace NewPlayerHunter.Editor
                 "Header", parent, Panel,
                 new Vector2(0.015f, 0.905f), new Vector2(0.985f, 0.985f));
             CreateButton(
-                "InformationTabButton", header, "收件箱 / 期刊",
+                "InformationTabButton", header, Ui("header.informationTab"),
                 new Vector2(0.02f, 0.16f), new Vector2(0.17f, 0.84f), Accent, Background);
             CreateButton(
-                "AssignmentTabButton", header, "球员分配",
+                "AssignmentTabButton", header, Ui("header.assignmentTab"),
                 new Vector2(0.18f, 0.16f), new Vector2(0.30f, 0.84f), PanelLight, Color.white);
             CreateText(
-                "Week", header, "2026年7月6日 · 季前训练 · 1/52周", 18f, Accent,
+                "Week", header, Ui("header.weekPlaceholder"), 18f, Accent,
                 TextAlignmentOptions.Center,
                 new Vector2(0.305f, 0f), new Vector2(0.64f, 1f));
             CreateText(
-                "Economy", header, "现金 €500.00    应收 €0.00    声望 10", 18f, Color.white,
+                "Economy", header, Ui("header.economyPlaceholder"), 18f, Color.white,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.64f, 0f), new Vector2(0.89f, 1f));
             CreateButton(
-                "ResetButton", header, "重新开始",
+                "MenuButton", header, Ui("header.menu"),
                 new Vector2(0.9f, 0.18f), new Vector2(0.98f, 0.82f), PanelLight, Color.white);
         }
 
@@ -383,7 +430,7 @@ namespace NewPlayerHunter.Editor
                 "DemandPanel", parent, Panel,
                 new Vector2(0.015f, 0.205f), new Vector2(0.485f, 0.89f));
             CreateText(
-                "DemandLabel", panel, "当前有效的球队招聘", 18f, Accent,
+                "DemandLabel", panel, Ui("demand.label"), 18f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.04f, 0.9f), new Vector2(0.96f, 0.98f));
             var scrollObject = new GameObject(
@@ -413,11 +460,11 @@ namespace NewPlayerHunter.Editor
             }
 
             CreateText(
-                "DemandTitle", panel, "需求尚未录入", 30f, Color.white,
+                "DemandTitle", panel, Ui("demand.titlePlaceholder"), 30f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.04f, 0.48f), new Vector2(0.96f, 0.58f));
             CreateText(
-                "DemandBody", panel, "请先打开招聘邮件。", 16f, Muted,
+                "DemandBody", panel, Ui("demand.bodyPlaceholder"), 16f, Muted,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.04f, 0.32f), new Vector2(0.96f, 0.48f));
             var slots = CreateRect(
@@ -429,7 +476,7 @@ namespace NewPlayerHunter.Editor
             }
 
             CreateText(
-                "Selection", panel, "当前没有可分配的招聘需求。", 18f, Warning,
+                "Selection", panel, Ui("demand.selectionPlaceholder"), 18f, Warning,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.04f, 0.03f), new Vector2(0.96f, 0.14f));
         }
@@ -445,11 +492,11 @@ namespace NewPlayerHunter.Editor
             var button = item.gameObject.AddComponent<Button>();
             ConfigureButtonColors(button, image, PanelLight);
             CreateText(
-                "Title", item, "俱乐部 · 需求标题", 14f, Color.white,
+                "Title", item, Ui("demand.itemTitlePlaceholder"), 14f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.05f, 0.45f), new Vector2(0.95f, 0.97f));
             CreateText(
-                "Meta", item, "截止 日期 · 委托价 €0 · 0 槽", 12f, Muted,
+                "Meta", item, Ui("demand.itemMetaPlaceholder"), 12f, Muted,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.05f, 0.05f), new Vector2(0.95f, 0.45f));
         }
@@ -466,11 +513,11 @@ namespace NewPlayerHunter.Editor
             outline.effectDistance = new Vector2(1.5f, -1.5f);
             slot.gameObject.AddComponent<DemandSlotDropTarget>();
             CreateText(
-                "Requirement", slot, "位置 · 必需", 15f, Accent,
+                "Requirement", slot, Ui("slot.requirementPlaceholder"), 15f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.48f), new Vector2(0.965f, 0.98f));
             CreateText(
-                "Assignment", slot, "把球员拖到这里 / 选中球员后点击", 14f, Muted,
+                "Assignment", slot, Ui("slot.hint"), 14f, Muted,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.02f), new Vector2(0.965f, 0.48f));
         }
@@ -481,7 +528,7 @@ namespace NewPlayerHunter.Editor
                 "PlayersPanel", parent, Panel,
                 new Vector2(0.5f, 0.205f), new Vector2(0.985f, 0.89f));
             CreateText(
-                "PlayersLabel", panel, "当前可用 0 人 · 已读简历 0 / 51 · 按收到顺序排列", 17f, Accent,
+                "PlayersLabel", panel, Ui("players.labelPlaceholder"), 17f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.91f), new Vector2(0.965f, 0.985f));
             var scrollObject = new GameObject(
@@ -525,15 +572,15 @@ namespace NewPlayerHunter.Editor
             CreateRawImage("Portrait", card,
                 new Vector2(0.015f, 0.08f), new Vector2(0.105f, 0.92f));
             CreateText(
-                "Name", card, "可用球员", 19f, Color.white,
+                "Name", card, Ui("playerCard.namePlaceholder"), 19f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.12f, 0.4f), new Vector2(0.40f, 0.98f));
             CreateText(
-                "Position", card, "位置", 14f, Accent,
+                "Position", card, Ui("playerCard.positionPlaceholder"), 14f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.12f, 0.02f), new Vector2(0.40f, 0.42f));
             CreateText(
-                "Claim", card, "公开自述、传闻或推荐。", 15f, Muted,
+                "Claim", card, Ui("playerCard.claimPlaceholder"), 15f, Muted,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.42f, 0.08f), new Vector2(0.975f, 0.92f));
         }
@@ -546,17 +593,17 @@ namespace NewPlayerHunter.Editor
                 "Toolbar", workspace, Panel,
                 new Vector2(0.015f, 0.805f), new Vector2(0.985f, 0.89f));
             CreateText(
-                "BrowserLabel", toolbar, "信息筛选中心 · 先读邮件，再交叉判断", 18f, Accent,
+                "BrowserLabel", toolbar, Ui("info.browserLabel"), 18f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.02f, 0f), new Vector2(0.40f, 1f));
             CreateButton(
-                "MailFilterButton", toolbar, "邮件",
+                "MailFilterButton", toolbar, Ui("info.mailFilter"),
                 new Vector2(0.41f, 0.16f), new Vector2(0.53f, 0.84f), Accent, Background);
             CreateButton(
-                "SubscriptionFilterButton", toolbar, "订阅期刊",
+                "SubscriptionFilterButton", toolbar, Ui("info.subscriptionFilter"),
                 new Vector2(0.54f, 0.16f), new Vector2(0.68f, 0.84f), PanelLight, Color.white);
             CreateText(
-                "Counter", toolbar, "第 1 周已到达邮件", 16f, Muted,
+                "Counter", toolbar, Ui("info.counterPlaceholder"), 16f, Muted,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.70f, 0f), new Vector2(0.98f, 1f));
 
@@ -576,7 +623,7 @@ namespace NewPlayerHunter.Editor
                 "MessageListPanel", browser, Panel,
                 new Vector2(0.015f, 0f), new Vector2(0.42f, 0.965f));
             CreateText(
-                "ListLabel", listPanel, "收件箱 · 打开邮件才算阅读", 16f, Accent,
+                "ListLabel", listPanel, Ui("mail.listLabel"), 16f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.91f), new Vector2(0.965f, 0.985f));
             var scrollObject = new GameObject(
@@ -609,24 +656,24 @@ namespace NewPlayerHunter.Editor
                 "DetailPanel", browser, Panel,
                 new Vector2(0.435f, 0f), new Vector2(0.985f, 0.965f));
             CreateText(
-                "ReadingLabel", detail, "邮件阅读区", 15f, Accent,
+                "ReadingLabel", detail, Ui("mail.readingLabel"), 15f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.92f), new Vector2(0.965f, 0.985f));
             CreateText(
-                "Sender", detail, "收件箱", 16f, Muted,
+                "Sender", detail, Ui("mail.emptySender"), 16f, Muted,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.845f), new Vector2(0.965f, 0.92f));
             CreateText(
-                "Subject", detail, "请选择并打开一封邮件", 27f, Color.white,
+                "Subject", detail, Ui("mail.emptySubject"), 27f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.035f, 0.72f), new Vector2(0.965f, 0.85f));
             CreateText(
-                "Meta", detail, "只有实际阅读后，关联内容才会解锁", 14f, Warning,
+                "Meta", detail, Ui("mail.emptyMeta"), 14f, Warning,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.665f), new Vector2(0.965f, 0.72f));
             CreateText(
                 "Body", detail,
-                "招聘邮件会解锁需求；简历邮件会解锁球员。期刊只作为判断证据。",
+                Ui("mail.emptyBody"),
                 18f, Color.white, TextAlignmentOptions.TopLeft,
                 new Vector2(0.035f, 0.53f), new Vector2(0.965f, 0.66f));
             BuildDemandMailBlock(detail);
@@ -649,29 +696,29 @@ namespace NewPlayerHunter.Editor
                 "Avatar", item, new Color(0.16f, 0.34f, 0.29f, 1f),
                 new Vector2(0.02f, 0.15f), new Vector2(0.13f, 0.85f));
             CreateText(
-                "Initials", avatar, "俱", 19f, Color.white,
+                "Initials", avatar, Ui("mail.avatarPlaceholder"), 19f, Color.white,
                 TextAlignmentOptions.Center, Vector2.zero, Vector2.one);
             CreateText(
-                "Sender", item, "发件人", 13f, Accent,
+                "Sender", item, Ui("mail.itemSenderPlaceholder"), 13f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.15f, 0.74f), new Vector2(0.49f, 0.98f));
             CreateText(
-                "Timestamp", item, "第1周 周一 08:20", 12f, Muted,
+                "Timestamp", item, Ui("mail.itemTimestampPlaceholder"), 12f, Muted,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.49f, 0.74f), new Vector2(0.84f, 0.98f));
             CreatePanel(
                 "ReadDot", item, Warning,
                 new Vector2(0.855f, 0.79f), new Vector2(0.88f, 0.91f));
             CreateText(
-                "ReadState", item, "未读", 12f, Warning,
+                "ReadState", item, Ui("mail.unread"), 12f, Warning,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.885f, 0.74f), new Vector2(0.985f, 0.98f));
             CreateText(
-                "Subject", item, "邮件主题", 15f, Color.white,
+                "Subject", item, Ui("mail.itemSubjectPlaceholder"), 15f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.15f, 0.40f), new Vector2(0.985f, 0.75f));
             CreateText(
-                "Preview", item, "邮件正文开头会在这里显示……", 12f, Muted,
+                "Preview", item, Ui("mail.itemPreviewPlaceholder"), 12f, Muted,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.15f, 0.05f), new Vector2(0.985f, 0.41f));
         }
@@ -681,22 +728,22 @@ namespace NewPlayerHunter.Editor
             var block = CreatePanel(
                 "DemandBlock", parent, new Color(0.08f, 0.16f, 0.13f, 1f),
                 new Vector2(0.035f, 0.055f), new Vector2(0.965f, 0.51f));
-            CreateText("Title", block, "固定信息 · 招聘需求", 17f, Accent,
+            CreateText("Title", block, Ui("mail.demandBlock.title"), 17f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.84f), new Vector2(0.975f, 0.98f));
-            CreateText("ClubProfile", block, "俱乐部实力与历史成绩", 15f, Color.white,
+            CreateText("ClubProfile", block, Ui("mail.demandBlock.clubProfilePlaceholder"), 15f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.64f), new Vector2(0.975f, 0.84f));
-            CreateText("Slots", block, "所需位置：", 17f, Color.white,
+            CreateText("Slots", block, Ui("mail.demandBlock.slotsPlaceholder"), 17f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.48f), new Vector2(0.975f, 0.64f));
-            CreateText("Deadline", block, "截止：", 16f, Muted,
+            CreateText("Deadline", block, Ui("mail.demandBlock.deadlinePlaceholder"), 16f, Muted,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.31f), new Vector2(0.68f, 0.48f));
-            CreateText("Price", block, "委托价：", 21f, Warning,
+            CreateText("Price", block, Ui("mail.demandBlock.pricePlaceholder"), 21f, Warning,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.68f, 0.31f), new Vector2(0.975f, 0.48f));
-            CreateText("Payment", block, "付款：", 16f, Color.white,
+            CreateText("Payment", block, Ui("mail.demandBlock.paymentPlaceholder"), 16f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.06f), new Vector2(0.975f, 0.30f));
             block.gameObject.SetActive(false);
@@ -707,36 +754,36 @@ namespace NewPlayerHunter.Editor
             var block = CreatePanel(
                 "ResumeBlock", parent, new Color(0.10f, 0.13f, 0.18f, 1f),
                 new Vector2(0.035f, 0.035f), new Vector2(0.965f, 0.51f));
-            CreateText("Title", block, "固定信息 · 球员简历", 15f, Accent,
+            CreateText("Title", block, Ui("mail.resumeBlock.title"), 15f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.92f), new Vector2(0.975f, 1.00f));
             CreateRawImage("Portrait", block,
                 new Vector2(0.025f, 0.60f), new Vector2(0.18f, 0.90f));
-            CreateText("Player", block, "球员姓名", 22f, Color.white,
+            CreateText("Player", block, Ui("mail.resumeBlock.playerPlaceholder"), 22f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.20f, 0.76f), new Vector2(0.62f, 0.90f));
-            CreateText("Position", block, "公开位置", 15f, Warning,
+            CreateText("Position", block, Ui("mail.resumeBlock.positionPlaceholder"), 15f, Warning,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.62f, 0.76f), new Vector2(0.975f, 0.90f));
-            CreateText("Salary", block, "薪资期望", 16f, Warning,
+            CreateText("Salary", block, Ui("mail.resumeBlock.salaryPlaceholder"), 16f, Warning,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.20f, 0.61f), new Vector2(0.975f, 0.76f));
-            CreateText("Biography", block, "公开简介", 13f, Muted,
+            CreateText("Biography", block, Ui("mail.resumeBlock.biographyPlaceholder"), 13f, Muted,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.20f, 0.45f), new Vector2(0.975f, 0.61f));
-            CreateText("Career", block, "经历", 13f, Muted,
+            CreateText("Career", block, Ui("mail.resumeBlock.careerPlaceholder"), 13f, Muted,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.30f), new Vector2(0.975f, 0.45f));
-            CreateText("Claim", block, "自述", 13f, Color.white,
+            CreateText("Claim", block, Ui("mail.resumeBlock.claimPlaceholder"), 13f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.17f), new Vector2(0.975f, 0.30f));
-            CreateText("Evidence", block, "旁证", 13f, Color.white,
+            CreateText("Evidence", block, Ui("mail.resumeBlock.evidencePlaceholder"), 13f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.07f), new Vector2(0.80f, 0.17f));
-            CreateText("Source", block, "可信度", 13f, Accent,
+            CreateText("Source", block, Ui("mail.resumeBlock.sourcePlaceholder"), 13f, Accent,
                 TextAlignmentOptions.BottomRight,
                 new Vector2(0.80f, 0.07f), new Vector2(0.975f, 0.17f));
-            CreateText("Availability", block, "可安排至", 13f, Warning,
+            CreateText("Availability", block, Ui("mail.resumeBlock.availabilityPlaceholder"), 13f, Warning,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.00f), new Vector2(0.975f, 0.07f));
             block.gameObject.SetActive(false);
@@ -747,19 +794,19 @@ namespace NewPlayerHunter.Editor
             var block = CreatePanel(
                 "PrivateOfferBlock", parent, new Color(0.22f, 0.12f, 0.06f, 1f),
                 new Vector2(0.035f, 0.055f), new Vector2(0.965f, 0.51f));
-            CreateText("Title", block, "固定信息 · 私人请托", 17f, Warning,
+            CreateText("Title", block, Ui("mail.offerBlock.title"), 17f, Warning,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.80f), new Vector2(0.975f, 0.98f));
-            CreateText("Offer", block, "即时酬谢：€0", 25f, Color.white,
+            CreateText("Offer", block, Ui("mail.offerBlock.offerPlaceholder"), 25f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.025f, 0.58f), new Vector2(0.975f, 0.80f));
-            CreateText("Terms", block, "要求：", 17f, Color.white,
+            CreateText("Terms", block, Ui("mail.offerBlock.termsPlaceholder"), 17f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.40f), new Vector2(0.975f, 0.58f));
-            CreateText("TargetClub", block, "目标俱乐部：", 16f, Accent,
+            CreateText("TargetClub", block, Ui("mail.offerBlock.targetClubPlaceholder"), 16f, Accent,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.25f), new Vector2(0.975f, 0.40f));
-            CreateText("Risk", block, "延迟风险：", 16f, Warning,
+            CreateText("Risk", block, Ui("mail.offerBlock.riskPlaceholder"), 16f, Warning,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.05f), new Vector2(0.975f, 0.25f));
             block.gameObject.SetActive(false);
@@ -774,11 +821,11 @@ namespace NewPlayerHunter.Editor
                 "IssueRail", browser, Panel,
                 new Vector2(0.015f, 0f), new Vector2(0.23f, 0.965f));
             CreateText(
-                "RailTitle", rail, "我的电子期刊", 17f, Accent,
+                "RailTitle", rail, Ui("magazine.railTitle"), 17f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.05f, 0.90f), new Vector2(0.95f, 0.985f));
             CreateText(
-                "RailTip", rail, "期刊可翻页阅读，用来核对邮件里的说法。", 14f, Muted,
+                "RailTip", rail, Ui("magazine.railTip"), 14f, Muted,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.05f, 0.80f), new Vector2(0.95f, 0.90f));
             var issueList = CreateRect(
@@ -796,15 +843,15 @@ namespace NewPlayerHunter.Editor
             BuildMagazineFeature(pagePanel);
             BuildMagazineScoutReport(pagePanel);
             CreateButton(
-                "PrevPageButton", pagePanel, "上一页",
+                "PrevPageButton", pagePanel, Ui("magazine.prevPage"),
                 new Vector2(0.025f, 0.02f), new Vector2(0.14f, 0.09f),
                 MagazineInk, Color.white);
             CreateText(
-                "PageIndicator", pagePanel, "第 1 / 4 页", 14f, MagazineInk,
+                "PageIndicator", pagePanel, Ui("magazine.pageIndicatorPlaceholder"), 14f, MagazineInk,
                 TextAlignmentOptions.Center,
                 new Vector2(0.18f, 0.02f), new Vector2(0.82f, 0.09f));
             CreateButton(
-                "NextPageButton", pagePanel, "下一页",
+                "NextPageButton", pagePanel, Ui("magazine.nextPage"),
                 new Vector2(0.86f, 0.02f), new Vector2(0.975f, 0.09f),
                 MagazineRed, Color.white);
             return browser;
@@ -821,11 +868,11 @@ namespace NewPlayerHunter.Editor
             var button = item.gameObject.AddComponent<Button>();
             ConfigureButtonColors(button, image, PanelLight);
             CreateText(
-                "Publication", item, "期刊名称", 16f, Warning,
+                "Publication", item, Ui("magazine.itemPublicationPlaceholder"), 16f, Warning,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.05f, 0.50f), new Vector2(0.95f, 0.92f));
             CreateText(
-                "Issue", item, "第 01 期 · 主题", 14f, Color.white,
+                "Issue", item, Ui("magazine.itemIssuePlaceholder"), 14f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.05f, 0.08f), new Vector2(0.95f, 0.52f));
         }
@@ -841,23 +888,23 @@ namespace NewPlayerHunter.Editor
                 "CoverBand", cover, MagazineRed,
                 new Vector2(0f, 0.76f), new Vector2(1f, 1f));
             CreateText(
-                "Publication", cover, "边线周刊", 46f, Color.white,
+                "Publication", cover, Ui("magazine.coverPublicationPlaceholder"), 46f, Color.white,
                 TextAlignmentOptions.BottomLeft,
                 new Vector2(0.04f, 0.78f), new Vector2(0.80f, 0.98f));
             CreateText(
-                "IssueNumber", cover, "第 01 期", 18f, Color.white,
+                "IssueNumber", cover, Ui("magazine.coverIssuePlaceholder"), 18f, Color.white,
                 TextAlignmentOptions.BottomRight,
                 new Vector2(0.80f, 0.80f), new Vector2(0.96f, 0.96f));
             CreateText(
-                "Headline", cover, "本期封面故事", 50f, MagazineInk,
+                "Headline", cover, Ui("magazine.coverHeadlinePlaceholder"), 50f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.04f, 0.40f), new Vector2(0.52f, 0.72f));
             CreateText(
-                "Deck", cover, "本期封面故事与导读。", 24f, MagazineRed,
+                "Deck", cover, Ui("magazine.coverDeckPlaceholder"), 24f, MagazineRed,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.04f, 0.20f), new Vector2(0.52f, 0.40f));
             CreateText(
-                "CoverNote", cover, "独立报道 · 球探观察 · 足球文化", 15f, MagazineInk,
+                "CoverNote", cover, Ui("magazine.coverNote"), 15f, MagazineInk,
                 TextAlignmentOptions.BottomLeft,
                 new Vector2(0.04f, 0.04f), new Vector2(0.52f, 0.18f));
         }
@@ -867,28 +914,28 @@ namespace NewPlayerHunter.Editor
             var layout = CreateRect(
                 "FeatureLayout", parent,
                 new Vector2(0.025f, 0.11f), new Vector2(0.975f, 0.975f));
-            CreateText("Kicker", layout, "专题", 15f, MagazineRed,
+            CreateText("Kicker", layout, Ui("magazine.featureKicker"), 15f, MagazineRed,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.03f, 0.91f), new Vector2(0.97f, 0.99f));
-            CreateText("Headline", layout, "专题标题", 37f, MagazineInk,
+            CreateText("Headline", layout, Ui("magazine.featureHeadline"), 37f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.03f, 0.72f), new Vector2(0.97f, 0.91f));
-            CreateText("Deck", layout, "专题导语", 18f, MagazineRed,
+            CreateText("Deck", layout, Ui("magazine.featureDeck"), 18f, MagazineRed,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.03f, 0.62f), new Vector2(0.97f, 0.73f));
-            CreateText("BodyLeft", layout, "左栏正文", 15f, MagazineInk,
+            CreateText("BodyLeft", layout, Ui("magazine.featureBodyLeft"), 15f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.03f, 0.18f), new Vector2(0.43f, 0.60f));
-            CreateText("BodyRight", layout, "右栏正文", 15f, MagazineInk,
+            CreateText("BodyRight", layout, Ui("magazine.featureBodyRight"), 15f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.46f, 0.18f), new Vector2(0.72f, 0.60f));
-            CreateText("PullQuote", layout, "“重点引语”", 22f, MagazineRed,
+            CreateText("PullQuote", layout, Ui("magazine.featurePullQuote"), 22f, MagazineRed,
                 TextAlignmentOptions.Center,
                 new Vector2(0.74f, 0.38f), new Vector2(0.97f, 0.60f));
-            CreateText("SidebarTitle", layout, "边栏", 16f, MagazineInk,
+            CreateText("SidebarTitle", layout, Ui("magazine.featureSidebarTitle"), 16f, MagazineInk,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.74f, 0.30f), new Vector2(0.97f, 0.38f));
-            CreateText("SidebarBody", layout, "补充资料", 14f, MagazineInk,
+            CreateText("SidebarBody", layout, Ui("magazine.featureSidebarBody"), 14f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.74f, 0.18f), new Vector2(0.97f, 0.31f));
             CreateMagazineFigure("Illustration", layout);
@@ -903,28 +950,28 @@ namespace NewPlayerHunter.Editor
             CreatePanel(
                 "ReportBand", layout, MagazineInk,
                 new Vector2(0f, 0.82f), new Vector2(1f, 1f));
-            CreateText("Kicker", layout, "球探报告", 15f, Color.white,
+            CreateText("Kicker", layout, Ui("magazine.scoutKicker"), 15f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.03f, 0.92f), new Vector2(0.97f, 0.99f));
-            CreateText("Headline", layout, "报告标题", 34f, Color.white,
+            CreateText("Headline", layout, Ui("magazine.scoutHeadline"), 34f, Color.white,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.03f, 0.83f), new Vector2(0.97f, 0.93f));
-            CreateText("Deck", layout, "观察摘要", 19f, MagazineRed,
+            CreateText("Deck", layout, Ui("magazine.scoutDeck"), 19f, MagazineRed,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.03f, 0.70f), new Vector2(0.97f, 0.81f));
-            CreateText("BodyLeft", layout, "优势观察", 17f, MagazineInk,
+            CreateText("BodyLeft", layout, Ui("magazine.scoutBodyLeft"), 17f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.03f, 0.30f), new Vector2(0.47f, 0.68f));
-            CreateText("BodyRight", layout, "风险观察", 17f, MagazineInk,
+            CreateText("BodyRight", layout, Ui("magazine.scoutBodyRight"), 17f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.52f, 0.30f), new Vector2(0.97f, 0.68f));
-            CreateText("PullQuote", layout, "编辑判断", 21f, MagazineRed,
+            CreateText("PullQuote", layout, Ui("magazine.scoutPullQuote"), 21f, MagazineRed,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.03f, 0.17f), new Vector2(0.70f, 0.30f));
-            CreateText("SidebarTitle", layout, "来源", 15f, MagazineInk,
+            CreateText("SidebarTitle", layout, Ui("magazine.scoutSidebarTitle"), 15f, MagazineInk,
                 TextAlignmentOptions.MidlineRight,
                 new Vector2(0.72f, 0.22f), new Vector2(0.97f, 0.30f));
-            CreateText("SidebarBody", layout, "资料来源与偏差说明", 13f, MagazineInk,
+            CreateText("SidebarBody", layout, Ui("magazine.scoutSidebarBody"), 13f, MagazineInk,
                 TextAlignmentOptions.TopRight,
                 new Vector2(0.72f, 0.12f), new Vector2(0.97f, 0.23f));
             CreateMagazineFigure("Illustration", layout);
@@ -936,15 +983,15 @@ namespace NewPlayerHunter.Editor
                 "Footer", parent, Panel,
                 new Vector2(0.015f, 0.02f), new Vector2(0.985f, 0.185f));
             CreateText(
-                "EventLog", footer, "每周结果、延迟反馈与到账记录会显示在这里。", 16f, Muted,
+                "EventLog", footer, Ui("footer.eventLogPlaceholder"), 16f, Muted,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.16f), new Vector2(0.64f, 0.87f));
             CreateText(
-                "Status", footer, "请先阅读邮件，再安排本周工作。", 17f, Color.white,
+                "Status", footer, Ui("footer.statusPlaceholder"), 17f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.66f, 0.55f), new Vector2(0.965f, 0.9f));
             var endWeekButton = CreateButton(
-                "EndWeekButton", footer, "结束本周",
+                "EndWeekButton", footer, Ui("footer.endWeek"),
                 new Vector2(0.74f, 0.12f), new Vector2(0.965f, 0.51f), Accent, Background);
             endWeekButton.gameObject.SetActive(false);
         }
@@ -968,7 +1015,7 @@ namespace NewPlayerHunter.Editor
             outline.effectColor = new Color(0.27f, 0.91f, 0.55f, 0.9f);
             outline.effectDistance = new Vector2(2f, -2f);
             CreateText(
-                "Label", rect, "球员姓名", 24f, Color.white,
+                "Label", rect, Ui("button.defaultLabel"), 24f, Color.white,
                 TextAlignmentOptions.MidlineLeft, Vector2.zero, Vector2.one);
             ghost.SetActive(false);
         }
@@ -1056,7 +1103,7 @@ namespace NewPlayerHunter.Editor
             var container = CreateRect(
                 name, parent, new Vector2(0.03f, 0.02f), new Vector2(0.43f, 0.3f));
             var caption = CreateText(
-                "Caption", container, "插图 · 主题", 13f,
+                "Caption", container, Ui("magazine.captionPlaceholder"), 13f,
                 new Color(0.42f, 0.38f, 0.30f, 1f),
                 TextAlignmentOptions.BottomLeft,
                 new Vector2(0f, 0f), new Vector2(1f, 0f));

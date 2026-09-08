@@ -55,8 +55,10 @@ namespace NewPlayerHunter.Gameplay.Tests
                 matchScore: 0.55d,
                 randomRoll: 0.618d);
 
-            var first = ResultMailFactory.Create(outcome, "试训委托", "雨城竞技", PlayerName);
-            var second = ResultMailFactory.Create(outcome, "试训委托", "雨城竞技", PlayerName);
+            var first = ResultMailFactory.Create(
+                outcome, "试训委托", "雨城竞技", PlayerName, GameLanguage.ChineseSimplified);
+            var second = ResultMailFactory.Create(
+                outcome, "试训委托", "雨城竞技", PlayerName, GameLanguage.ChineseSimplified);
 
             Assert.That(second.id, Is.EqualTo(first.id));
             Assert.That(second.body.chineseSimplified, Is.EqualTo(first.body.chineseSimplified));
@@ -99,6 +101,30 @@ namespace NewPlayerHunter.Gameplay.Tests
                 Is.EqualTo($"{PlayerName} 在试训中的表现超出教练组预期，俱乐部已提供正式机会，并在回函中特别表扬了其训练态度。"));
         }
 
+        [Test]
+        public void EnglishLanguage_ProducesEnglishMailWithSameIdAndStructure()
+        {
+            var outcome = CreateOutcome(
+                "placement.trial_extended.personality_conflict",
+                PlacementResultKind.TrialExtended,
+                matchScore: 0.55d,
+                randomRoll: 0.618d);
+
+            var mail = ResultMailFactory.Create(
+                outcome, "Trial assignment", "Rainy City", "Hao", GameLanguage.English);
+
+            Assert.That(mail.id, Does.StartWith("result.w4."));
+            Assert.That(mail.subject.english, Does.Contain("Trial feedback"));
+            Assert.That(mail.receivedTime.english, Is.EqualTo("Mon 07:30"));
+            var paragraphs = mail.body.english.Split(new[] { "\n\n" }, StringSplitOptions.None);
+            Assert.That(paragraphs, Has.Length.EqualTo(3));
+            Assert.That(paragraphs[0], Does.Contain("Rainy City"));
+            Assert.That(paragraphs[1], Does.Contain("Hao"));
+            Assert.That(paragraphs[2], Does.Contain("€640.00"));
+            Assert.That(mail.body.chineseSimplified, Is.EqualTo(mail.body.english),
+                "English-built mail carries the same text in both slots because it was authored per language.");
+        }
+
         private static HashSet<string> CollectEvaluations(
             string narrativeKey,
             PlacementResultKind resultKind,
@@ -116,7 +142,8 @@ namespace NewPlayerHunter.Gameplay.Tests
 
         private static string EvaluationOf(PlacementOutcome outcome)
         {
-            var mail = ResultMailFactory.Create(outcome, "试训委托", "雨城竞技", PlayerName);
+            var mail = ResultMailFactory.Create(
+                outcome, "试训委托", "雨城竞技", PlayerName, GameLanguage.ChineseSimplified);
             return mail.body.chineseSimplified.Split(new[] { "\n\n" }, StringSplitOptions.None)[1];
         }
 

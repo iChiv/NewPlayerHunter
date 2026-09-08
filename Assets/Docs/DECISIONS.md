@@ -190,3 +190,31 @@
 - 状态：已确认
 - 决定：试训回函的叙事键在 `placement.accepted/trial_extended/rejected` 基础上扩展变体（意外发挥、性格冲突、体能疑虑、隐藏伤病），由结果类型、匹配分、隐藏体能/职业性与 `randomRoll` 小数分位确定性映射，不新增随机消耗次数；文案选择同样使用 `randomRoll` 质数分位，保证存档恢复后文本一致。
 - 影响：D-021 的随机序列恢复策略不受影响；`ResultMailFactory` 以 NarrativeKey 精确匹配优先、旧键回退原有分档文案。
+
+## D-028 语言偏好存独立 ES3 键，不进进度快照
+
+- 日期：2026-09-08
+- 状态：已确认
+- 决定：界面语言选择（中文/English）经 `SaveGameService.SaveString/TryLoadString` 存到独立键 `ui.language`，不进入 `GameProgressSnapshot`，`schemaVersion` 保持 2 不变；启动时默认取 `GameContentCatalog.developmentLanguage`，存在偏好键则覆盖。结果邮件不进存档（由 DeliveredOutcomes 重生成），语言切换即时生效。
+- 影响：切换语言不会让存档作废；Persistence 不依赖 Gameplay 程序集（偏好按字符串存取）；测试 SetUp/结尾需删除 `ui.language` 键防污染。
+
+## D-029 主菜单为 Scene 预置遮罩，运行时不创建结构对象
+
+- 日期：2026-09-08
+- 状态：已确认
+- 决定：主菜单由 `FormalGameSceneBuilder` 预建为 `GameCanvas/MainMenuOverlay`（CanvasGroup，沿用 WeekTransitionOverlay 模式），Awake 时打开并锁定输入；提供继续游戏、开始新游戏（有存档需二次确认）、语言切换、退出游戏（编辑器内只记日志）；头部原"重新开始"按钮替换为"菜单"按钮，游戏中打开菜单时显示"返回游戏"。`GameController` 对全部菜单对象 null 容忍，场景未重建时照常直接开局。
+- 影响：菜单纯 UI 层，不改 Domain；既有 PlayMode 测试在菜单存在与否两种场景形态下都应通过。
+
+## D-030 翻译源数据集中在 prose JSON 的 *En 兄弟键
+
+- 日期：2026-09-08
+- 状态：已确认
+- 决定：英文翻译以 `*En` 兄弟键（camelCase + En 后缀）直接写入各 prose JSON 与 `content_design.json`；从 Excel 提取的中文源字段（title_zh 等）不进英文，英文统一由整合者在 prose 文件补齐；`build_factory.py` 读取双语并生成 `L(zh, en)`，缺英文只警告不阻断；`check_en_coverage.py` 做零缺失验收；手写工厂（SixWeek/ResultMail/UiStrings）就地持有双语。跨文件译名以 `output/spreadsheet/glossary_en.json` 术语表为准。
+- 影响：翻译不碰生成文件；新增内容字段时必须同步提供双语；术语冲突按术语表仲裁。
+
+## D-031 期号与时间戳等格式化串在显示层本地化
+
+- 日期：2026-09-08
+- 状态：已确认
+- 决定：`MagazineIssueContent.issueNumber` 内容侧只存纯数字（"07"），UI 按当前语言格式化为"第 07 期"/"Issue 07"（旧值"第 07 期"由显示层提取数字兼容）；`MailContentEntry.receivedTime` 由 `EnsureMailTimestamps` 写入双语（"周一 08:05"/"Mon 08:05"）；日期格式 zh "yyyy年M月d日" / en "MMM d, yyyy"。
+- 影响：内容数据保持语言中性；显示格式化集中在 GameController/UiStrings。

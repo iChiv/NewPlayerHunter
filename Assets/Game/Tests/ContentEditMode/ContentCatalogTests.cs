@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -253,6 +255,63 @@ namespace NewPlayerHunter.Gameplay.Tests
             Assert.That(mail.privateRequiredClubId, Is.EqualTo("club.rainy"));
             Assert.That(mail.privateTargetClubRequirement.chineseSimplified, Does.Contain("雨城竞技"));
             Assert.That(mail.privateRiskNote.chineseSimplified, Does.Contain("声望"));
+        }
+
+        [Test]
+        public void AllContent_EnglishTranslationsPresent()
+        {
+            var entries = _catalog.Players.Cast<object>()
+                .Concat(_catalog.Demands)
+                .Concat(_catalog.Mails)
+                .Concat(_catalog.MagazineIssues)
+                .Concat(_catalog.MagazineIssues.SelectMany(issue => issue.pages));
+            var checkedCount = 0;
+            foreach (var entry in entries)
+            {
+                var entryId = entry.GetType().GetField("id")?.GetValue(entry) as string
+                    ?? entry.ToString();
+                foreach (var field in entry.GetType().GetFields())
+                {
+                    if (field.FieldType != typeof(LocalizedText) ||
+                        field.GetValue(entry) is not LocalizedText text ||
+                        string.IsNullOrWhiteSpace(text.chineseSimplified))
+                    {
+                        continue;
+                    }
+
+                    checkedCount++;
+                    Assert.That(
+                        string.IsNullOrWhiteSpace(text.english),
+                        Is.False,
+                        $"{entryId}.{field.Name} has Chinese text but no English translation.");
+                }
+            }
+
+            Assert.That(checkedCount, Is.GreaterThan(1000),
+                "The reflection sweep must actually visit the catalog's localized fields.");
+        }
+
+        [Test]
+        public void UiStrings_AllKeysHaveBothLanguages()
+        {
+            var entriesField = typeof(UiStrings).GetField(
+                "Entries",
+                BindingFlags.NonPublic | BindingFlags.Static);
+            Assert.That(entriesField, Is.Not.Null, "UiStrings.Entries field not found.");
+            var entries = (IDictionary<string, string[]>)entriesField.GetValue(null);
+            Assert.That(entries, Is.Not.Empty);
+            foreach (var pair in entries)
+            {
+                Assert.That(pair.Value, Is.Not.Null.And.Length.EqualTo(2), pair.Key);
+                Assert.That(
+                    string.IsNullOrWhiteSpace(pair.Value[0]),
+                    Is.False,
+                    $"{pair.Key} is missing Chinese text.");
+                Assert.That(
+                    string.IsNullOrWhiteSpace(pair.Value[1]),
+                    Is.False,
+                    $"{pair.Key} is missing English text.");
+            }
         }
     }
 }

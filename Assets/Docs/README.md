@@ -23,33 +23,34 @@
 
 ## 当前阶段
 
-- 阶段：M1-B 内容与存档主体已完成（批次 01 覆盖全部 52 周：51 球员、35 招聘、193 目录邮件、34 期期刊）；剩余英文翻译与发布构建
+- 阶段：M1-B 已完成（批次 01 覆盖全部 52 周：51 球员、35 招聘、193 目录邮件、34 期期刊；英文翻译全套与主菜单已接入）；剩余试玩打磨与发布构建
 - 平台：Windows
 - 当前可玩版本：Assets/Game/Scenes/Game.unity
-- 最近更新：2026-09-07
+- 最近更新：2026-09-08
 
 ## 在 Unity Editor 中试玩
 
 1. 打开 Assets/Game/Scenes/Game.unity。
 2. 确认 Game View 使用 16:9 比例。
-3. 点击 Play。
-4. 默认进入邮件页；点击“邮件”与“订阅期刊”对照来源、立场和互相冲突的球员信息。
-5. 点击左上角“球员分配”进入工作台；多条招聘同时有效时，点击左上列表切换当前委托。
-6. 点击或拖拽一张可用球员卡到左侧招聘槽位，再点击“结束本周”。
-7. 多槽位委托允许空缺，但需要再次点击“结束本周”确认部分提交。
-8. 试训回函会在 1–2 周后到达收件箱，包含定性评价（可能有意外发挥、性格冲突、体能疑虑、隐藏伤病变体）与报酬到账说明。
+3. 点击 Play，进入主菜单：继续游戏 / 新游戏（有存档需二次确认）/ 语言切换（中文 ↔ English，选择随偏好保存）/ 退出游戏。
+4. 游戏中点击右上角“菜单”可回主菜单。
+5. 默认进入邮件页；点击“邮件”与“订阅期刊”对照来源、立场和互相冲突的球员信息。
+6. 点击左上角“球员分配”进入工作台；多条招聘同时有效时，点击左上列表切换当前委托。
+7. 点击或拖拽一张可用球员卡到左侧招聘槽位，再点击“结束本周”。
+8. 多槽位委托允许空缺，但需要再次点击“结束本周”确认部分提交。
+9. 试训回函会在 1–2 周后到达收件箱，包含定性评价（可能有意外发挥、性格冲突、体能疑虑、隐藏伤病变体）与报酬到账说明。
 
 ## 内容与美术管线（批次整合）
 
 1. `python output/spreadsheet/extract_batch.py <xlsx>`：提取内容人员 Excel 并打印校验报告。
-2. 编辑 `content_design.json`（结构字段）与 prose JSON（文案）。
-3. `python output/spreadsheet/build_factory.py`：重新生成 `LateSeasonContentFactory.cs`。
+2. 编辑 `content_design.json`（结构字段 + `publicationEn`）与 prose JSON（文案 zh + `*En` 兄弟键；译名以 `glossary_en.json` 术语表为准）。
+3. `python output/spreadsheet/build_factory.py`：重新生成 `LateSeasonContentFactory.cs`（双语）；`python output/spreadsheet/check_en_coverage.py` 验收英文零缺失。
 4. 美术：`make_art_manifest.py` 生成清单（肖像、封面、期刊题图）→ `bash output/art_raw/gen_art_serial.sh` 调本地 grok 批量生图（注意先建好对应子目录）→ `python output/spreadsheet/rebuild_atlases.py` 合成 8×8 肖像、6×6 封面与 6×6 题图图集。期刊内容页在 prose JSON 中用 `illustration` 主题键标注，`build_factory.py` 映射为图集索引。
 5. Unity 菜单 Tools/New Player Hunter/Rebuild Game Scene 重建正式场景（会同时刷新内容目录资产），然后跑 EditMode/PlayMode 测试。
 
 ## 测试与已知环境问题
 
-- EditMode/PlayMode 全部通过（35 + 7，2026-09-07）。通过 Unity MCP `run_tests` 执行。
+- EditMode/PlayMode 全部通过（39 + 8，2026-09-08）。通过 Unity Pipeline HTTP API 执行；若服务卡死，用菜单 "Pipeline/Stop Server" 再 "Pipeline/Start Server" 恢复。
 - 域重载后立即 `run_tests` 偶发“初始化超时”，重试即通过。
 - Console 既有噪音（不影响编译与测试）：`scripting_class_is_subclass_of(NULL)` 断言、MCP/Pipeline Roslyn 反射异常、"Editor is not in automated mode" 警告。
 - 存档版本为 schemaVersion 2；开发期内不做旧档兼容（D-026），游戏完成后统一梳理。

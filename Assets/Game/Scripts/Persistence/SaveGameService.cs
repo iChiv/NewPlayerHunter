@@ -84,6 +84,35 @@ namespace NewPlayerHunter.Persistence
             return true;
         }
 
+        public void SaveString(string key, string value)
+        {
+            if (_settings == null)
+            {
+                ES3.Save(key, value);
+            }
+            else
+            {
+                ES3.Save(key, value, _settings);
+            }
+        }
+
+        public bool TryLoadString(string key, out string value)
+        {
+            value = null;
+            var exists = _settings == null
+                ? ES3.KeyExists(key)
+                : ES3.KeyExists(key, _settings);
+            if (!exists)
+            {
+                return false;
+            }
+
+            value = _settings == null
+                ? ES3.Load<string>(key)
+                : ES3.Load<string>(key, _settings);
+            return true;
+        }
+
         public void DeleteProgress()
         {
             if (_settings == null)

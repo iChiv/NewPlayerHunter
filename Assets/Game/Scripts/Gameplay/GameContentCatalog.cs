@@ -239,20 +239,15 @@ namespace NewPlayerHunter.Gameplay
                     : mail.kind == MailContentKind.PrivateRequest
                         ? 40
                         : 5;
-                mail.receivedTime = Zh($"周一 {hour:00}:{minute:00}");
+                mail.receivedTime = new LocalizedText
+                {
+                    chineseSimplified = $"周一 {hour:00}:{minute:00}",
+                    english = $"Mon {hour:00}:{minute:00}"
+                };
                 changed = true;
             }
 
             return changed;
-        }
-
-        private static LocalizedText Zh(string value)
-        {
-            return new LocalizedText
-            {
-                chineseSimplified = value,
-                english = string.Empty
-            };
         }
     }
 }

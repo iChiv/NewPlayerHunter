@@ -26,6 +26,46 @@ namespace NewPlayerHunter.Gameplay.Tests
         }
 
         [UnityTest]
+        public IEnumerator GameScene_MainMenuOpensAtStartup_AndLanguageSwitchUpdatesHeader()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            yield return null;
+
+            var controller = Object.FindFirstObjectByType<GameController>();
+            Assert.That(controller, Is.Not.Null);
+            try
+            {
+                Assert.That(controller.IsMainMenuOpen, Is.True,
+                    "The main menu overlay must open when the game scene starts.");
+
+                controller.CloseMainMenuForTests();
+                yield return null;
+                Assert.That(controller.IsMainMenuOpen, Is.False);
+
+                var menuLabel = controller.transform
+                    .Find("GameCanvas/Background/Header/MenuButton/Label")
+                    .GetComponent<TextMeshProUGUI>();
+                Assert.That(menuLabel.text, Is.EqualTo("菜单"));
+
+                controller.SetLanguage(GameLanguage.English);
+                yield return null;
+                Assert.That(controller.Language, Is.EqualTo(GameLanguage.English));
+                Assert.That(menuLabel.text, Is.EqualTo("Menu"),
+                    "The header menu button must switch to English.");
+
+                controller.SetLanguage(GameLanguage.ChineseSimplified);
+                yield return null;
+                Assert.That(menuLabel.text, Is.EqualTo("菜单"),
+                    "The header menu button must switch back to Chinese.");
+            }
+            finally
+            {
+                controller.SetLanguage(GameLanguage.ChineseSimplified);
+                ES3.DeleteKey("ui.language");
+            }
+        }
+
+        [UnityTest]
         public IEnumerator GameScene_ReadMailUnlocksAssignment_AndMagazineHasPages()
         {
             SceneManager.LoadScene("Game", LoadSceneMode.Single);

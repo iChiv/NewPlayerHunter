@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using NewPlayerHunter.Domain;
 using NewPlayerHunter.Persistence;
@@ -34,13 +35,6 @@ namespace NewPlayerHunter.Gameplay
         private const int CoverAtlasRows = 6;
         private const int IllustrationAtlasColumns = 6;
         private const int IllustrationAtlasRows = 6;
-        private static readonly string[] IllustrationCaptions =
-        {
-            "转会窗", "合同与佣金", "伤病室", "战术板", "夜场", "酒馆",
-            "训练场", "球探席", "编辑部", "更衣室", "装备静物", "哨与牌",
-            "奖杯", "雨战", "金元足球", "街头青训", "老将更衣柜", "门将手套",
-            "截止日传真", "看台", "冬窗", "体检室", "经纪人来电", "数据板"
-        };
         private static readonly DateTime SeasonStartDate = new DateTime(2026, 7, 6);
 
         private static readonly Color PanelLightColor =
@@ -146,6 +140,19 @@ namespace NewPlayerHunter.Gameplay
         private Button _nextPageButton;
         private bool _carloFavorAccepted;
         private bool _carloFavorConsequenceApplied;
+        private GameLanguage _language;
+        private Button _resetButton;
+        private Button _menuButton;
+        private CanvasGroup _mainMenuOverlay;
+        private TextMeshProUGUI _mainMenuTitleText;
+        private Button _continueButton;
+        private Button _newGameButton;
+        private Button _languageButton;
+        private Button _quitButton;
+        private Button _resumeButton;
+        private bool _mainMenuOpen;
+        private bool _newGameConfirmPending;
+        private bool _gameStarted;
 
         public int CurrentWeek => _state == null ? 0 : _state.CurrentWeek;
 
@@ -275,10 +282,173 @@ namespace NewPlayerHunter.Gameplay
                     "Game scene needs a configured GameContentCatalog asset.");
             }
 
+            _language = contentCatalog.DevelopmentLanguage;
+            if (_saveGameService.TryLoadString("ui.language", out var savedLanguage) &&
+                Enum.TryParse(savedLanguage, out GameLanguage parsedLanguage))
+            {
+                _language = parsedLanguage;
+            }
+
             BuildGameState();
             LoadProgressIfAvailable();
             BindSceneUi();
             RefreshUi();
+            if (_mainMenuOverlay != null)
+            {
+                OpenMainMenu();
+            }
+        }
+
+        public GameLanguage Language => _language;
+
+        public bool IsMainMenuOpen => _mainMenuOpen && _mainMenuOverlay != null;
+
+        public void SetLanguage(GameLanguage language)
+        {
+            _language = language;
+            try
+            {
+                _saveGameService.SaveString("ui.language", language.ToString());
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError($"[NewPlayerHunter] 保存语言偏好失败：{exception.Message}");
+            }
+
+            if (!_uiBound)
+            {
+                return;
+            }
+
+            ReapplyStaticUiTexts();
+            if (IsMainMenuOpen)
+            {
+                RefreshMainMenuLabels();
+            }
+
+            RefreshUi();
+        }
+
+        public void OpenMainMenu()
+        {
+            if (_mainMenuOverlay == null)
+            {
+                return;
+            }
+
+            _mainMenuOpen = true;
+            _newGameConfirmPending = false;
+            _mainMenuOverlay.gameObject.SetActive(true);
+            _mainMenuOverlay.alpha = 1f;
+            _mainMenuOverlay.interactable = true;
+            _mainMenuOverlay.blocksRaycasts = true;
+            RefreshMainMenuLabels();
+        }
+
+        public void CloseMainMenu()
+        {
+            if (_mainMenuOverlay == null)
+            {
+                return;
+            }
+
+            _mainMenuOpen = false;
+            _newGameConfirmPending = false;
+            _gameStarted = true;
+            _mainMenuOverlay.alpha = 0f;
+            _mainMenuOverlay.interactable = false;
+            _mainMenuOverlay.blocksRaycasts = false;
+            _mainMenuOverlay.gameObject.SetActive(false);
+        }
+
+        public void CloseMainMenuForTests()
+        {
+            CloseMainMenu();
+        }
+
+        public void StartNewGameFromMenu()
+        {
+            if (HasSavedProgress && !_newGameConfirmPending)
+            {
+                _newGameConfirmPending = true;
+                SetLabelText(
+                    _newGameButton,
+                    UiStrings.Get("menu.newGameConfirm", _language));
+                return;
+            }
+
+            _newGameConfirmPending = false;
+            RestartGame();
+            CloseMainMenu();
+        }
+
+        public void QuitGame()
+        {
+            if (Application.isEditor)
+            {
+                Debug.Log("[NewPlayerHunter] Quit requested from the main menu (ignored in the editor).");
+                return;
+            }
+
+            Application.Quit();
+        }
+
+        private void RefreshMainMenuLabels()
+        {
+            if (_mainMenuTitleText != null)
+            {
+                _mainMenuTitleText.text = UiStrings.Get("menu.title", _language);
+            }
+
+            SetLabelText(_continueButton, UiStrings.Get("menu.continue", _language));
+            SetLabelText(
+                _newGameButton,
+                UiStrings.Get(
+                    _newGameConfirmPending ? "menu.newGameConfirm" : "menu.newGame",
+                    _language));
+            SetLabelText(_languageButton, UiStrings.Get("menu.language", _language));
+            SetLabelText(_quitButton, UiStrings.Get("menu.quit", _language));
+            SetLabelText(_resumeButton, UiStrings.Get("menu.resume", _language));
+            if (_continueButton != null)
+            {
+                _continueButton.interactable = HasSavedProgress;
+            }
+
+            if (_resumeButton != null)
+            {
+                _resumeButton.gameObject.SetActive(_gameStarted);
+            }
+        }
+
+        private void ReapplyStaticUiTexts()
+        {
+            SetLabelText(
+                _informationTabButton, UiStrings.Get("header.informationTab", _language));
+            SetLabelText(
+                _assignmentTabButton, UiStrings.Get("header.assignmentTab", _language));
+            SetLabelText(_mailFilterButton, UiStrings.Get("info.mailFilter", _language));
+            SetLabelText(
+                _subscriptionFilterButton, UiStrings.Get("info.subscriptionFilter", _language));
+            SetLabelText(_previousPageButton, UiStrings.Get("magazine.prevPage", _language));
+            SetLabelText(_nextPageButton, UiStrings.Get("magazine.nextPage", _language));
+            SetLabelText(_endWeekButton, UiStrings.Get("footer.endWeek", _language));
+            SetLabelText(_resetButton, UiStrings.Get("header.reset", _language));
+            SetLabelText(_menuButton, UiStrings.Get("header.menu", _language));
+            RefreshMainMenuLabels();
+        }
+
+        private static void SetLabelText(Button button, string text)
+        {
+            if (button == null)
+            {
+                return;
+            }
+
+            var label = button.transform.Find("Label")?.GetComponent<TextMeshProUGUI>();
+            if (label != null)
+            {
+                label.text = text;
+            }
         }
 
         public void SelectPlayer(string playerId)
@@ -291,8 +461,11 @@ namespace NewPlayerHunter.Gameplay
             _selectedPlayerId = _selectedPlayerId == playerId ? null : playerId;
             _pendingEmptyConfirmation = false;
             LastStatus = string.IsNullOrEmpty(_selectedPlayerId)
-                ? "已取消选择球员。"
-                : $"已选择 {GetPlayerDisplayName(_selectedPlayerId)}，请点击或拖入招聘槽位。";
+                ? UiStrings.Get("status.playerDeselected", _language)
+                : UiStrings.Format(
+                    "status.playerSelected",
+                    _language,
+                    GetPlayerDisplayName(_selectedPlayerId));
             RefreshUi();
         }
 
@@ -313,7 +486,11 @@ namespace NewPlayerHunter.Gameplay
             _selectedDemandId = demand.Id;
             _pendingEmptyConfirmation = false;
             var entry = _demandContentById[demand.Id];
-            LastStatus = $"正在处理：{Resolve(entry.clubDisplayName)} · {demand.Title}。";
+            LastStatus = UiStrings.Format(
+                "status.demandSelected",
+                _language,
+                Resolve(entry.clubDisplayName),
+                demand.Title);
             RefreshUi();
         }
 
@@ -333,7 +510,7 @@ namespace NewPlayerHunter.Gameplay
             if (_slotAssignments.Remove(slotId))
             {
                 _pendingEmptyConfirmation = false;
-                LastStatus = "已清空该招聘槽位。";
+                LastStatus = UiStrings.Get("status.slotCleared", _language);
                 RefreshUi();
             }
         }
@@ -358,7 +535,8 @@ namespace NewPlayerHunter.Gameplay
             _slotAssignments[slotId] = playerId;
             _selectedPlayerId = null;
             _pendingEmptyConfirmation = false;
-            LastStatus = $"已把 {GetPlayerDisplayName(playerId)} 放入招聘槽位。";
+            LastStatus = UiStrings.Format(
+                "status.playerAssigned", _language, GetPlayerDisplayName(playerId));
             RefreshUi();
             return true;
         }
@@ -491,7 +669,7 @@ namespace NewPlayerHunter.Gameplay
 
             _random.FastForward(snapshot.randomDrawCount);
             RegenerateResultMails();
-            AddLog($"已载入第 {_state.CurrentWeek} 周存档。");
+            AddLog(UiStrings.Format("log.saveLoaded", _language, _state.CurrentWeek));
         }
 
         public string GetPlayerDisplayName(string playerId)
@@ -587,8 +765,8 @@ namespace NewPlayerHunter.Gameplay
                 _demandContentById.Add(entry.id, entry);
             }
 
-            AddLog("2026年7月6日：季前训练开始。先阅读邮件，需求和简历才会进入分配工作台。");
-            LastStatus = "新赛季从季前训练开始，共 52 周。请先读邮件，再根据期刊线索交叉判断。";
+            AddLog(UiStrings.Format("log.seasonStart", _language, FormatWeekDate(1)));
+            LastStatus = UiStrings.Get("status.initial", _language);
         }
 
         private void BindSceneUi()
@@ -686,8 +864,28 @@ namespace NewPlayerHunter.Gameplay
                 "GameCanvas/Background/Footer/Status");
             _endWeekButton = RequireSceneComponent<Button>(
                 "GameCanvas/Background/Footer/EndWeekButton");
-            var resetButton = RequireSceneComponent<Button>(
+            _resetButton = FindSceneComponent<Button>(
                 "GameCanvas/Background/Header/ResetButton");
+            _menuButton = FindSceneComponent<Button>(
+                "GameCanvas/Background/Header/MenuButton");
+            _mainMenuOverlay = FindSceneComponent<CanvasGroup>(
+                "GameCanvas/MainMenuOverlay");
+            if (_mainMenuOverlay != null)
+            {
+                _mainMenuTitleText = FindSceneComponent<TextMeshProUGUI>(
+                    "GameCanvas/MainMenuOverlay/Panel/Title");
+                _continueButton = FindSceneComponent<Button>(
+                    "GameCanvas/MainMenuOverlay/Panel/ContinueButton");
+                _newGameButton = FindSceneComponent<Button>(
+                    "GameCanvas/MainMenuOverlay/Panel/NewGameButton");
+                _languageButton = FindSceneComponent<Button>(
+                    "GameCanvas/MainMenuOverlay/Panel/LanguageButton");
+                _quitButton = FindSceneComponent<Button>(
+                    "GameCanvas/MainMenuOverlay/Panel/QuitButton");
+                _resumeButton = FindSceneComponent<Button>(
+                    "GameCanvas/MainMenuOverlay/Panel/ResumeButton");
+            }
+
             _weekTransitionOverlay = RequireSceneComponent<CanvasGroup>(
                 "GameCanvas/WeekTransitionOverlay");
             _weekTransitionText = RequireSceneComponent<TextMeshProUGUI>(
@@ -697,12 +895,73 @@ namespace NewPlayerHunter.Gameplay
             _assignmentWorkspaceGroup =
                 _assignmentWorkspace.GetComponent<CanvasGroup>();
 
-            resetButton.onClick.RemoveAllListeners();
-            resetButton.onClick.AddListener(() =>
+            if (_resetButton != null)
             {
-                Punch(resetButton.transform);
-                RestartGame();
-            });
+                _resetButton.onClick.RemoveAllListeners();
+                _resetButton.onClick.AddListener(() =>
+                {
+                    Punch(_resetButton.transform);
+                    RestartGame();
+                });
+            }
+
+            if (_menuButton != null)
+            {
+                _menuButton.onClick.RemoveAllListeners();
+                _menuButton.onClick.AddListener(() =>
+                {
+                    Punch(_menuButton.transform);
+                    OpenMainMenu();
+                });
+            }
+
+            if (_mainMenuOverlay != null)
+            {
+                if (_continueButton != null)
+                {
+                    _continueButton.onClick.RemoveAllListeners();
+                    _continueButton.onClick.AddListener(CloseMainMenu);
+                }
+
+                if (_newGameButton != null)
+                {
+                    _newGameButton.onClick.RemoveAllListeners();
+                    _newGameButton.onClick.AddListener(() =>
+                    {
+                        Punch(_newGameButton.transform);
+                        StartNewGameFromMenu();
+                    });
+                }
+
+                if (_languageButton != null)
+                {
+                    _languageButton.onClick.RemoveAllListeners();
+                    _languageButton.onClick.AddListener(() =>
+                    {
+                        Punch(_languageButton.transform);
+                        SetLanguage(_language == GameLanguage.ChineseSimplified
+                            ? GameLanguage.English
+                            : GameLanguage.ChineseSimplified);
+                    });
+                }
+
+                if (_quitButton != null)
+                {
+                    _quitButton.onClick.RemoveAllListeners();
+                    _quitButton.onClick.AddListener(() =>
+                    {
+                        Punch(_quitButton.transform);
+                        QuitGame();
+                    });
+                }
+
+                if (_resumeButton != null)
+                {
+                    _resumeButton.onClick.RemoveAllListeners();
+                    _resumeButton.onClick.AddListener(CloseMainMenu);
+                }
+            }
+
             _informationTabButton.onClick.RemoveAllListeners();
             _informationTabButton.onClick.AddListener(() =>
             {
@@ -747,6 +1006,7 @@ namespace NewPlayerHunter.Gameplay
             });
             BindPlayerCards();
             _uiBound = true;
+            ReapplyStaticUiTexts();
         }
 
         private void BindPlayerCards()
@@ -767,7 +1027,7 @@ namespace NewPlayerHunter.Gameplay
         private void ShowInformationWorkspace()
         {
             _activeWorkspace = WorkspaceMode.Information;
-            LastStatus = "信息中心已打开：邮件负责正式解锁，期刊负责交叉判断。";
+            LastStatus = UiStrings.Get("status.infoOpened", _language);
             ApplyWorkspaceVisibility();
             RefreshUi();
         }
@@ -854,7 +1114,7 @@ namespace NewPlayerHunter.Gameplay
             }
 
             _weekTransitionOverlay.blocksRaycasts = true;
-            _weekTransitionText.text = "本周结算中…";
+            _weekTransitionText.text = UiStrings.Get("status.weekSettling", _language);
             yield return FadeCanvasGroup(
                 _weekTransitionOverlay, _weekTransitionOverlay.alpha, 1f, 0.5f);
 
@@ -870,8 +1130,15 @@ namespace NewPlayerHunter.Gameplay
             }
 
             _weekTransitionText.text = IsGameComplete
-                ? $"赛季结束 · {_seasonCalendar.DateAfterFinalWeek:yyyy年M月d日}"
-                : $"{FormatCurrentDate()} · {SeasonPhaseName(CurrentSeasonPhase)}";
+                ? UiStrings.Format(
+                    "status.seasonEndLine",
+                    _language,
+                    FormatDate(_seasonCalendar.DateAfterFinalWeek))
+                : UiStrings.Format(
+                    "status.weekLine",
+                    _language,
+                    FormatCurrentDate(),
+                    SeasonPhaseName(CurrentSeasonPhase));
             yield return new WaitForSeconds(1.0f);
             yield return FadeCanvasGroup(_weekTransitionOverlay, 1f, 0f, 0.5f);
             _weekTransitionOverlay.blocksRaycasts = false;
@@ -933,9 +1200,11 @@ namespace NewPlayerHunter.Gameplay
         private void ShowAssignmentWorkspace()
         {
             _activeWorkspace = WorkspaceMode.Assignment;
-            LastStatus = _currentDemand == null
-                ? "当前没有已解锁且仍在有效期内的招聘；你仍可结束本周推进日期。"
-                : "分配工作台只显示已读、未过期且从未提交给俱乐部的球员。";
+            LastStatus = UiStrings.Get(
+                _currentDemand == null
+                    ? "status.assignmentOpenedEmpty"
+                    : "status.assignmentOpened",
+                _language);
             ApplyWorkspaceVisibility();
             RefreshUi();
         }
@@ -945,12 +1214,12 @@ namespace NewPlayerHunter.Gameplay
             _informationMode = mode;
             if (mode == InformationMode.Mail)
             {
-                LastStatus = "收件箱：打开邮件后，关联的招聘需求或球员简历才会进入工作台。";
+                LastStatus = UiStrings.Get("status.mailMode", _language);
             }
             else
             {
                 EnsureSelectedIssue();
-                LastStatus = "订阅期刊：翻页比较报道，但期刊不会替代正式简历邮件。";
+                LastStatus = UiStrings.Get("status.magazineMode", _language);
             }
 
             RefreshUi();
@@ -987,10 +1256,11 @@ namespace NewPlayerHunter.Gameplay
                 !string.IsNullOrEmpty(mail.relatedPlayerId) ||
                 !string.IsNullOrEmpty(mail.relatedDemandId);
             LastStatus = firstRead
-                ? unlocksContent
-                    ? $"已阅读《{Resolve(mail.subject)}》，关联档案已进入分配工作台。"
-                    : $"已阅读《{Resolve(mail.subject)}》。"
-                : $"重新打开《{Resolve(mail.subject)}》。";
+                ? UiStrings.Format(
+                    unlocksContent ? "status.mailReadUnlock" : "status.mailRead",
+                    _language,
+                    Resolve(mail.subject))
+                : UiStrings.Format("status.mailReopened", _language, Resolve(mail.subject));
             RefreshUi();
         }
 
@@ -1003,7 +1273,8 @@ namespace NewPlayerHunter.Gameplay
 
             _selectedIssueId = issueId;
             _magazinePageIndex = 0;
-            LastStatus = $"正在阅读《{Resolve(GetSelectedIssue().issueTitle)}》。";
+            LastStatus = UiStrings.Format(
+                "status.issueSelected", _language, Resolve(GetSelectedIssue().issueTitle));
             RefreshUi();
         }
 
@@ -1050,8 +1321,8 @@ namespace NewPlayerHunter.Gameplay
                 if (missingRequiredSlots.Count > 0 && !_pendingEmptyConfirmation)
                 {
                     _pendingEmptyConfirmation = true;
-                    LastStatus =
-                        $"还有 {missingRequiredSlots.Count} 个必需槽位为空。再次点击“结束本周”确认不完整提交或暂不推荐。";
+                    LastStatus = UiStrings.Format(
+                        "status.emptySlotsWarning", _language, missingRequiredSlots.Count);
                     RefreshUi();
                     return;
                 }
@@ -1087,29 +1358,38 @@ namespace NewPlayerHunter.Gameplay
                         _carloFavorAccepted = true;
                     }
 
-                    AddLog(
-                        $"即时收益：私人请托 +{FormatMoney(offerMail.privateOfferAmount)}；未披露推荐风险已记录。");
+                    AddLog(UiStrings.Format(
+                        "log.instantIncome",
+                        _language,
+                        FormatMoney(offerMail.privateOfferAmount)));
                 }
 
                 var arrangedNames = assignments
                     .Select(assignment => GetPlayerDisplayName(assignment.PlayerId))
                     .ToArray();
-                AddLog(
-                    $"{FormatCurrentDate()}：向“{_currentDemand.Title}”提交 {string.Join("、", arrangedNames)}。球员已从可用名单移除。");
+                AddLog(UiStrings.Format(
+                    "log.submitted",
+                    _language,
+                    FormatCurrentDate(),
+                    _currentDemand.Title,
+                    string.Join(UiStrings.Get("list.and", _language), arrangedNames)));
                 foreach (var outcome in commit.ScheduledOutcomes)
                 {
-                    AddLog(
-                        $"{GetPlayerDisplayName(outcome.Assignment.PlayerId)} 的反馈预计在 {FormatWeekDate(outcome.OutcomeWeek)} 到达。");
+                    AddLog(UiStrings.Format(
+                        "log.feedbackEta",
+                        _language,
+                        GetPlayerDisplayName(outcome.Assignment.PlayerId),
+                        FormatWeekDate(outcome.OutcomeWeek)));
                 }
             }
             else if (_currentDemand != null)
             {
-                AddLog(
-                    $"{FormatCurrentDate()}：本周未向“{_currentDemand.Title}”推荐球员，需求仍会保留到截止日期。");
+                AddLog(UiStrings.Format(
+                    "log.noSubmission", _language, FormatCurrentDate(), _currentDemand.Title));
             }
             else
             {
-                AddLog($"{FormatCurrentDate()}：本周没有有效招聘需求，事务所继续跟进赛事和市场消息。");
+                AddLog(UiStrings.Format("log.noDemand", _language, FormatCurrentDate()));
             }
 
             var advance = _engine.AdvanceOneWeek(_state);
@@ -1121,14 +1401,15 @@ namespace NewPlayerHunter.Gameplay
 
             foreach (var payment in advance.PaidPayments)
             {
-                AddLog($"已到账：{FormatMoney(payment.Amount)}（{payment.DemandId}）。");
+                AddLog(UiStrings.Format(
+                    "log.paymentReceived", _language, FormatMoney(payment.Amount), payment.DemandId));
             }
 
             if (_state.CurrentWeek == 4 && _carloFavorAccepted && !_carloFavorConsequenceApplied)
             {
                 _state.ApplyReputationChange(-3);
                 _carloFavorConsequenceApplied = true;
-                AddLog("延迟后果：雨城竞技追查卡洛的推荐依据，声望 -3。恩佐叔叔提供的午餐发票未被视为球探报告。");
+                AddLog(UiStrings.Get("log.carloConsequence", _language));
             }
 
             _slotAssignments.Clear();
@@ -1140,20 +1421,34 @@ namespace NewPlayerHunter.Gameplay
 
             if (IsGameComplete)
             {
-                LastStatus =
-                    $"一年赛季结束。现金 {FormatMoney(_state.Cash)}，应收 {FormatMoney(_state.OutstandingReceivables)}，声望 {_state.Reputation}。";
-                AddLog("2027年7月5日：年度结算完成。所有董事会都已宣布下赛季会吸取教训。");
+                LastStatus = UiStrings.Format(
+                    "status.gameComplete",
+                    _language,
+                    FormatMoney(_state.Cash),
+                    FormatMoney(_state.OutstandingReceivables),
+                    _state.Reputation);
+                AddLog(UiStrings.Format(
+                    "log.seasonComplete",
+                    _language,
+                    FormatDate(_seasonCalendar.DateAfterFinalWeek)));
             }
             else
             {
                 var nextPhase = CurrentSeasonPhase;
                 if (nextPhase != startingPhase)
                 {
-                    AddLog($"{FormatCurrentDate()}：赛季进入“{SeasonPhaseName(nextPhase)}”阶段。");
+                    AddLog(UiStrings.Format(
+                        "log.phaseChange",
+                        _language,
+                        FormatCurrentDate(),
+                        SeasonPhaseName(nextPhase)));
                 }
 
-                LastStatus =
-                    $"{FormatCurrentDate()}，{SeasonPhaseName(nextPhase)}。请查看新邮件和仍在有效期内的招聘。";
+                LastStatus = UiStrings.Format(
+                    "status.newWeek",
+                    _language,
+                    FormatCurrentDate(),
+                    SeasonPhaseName(nextPhase));
             }
 
             Debug.Log(
@@ -1171,10 +1466,23 @@ namespace NewPlayerHunter.Gameplay
 
             UpdateCurrentDemand();
             _weekText.text = IsGameComplete
-                ? $"赛季结束 · {_seasonCalendar.DateAfterFinalWeek:yyyy年M月d日}"
-                : $"{FormatCurrentDate()} · {SeasonPhaseName(CurrentSeasonPhase)} · {_state.CurrentWeek}/{FinalPlayableWeek}周";
-            _economyText.text =
-                $"现金 {FormatMoney(_state.Cash)}    应收 {FormatMoney(_state.OutstandingReceivables)}    声望 {_state.Reputation}";
+                ? UiStrings.Format(
+                    "status.seasonEndLine",
+                    _language,
+                    FormatDate(_seasonCalendar.DateAfterFinalWeek))
+                : UiStrings.Format(
+                    "header.weekLine",
+                    _language,
+                    FormatCurrentDate(),
+                    SeasonPhaseName(CurrentSeasonPhase),
+                    _state.CurrentWeek,
+                    FinalPlayableWeek);
+            _economyText.text = UiStrings.Format(
+                "header.economy",
+                _language,
+                FormatMoney(_state.Cash),
+                FormatMoney(_state.OutstandingReceivables),
+                _state.Reputation);
             _statusText.text = LastStatus;
             _eventLogText.text = string.Join(
                 "\n",
@@ -1218,19 +1526,22 @@ namespace NewPlayerHunter.Gameplay
         {
             if (IsGameComplete)
             {
-                _demandTitleText.text = "年度工作总结";
-                _demandBodyText.text =
-                    $"现金：{FormatMoney(_state.Cash)}\n应收：{FormatMoney(_state.OutstandingReceivables)}\n声望：{_state.Reputation}";
-                _selectionText.text = "本赛季已经结束。";
+                _demandTitleText.text = UiStrings.Get("demand.yearSummary", _language);
+                _demandBodyText.text = UiStrings.Format(
+                    "demand.yearSummaryBody",
+                    _language,
+                    FormatMoney(_state.Cash),
+                    FormatMoney(_state.OutstandingReceivables),
+                    _state.Reputation);
+                _selectionText.text = UiStrings.Get("demand.seasonOver", _language);
                 return;
             }
 
             if (_currentDemand == null)
             {
-                _demandTitleText.text = "当前没有有效招聘";
-                _demandBodyText.text =
-                    "可能原因：招聘邮件尚未阅读、需求已经提交，或截止日期已过。你仍可结束本周推进赛程。";
-                _selectionText.text = "查看收件箱中的新招聘或过期通知。";
+                _demandTitleText.text = UiStrings.Get("demand.noDemandTitle", _language);
+                _demandBodyText.text = UiStrings.Get("demand.noDemandBody", _language);
+                _selectionText.text = UiStrings.Get("demand.noDemandSelection", _language);
                 return;
             }
 
@@ -1240,11 +1551,17 @@ namespace NewPlayerHunter.Gameplay
             _demandBodyText.text =
                 $"{Resolve(entry.clubStanding)} · {Resolve(entry.clubBestAchievement)}\n" +
                 $"{Resolve(entry.description)}\n" +
-                $"有效期 {entry.activeWeeks} 周 · 截止 {FormatWeekDate(entry.DeadlineWeek)} · " +
-                $"委托价 {FormatMoney(_currentDemand.BaseReward)}\n{Resolve(entry.paymentTerms)}";
+                UiStrings.Format(
+                    "demand.bodyFormat",
+                    _language,
+                    entry.activeWeeks,
+                    FormatWeekDate(entry.DeadlineWeek),
+                    FormatMoney(_currentDemand.BaseReward),
+                    Resolve(entry.paymentTerms));
             _selectionText.text = string.IsNullOrEmpty(_selectedPlayerId)
-                ? "未选择球员。已填槽位可在未选中球员时点击清空。"
-                : $"已选择：{GetPlayerDisplayName(_selectedPlayerId)}";
+                ? UiStrings.Get("demand.noPlayerSelected", _language)
+                : UiStrings.Format(
+                    "demand.playerSelected", _language, GetPlayerDisplayName(_selectedPlayerId));
         }
 
         private void RefreshDemandList()
@@ -1269,8 +1586,12 @@ namespace NewPlayerHunter.Gameplay
                 var entry = _demandContentById[demand.Id];
                 item.Find("Title").GetComponent<TextMeshProUGUI>().text =
                     $"{Resolve(entry.clubDisplayName)} · {demand.Title}";
-                item.Find("Meta").GetComponent<TextMeshProUGUI>().text =
-                    $"截止 {FormatWeekDate(demand.DeadlineWeek)} · 委托价 {FormatMoney(demand.BaseReward)} · {demand.Slots.Count} 槽";
+                item.Find("Meta").GetComponent<TextMeshProUGUI>().text = UiStrings.Format(
+                    "demand.itemMeta",
+                    _language,
+                    FormatWeekDate(demand.DeadlineWeek),
+                    FormatMoney(demand.BaseReward),
+                    demand.Slots.Count);
                 var button = item.GetComponent<Button>();
                 var capturedId = demand.Id;
                 button.onClick.RemoveAllListeners();
@@ -1313,11 +1634,12 @@ namespace NewPlayerHunter.Gameplay
                     : new Color(0.25f, 0.32f, 0.38f, 1f);
                 panel.GetComponent<DemandSlotDropTarget>().Configure(this, slot.Id);
                 panel.Find("Requirement").GetComponent<TextMeshProUGUI>().text =
-                    $"{PositionName(slot.RequiredPosition)} · {(slot.IsRequired ? "必需" : "可选")}";
+                    $"{PositionName(slot.RequiredPosition)} · " +
+                    UiStrings.Get(slot.IsRequired ? "slot.required" : "slot.optional", _language);
                 var assignment = panel.Find("Assignment").GetComponent<TextMeshProUGUI>();
                 assignment.text = isFilled
-                    ? GetPlayerDisplayName(playerId) + " · 未选球员时点击可移除"
-                    : "把球员拖到这里 / 选中球员后点击";
+                    ? UiStrings.Format("slot.filled", _language, GetPlayerDisplayName(playerId))
+                    : UiStrings.Get("slot.hint", _language);
                 assignment.color = isFilled ? Color.white : MutedColor;
             }
         }
@@ -1360,8 +1682,12 @@ namespace NewPlayerHunter.Gameplay
 
             var label = RequireSceneComponent<TextMeshProUGUI>(
                 "GameCanvas/Background/AssignmentWorkspace/PlayersPanel/PlayersLabel");
-            label.text =
-                $"当前可用 {availablePlayers.Count} 人 · 已读 {_unlockedPlayerIds.Count} / {_players.Count} · 已安排或过期球员不会再次出现";
+            label.text = UiStrings.Format(
+                "players.label",
+                _language,
+                availablePlayers.Count,
+                _unlockedPlayerIds.Count,
+                _players.Count);
         }
 
         private bool IsPlayerAvailable(string playerId)
@@ -1467,7 +1793,7 @@ namespace NewPlayerHunter.Gameplay
                 listItem.Find("ReadDot").GetComponent<Image>().color =
                     isRead ? AccentColor : new Color(1f, 0.72f, 0.25f, 1f);
                 listItem.Find("ReadState").GetComponent<TextMeshProUGUI>().text =
-                    isRead ? "已读" : "未读";
+                    UiStrings.Get(isRead ? "mail.read" : "mail.unread", _language);
                 listItem.Find("Sender").GetComponent<TextMeshProUGUI>().text =
                     sender;
                 listItem.Find("Timestamp").GetComponent<TextMeshProUGUI>().text =
@@ -1491,8 +1817,12 @@ namespace NewPlayerHunter.Gameplay
 
             if (_informationMode == InformationMode.Mail)
             {
-                _informationCounterText.text =
-                    $"{FormatCurrentDate()} · 已到达 {_visibleMails.Count} 封 · 已读 {_readMailIds.Count}";
+                _informationCounterText.text = UiStrings.Format(
+                    "mail.counter",
+                    _language,
+                    FormatCurrentDate(),
+                    _visibleMails.Count,
+                    _readMailIds.Count);
             }
 
             var selected = _visibleMails.FirstOrDefault(mail => mail.id == _selectedMailId);
@@ -1502,7 +1832,8 @@ namespace NewPlayerHunter.Gameplay
                 return;
             }
 
-            _mailSenderText.text = "发件人：" + Resolve(selected.sender);
+            _mailSenderText.text =
+                UiStrings.Get("mail.senderPrefix", _language) + Resolve(selected.sender);
             _mailSubjectText.text = Resolve(selected.subject);
             _mailMetaText.text =
                 $"{FormatWeekDate(selected.publishedWeek)} · {MailKindName(selected.kind)} · {Resolve(selected.sourceNote)}";
@@ -1514,10 +1845,10 @@ namespace NewPlayerHunter.Gameplay
 
         private void ShowEmptyMailPane()
         {
-            _mailSenderText.text = "收件箱";
-            _mailSubjectText.text = "请选择并打开一封邮件";
-            _mailMetaText.text = "只有实际阅读后，关联内容才会进入分配工作台";
-            _mailBodyText.text = "招聘邮件会解锁需求；简历或私人请托邮件会解锁对应球员。期刊报道只作为判断证据。";
+            _mailSenderText.text = UiStrings.Get("mail.emptySender", _language);
+            _mailSubjectText.text = UiStrings.Get("mail.emptySubject", _language);
+            _mailMetaText.text = UiStrings.Get("mail.emptyMeta", _language);
+            _mailBodyText.text = UiStrings.Get("mail.emptyBody", _language);
             _mailDemandBlock.gameObject.SetActive(false);
             _mailResumeBlock.gameObject.SetActive(false);
             _mailPrivateOfferBlock.gameObject.SetActive(false);
@@ -1535,20 +1866,33 @@ namespace NewPlayerHunter.Gameplay
             }
 
             _mailDemandBlock.Find("Title").GetComponent<TextMeshProUGUI>().text =
-                "固定信息 · 招聘需求";
+                UiStrings.Get("mail.demandBlock.title", _language);
             _mailDemandBlock.Find("ClubProfile").GetComponent<TextMeshProUGUI>().text =
                 $"{Resolve(demand.clubDisplayName)} · {Resolve(demand.clubStanding)}\n" +
                 $"{Resolve(demand.clubBestAchievement)}";
             _mailDemandBlock.Find("Slots").GetComponent<TextMeshProUGUI>().text =
-                "所需位置：" + string.Join("、", demand.slots.Select(slot =>
-                    PositionName(slot.requiredPosition) + (slot.isRequired ? "（必需）" : "（可选）")));
+                UiStrings.Get("mail.demandBlock.slotsPrefix", _language) +
+                string.Join(UiStrings.Get("list.and", _language), demand.slots.Select(slot =>
+                    PositionName(slot.requiredPosition) +
+                    UiStrings.Get(
+                        slot.isRequired
+                            ? "mail.demandBlock.requiredSuffix"
+                            : "mail.demandBlock.optionalSuffix",
+                        _language)));
             var remainingWeeks = Math.Max(0, demand.DeadlineWeek - CurrentWeek + 1);
             _mailDemandBlock.Find("Deadline").GetComponent<TextMeshProUGUI>().text =
-                $"有效期 {demand.activeWeeks} 周 · 截止 {FormatWeekDate(demand.DeadlineWeek)} · 剩余 {remainingWeeks} 周";
+                UiStrings.Format(
+                    "mail.demandBlock.deadline",
+                    _language,
+                    demand.activeWeeks,
+                    FormatWeekDate(demand.DeadlineWeek),
+                    remainingWeeks);
             _mailDemandBlock.Find("Price").GetComponent<TextMeshProUGUI>().text =
-                $"委托价：{FormatMoney(demand.baseReward)}";
+                UiStrings.Format(
+                    "mail.demandBlock.price", _language, FormatMoney(demand.baseReward));
             _mailDemandBlock.Find("Payment").GetComponent<TextMeshProUGUI>().text =
-                "付款：" + Resolve(demand.paymentTerms);
+                UiStrings.Get("mail.demandBlock.payment", _language) +
+                Resolve(demand.paymentTerms);
         }
 
         private void RefreshMailResumeBlock(MailContentEntry mail)
@@ -1566,26 +1910,39 @@ namespace NewPlayerHunter.Gameplay
                 contentCatalog.PlayerPortraitAtlas, player.portraitIndex,
                 PlayerAtlasColumns, PlayerAtlasRows);
             _mailResumeBlock.Find("Title").GetComponent<TextMeshProUGUI>().text =
-                "固定信息 · 球员简历";
+                UiStrings.Get("mail.resumeBlock.title", _language);
             _mailResumeBlock.Find("Player").GetComponent<TextMeshProUGUI>().text =
                 Resolve(player.displayName);
             _mailResumeBlock.Find("Position").GetComponent<TextMeshProUGUI>().text =
-                "公开位置：" + PositionName(player.publicPosition);
+                UiStrings.Get("mail.resumeBlock.position", _language) +
+                PositionName(player.publicPosition);
             _mailResumeBlock.Find("Biography").GetComponent<TextMeshProUGUI>().text =
                 Resolve(player.biography);
             _mailResumeBlock.Find("Salary").GetComponent<TextMeshProUGUI>().text =
-                $"薪资期望：€{player.salaryMinWeekly}–€{player.salaryMaxWeekly} / 周";
+                UiStrings.Format(
+                    "mail.resumeBlock.salary",
+                    _language,
+                    player.salaryMinWeekly,
+                    player.salaryMaxWeekly);
             _mailResumeBlock.Find("Career").GetComponent<TextMeshProUGUI>().text =
-                "经历：" + Resolve(player.careerHistory);
+                UiStrings.Get("mail.resumeBlock.career", _language) +
+                Resolve(player.careerHistory);
             _mailResumeBlock.Find("Claim").GetComponent<TextMeshProUGUI>().text =
-                "自述：" + Resolve(player.publicClaim);
+                UiStrings.Get("mail.resumeBlock.claim", _language) +
+                Resolve(player.publicClaim);
             _mailResumeBlock.Find("Evidence").GetComponent<TextMeshProUGUI>().text =
-                "旁证：" + Resolve(player.publicEvidence);
+                UiStrings.Get("mail.resumeBlock.evidence", _language) +
+                Resolve(player.publicEvidence);
             _mailResumeBlock.Find("Source").GetComponent<TextMeshProUGUI>().text =
-                "可信度：" + ReliabilityName(player.evidenceReliability);
+                UiStrings.Get("mail.resumeBlock.source", _language) +
+                ReliabilityName(player.evidenceReliability);
             var remainingWeeks = Math.Max(0, player.LastAvailableWeek - CurrentWeek + 1);
             _mailResumeBlock.Find("Availability").GetComponent<TextMeshProUGUI>().text =
-                $"可安排至 {FormatWeekDate(player.LastAvailableWeek)} · 剩余 {remainingWeeks} 周";
+                UiStrings.Format(
+                    "mail.resumeBlock.availability",
+                    _language,
+                    FormatWeekDate(player.LastAvailableWeek),
+                    remainingWeeks);
         }
 
         private void RefreshMailPrivateOfferBlock(MailContentEntry mail)
@@ -1598,15 +1955,18 @@ namespace NewPlayerHunter.Gameplay
             }
 
             _mailPrivateOfferBlock.Find("Title").GetComponent<TextMeshProUGUI>().text =
-                "固定信息 · 私人请托";
+                UiStrings.Get("mail.offerBlock.title", _language);
             _mailPrivateOfferBlock.Find("Offer").GetComponent<TextMeshProUGUI>().text =
-                "即时酬谢：" + FormatMoney(mail.privateOfferAmount);
+                UiStrings.Get("mail.offerBlock.offer", _language) +
+                FormatMoney(mail.privateOfferAmount);
             _mailPrivateOfferBlock.Find("Terms").GetComponent<TextMeshProUGUI>().text =
-                "要求：" + Resolve(mail.privateOfferTerms);
+                UiStrings.Get("mail.offerBlock.terms", _language) +
+                Resolve(mail.privateOfferTerms);
             _mailPrivateOfferBlock.Find("TargetClub").GetComponent<TextMeshProUGUI>().text =
                 Resolve(mail.privateTargetClubRequirement);
             _mailPrivateOfferBlock.Find("Risk").GetComponent<TextMeshProUGUI>().text =
-                "延迟风险：" + Resolve(mail.privateRiskNote);
+                UiStrings.Get("mail.offerBlock.risk", _language) +
+                Resolve(mail.privateRiskNote);
         }
 
         private void RefreshMagazineBrowser()
@@ -1631,7 +1991,7 @@ namespace NewPlayerHunter.Gameplay
                 item.Find("Publication").GetComponent<TextMeshProUGUI>().text =
                     Resolve(issue.publicationName);
                 item.Find("Issue").GetComponent<TextMeshProUGUI>().text =
-                    issue.issueNumber + " · " + Resolve(issue.issueTitle);
+                    FormatIssueNumber(issue.issueNumber) + " · " + Resolve(issue.issueTitle);
                 var button = item.GetComponent<Button>();
                 var capturedId = issue.id;
                 button.onClick.RemoveAllListeners();
@@ -1643,8 +2003,8 @@ namespace NewPlayerHunter.Gameplay
 
             if (_informationMode == InformationMode.Magazine)
             {
-                _informationCounterText.text =
-                    $"已订阅 {_visibleIssues.Count} 期 · 期刊不会直接解锁球员";
+                _informationCounterText.text = UiStrings.Format(
+                    "magazine.counter", _language, _visibleIssues.Count);
             }
 
             var page = GetSelectedPage();
@@ -1654,7 +2014,7 @@ namespace NewPlayerHunter.Gameplay
                 _coverLayout.gameObject.SetActive(false);
                 _featureLayout.gameObject.SetActive(false);
                 _scoutReportLayout.gameObject.SetActive(false);
-                _magazinePageIndicator.text = "暂无可读期刊";
+                _magazinePageIndicator.text = UiStrings.Get("magazine.empty", _language);
                 _previousPageButton.interactable = false;
                 _nextPageButton.interactable = false;
                 return;
@@ -1663,8 +2023,13 @@ namespace NewPlayerHunter.Gameplay
             _coverLayout.gameObject.SetActive(page.layout == MagazinePageLayout.Cover);
             _featureLayout.gameObject.SetActive(page.layout == MagazinePageLayout.Feature);
             _scoutReportLayout.gameObject.SetActive(page.layout == MagazinePageLayout.ScoutReport);
-            _magazinePageIndicator.text =
-                $"{Resolve(issueSelected.publicationName)} · {issueSelected.issueNumber}    第 {_magazinePageIndex + 1} / {issueSelected.pages.Count} 页";
+            _magazinePageIndicator.text = UiStrings.Format(
+                "magazine.pageIndicator",
+                _language,
+                Resolve(issueSelected.publicationName),
+                FormatIssueNumber(issueSelected.issueNumber),
+                _magazinePageIndex + 1,
+                issueSelected.pages.Count);
             _previousPageButton.interactable = _magazinePageIndex > 0;
             _nextPageButton.interactable = _magazinePageIndex < issueSelected.pages.Count - 1;
 
@@ -1673,7 +2038,7 @@ namespace NewPlayerHunter.Gameplay
                 ApplyAtlasImage(_coverImage, contentCatalog.MagazineCoverAtlas,
                     issueSelected.coverIndex, CoverAtlasColumns, CoverAtlasRows);
                 SetText(_coverLayout, "Publication", Resolve(issueSelected.publicationName));
-                SetText(_coverLayout, "IssueNumber", issueSelected.issueNumber);
+                SetText(_coverLayout, "IssueNumber", FormatIssueNumber(issueSelected.issueNumber));
                 SetText(_coverLayout, "Headline", Resolve(page.headline));
                 SetText(_coverLayout, "Deck", Resolve(page.deck));
                 SetText(_coverLayout, "CoverNote", Resolve(page.bodyLeft));
@@ -1813,9 +2178,9 @@ namespace NewPlayerHunter.Gameplay
                 figure.Find("Frame/Image").GetComponent<RawImage>(),
                 contentCatalog.MagazineIllustrationAtlas,
                 index, IllustrationAtlasColumns, IllustrationAtlasRows);
-            var caption = IllustrationCaptions[
-                Mathf.Clamp(index, 0, IllustrationCaptions.Length - 1)];
-            figure.Find("Caption").GetComponent<TextMeshProUGUI>().text = "插图 · " + caption;
+            figure.Find("Caption").GetComponent<TextMeshProUGUI>().text =
+                UiStrings.Get("magazine.captionPrefix", _language) +
+                UiStrings.IllustrationCaption(index, _language);
         }
 
         private static void ApplyAtlasImageCropped(
@@ -1920,6 +2285,12 @@ namespace NewPlayerHunter.Gameplay
             SetButtonVisual(_assignmentTabButton, !showInformation);
         }
 
+        private T FindSceneComponent<T>(string relativePath) where T : Component
+        {
+            var child = transform.Find(relativePath);
+            return child == null ? null : child.GetComponent<T>();
+        }
+
         private T RequireSceneComponent<T>(string relativePath) where T : Component
         {
             var child = transform.Find(relativePath);
@@ -1998,15 +2369,17 @@ namespace NewPlayerHunter.Gameplay
                 cellHeight - (inset * 2f));
         }
 
-        private static string AvatarInitial(string sender)
+        private string AvatarInitial(string sender)
         {
             if (string.IsNullOrWhiteSpace(sender))
             {
-                return "邮";
+                return UiStrings.Get("mail.avatarFallback", _language);
             }
 
             var trimmed = sender.TrimStart('《', '【', '[', '(');
-            return string.IsNullOrEmpty(trimmed) ? "邮" : trimmed[0].ToString();
+            return string.IsNullOrEmpty(trimmed)
+                ? UiStrings.Get("mail.avatarFallback", _language)
+                : trimmed[0].ToString();
         }
 
         private static Color MailAvatarColor(MailContentKind kind)
@@ -2026,10 +2399,10 @@ namespace NewPlayerHunter.Gameplay
             }
         }
 
-        private static string BuildMailSummary(string body)
+        private string BuildMailSummary(string body)
         {
             var normalized = string.IsNullOrWhiteSpace(body)
-                ? "（邮件没有正文）"
+                ? UiStrings.Get("mail.noBody", _language)
                 : string.Join(" ", body.Split(
                     new[] { ' ', '\r', '\n', '\t' },
                     StringSplitOptions.RemoveEmptyEntries));
@@ -2039,64 +2412,78 @@ namespace NewPlayerHunter.Gameplay
                 normalized = normalized.Substring(0, maximumCharacters);
             }
 
-            return normalized.TrimEnd('。', '！', '？', '.', '…') + "……";
+            return normalized.TrimEnd('。', '！', '？', '.', '…') +
+                   UiStrings.Get("mail.ellipsis", _language);
+        }
+
+        private string FormatIssueNumber(string issueNumber)
+        {
+            if (string.IsNullOrEmpty(issueNumber))
+            {
+                return string.Empty;
+            }
+
+            var digits = new string(issueNumber.Where(char.IsDigit).ToArray());
+            return digits.Length == 0
+                ? issueNumber
+                : UiStrings.Format("magazine.issueNumber", _language, digits);
         }
 
         private string Resolve(LocalizedText text)
         {
             return text == null
                 ? string.Empty
-                : text.Resolve(contentCatalog.DevelopmentLanguage);
+                : text.Resolve(_language);
         }
 
-        private static string PositionName(PlayerPosition position)
+        private string PositionName(PlayerPosition position)
         {
             switch (position)
             {
                 case PlayerPosition.Goalkeeper:
-                    return "门将";
+                    return UiStrings.Get("position.goalkeeper", _language);
                 case PlayerPosition.Defender:
-                    return "中卫";
+                    return UiStrings.Get("position.defender", _language);
                 case PlayerPosition.WingBack:
-                    return "翼卫";
+                    return UiStrings.Get("position.wingBack", _language);
                 case PlayerPosition.Midfielder:
-                    return "中场";
+                    return UiStrings.Get("position.midfielder", _language);
                 case PlayerPosition.Winger:
-                    return "边锋";
+                    return UiStrings.Get("position.winger", _language);
                 default:
-                    return "前锋";
+                    return UiStrings.Get("position.forward", _language);
             }
         }
 
-        private static string MailKindName(MailContentKind kind)
+        private string MailKindName(MailContentKind kind)
         {
             switch (kind)
             {
                 case MailContentKind.ClubRequest:
-                    return "球队招聘";
+                    return UiStrings.Get("mailKind.clubRequest", _language);
                 case MailContentKind.PlayerResume:
-                    return "球员简历";
+                    return UiStrings.Get("mailKind.playerResume", _language);
                 case MailContentKind.PrivateRequest:
-                    return "私人请托";
+                    return UiStrings.Get("mailKind.privateRequest", _language);
                 case MailContentKind.ClubFeedback:
-                    return "俱乐部回函";
+                    return UiStrings.Get("mailKind.clubFeedback", _language);
                 default:
-                    return "普通邮件";
+                    return UiStrings.Get("mailKind.general", _language);
             }
         }
 
-        private static string ReliabilityName(EvidenceReliability reliability)
+        private string ReliabilityName(EvidenceReliability reliability)
         {
             switch (reliability)
             {
                 case EvidenceReliability.High:
-                    return "较高";
+                    return UiStrings.Get("reliability.high", _language);
                 case EvidenceReliability.Medium:
-                    return "中等";
+                    return UiStrings.Get("reliability.medium", _language);
                 case EvidenceReliability.Low:
-                    return "较低";
+                    return UiStrings.Get("reliability.low", _language);
                 default:
-                    return "未经核实";
+                    return UiStrings.Get("reliability.unverified", _language);
             }
         }
 
@@ -2106,33 +2493,33 @@ namespace NewPlayerHunter.Gameplay
             switch (outcome.ResultKind)
             {
                 case PlacementResultKind.Accepted:
-                    return $"反馈：{playerName} 打动了俱乐部并获得正式机会。";
+                    return UiStrings.Format("log.outcomeAccepted", _language, playerName);
                 case PlacementResultKind.TrialExtended:
-                    return $"反馈：{playerName} 获得继续考察，茶水间仍然意见不一。";
+                    return UiStrings.Format("log.outcomeExtended", _language, playerName);
                 default:
-                    return $"反馈：{playerName} 的试训提前结束，俱乐部礼貌地换了话题。";
+                    return UiStrings.Format("log.outcomeRejected", _language, playerName);
             }
         }
 
-        private static string TranslateSubmissionErrors(
+        private string TranslateSubmissionErrors(
             IReadOnlyList<SubmissionError> errors)
         {
             if (errors.Any(error => error.Code == SubmissionErrorCode.SubmissionHasNoAssignments))
             {
-                return "至少需要向一个招聘槽位安排一名球员。";
+                return UiStrings.Get("error.noAssignments", _language);
             }
 
             if (errors.Any(error => error.Code == SubmissionErrorCode.DuplicatePlayerInWeek))
             {
-                return "同一名球员本周只能安排一次。";
+                return UiStrings.Get("error.duplicatePlayer", _language);
             }
 
             if (errors.Any(error => error.Code == SubmissionErrorCode.PlayerAlreadyCommitted))
             {
-                return "这名球员已经提交给其他俱乐部，不能再次安排。";
+                return UiStrings.Get("error.playerCommitted", _language);
             }
 
-            return "本周提交未通过，请检查招聘槽位和已读档案。";
+            return UiStrings.Get("error.generic", _language);
         }
 
         private void AddLog(string message)
@@ -2153,9 +2540,11 @@ namespace NewPlayerHunter.Gameplay
                 outcome,
                 demandContent == null ? outcome.Assignment.DemandId : Resolve(demandContent.title),
                 demandContent == null ? string.Empty : Resolve(demandContent.clubDisplayName),
-                GetPlayerDisplayName(outcome.Assignment.PlayerId));
+                GetPlayerDisplayName(outcome.Assignment.PlayerId),
+                _language);
             _resultMails.Add(mail);
-            AddLog($"收到 {Resolve(mail.sender)} 的正式回函，详情见收件箱。");
+            AddLog(UiStrings.Format(
+                "log.resultMailReceived", _language, Resolve(mail.sender)));
         }
 
         private void RegenerateResultMails()
@@ -2174,7 +2563,8 @@ namespace NewPlayerHunter.Gameplay
                     outcome,
                     demandContent == null ? outcome.Assignment.DemandId : Resolve(demandContent.title),
                     demandContent == null ? string.Empty : Resolve(demandContent.clubDisplayName),
-                    GetPlayerDisplayName(outcome.Assignment.PlayerId)));
+                    GetPlayerDisplayName(outcome.Assignment.PlayerId),
+                    _language));
             }
         }
 
@@ -2188,36 +2578,43 @@ namespace NewPlayerHunter.Gameplay
             return FormatWeekDate(Math.Min(CurrentWeek, FinalPlayableWeek));
         }
 
-        private static string FormatWeekDate(int week)
+        private string FormatWeekDate(int week)
         {
-            var date = SeasonStartDate.AddDays((Math.Max(1, week) - 1) * 7);
-            return date.ToString("yyyy年M月d日");
+            return FormatDate(SeasonStartDate.AddDays((Math.Max(1, week) - 1) * 7));
         }
 
-        private static string SeasonPhaseName(SeasonPhase phase)
+        private string FormatDate(DateTime date)
+        {
+            var format = UiStrings.Get("date.full", _language);
+            return _language == GameLanguage.English
+                ? date.ToString(format, CultureInfo.InvariantCulture)
+                : date.ToString(format);
+        }
+
+        private string SeasonPhaseName(SeasonPhase phase)
         {
             switch (phase)
             {
                 case SeasonPhase.Preseason:
-                    return "季前训练";
+                    return UiStrings.Get("phase.preseason", _language);
                 case SeasonPhase.SummerWindow:
-                    return "夏季转会窗口";
+                    return UiStrings.Get("phase.summerWindow", _language);
                 case SeasonPhase.LeagueOpening:
-                    return "联赛开幕";
+                    return UiStrings.Get("phase.leagueOpening", _language);
                 case SeasonPhase.GroupStage:
-                    return "洲际小组赛";
+                    return UiStrings.Get("phase.groupStage", _language);
                 case SeasonPhase.WinterSchedule:
-                    return "冬季密集赛程";
+                    return UiStrings.Get("phase.winterSchedule", _language);
                 case SeasonPhase.WinterWindow:
-                    return "冬季转会窗口";
+                    return UiStrings.Get("phase.winterWindow", _language);
                 case SeasonPhase.KnockoutStage:
-                    return "洲际淘汰赛";
+                    return UiStrings.Get("phase.knockoutStage", _language);
                 case SeasonPhase.RunIn:
-                    return "争冠与保级冲刺";
+                    return UiStrings.Get("phase.runIn", _language);
                 case SeasonPhase.Finals:
-                    return "决赛阶段";
+                    return UiStrings.Get("phase.finals", _language);
                 default:
-                    return "赛季总结";
+                    return UiStrings.Get("phase.summary", _language);
             }
         }
     }
