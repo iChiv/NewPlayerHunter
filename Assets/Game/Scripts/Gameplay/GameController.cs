@@ -326,6 +326,7 @@ namespace NewPlayerHunter.Gameplay
                 RefreshMainMenuLabels();
             }
 
+            RegenerateResultMails();
             RefreshUi();
         }
 
@@ -434,7 +435,43 @@ namespace NewPlayerHunter.Gameplay
             SetLabelText(_endWeekButton, UiStrings.Get("footer.endWeek", _language));
             SetLabelText(_resetButton, UiStrings.Get("header.reset", _language));
             SetLabelText(_menuButton, UiStrings.Get("header.menu", _language));
+            SetPathLabel(
+                "GameCanvas/Background/AssignmentWorkspace/DemandPanel/DemandLabel",
+                "demand.label");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/Toolbar/BrowserLabel",
+                "info.browserLabel");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MailBrowser/MessageListPanel/ListLabel",
+                "mail.listLabel");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MailBrowser/DetailPanel/ReadingLabel",
+                "mail.readingLabel");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MailBrowser/DetailPanel/DemandBlock/Title",
+                "mail.demandBlock.title");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MailBrowser/DetailPanel/ResumeBlock/Title",
+                "mail.resumeBlock.title");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MailBrowser/DetailPanel/PrivateOfferBlock/Title",
+                "mail.offerBlock.title");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/IssueRail/RailTitle",
+                "magazine.railTitle");
+            SetPathLabel(
+                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/IssueRail/RailTip",
+                "magazine.railTip");
             RefreshMainMenuLabels();
+        }
+
+        private void SetPathLabel(string path, string key)
+        {
+            var label = FindSceneComponent<TextMeshProUGUI>(path);
+            if (label != null)
+            {
+                label.text = UiStrings.Get(key, _language);
+            }
         }
 
         private static void SetLabelText(Button button, string text)
@@ -490,7 +527,7 @@ namespace NewPlayerHunter.Gameplay
                 "status.demandSelected",
                 _language,
                 Resolve(entry.clubDisplayName),
-                demand.Title);
+                Resolve(entry.title));
             RefreshUi();
         }
 
@@ -674,6 +711,11 @@ namespace NewPlayerHunter.Gameplay
 
         public string GetPlayerDisplayName(string playerId)
         {
+            if (_playerContentById.TryGetValue(playerId, out var entry))
+            {
+                return Resolve(entry.displayName);
+            }
+
             return _players.FirstOrDefault(player => player.PlayerId == playerId)
                 ?.DisplayName ?? playerId;
         }
@@ -1547,7 +1589,7 @@ namespace NewPlayerHunter.Gameplay
 
             var entry = _demandContentById[_currentDemand.Id];
             _demandTitleText.text =
-                $"{Resolve(entry.clubDisplayName)} · {_currentDemand.Title}";
+                $"{Resolve(entry.clubDisplayName)} · {Resolve(entry.title)}";
             _demandBodyText.text =
                 $"{Resolve(entry.clubStanding)} · {Resolve(entry.clubBestAchievement)}\n" +
                 $"{Resolve(entry.description)}\n" +
@@ -1585,7 +1627,7 @@ namespace NewPlayerHunter.Gameplay
                 var demand = _eligibleDemands[index];
                 var entry = _demandContentById[demand.Id];
                 item.Find("Title").GetComponent<TextMeshProUGUI>().text =
-                    $"{Resolve(entry.clubDisplayName)} · {demand.Title}";
+                    $"{Resolve(entry.clubDisplayName)} · {Resolve(entry.title)}";
                 item.Find("Meta").GetComponent<TextMeshProUGUI>().text = UiStrings.Format(
                     "demand.itemMeta",
                     _language,
@@ -1669,11 +1711,15 @@ namespace NewPlayerHunter.Gameplay
                 ApplyAtlasImage(card.Find("Portrait/Image").GetComponent<RawImage>(),
                     contentCatalog.PlayerPortraitAtlas, playerContent.portraitIndex,
                     PlayerAtlasColumns, PlayerAtlasRows);
-                card.Find("Name").GetComponent<TextMeshProUGUI>().text = player.DisplayName;
+                card.Find("Name").GetComponent<TextMeshProUGUI>().text =
+                    Resolve(playerContent.displayName);
                 card.Find("Position").GetComponent<TextMeshProUGUI>().text =
                     string.Join(" / ", player.ClaimedPositions.Select(PositionName));
+                var claimText = Resolve(playerContent.publicClaim);
                 card.Find("Claim").GetComponent<TextMeshProUGUI>().text =
-                    player.Claims.Count == 0 ? player.Biography : player.Claims[0].Text;
+                    string.IsNullOrWhiteSpace(claimText)
+                        ? Resolve(playerContent.biography)
+                        : claimText;
                 var isSelected = player.PlayerId == _selectedPlayerId;
                 card.GetComponent<Image>().color = isSelected
                     ? new Color(0.16f, 0.36f, 0.25f, 1f)

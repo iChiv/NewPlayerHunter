@@ -31,6 +31,7 @@
 - PlayMode：8 项全部通过（新增主菜单启动即开、语言切换更新头部按钮、清理语言偏好键）。
 - 场景重建：菜单命令 "Tools/New Player Hunter/Rebuild Game Scene" 执行成功，目录资产已写入双语。
 - 实际 Play Mode：主菜单启动即开（CanvasGroup 激活）、头部"菜单"按钮在档；Console 无新增 Gameplay 错误。中英文模式排版目检待用户确认（英文正文长度约为中文 1.6–2.7 倍，PlayMode 溢出断言未触发）。
+- 语言切换即时性修复（同日补充）：球员名/自述/委托标题等经 Domain 缓存的文本改为显示时按当前语言实时解析（`GetPlayerDisplayName`、球员卡、委托面板与列表、选中委托状态），`ReapplyStaticUiTexts` 补齐九个静态面板标签重绑，`SetLanguage` 同时重生成已到结果邮件。修复后 EditMode 39/39、PlayMode 8/8 复测通过。
 - 工具事件：Pipeline HTTP 服务曾因错误参数触发的测试超时卡死，经 "Pipeline/Stop Server" + "Start Server" 菜单重启恢复，未重启编辑器。
 
 ### 2026-09-08：期刊内容页题图与界面文本清理
