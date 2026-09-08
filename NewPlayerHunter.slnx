@@ -6,8 +6,8 @@
   <Project Path="EasySave3Editor.csproj" />
   <Project Path="NewPlayerHunter.Domain.csproj" />
   <Project Path="NewPlayerHunter.Gameplay.PlayModeTests.csproj" />
+  <Project Path="NewPlayerHunter.Content.EditModeTests.csproj" />
   <Project Path="NewPlayerHunter.Domain.EditModeTests.csproj" />
   <Project Path="NewPlayerHunter.Gameplay.Editor.csproj" />
-  <Project Path="NewPlayerHunter.Content.EditModeTests.csproj" />
   <Project Path="NewPlayerHunter.Persistence.EditModeTests.csproj" />
 </Solution>
