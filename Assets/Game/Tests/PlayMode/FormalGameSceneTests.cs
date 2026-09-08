@@ -133,6 +133,17 @@ namespace NewPlayerHunter.Gameplay.Tests
             Assert.That(controller.CurrentMagazinePageLayout, Is.Not.EqualTo("Cover"));
             Assert.That(controller.UnlockedPlayerCount, Is.EqualTo(2),
                 "Reading a magazine must not bypass the formal resume mail unlock.");
+            var featureIllustration =
+                magazineBrowser.Find("PagePanel/FeatureLayout/Illustration");
+            Assert.That(featureIllustration, Is.Not.Null);
+            Assert.That(featureIllustration.gameObject.activeSelf, Is.True,
+                "A feature page with an illustration index must show its illustration slot.");
+            Assert.That(
+                featureIllustration.Find("Frame/Image").GetComponent<RawImage>().texture,
+                Is.Not.Null);
+            Assert.That(
+                featureIllustration.Find("Caption").GetComponent<TextMeshProUGUI>().text,
+                Does.Contain("插图"));
 
             controller.ShowAssignmentForTests();
             yield return null;

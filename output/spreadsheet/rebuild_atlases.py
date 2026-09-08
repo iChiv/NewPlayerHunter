@@ -1,4 +1,4 @@
-"""Rebuild PlayerPortraitAtlas.png (8x8) and MagazineCoverAtlas.png (6x6).
+"""Rebuild PlayerPortraitAtlas.png (8x8), MagazineCoverAtlas.png (6x6) and MagazineIllustrationAtlas.png (6x6).
 
 Usage: python output/spreadsheet/rebuild_atlases.py
 Reads:  Assets/Game/Art/Generated/PlayerPortraitAtlas.png (old 4x4, 16 cells)
@@ -38,9 +38,15 @@ def slice_cells(img, columns, rows, count):
 
 def rebuild(old_path, old_cols, old_rows, old_count, new_map, grid, raw_dir):
     old = Image.open(old_path).convert("RGB")
-    cells = slice_cells(old, old_cols, old_rows, old_count)
     total = grid * grid
-    if old_count + len(new_map) > total:
+    migrated = old.size == (grid * CELL, grid * CELL)
+    if migrated:
+        # 已是目标规格的图集：按目标网格切片，新图覆盖同索引格，重跑幂等。
+        old_cols, old_rows, old_count = grid, grid, grid * grid
+        if new_map and max(new_map) >= total:
+            raise SystemExit(f"{old_path.name}: index {max(new_map)} exceeds grid {grid}x{grid}")
+    cells = slice_cells(old, old_cols, old_rows, old_count)
+    if not migrated and old_count + len(new_map) > total:
         raise SystemExit(f"{old_path.name}: {old_count}+{len(new_map)} exceeds grid {grid}x{grid}")
     atlas = Image.new("RGB", (grid * CELL, grid * CELL))
     for i, cell in enumerate(cells):
@@ -55,11 +61,30 @@ def rebuild(old_path, old_cols, old_rows, old_count, new_map, grid, raw_dir):
         atlas.paste(img, ((index % grid) * CELL, (index // grid) * CELL))
     if missing:
         raise SystemExit(f"missing {len(missing)} files for {old_path.name}: {missing[:5]}...")
-    backup = old_path.with_suffix(".bak.png")
-    if not backup.exists():
-        old.save(backup)
     atlas.save(old_path.with_suffix(".png"))
     print(f"{old_path.name}: {old_count} old + {len(new_map)} new -> {grid}x{grid} @ {atlas.size}")
+
+
+ILLUSTRATION_KEYS = [
+    "transfer_window", "contract_money", "injury", "tactics_board",
+    "stadium_night", "pub", "training", "scouting", "media",
+    "dressing_room", "boots_ball", "referee", "trophy",
+    "rain_match", "gold_desert", "youth", "veteran",
+    "goalkeeper", "deadline_fax", "fans", "winter_window",
+    "medical", "agent_phone", "data_chart",
+]
+
+
+def build_fresh(out_path, raw_dir, names, grid):
+    missing = [n for n in names if not (raw_dir / f"{n}.png").exists()]
+    if missing:
+        raise SystemExit(f"missing {len(missing)} files for {out_path.name}: {missing[:5]}...")
+    atlas = Image.new("RGB", (grid * CELL, grid * CELL))
+    for index, name in enumerate(names):
+        img = Image.open(raw_dir / f"{name}.png").convert("RGB").resize((CELL, CELL), Image.LANCZOS)
+        atlas.paste(img, ((index % grid) * CELL, (index // grid) * CELL))
+    atlas.save(out_path)
+    print(f"{out_path.name}: {len(names)} cells -> {grid}x{grid} @ {atlas.size}")
 
 
 def main():
@@ -73,6 +98,8 @@ def main():
     }
     rebuild(ART / "PlayerPortraitAtlas.png", 4, 4, 16, portraits, PORTRAIT_GRID, RAW / "portraits")
     rebuild(ART / "MagazineCoverAtlas.png", 3, 2, 6, covers, COVER_GRID, RAW / "covers")
+    build_fresh(ART / "MagazineIllustrationAtlas.png", RAW / "illustrations",
+                ILLUSTRATION_KEYS, COVER_GRID)
 
 
 if __name__ == "__main__":

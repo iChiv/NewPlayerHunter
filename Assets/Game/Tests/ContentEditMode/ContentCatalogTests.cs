@@ -104,6 +104,26 @@ namespace NewPlayerHunter.Gameplay.Tests
         }
 
         [Test]
+        public void MagazineContentPages_ReferenceValidIllustrationSlots()
+        {
+            foreach (var issue in _catalog.MagazineIssues)
+            {
+                foreach (var page in issue.pages)
+                {
+                    if (page.layout == MagazinePageLayout.Cover)
+                    {
+                        Assert.That(page.illustrationIndex, Is.EqualTo(-1),
+                            $"{issue.id} cover must not use a content illustration.");
+                        continue;
+                    }
+
+                    Assert.That(page.illustrationIndex, Is.InRange(0, 23),
+                        $"{issue.id} {page.layout} page needs a valid illustration index.");
+                }
+            }
+        }
+
+        [Test]
         public void PlayerPool_AllowsMultiplePlayersWithTheSamePublicPosition()
         {
             Assert.That(

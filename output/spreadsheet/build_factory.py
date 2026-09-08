@@ -17,6 +17,15 @@ OUT_CS = PROJ / "Assets/Game/Scripts/Gameplay/LateSeasonContentFactory.cs"
 POSITIONS = {"Goalkeeper", "Defender", "WingBack", "Midfielder", "Winger", "Forward"}
 RELIABILITY = {"Unverified", "Low", "Medium", "High"}
 
+ILLUSTRATION_INDEX = {
+    "transfer_window": 0, "contract_money": 1, "injury": 2, "tactics_board": 3,
+    "stadium_night": 4, "pub": 5, "training": 6, "scouting": 7, "media": 8,
+    "dressing_room": 9, "boots_ball": 10, "referee": 11, "trophy": 12,
+    "rain_match": 13, "gold_desert": 14, "youth": 15, "veteran": 16,
+    "goalkeeper": 17, "deadline_fax": 18, "fans": 19, "winter_window": 20,
+    "medical": 21, "agent_phone": 22, "data_chart": 23,
+}
+
 
 def load(name):
     return json.loads((ROOT / name).read_text(encoding="utf-8"))
@@ -115,12 +124,19 @@ def main():
             continue
         pages = []
         for pg in prose["pages"]:
+            illustration = pg.get("illustration") or ""
+            illustration2 = pg.get("illustration2") or ""
+            for key in (illustration, illustration2):
+                if key and key not in ILLUSTRATION_INDEX:
+                    problems.append(f"unknown illustration key {key} in {iid}")
+            ill_index = ILLUSTRATION_INDEX.get(illustration, -1)
+            ill_index2 = ILLUSTRATION_INDEX.get(illustration2, -1)
             pages.append(
                 f'                    Page(MagazinePageLayout.{pg["layout"]},\n'
                 f'                        {cs(pg["kicker"])}, {cs(pg["headline"])}, {cs(pg["deck"])},\n'
                 f'                        {cs(pg["bodyLeft"])}, {cs(pg["bodyRight"])},\n'
                 f'                        {cs(pg["pullQuote"])}, {cs(pg["sidebarTitle"])}, {cs(pg["sidebarBody"])},\n'
-                f'                        {cs(pg.get("relatedPlayerId") or "")})')
+                f'                        {cs(pg.get("relatedPlayerId") or "")}, {ill_index}, {ill_index2})')
         issue_calls.append(
             f'                Issue({cs(iid)}, {di["coverIndex"]}, {di["week"]},\n'
             f'                    {cs(di["publication"])}, {cs(prose["issueTitle"])}, {cs(di["issueNumber"])},\n'
@@ -281,7 +297,7 @@ namespace NewPlayerHunter.Gameplay
         private static MagazinePageContent Page(
             MagazinePageLayout layout, string kicker, string headline, string deck,
             string left, string right, string quote, string sidebarTitle, string sidebarBody,
-            string relatedPlayerId)
+            string relatedPlayerId, int illustrationIndex = -1, int illustrationIndex2 = -1)
         {{
             return new MagazinePageContent
             {{
@@ -294,7 +310,9 @@ namespace NewPlayerHunter.Gameplay
                 pullQuote = Zh(quote),
                 sidebarTitle = Zh(sidebarTitle),
                 sidebarBody = Zh(sidebarBody),
-                relatedPlayerId = relatedPlayerId
+                relatedPlayerId = relatedPlayerId,
+                illustrationIndex = illustrationIndex,
+                illustrationIndex2 = illustrationIndex2
             }};
         }}
 

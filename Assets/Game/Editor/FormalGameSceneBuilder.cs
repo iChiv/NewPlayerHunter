@@ -24,6 +24,8 @@ namespace NewPlayerHunter.Editor
             "Assets/Game/Art/Generated/PlayerPortraitAtlas.png";
         private const string MagazineAtlasPath =
             "Assets/Game/Art/Generated/MagazineCoverAtlas.png";
+        private const string IllustrationAtlasPath =
+            "Assets/Game/Art/Generated/MagazineIllustrationAtlas.png";
 
         private static readonly Color Background =
             new Color(0.035f, 0.055f, 0.075f, 1f);
@@ -91,7 +93,8 @@ namespace NewPlayerHunter.Editor
             catalog.PopulateM1Defaults();
             catalog.ConfigureArt(
                 AssetDatabase.LoadAssetAtPath<Texture2D>(PortraitAtlasPath),
-                AssetDatabase.LoadAssetAtPath<Texture2D>(MagazineAtlasPath));
+                AssetDatabase.LoadAssetAtPath<Texture2D>(MagazineAtlasPath),
+                AssetDatabase.LoadAssetAtPath<Texture2D>(IllustrationAtlasPath));
             EditorUtility.SetDirty(catalog);
             AssetDatabase.SaveAssets();
             return catalog;
@@ -168,7 +171,7 @@ namespace NewPlayerHunter.Editor
             }
 
             var characters = new StringBuilder(
-                "新星猎手收件箱期刊球员分配第周现金应收声望重新开始信息筛选中心先读邮件再交叉判断订阅真实点击才算阅读开发语言中文招聘需求简历私人请托固定委托价付款截止位置必需可选结束本周上一页下一页已读未读门将中卫翼卫中场边锋前锋可靠性较高中等较低未经核实");
+                "新星猎手收件箱期刊球员分配第周现金应收声望重新开始信息筛选中心先读邮件再交叉判断订阅打开邮件才算阅读请先再安排本周工作招聘需求简历私人请托固定委托价付款截止位置必需可选结束本周上一页下一页已读未读门将中卫翼卫中场边锋前锋可靠性较高中等较低未经核实");
             foreach (var player in catalog.Players)
             {
                 Append(characters, player.displayName);
@@ -573,7 +576,7 @@ namespace NewPlayerHunter.Editor
                 "MessageListPanel", browser, Panel,
                 new Vector2(0.015f, 0f), new Vector2(0.42f, 0.965f));
             CreateText(
-                "ListLabel", listPanel, "真实收件箱 · 点击才算阅读", 16f, Accent,
+                "ListLabel", listPanel, "收件箱 · 打开邮件才算阅读", 16f, Accent,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.035f, 0.91f), new Vector2(0.965f, 0.985f));
             var scrollObject = new GameObject(
@@ -850,7 +853,7 @@ namespace NewPlayerHunter.Editor
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.04f, 0.40f), new Vector2(0.52f, 0.72f));
             CreateText(
-                "Deck", cover, "真实电子杂志式封面与导读。", 24f, MagazineRed,
+                "Deck", cover, "本期封面故事与导读。", 24f, MagazineRed,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.04f, 0.20f), new Vector2(0.52f, 0.40f));
             CreateText(
@@ -888,6 +891,8 @@ namespace NewPlayerHunter.Editor
             CreateText("SidebarBody", layout, "补充资料", 14f, MagazineInk,
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.74f, 0.18f), new Vector2(0.97f, 0.31f));
+            CreateMagazineFigure("Illustration", layout);
+            CreateMagazineFigure("Illustration2", layout);
         }
 
         private static void BuildMagazineScoutReport(RectTransform parent)
@@ -922,6 +927,7 @@ namespace NewPlayerHunter.Editor
             CreateText("SidebarBody", layout, "资料来源与偏差说明", 13f, MagazineInk,
                 TextAlignmentOptions.TopRight,
                 new Vector2(0.72f, 0.12f), new Vector2(0.97f, 0.23f));
+            CreateMagazineFigure("Illustration", layout);
         }
 
         private static void BuildFooter(RectTransform parent)
@@ -934,7 +940,7 @@ namespace NewPlayerHunter.Editor
                 TextAlignmentOptions.TopLeft,
                 new Vector2(0.025f, 0.16f), new Vector2(0.64f, 0.87f));
             CreateText(
-                "Status", footer, "开发语言：中文。请先阅读邮件。", 17f, Color.white,
+                "Status", footer, "请先阅读邮件，再安排本周工作。", 17f, Color.white,
                 TextAlignmentOptions.MidlineLeft,
                 new Vector2(0.66f, 0.55f), new Vector2(0.965f, 0.9f));
             var endWeekButton = CreateButton(
@@ -1043,6 +1049,30 @@ namespace NewPlayerHunter.Editor
             text.textWrappingMode = TextWrappingModes.Normal;
             text.overflowMode = TextOverflowModes.Ellipsis;
             return text;
+        }
+
+        private static RectTransform CreateMagazineFigure(string name, Transform parent)
+        {
+            var container = CreateRect(
+                name, parent, new Vector2(0.03f, 0.02f), new Vector2(0.43f, 0.3f));
+            var caption = CreateText(
+                "Caption", container, "插图 · 主题", 13f,
+                new Color(0.42f, 0.38f, 0.30f, 1f),
+                TextAlignmentOptions.BottomLeft,
+                new Vector2(0f, 0f), new Vector2(1f, 0f));
+            caption.rectTransform.offsetMax = new Vector2(-4f, 24f);
+            var frame = CreatePanel("Frame", container, MagazineInk, Vector2.zero, Vector2.one);
+            frame.offsetMin = new Vector2(0f, 28f);
+            var imageObject = new GameObject(
+                "Image", typeof(RectTransform), typeof(CanvasRenderer), typeof(RawImage));
+            imageObject.transform.SetParent(frame, false);
+            Stretch(
+                imageObject.GetComponent<RectTransform>(),
+                Vector2.zero, Vector2.one,
+                new Vector2(3f, 3f), new Vector2(-3f, -3f));
+            imageObject.GetComponent<RawImage>().raycastTarget = false;
+            container.gameObject.SetActive(false);
+            return container;
         }
 
         private static RawImage CreateRawImage(

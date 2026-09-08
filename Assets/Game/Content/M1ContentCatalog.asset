@@ -10100,6 +10100,8 @@ MonoBehaviour:
         chineseSimplified: "\u8D5B\u4E8B\u7EA7\u522B\u3001\u51FA\u573A\u5206\u949F\u3001\u70B9\u7403\u5360\u6BD4\u3001\u5B8C\u6574\u5F55\u50CF\u3002"
         english: 
       relatedPlayerId: player.rocket.rory
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u5BA4"
@@ -10126,6 +10128,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E0A\u5B63\u7B2C\u56DB\uFF0C\u76EE\u6807\u8FDB\u5165\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u6B63\u8D5B\u3002"
         english: 
       relatedPlayerId: player.rocket.rory
+      illustrationIndex: 3
+      illustrationIndex2: 4
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10152,6 +10156,8 @@ MonoBehaviour:
         chineseSimplified: "\u6837\u672C\u91CF\u5C0F\uFF1B\u7ECF\u7EAA\u4EBA\u53D9\u8FF0\u660E\u663E\u504F\u5411\u7403\u5458\u3002"
         english: 
       relatedPlayerId: player.rocket.rory
+      illustrationIndex: 7
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6587\u5316\u9875"
@@ -10178,6 +10184,8 @@ MonoBehaviour:
         chineseSimplified: "\u8D1F\u8377\u7BA1\u7406\uFF1A\u70ED\u8EAB\u8D5B\u8F93\u7403\u540E\u7684\u5E38\u7528\u89E3\u91CA\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 8
+      illustrationIndex2: 19
   - id: mag.touchline.02
     coverIndex: 1
     publishedWeek: 2
@@ -10215,6 +10223,8 @@ MonoBehaviour:
         chineseSimplified: "\u63A5\u7403\u524D\u626B\u63CF\u3001\u8EAB\u4F53\u671D\u5411\u3001\u4E22\u7403\u540E\u7684\u56DE\u4F4D\u3002"
         english: 
       relatedPlayerId: player.metronome.milo
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6BD4\u8D5B\u5206\u6790"
@@ -10241,6 +10251,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E0A\u5B63\u7B2C\u5341\u4E00\uFF0C\u5B9A\u4F4D\u7403\u5F3A\uFF0C\u8FD0\u52A8\u6218\u7EC4\u7EC7\u4E0D\u8DB3\u3002"
         english: 
       relatedPlayerId: player.metronome.milo
+      illustrationIndex: 3
+      illustrationIndex2: 5
     - layout: 2
       kicker:
         chineseSimplified: "\u8001\u5C06\u89C2\u5BDF"
@@ -10267,6 +10279,8 @@ MonoBehaviour:
         chineseSimplified: "\u6709\u9650\u51FA\u573A\u65F6\u95F4\u3001\u660E\u786E\u7981\u533A\u804C\u8D23\u3001\u5408\u7406\u8F6E\u6362\u3002"
         english: 
       relatedPlayerId: player.thermos.vic
+      illustrationIndex: 16
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6570\u636E\u9875"
@@ -10293,6 +10307,8 @@ MonoBehaviour:
         chineseSimplified: "\u5148\u95EE\u6837\u672C\uFF0C\u518D\u95EE\u7ED3\u8BBA\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 23
+      illustrationIndex2: 7
   - id: mag.touchline.03
     coverIndex: 2
     publishedWeek: 3
@@ -10330,6 +10346,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E0A\u5B63\u7B2C\u4E8C\uFF0C\u8FDE\u7EED\u516D\u5E74\u53C2\u52A0\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u3002"
         english: 
       relatedPlayerId: player.wall.walter
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u5BA4"
@@ -10356,6 +10374,8 @@ MonoBehaviour:
         chineseSimplified: "\u62AC\u5934\u9891\u7387\u3001\u5F31\u4FA7\u961F\u53CB\u3001\u4E22\u7403\u53CD\u5E94\u3002"
         english: 
       relatedPlayerId: player.zodiac.luna
+      illustrationIndex: 3
+      illustrationIndex2: 10
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10382,6 +10402,8 @@ MonoBehaviour:
         chineseSimplified: "\u5B89\u6392\u9AD8\u4F4D\u9632\u7EBF\u4E13\u9879\u8BD5\u8BAD\uFF0C\u4E0D\u4EE5\u4EB2\u5C5E\u8BC4\u4EF7\u4F5C\u7ED3\u8BBA\u3002"
         english: 
       relatedPlayerId: player.wall.walter
+      illustrationIndex: 7
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u770B\u53F0\u6587\u5316"
@@ -10408,6 +10430,8 @@ MonoBehaviour:
         chineseSimplified: "\u5168\u9762\u652F\u6301\uFF1A\u901A\u5E38\u6301\u7EED\u5230\u4E0B\u4E00\u6B21\u4E3B\u573A\u5618\u58F0\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 19
+      illustrationIndex2: 4
   - id: mag.touchline.04
     coverIndex: 3
     publishedWeek: 4
@@ -10445,6 +10469,8 @@ MonoBehaviour:
         chineseSimplified: "\u7AD9\u4F4D\u3001\u4E8C\u6B21\u53CD\u5E94\u3001\u9AD8\u7403\u5224\u65AD\u3001\u51FA\u7403\u9009\u62E9\u3002"
         english: 
       relatedPlayerId: player.gloves.gus
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u95E8\u5C06\u8BFE\u5802"
@@ -10471,6 +10497,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E0A\u5B63\u9644\u52A0\u8D5B\u4FDD\u7EA7\uFF0C\u7981\u533A\u9632\u5B88\u538B\u529B\u5927\u3002"
         english: 
       relatedPlayerId: player.gloves.gus
+      illustrationIndex: 17
+      illustrationIndex2: 13
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10497,6 +10525,8 @@ MonoBehaviour:
         chineseSimplified: "\u8BD5\u8BAD\u52A0\u5165\u5FEB\u901F\u624B\u629B\u7403\u548C\u957F\u4F20\u51B3\u7B56\u3002"
         english: 
       relatedPlayerId: player.forms.felix
+      illustrationIndex: 17
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u89C4\u5219\u89D2"
@@ -10523,6 +10553,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E13\u9879\u96C6\u9526\u65E0\u6CD5\u66FF\u4EE3\u9632\u5B88\u5F55\u50CF\u3002"
         english: 
       relatedPlayerId: player.throwin.dino
+      illustrationIndex: 11
+      illustrationIndex2: 3
   - id: mag.touchline.05
     coverIndex: 4
     publishedWeek: 5
@@ -10560,6 +10592,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E0A\u5B63\u7B2C\u4E03\uFF0C\u4E24\u6B21\u56FD\u5185\u676F\u51A0\u519B\u3002"
         english: 
       relatedPlayerId: player.rivet.rita
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u9632\u5B88\u8BFE"
@@ -10586,6 +10620,8 @@ MonoBehaviour:
         chineseSimplified: "\u591A\u573A\u5B8C\u6574\u5F55\u50CF\u4E0E\u4E0D\u540C\u6765\u6E90\u8BC4\u4EF7\u4E00\u81F4\u3002"
         english: 
       relatedPlayerId: player.rivet.rita
+      illustrationIndex: 3
+      illustrationIndex2: 6
     - layout: 2
       kicker:
         chineseSimplified: "\u98CE\u9669\u62A5\u544A"
@@ -10612,6 +10648,8 @@ MonoBehaviour:
         chineseSimplified: "\u8BB0\u5F55\u51C6\u65F6\u6027\u3001\u65E0\u7403\u8DD1\u52A8\u548C\u4E22\u7403\u540E\u7684\u53CD\u5E94\u3002"
         english: 
       relatedPlayerId: player.showboat.sonny
+      illustrationIndex: 11
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u5A92\u4F53\u9875"
@@ -10638,6 +10676,8 @@ MonoBehaviour:
         chineseSimplified: "\u65E0\u4EBA\u673A\u4E0D\u5F97\u8FDB\u5165\u5B9A\u4F4D\u7403\u8BAD\u7EC3\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 8
+      illustrationIndex2: 7
   - id: mag.touchline.06
     coverIndex: 5
     publishedWeek: 6
@@ -10675,6 +10715,8 @@ MonoBehaviour:
         chineseSimplified: "\u536B\u5195\u51A0\u519B\uFF0C\u6D32\u9645\u51A0\u519B\u8054\u8D5B\u593A\u51A0\u70ED\u95E8\u3002"
         english: 
       relatedPlayerId: player.bothfeet.echo
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u5BA4"
@@ -10701,6 +10743,8 @@ MonoBehaviour:
         chineseSimplified: "\u56DE\u8FFD\u8DEF\u7EBF\u3001\u5F31\u4FA7\u7AD9\u4F4D\u3001\u8FDE\u7EED\u51B2\u523A\u6062\u590D\u3002"
         english: 
       relatedPlayerId: player.bothfeet.echo
+      illustrationIndex: 3
+      illustrationIndex2: 6
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10727,6 +10771,8 @@ MonoBehaviour:
         chineseSimplified: "\u9002\u5408\u9700\u8981\u63A7\u5236\u8282\u594F\u548C\u538B\u8FEB\u4E0B\u51FA\u7403\u7684\u7403\u961F\u3002"
         english: 
       relatedPlayerId: player.spreadsheet.nova
+      illustrationIndex: 23
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u8D5B\u7A0B\u9875"
@@ -10753,6 +10799,8 @@ MonoBehaviour:
         chineseSimplified: "\u590F\u5B63\u7A97\u53E3\u4E0E\u8054\u8D5B\u5F00\u5E55\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 4
+      illustrationIndex2: 12
   - id: mag.season.07
     coverIndex: 6
     publishedWeek: 7
@@ -10790,6 +10838,8 @@ MonoBehaviour:
         chineseSimplified: "\u5BBF\u9189\u524D\u950B\u7684\u66FF\u73ED\u3001\u4FDD\u7EA7\u961F\u7684\u540E\u536B\u3001\u4E00\u4F4D\u8DD1\u5F97\u6BD4\u7B80\u5386\u5FEB\u7684\u8377\u5170\u8FB9\u950B\u3002\u6765\u6E90\u6838\u5BF9\u4E00\u904D\uFF0C\u518D\u6838\u5BF9\u4E00\u904D\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u8F6C\u4F1A\u89C2\u5BDF"
@@ -10816,6 +10866,8 @@ MonoBehaviour:
         chineseSimplified: "\u9ED1\u9EA6\u9152\u9986\uFF1A\u524D\u950B\u4E00\u540D\uFF0C\u80FD\u9192\u7740\u4E0A\u573A\u5373\u53EF\u3002\u6CD5\u7F57\u706F\u5854\uFF1A\u540E\u536B\u4E00\u540D\uFF0C\u8981\u6C42\u5173\u952E\u65F6\u523B\u5FC3\u7387\u6B63\u5E38\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 0
+      illustrationIndex2: 5
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10842,6 +10894,8 @@ MonoBehaviour:
         chineseSimplified: "\u57FA\u4E8E\u4E09\u5B63\u516C\u5F00\u5F55\u50CF\u4E0E\u4E24\u573A\u73B0\u573A\u3002\u7ECF\u7EAA\u4EBA\u96C6\u9526\u5DF2\u6309\u672C\u520A\u89C4\u77E9\u4E22\u5F03\u3002\u4E0E\u9996\u671F\u201C41\u7403\u201D\u540C\u7406\uFF1A\u6570\u5B57\u5148\u627E\u51FA\u5904\uFF0C\u518D\u8C08\u611F\u60C5\u3002"
         english: 
       relatedPlayerId: player.mendes.kyle
+      illustrationIndex: 10
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10868,6 +10922,8 @@ MonoBehaviour:
         chineseSimplified: "\u201C\u7ECF\u9A8C\u4E30\u5BCC\u201D\u8BF7\u6298\u7B97\u6210\u6700\u8FD1\u4E24\u5B63\u51FA\u573A\u5206\u949F\u518D\u9605\u8BFB\u3002\u4FDD\u7EA7\u961F\u6765\u4FE1\u8981\u6C42\u201C\u5173\u952E\u65F6\u523B\u7AD9\u51FA\u6765\u201D\uFF0C\u4ED6\u7684\u6837\u672C\u6070\u597D\u591F\u3002"
         english: 
       relatedPlayerId: player.ferreira.antonio
+      illustrationIndex: 16
+      illustrationIndex2: -1
   - id: mag.season.08
     coverIndex: 7
     publishedWeek: 8
@@ -10905,6 +10961,8 @@ MonoBehaviour:
         chineseSimplified: "\u540D\u6C14\u4E09\u95EE\uFF1A\u8BA4\u8BC6\u4ED6\u7684\u4EBA\u8BB0\u5F97\u4ED6\u505A\u4EC0\u4E48\uFF1F\u6700\u8FD1\u7684\u9AD8\u5149\u662F\u54EA\u4E00\u5E74\uFF1F\u9AD8\u5149\u548C\u73B0\u5728\u7684\u4ED6\u6709\u4EC0\u4E48\u5173\u7CFB\uFF1F"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u5E02\u573A\u8BC4\u8BBA"
@@ -10931,6 +10989,8 @@ MonoBehaviour:
         chineseSimplified: "\u540D\u6C14\u8D44\u4EA7\uFF1A\u6309\u70ED\u641C\u8BA1\u4EF7\uFF0C\u6309\u5206\u949F\u6298\u65E7\u3002\u5BB6\u8C31\u4F18\u52BF\uFF1A\u5C1A\u672A\u88AB\u4EFB\u4F55\u4F53\u6D4B\u9879\u76EE\u6536\u5F55\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 8
+      illustrationIndex2: 14
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10957,6 +11017,8 @@ MonoBehaviour:
         chineseSimplified: "\u81EA\u8FF0\uFF1A\u5BB6\u65CF\u9057\u4F20\u3002\u4F50\u8BC1\uFF1A\u90BB\u5C45\u3002\u53EF\u6838\u5B9E\u6750\u6599\uFF1A\u9752\u5E74\u8054\u8D5B\u7247\u6BB5\u82E5\u5E72\u3002\u672C\u520A\u8BC4\u7EA7\uFF1A\u6309\u4F20\u95FB\u5904\u7406\u3002"
         english: 
       relatedPlayerId: player.rosales.diego
+      illustrationIndex: 14
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -10983,6 +11045,8 @@ MonoBehaviour:
         chineseSimplified: "\u96F6\u5C01\u7B2C\u4E00\uFF1A\u5DF2\u6838\u3002\u6837\u672C\uFF1A\u5B8C\u6574\u8D5B\u5B63\u3002\u53C2\u7167\uFF1A\u683C\u65AF\u201C\u7B2C\u4E94\u6B21\u6251\u70B9\u201D\u90A3\u5E74\u7684\u62BD\u67E5\u53E3\u5F84\u3002\u7ED3\u8BBA\uFF1A\u771F\u5B9E\uFF0C\u53EF\u4E70\uFF0C\u8981\u5E26\u8BF4\u660E\u4E66\u3002"
         english: 
       relatedPlayerId: player.mora.victor
+      illustrationIndex: 17
+      illustrationIndex2: -1
   - id: mag.season.09
     coverIndex: 8
     publishedWeek: 9
@@ -11020,6 +11084,8 @@ MonoBehaviour:
         chineseSimplified: "\u7EF0\u53F7\u4E0D\u8BA1\u5165\u4F53\u6D4B\u3002\u201C\u5766\u514B\u201D\u8981\u770B\u51B2\u523A\u6B21\u6570\uFF0C\u201C\u6C38\u52A8\u673A\u201D\u8981\u770B\u9AD8\u5F3A\u5EA6\u8DD1\u5360\u6BD4\u3002\u6570\u5B57\u8BF7\u6765\u81EA\u8FFD\u8E2A\u6570\u636E\uFF0C\u4E0D\u8981\u6765\u81EA\u5F62\u5BB9\u8BCD\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4E13\u9898\u8C03\u67E5"
@@ -11046,6 +11112,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E00\u7EA7\uFF1A\u8F76\u4E8B\u578B\uFF08\u4FDD\u6E29\u676F\uFF09\u3002\u4E8C\u7EA7\uFF1A\u6570\u636E\u578B\uFF08\u9A6C\u62C9\u677E\u540D\u6B21\uFF09\u3002\u4E09\u7EA7\uFF1A\u7EF0\u53F7\u578B\uFF08\u5766\u514B\u3001\u6C38\u52A8\u673A\uFF09\u3002\u91C7\u8D2D\u524D\u8BF7\u786E\u8BA4\u7B49\u7EA7\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 6
+      illustrationIndex2: 21
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11072,6 +11140,8 @@ MonoBehaviour:
         chineseSimplified: "\u8BC1\u8BCD\u4E09\u6E90\u4E92\u8BC1\uFF0C\u96C6\u9526\u53E6\u5B58\u3002\u201C\u65F6\u901F200\u516C\u91CC\u201D\u7CFB\u4FEE\u8F9E\uFF0C\u672C\u520A\u5B9E\u6D4B\u680F\u76EE\u62D2\u7EDD\u4E3A\u5F62\u5BB9\u8BCD\u51FA\u5177\u8BC1\u660E\u3002"
         english: 
       relatedPlayerId: player.costa.bruno
+      illustrationIndex: 3
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11098,6 +11168,8 @@ MonoBehaviour:
         chineseSimplified: "\u5DE5\u4E1A\u8054\u672C\u5468\u95EE\u201C\u4ED6\u5BB9\u6613\u53D7\u4F24\u5417\u201D\uFF0C\u8FD9\u7C7B\u7403\u5458\u5C31\u662F\u6700\u597D\u7684\u5E7F\u544A\u3002\u9700\u6C42\u4E0E\u4F9B\u7ED9\u7F55\u89C1\u5BF9\u9F50\uFF0C\u4EF7\u683C\u4ECD\u5EFA\u8BAE\u6162\u6162\u8C08\u3002"
         english: 
       relatedPlayerId: player.silva.marco
+      illustrationIndex: 6
+      illustrationIndex2: -1
   - id: mag.season.10
     coverIndex: 9
     publishedWeek: 10
@@ -11135,6 +11207,8 @@ MonoBehaviour:
         chineseSimplified: "\u65E7\u8003\u7EB2\uFF1A\u53CD\u5E94\u3001\u7AD9\u4F4D\u3001\u6458\u9AD8\u7403\u3002\u65B0\u8003\u7EB2\uFF1A\u4EE5\u4E0A\u5168\u90E8\uFF0C\u5916\u52A0\u4E00\u811A\u56DB\u5341\u7C73\u659C\u957F\u4F20\u3002\u5907\u8003\u6750\u6599\u8BF7\u81EA\u5907\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u95E8\u5C06\u4E13\u680F"
@@ -11161,6 +11235,8 @@ MonoBehaviour:
         chineseSimplified: "\u6A59\u8272\u7403\u961F\uFF1A\u5BFB\u7EC4\u7EC7\u578B\u95E8\u5C06\u3002\u4E1C\u4E9A\u65B9\u5411\uFF1A\u5BFB\u201C90\u5206\u949F\u540E\u8FD8\u80FD\u8DD1\u201D\u7684\u524D\u950B\u3002\u62DB\u8058\u542F\u4E8B\u8D8A\u6765\u8D8A\u50CF\u4F53\u6D4B\u901A\u77E5\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 17
+      illustrationIndex2: 4
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11187,6 +11263,8 @@ MonoBehaviour:
         chineseSimplified: "\u5148\u7B54\u4E09\u95EE\u518D\u4E70\uFF1A\u4F60\u7684\u4E2D\u536B\u80FD\u9876\u5230\u4E2D\u7EBF\u5417\uFF1F\u4F60\u7684\u6559\u7EC3\u63A5\u53D7\u95E8\u5C06\u4F20\u7403\u5931\u8BEF\u5417\uFF1F\u4F60\u7684\u66FF\u8865\u95E8\u5C06\u662F\u4EC0\u4E48\u7C7B\u578B\uFF1F"
         english: 
       relatedPlayerId: player.onaku.andre
+      illustrationIndex: 17
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11213,6 +11291,8 @@ MonoBehaviour:
         chineseSimplified: "\u6280\u672F\uFF1A\u5DF2\u6838\uFF0C\u5C5E\u5B9E\u3002\u8EAB\u4F53\uFF1A\u5F85\u6838\uFF0C\u5173\u952E\u9879\u3002\u5FC3\u6001\uFF1A\u81EA\u8FF0\u201C\u8FD8\u60F3\u8E22\u201D\uFF0C\u5EFA\u8BAE\u5728\u5408\u540C\u91CC\u91CF\u5316\u8FD9\u4E2A\u201C\u60F3\u201D\u3002"
         english: 
       relatedPlayerId: player.rivas.j
+      illustrationIndex: 16
+      illustrationIndex2: -1
   - id: mag.season.11
     coverIndex: 10
     publishedWeek: 11
@@ -11250,6 +11330,8 @@ MonoBehaviour:
         chineseSimplified: "\u5C71\u8C37\u9547\uFF1A\u8981\u6709\u9876\u7EA7\u8054\u8D5B\u7ECF\u9A8C\u7684\u4EBA\u5E26\u8DEF\u3002\u9644\u4EF6\u79D1\u6280\uFF1A\u8981\u4E00\u4E2A\u201C\u5C04\u95E8\u65F6\u4E0D\u95ED\u773C\u201D\u7684\u95E8\u5C06\u3002\u95E8\u69DB\u7684\u4E16\u754C\u5343\u5DEE\u4E07\u522B\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4EBA\u7269\u5BF9\u8BFB"
@@ -11276,6 +11358,8 @@ MonoBehaviour:
         chineseSimplified: "\u9752\u5E74\u961F\u9AD8\u5149\uFF1A\u6309\u5BF9\u624B\u5E74\u9F84\u6298\u7B97\u3002\u4F4E\u7EA7\u522B\u5168\u52E4\uFF1A\u6309\u8054\u8D5B\u5F3A\u5EA6\u6298\u7B97\u3002\u9886\u5BFC\u529B\uFF1A\u6682\u65E0\u516C\u5F0F\uFF0C\u6309\u55D3\u95E8\u5B9E\u6D4B\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 15
+      illustrationIndex2: 16
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11302,6 +11386,8 @@ MonoBehaviour:
         chineseSimplified: "\u516C\u5F00\u753B\u9762\uFF1A\u9752\u5E74\u961F\u6BD4\u8D5B\uFF0C\u53EF\u9760\u6027\u8F83\u9AD8\u3002\u7F3A\u5931\u9879\uFF1A\u6210\u5E74\u8054\u8D5B\u6837\u672C\uFF0C\u96F6\u573A\u3002\u62A5\u4EF7\u8BF7\u6309\u671F\u8D27\u903B\u8F91\uFF0C\u4E0D\u6309\u73B0\u8D27\u3002"
         english: 
       relatedPlayerId: player.vieira.lucas
+      illustrationIndex: 15
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11328,6 +11414,8 @@ MonoBehaviour:
         chineseSimplified: "\u9002\u7528\uFF1A\u9886\u5148\u540E\u7684\u6700\u540E\u4E8C\u5341\u5206\u949F\u3001\u66F4\u8863\u5BA4\u3001\u5BA2\u573A\u96E8\u6218\u3002\u4E0D\u9002\u7528\uFF1A\u5BF9\u653B\u3001\u51B2\u523A\u53CD\u51FB\u3001\u4EFB\u4F55\u9700\u8981\u56DE\u8FFD\u4E09\u5341\u7C73\u7684\u65F6\u523B\u3002"
         english: 
       relatedPlayerId: player.ferreira.jose
+      illustrationIndex: 16
+      illustrationIndex2: -1
   - id: mag.season.12
     coverIndex: 11
     publishedWeek: 12
@@ -11365,6 +11453,8 @@ MonoBehaviour:
         chineseSimplified: "\u5E7D\u7075\u578B\uFF1A\u6309\u8FDB\u7403\u6570\u62A5\u4EF7\uFF0C\u8FD8\u662F\u6309\u51FA\u573A\u6570\uFF1F\u95EA\u7535\u578B\uFF1A\u6309\u6700\u597D\u90A3\u573A\u62A5\u4EF7\uFF0C\u8FD8\u662F\u6309\u5E73\u5747\u90A3\u573A\uFF1F\u672C\u671F\u6B63\u6587\u6709\u89E3\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4F30\u503C\u65B9\u6CD5"
@@ -11391,6 +11481,8 @@ MonoBehaviour:
         chineseSimplified: "\u73AF\u5883\u578B\uFF1A\u6362\u961F\u53EF\u89E3\uFF0C\u653E\u5FC3\u4E70\u3002\u968F\u673A\u578B\uFF1A\u65E0\u6CD5\u9884\u6D4B\uFF0C\u6309\u5747\u4EF7\u4E70\u3002\u4F2A\u6CE2\u52A8\uFF1A\u6837\u672C\u88AB\u5207\u788E\uFF0C\u5176\u5B9E\u662F\u8D5A\u4E86\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 23
+      illustrationIndex2: 1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11417,6 +11509,8 @@ MonoBehaviour:
         chineseSimplified: "\u91D1\u9774\uFF1A\u5DF2\u6838\u3002\u6240\u5728\u7EA7\u522B\uFF1A\u7B2C\u56DB\u7EA7\u3002\u66F4\u9AD8\u7EA7\u522B\u6837\u672C\uFF1A\u65E0\u3002\u7ED3\u8BBA\uFF1A\u4EA7\u51FA\u771F\u5B9E\uFF0C\u6210\u8272\u8BF7\u6309\u8054\u8D5B\u7EA7\u522B\u6298\u7B97\u3002"
         english: 
       relatedPlayerId: player.ortega.carlos
+      illustrationIndex: 4
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11443,6 +11537,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E5D\u961F\u5C65\u5386\uFF1A\u5DF2\u6838\u3002\u79BB\u961F\u539F\u56E0\uFF1A\u4E5D\u4E2A\u7248\u672C\uFF0C\u4E92\u4E0D\u91CD\u5408\u3002\u5EFA\u8BAE\u9762\u8C08\u65F6\u76F4\u63A5\u95EE\u4ED6\uFF1A\u7B2C\u5341\u652F\u7403\u961F\u60F3\u542C\u4EC0\u4E48\u3002"
         english: 
       relatedPlayerId: player.herrera.luis
+      illustrationIndex: 0
+      illustrationIndex2: -1
   - id: mag.season.13
     coverIndex: 12
     publishedWeek: 13
@@ -11480,6 +11576,8 @@ MonoBehaviour:
         chineseSimplified: "\u94F8\u94C1\u961F\uFF1A\u8981\u4E00\u4E2A\u201C\u4E0D\u4ECB\u610F\u8E22\u5F97\u96BE\u770B\u201D\u7684\u540E\u536B\u3002\u4E24\u534A\u8054\uFF1A\u8981\u4E00\u4E2A\u201C90\u5206\u949F\u90FD\u80FD\u88AB\u770B\u89C1\u201D\u7684\u524D\u950B\u3002\u4E24\u4F4D\u4E3B\u89D2\u8BF7\u5BF9\u53F7\u5165\u5EA7\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6DF1\u5EA6\u62A5\u9053"
@@ -11506,6 +11604,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B2C\u4E8C\u4EBA\u751F\u7403\u5458\u7684\u4F53\u68C0\u8981\u52A0\u4E24\u9875\uFF1A\u8DB3\u7403\u524D\u7684\u804C\u4E1A\u53F2\u3001\u8DB3\u7403\u5916\u7684\u8FD0\u52A8\u53F2\u3002\u635F\u8017\u548C\u5929\u8D4B\u53EF\u80FD\u6765\u81EA\u540C\u4E00\u4E2A\u5730\u65B9\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 6
+      illustrationIndex2: 16
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11532,6 +11632,8 @@ MonoBehaviour:
         chineseSimplified: "\u9A6C\u62C9\u677E\u540D\u6B21\uFF1A\u516C\u5F00\u53EF\u67E5\uFF0C\u5DF2\u6838\u3002\u534A\u804C\u4E1A\u8054\u8D5B\u753B\u9762\uFF1A\u82E5\u5E72\uFF0C\u5F3A\u5EA6\u6709\u9650\u3002\u7ED3\u8BBA\uFF1A\u80BA\u662F\u771F\u7684\uFF0C\u5176\u4F59\u6309\u534A\u6210\u54C1\u8BA1\u4EF7\u3002"
         english: 
       relatedPlayerId: player.cooper.liam
+      illustrationIndex: 6
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11558,6 +11660,8 @@ MonoBehaviour:
         chineseSimplified: "\u9002\u5408\uFF1A\u94F8\u94C1\u961F\u672C\u5468\u201C\u5E72\u810F\u6D3B\u201D\u5C97\u4F4D\u3002\u4E0D\u9002\u5408\uFF1A\u8981\u6C42\u540E\u536B\u7B2C\u4E00\u811A\u51FA\u7403\u7A7F\u900F\u4E24\u6761\u7EBF\u7684\u4F53\u7CFB\u3002\u8BF4\u660E\u4E66\u968F\u4EBA\u9644\u8D60\u3002"
         english: 
       relatedPlayerId: player.turner.jack
+      illustrationIndex: 3
+      illustrationIndex2: -1
   - id: mag.season.14
     coverIndex: 13
     publishedWeek: 14
@@ -11595,6 +11699,8 @@ MonoBehaviour:
         chineseSimplified: "\u6570\u636E\u4E4B\u5149\u4FF1\u4E50\u90E8\uFF1A\u201C\u53EA\u8981\u4EE5\u524D\u8FDB\u8FC7\u5F88\u591A\u7403\uFF0C\u628A\u5C65\u5386\u53D1\u6765\u5C31\u884C\u3002\u201D\u672C\u671F\u6CA1\u6709\u8FD9\u6837\u7684\u524D\u950B\uFF0C\u53EA\u6709\u4E24\u79CD\u66F4\u5B89\u9759\u7684\u7B54\u6848\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u8BC4\u8BBA"
@@ -11621,6 +11727,8 @@ MonoBehaviour:
         chineseSimplified: "\u524D\u4EFB\u653E\u5F03\u4ED6\u7684\u7406\u7531\u662F\u4EC0\u4E48\uFF1F\u8BE5\u7406\u7531\u5728\u4F60\u7684\u4F53\u7CFB\u91CC\u8FD8\u6210\u7ACB\u5417\uFF1F\u6709\u6CA1\u6709\u6570\u636E\u53CD\u8BC1\uFF1F\u4E09\u95EE\u4E4B\u540E\uFF0C\u518D\u8C08\u4EF7\u683C\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 3
+      illustrationIndex2: 11
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11647,6 +11755,8 @@ MonoBehaviour:
         chineseSimplified: "\u6559\u7EC3\u8BC4\u8BED\u201C\u5F88\u5C11\u8BA9\u522B\u4EBA\u521B\u9020\u673A\u4F1A\u201D\u672A\u7ECF\u72EC\u7ACB\u6838\u5B9E\uFF0C\u4F46\u4E0E\u6BD4\u8D5B\u753B\u9762\u5BF9\u5F97\u4E0A\u3002\u8BC1\u636E\u7B49\u7EA7\uFF1A\u53EF\u4FE1\uFF0C\u5F85\u5F3A\u5EA6\u590D\u6D4B\u3002"
         english: 
       relatedPlayerId: player.bianchi.franco
+      illustrationIndex: 3
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11673,6 +11783,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B2C\u4E09\u7EA7\u522B\u6570\u636E\u6309\u60EF\u4F8B\u6253\u6298\uFF0C\u4F46\u201C\u51FA\u51FB\u6210\u529F\u7387\u7B2C\u4E00\u201D\u6253\u6298\u540E\u4ECD\u662F\u7B2C\u4E00\u3002\u5EFA\u8BAE\u5B9E\u6D4B\uFF1A\u8FDE\u7EED\u4E09\u5929\uFF0C\u53EA\u7EC3\u4F20\u4E2D\u3002"
         english: 
       relatedPlayerId: player.navarro.miguel
+      illustrationIndex: 17
+      illustrationIndex2: -1
   - id: mag.season.15
     coverIndex: 14
     publishedWeek: 15
@@ -11710,6 +11822,8 @@ MonoBehaviour:
         chineseSimplified: "\u89C6\u9891\u53EF\u4EE5\u526A\u8F91\uFF0C\u6BD4\u8D5B\u4E0D\u80FD\u3002\u7C89\u4E1D\u6570\u662F\u8FD0\u8425\u6570\u636E\uFF0C\u4E0D\u662F\u8FD0\u52A8\u6570\u636E\u3002\u4E24\u8005\u90FD\u5BF9\uFF0C\u4F46\u522B\u7528\u524D\u8005\u7ED9\u540E\u8005\u62A5\u4EF7\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u73B0\u8C61\u89C2\u5BDF"
@@ -11736,6 +11850,8 @@ MonoBehaviour:
         chineseSimplified: "\u7C89\u4E1D\u56DB\u767E\u4E07\uFF1A\u771F\u5B9E\uFF0C\u4E0E\u8DB3\u7403\u65E0\u5173\u3002\u52A9\u653B\u5F88\u591A\uFF1A\u5F85\u6838\u3002\u961F\u53CB\u559C\u6B22\uFF1A\u4E0E\u8F6C\u4F1A\u65E0\u5173\uFF0C\u4E0E\u98DF\u5802\u6709\u5173\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 8
+      illustrationIndex2: 22
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11762,6 +11878,8 @@ MonoBehaviour:
         chineseSimplified: "\u8D26\u53F7\u6570\u636E\uFF1A\u5E73\u53F0\u53EF\u67E5\uFF0C\u5DF2\u6838\u3002\u6BD4\u8D5B\u6837\u672C\uFF1A\u65E0\u3002\u8BC1\u636E\u7B49\u7EA7\uFF1A\u672A\u9A8C\u8BC1\u3002\u5EFA\u8BAE\u6D41\u7A0B\uFF1A\u5148\u516C\u5F00\u8BD5\u8BAD\uFF0C\u518D\u5F00\u53D1\u5E03\u4F1A\u3002"
         english: 
       relatedPlayerId: player.hayes.robert
+      illustrationIndex: 8
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11788,6 +11906,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B7E\u7EA6\u6210\u672C\uFF1A\u4F4E\u3002\u9A8C\u8BC1\u6210\u672C\uFF1A\u4E24\u573A\u516C\u5F00\u8BD5\u8BAD\u3002\u6F5C\u5728\u6536\u76CA\uFF1A\u4E00\u4F4D\u4F1A\u4F20\u4E2D\u7684\u8F6E\u6362\u3002\u6F5C\u5728\u98CE\u9669\uFF1A\u4E00\u6761\u5F00\u653E\u7684\u8FB9\u8DEF\u8D70\u5ECA\u3002"
         english: 
       relatedPlayerId: player.moreira.andre.amateur
+      illustrationIndex: 5
+      illustrationIndex2: -1
   - id: mag.season.16
     coverIndex: 15
     publishedWeek: 16
@@ -11825,6 +11945,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E94\u4EBA\u5236\u6280\u672F\uFF1A\u6309\u573A\u5730\u4E0E\u8282\u594F\u6298\u7B97\u3002\u4F4E\u7EA7\u522B\u8FDB\u7403\uFF1A\u6309\u8054\u8D5B\u5F3A\u5EA6\u6298\u7B97\u3002\u6298\u7B97\u540E\u4ECD\u7136\u6210\u7ACB\uFF0C\u624D\u53EB\u771F\u672C\u4E8B\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4E13\u9898\u5206\u6790"
@@ -11851,6 +11973,8 @@ MonoBehaviour:
         chineseSimplified: "\u672A\u6765\u4E4B\u661F\u4FF1\u4E50\u90E8\u5728\u627E\u4E8C\u5341\u5C81\u4E0A\u4E0B\u3001\u503C\u5F97\u957F\u671F\u57F9\u517B\u7684\u4E2D\u573A\u3002\u672C\u671F\u4E24\u4F4D\u90FD\u4E0D\u5728\u8BE5\u8D27\u67B6\uFF0C\u4F46\u6362\u7B97\u8868\u901A\u7528\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 4
+      illustrationIndex2: 10
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11877,6 +12001,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B2C\u4E00\u5468\uFF1A\u4F53\u80FD\u57FA\u7EBF\u3002\u7B2C\u4E8C\u5468\uFF1A\u5BF9\u6297\u8D5B\u3002\u7B2C\u4E09\u5468\uFF1A\u8FDE\u7EED\u4E24\u573A\u3002\u4E09\u9879\u8FBE\u6807\u518D\u8FDB\u5927\u540D\u5355\uFF0C\u987A\u5E8F\u522B\u4E71\u3002"
         english: 
       relatedPlayerId: player.pereira.diogo
+      illustrationIndex: 10
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11903,6 +12029,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E94\u5B63\u4E0A\u53CC\uFF1A\u9010\u5B63\u6838\u5BF9\uFF0C\u5C5E\u5B9E\u3002\u70B9\u7403\u5360\u6BD4\uFF1A\u6B63\u5E38\u533A\u95F4\u3002\u5BF9\u624B\u5F3A\u5EA6\uFF1A\u897F3\u6807\u51C6\u3002\u7ED3\u8BBA\uFF1A\u6570\u5B57\u5E72\u51C0\uFF0C\u6298\u7B97\u540E\u53EF\u4E0B\u5355\u3002"
         english: 
       relatedPlayerId: player.fuentes.carlos
+      illustrationIndex: 23
+      illustrationIndex2: -1
   - id: mag.season.17
     coverIndex: 16
     publishedWeek: 17
@@ -11940,6 +12068,8 @@ MonoBehaviour:
         chineseSimplified: "\u5E74\u9F84\u4E4B\u8C1C\uFF1A\u6CE8\u518C\u6587\u4EF6\u5408\u89C4\uFF0C\u4F46\u5408\u89C4\u4E0D\u7B49\u4E8E\u900F\u660E\u3002\u8DD1\u52A818\u516C\u91CC\uFF1A\u8FFD\u8E2A\u6570\u636E\u53EF\u67E5\u3002\u4E00\u4E2A\u8981\u731C\uFF0C\u4E00\u4E2A\u8981\u91CF\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u8C03\u67E5\u62A5\u9053"
@@ -11966,6 +12096,8 @@ MonoBehaviour:
         chineseSimplified: "\u6CE8\u518C\u6587\u4EF6\uFF1A\u5408\u89C4\uFF0C\u5DF2\u67E5\u3002\u65E9\u5E74\u8BB0\u5F55\uFF1A\u7F3A\u5931\u3002\u8EAB\u4F53\u62A5\u544A\uFF1A\u9700\u6388\u6743\u3002\u7ED3\u8BBA\uFF1A\u53EF\u7B7E\uFF0C\u4F46\u8BF7\u4E3A\u201C\u8C1C\u201D\u7559\u4E00\u4E2A\u6761\u6B3E\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 21
+      illustrationIndex2: 22
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -11992,6 +12124,8 @@ MonoBehaviour:
         chineseSimplified: "\u81EA\u8FF0\uFF1A\u201C\u6BD4\u4F60\u4EEC\u77E5\u9053\u7684\u66F4\u4E45\u201D\u3002\u4F50\u8BC1\uFF1A\u961F\u53CB\u8F6C\u8FF0\u3002\u6863\u6848\uFF1A\u5408\u89C4\u4F46\u7A7A\u767D\u3002\u8BC4\u7EA7\uFF1A\u4E2D\u7B49\uFF0C\u5408\u540C\u5E74\u9650\u8BF7\u81EA\u884C\u52A0\u4FDD\u9669\u3002"
         english: 
       relatedPlayerId: player.hassan.ali
+      illustrationIndex: 4
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12018,6 +12152,8 @@ MonoBehaviour:
         chineseSimplified: "18\u516C\u91CC\uFF1A\u8FFD\u8E2A\u6570\u636E\uFF0C\u5DF2\u6838\u3002\u8986\u76D6\u8D5B\u5B63\uFF1A\u6700\u8FD1\u4E24\u5B63\u3002\u5F85\u67E5\u9879\uFF1A\u5BC6\u96C6\u8D5B\u7A0B\u4E0B\u7684\u5F3A\u5EA6\u66F2\u7EBF\u3002\u590D\u6D4B\u7A97\u53E3\uFF1A\u51AC\u6B47\u524D\u3002"
         english: 
       relatedPlayerId: player.reed.thomas
+      illustrationIndex: 6
+      illustrationIndex2: -1
   - id: mag.season.18
     coverIndex: 17
     publishedWeek: 18
@@ -12055,6 +12191,8 @@ MonoBehaviour:
         chineseSimplified: "\u5168\u52E4\uFF1A\u770B\u51FA\u573A\u8BB0\u5F55\u4E0E\u7F3A\u5E2D\u539F\u56E0\u3002\u5168\u80FD\uFF1A\u770B\u6BCF\u4E2A\u4F4D\u7F6E\u7684\u5206\u949F\u6570\uFF0C\u800C\u4E0D\u662F\u542C\u201C\u90FD\u80FD\u8E22\u201D\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4E13\u680F"
@@ -12081,6 +12219,8 @@ MonoBehaviour:
         chineseSimplified: "\u7F3A\u5E2D\u6210\u672C\uFF1D\u66FF\u8865\u6EA2\u4EF7\uFF0B\u5E94\u6025\u9884\u6848\uFF0B\u66F4\u8863\u5BA4\u7126\u8651\u3002\u5168\u80FD\u6298\u73B0\uFF1D\u4F4D\u7F6E\u6570\xD7\u5355\u4F4D\u7F6E\u5747\u4EF7\xF7\u4F53\u80FD\u4E0A\u9650\u3002\u8BF7\u81EA\u884C\u4EE3\u5165\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 23
+      illustrationIndex2: 6
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12107,6 +12247,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E5D\u5B63\u51FA\u573A\uFF1A\u9010\u5B63\u6838\u5BF9\uFF0C\u5C5E\u5B9E\u3002\u4F53\u68C0\uFF1A\u5F02\u5E38\u5065\u5EB7\uFF0C\u539F\u6587\u5982\u6B64\u3002\u7F3A\u5E2D\u5386\u53F2\uFF1A\u8FD1\u4E4E\u7A7A\u767D\u3002\u7ED3\u8BBA\uFF1A\u53EF\u7B7E\uFF0C\u5E74\u9650\u4ECE\u77ED\u3002"
         english: 
       relatedPlayerId: player.faria.luis
+      illustrationIndex: 23
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12133,6 +12275,8 @@ MonoBehaviour:
         chineseSimplified: "\u9010\u4F4D\u7F6E\u6838\u5BF9\u5206\u949F\u6570\u4E0E\u5BF9\u624B\u7EA7\u522B\uFF0C\u201C\u90FD\u80FD\u8E22\u201D\u6309\u6700\u5F31\u4E00\u73AF\u5B9A\u4EF7\u3002\u53CB\u60C5\u63D0\u793A\uFF1A\u95E8\u5C06\u4F4D\u7F6E\u4E0D\u5728\u5176\u5217\uFF0C\u522B\u88AB\u70ED\u60C5\u51B2\u660F\u5934\u3002"
         english: 
       relatedPlayerId: player.fuentes.marcus
+      illustrationIndex: 1
+      illustrationIndex2: -1
   - id: mag.season.19
     coverIndex: 18
     publishedWeek: 19
@@ -12170,6 +12314,8 @@ MonoBehaviour:
         chineseSimplified: "\u9884\u7B97\u8054\u672C\u5468\u6765\u4FE1\uFF1A\u8981\u4F4E\u6210\u672C\u9AD8\u4EA7\u5C04\u624B\u3002\u672C\u671F\u4E00\u4F4D\u5B88\u95E8\u3001\u4E00\u4F4D\u9886\u724C\uFF0C\u5747\u4E0D\u7B26\u5408\u2014\u2014\u8FD9\u6B63\u662F\u8F6C\u4F1A\u7A97\u7684\u5E7D\u9ED8\u611F\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u95E8\u5C06\u4E13\u680F"
@@ -12196,6 +12342,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B2C\u4E8C\u95E8\u5C06\u4EF7\u503C\uFF1D\u4E3B\u529B\u7F3A\u9635\u6982\u7387\xD7\u8D5B\u5B63\u6743\u91CD\u3002\u9EC4\u724C\u6210\u672C\uFF1D\u505C\u8D5B\u573A\u6B21\xD7\u5BF9\u624B\u5F3A\u5EA6\u2212\u4FB5\u7565\u6027\u6536\u76CA\u3002\u6EDA\u52A8\u6838\u7B97\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 17
+      illustrationIndex2: 9
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12222,6 +12370,8 @@ MonoBehaviour:
         chineseSimplified: "\u9002\u5408\uFF1A\u6709\u4E3B\u529B\u95E8\u5C06\u3001\u8981\u7ADE\u4E89\u4E0E\u4FDD\u9669\u7684\u7403\u961F\u3002\u4E0D\u9002\u5408\uFF1A\u9700\u8981\u4ED6\u7ACB\u523B\u573A\u573A\u9996\u53D1\u7684\u7403\u961F\u3002\u9884\u70ED\u4E24\u573A\uFF0C\u7136\u540E\u653E\u5FC3\u3002"
         english: 
       relatedPlayerId: player.harris.owen
+      illustrationIndex: 16
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12248,6 +12398,8 @@ MonoBehaviour:
         chineseSimplified: "\u9EC4\u724C\u7EAA\u5F55\uFF1A\u8FDE\u7EED\u4E24\u5B63\uFF0C\u5DF2\u6838\u3002\u7981\u8D5B\u573A\u6B21\uFF1A\u53EF\u91CF\u5316\u3002\u88C1\u5224\u5370\u8C61\u5206\uFF1A\u4E0D\u53EF\u91CF\u5316\u4F46\u771F\u5B9E\u5B58\u5728\u3002\u9884\u7B97\u8BF7\u9884\u7559\u66FF\u8865\u65B9\u6848\u3002"
         english: 
       relatedPlayerId: player.cardoso.rui
+      illustrationIndex: 11
+      illustrationIndex2: -1
   - id: mag.season.21
     coverIndex: 19
     publishedWeek: 21
@@ -12285,6 +12437,8 @@ MonoBehaviour:
         chineseSimplified: "\u62F3\u53F0\u7EAA\u5F8B\u80FD\u5426\u6362\u7B97\u6210\u7981\u533A\u7EAA\u5F8B\uFF1F\u4E00\u6210\u6210\u529F\u7387\u4E3A\u4EC0\u4E48\u8FD8\u6709\u4EBA\u6392\u961F\uFF1F\u672C\u520A\u518D\u6B21\u63D0\u9192\uFF1A\u5148\u7B97\u671F\u671B\u503C\uFF0C\u518D\u8C08\u9B45\u529B\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4E13\u9898"
@@ -12311,6 +12465,8 @@ MonoBehaviour:
         chineseSimplified: "\u62F3\u51FB\u51A0\u519B\uFF1A\u9752\u5C11\u5E74\u91CD\u91CF\u7EA7\uFF0C\u5DF2\u6838\u3002\u8FC7\u4EBA\u6210\u529F\u7387\uFF1A\u4E00\u6210\uFF0C\u5C5E\u5B9E\u3002\u5173\u952E\u53D8\u91CF\uFF1A\u5C1D\u8BD5\u4F4D\u7F6E\u5206\u5E03\u56FE\uFF0C\u7B7E\u7EA6\u524D\u52A1\u5FC5\u7D22\u53D6\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 11
+      illustrationIndex2: 4
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12337,6 +12493,8 @@ MonoBehaviour:
         chineseSimplified: "\u91CD\u70B9\u6838\u5BF9\uFF1A\u624B\u90E8\u3001\u808B\u90E8\u3001\u9F3B\u6881\u3002\u62F3\u51FB\u65E7\u4F24\u4E0D\u662F\u51CF\u5206\u9879\uFF0C\u662F\u77E5\u60C5\u9879\u3002\u51A0\u519B\u8BC1\u4E66\uFF1A\u9752\u5C11\u5E74\u91CD\u91CF\u7EA7\uFF0C\u5DF2\u6838\u3002"
         english: 
       relatedPlayerId: player.kelly.ryan
+      illustrationIndex: 4
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12363,6 +12521,8 @@ MonoBehaviour:
         chineseSimplified: "\u573A\u4E0A\u6570\u636E\uFF1A\u5C1D\u8BD5\u5206\u5E03\u56FE\u5FC5\u67E5\u3002\u573A\u4E0B\u80CC\u666F\uFF1A\u201C\u8D4C\u6027\u201D\u8FB9\u754C\u5FC5\u67E5\u3002\u524D\u8005\u5B9A\u4EF7\u683C\uFF0C\u540E\u8005\u5B9A\u80FD\u4E0D\u80FD\u8C08\u3002"
         english: 
       relatedPlayerId: player.mendes.ricardo
+      illustrationIndex: 23
+      illustrationIndex2: -1
   - id: mag.season.24
     coverIndex: 20
     publishedWeek: 24
@@ -12400,6 +12560,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E00\u767E\u573A\uFF1A\u67E5\u8D5B\u7A0B\u3002\u4E09\u767E\u573A\uFF1A\u67E5\u8D5B\u7A0B\u3002\u81F3\u4E8E\u8D5B\u5B63\u521D\u90A3\u4EFD\u201C\u56DB\u5341\u4E00\u7403\u201D\uFF1A\u5148\u67E5\u662F\u54EA\u4E2A\u8054\u8D5B\u3002"
         english: 
       relatedPlayerId: player.carvalho.andre
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u5BA4"
@@ -12428,6 +12590,8 @@ MonoBehaviour:
           80 \u5206\u949F\u5168\u5458\u5FC3\u7B97\u51C0\u80DC\u7403\uFF1B\u8D5B\u540E\u53D1\u5E03\u4F1A\u51C6\u5907\u4E24\u5957\u7A3F\u5B50\u3002"
         english: 
       relatedPlayerId: player.grant.thomas
+      illustrationIndex: 23
+      illustrationIndex2: 3
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12454,6 +12618,8 @@ MonoBehaviour:
         chineseSimplified: "\u53CD\u51FB\u4F53\u7CFB\u3001\u8FB9\u8DEF\u7EB5\u6DF1\u3001\u6709\u4E2D\u950B\u7275\u5236\u3002\u907F\u514D\uFF1A\u5168\u573A\u56F4\u653B\u5374\u65E0\u4EBA\u80FD\u62C9\u5F00\u5BBD\u5EA6\u7684\u9635\u5730\u6218\u3002"
         english: 
       relatedPlayerId: player.carvalho.andre
+      illustrationIndex: 10
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u8001\u5C06\u89C2\u5BDF"
@@ -12480,6 +12646,8 @@ MonoBehaviour:
         chineseSimplified: "\u9AD8\u4F4D\u9632\u7EBF\u52FF\u8BD5\uFF1B\u8FDE\u7EED\u5BA2\u573A\u9700\u8F6E\u6362\uFF1B\u901F\u5EA6\u8BC4\u4EF7\u8BF7\u4EE5\u4ECA\u5E74\u5F55\u50CF\u4E3A\u51C6\uFF0C\u52FF\u5F15\u7528\u56DE\u5FC6\u5F55\u3002"
         english: 
       relatedPlayerId: player.grant.thomas
+      illustrationIndex: 16
+      illustrationIndex2: -1
   - id: mag.season.26
     coverIndex: 21
     publishedWeek: 26
@@ -12517,6 +12685,8 @@ MonoBehaviour:
         chineseSimplified: "\u4F53\u8102\u3001\u51B2\u523A\u3001\u5FC3\u7387\u3001\u5047\u671F\u8BAD\u7EC3\u8BB0\u5F55\u3002\u4EB2\u5C5E\u63A8\u8350\u4FE1\u8BF7\u79FB\u6B65\u53E6\u4E00\u4E2A\u7A97\u53E3\u3002"
         english: 
       relatedPlayerId: player.novak.filip
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4F53\u68C0\u5BA4"
@@ -12543,6 +12713,8 @@ MonoBehaviour:
         chineseSimplified: "\u51FA\u573A\u8BB0\u5F55\u2192\u4F24\u75C5\u8BB0\u5F55\u2192\u8BAD\u7EC3\u51FA\u52E4\u2192\u63A8\u8350\u4EBA\u4E0E\u7403\u5458\u7684\u786E\u5207\u4EB2\u5C5E\u5173\u7CFB\u3002"
         english: 
       relatedPlayerId: player.novak.filip
+      illustrationIndex: 2
+      illustrationIndex2: 21
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12569,6 +12741,8 @@ MonoBehaviour:
         chineseSimplified: "\u63A5\u7403\u524D\u89C2\u5BDF\u6B21\u6570\uFF1B\u7531\u5B88\u8F6C\u653B\u7B2C\u4E00\u811A\u65B9\u5411\uFF1B\u88AB\u8D34\u8EAB\u540E\u7684\u5904\u7406\u3002"
         english: 
       relatedPlayerId: player.novak.filip
+      illustrationIndex: 23
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u98CE\u9669\u62A5\u544A"
@@ -12595,6 +12769,8 @@ MonoBehaviour:
         chineseSimplified: "\u5148\u770B\u4ED6\u8E22\u7403\uFF0C\u518D\u5403\u70E4\u8089\u3002\u4E24\u4E2A\u573A\u5408\u8BF7\u5B89\u6392\u5728\u4E0D\u540C\u65E5\u671F\u3002"
         english: 
       relatedPlayerId: player.moreira.andre.cousin
+      illustrationIndex: 22
+      illustrationIndex2: -1
   - id: mag.season.28
     coverIndex: 22
     publishedWeek: 28
@@ -12632,6 +12808,8 @@ MonoBehaviour:
         chineseSimplified: "\u4F20\u95FB\u5206\u7EA7\u3001\u7EAA\u5F55\u6838\u67E5\u3001\u4F20\u771F\u673A\u9884\u70ED\u3002\u540E\u4E24\u8005\u6709\u6587\u4EF6\uFF0C\u524D\u8005\u53EA\u6709\u8BED\u6C14\u3002"
         english: 
       relatedPlayerId: player.rinaldi.matteo
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12659,6 +12837,8 @@ MonoBehaviour:
         chineseSimplified: "\u8BAD\u7EC3\u51FA\u52E4\u8BB0\u5F55\u3001\u6559\u7EC3\u8BBF\u8C08\u3001\u5BA2\u573A\u7EAA\u5F8B\u8BB0\u5F55\u3002\u516B\u5366\u7248\u9762\u4EC5\u4F9B\u9884\u8B66\uFF0C\u4E0D\u4F5C\u7ED3\u8BBA\u3002"
         english: 
       relatedPlayerId: player.rinaldi.matteo
+      illustrationIndex: 3
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u65B0\u661F\u6863\u6848"
@@ -12685,6 +12865,8 @@ MonoBehaviour:
         chineseSimplified: "\u5206\u949F\u6570\u4E0A\u9650\u3001\u8FDE\u7EED\u9996\u53D1\u9650\u5236\u3001\u5A92\u4F53\u9694\u79BB\u3002\u5C11\u5E74\u7403\u5458\u7684\u8D5B\u7A0B\u8868\u9700\u8981\u6210\u5E74\u4EBA\u7B7E\u5B57\u3002"
         english: 
       relatedPlayerId: player.morel.lucas
+      illustrationIndex: 15
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u7EAA\u5F55\u6838\u67E5"
@@ -12711,6 +12893,8 @@ MonoBehaviour:
         chineseSimplified: "\u201C\u4E4B\u4E00\u201D\u4E24\u4E2A\u5B57\u901A\u5E38\u85CF\u5728\u7B2C\u4E94\u6BB5\uFF1B\u201C\u961F\u53F2\u6700\u5E74\u8F7B\u201D\u548C\u201C\u8054\u8D5B\u6700\u5E74\u8F7B\u201D\u5DEE\u7740\u4E00\u4E2A\u6863\u6848\u9986\u3002"
         english: 
       relatedPlayerId: player.morel.lucas
+      illustrationIndex: 15
+      illustrationIndex2: 23
   - id: mag.season.29
     coverIndex: 23
     publishedWeek: 29
@@ -12748,6 +12932,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E3A\u4EC0\u4E48\u8D70\uFF1F\u8C01\u7684\u5224\u65AD\uFF1F\u6709\u6CA1\u6709\u7B2C\u4E8C\u5BB6\u4FF1\u4E50\u90E8\u72AF\u4E86\u540C\u6837\u7684\u9519\uFF1F"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u5E02\u573A\u5206\u6790"
@@ -12774,6 +12960,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B7E\u5B57\u8D39\u3001\u4F63\u91D1\u3001\u5DE5\u8D44\u3001\u4F53\u68C0\u3001\u878D\u5165\u65F6\u95F4\u3002\u6700\u540E\u4E00\u9879\u6CA1\u6709\u53D1\u7968\uFF0C\u4F46\u6700\u8D35\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 1
+      illustrationIndex2: 7
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -12800,6 +12988,8 @@ MonoBehaviour:
         chineseSimplified: "\u77ED\u7EA6\u4F18\u5148\uFF1B\u51FA\u573A\u6761\u6B3E\u6302\u94A9\uFF1B\u51AC\u7A97\u7B7E\u7EA6\u8BF7\u7ED9\u6625\u5929\u4E0B\u8C03\u7A7A\u95F4\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u8BFB\u8005\u6765\u4FE1"
@@ -12826,6 +13016,8 @@ MonoBehaviour:
         chineseSimplified: "\u4F4F\u623F\u3001\u7FFB\u8BD1\u3001\u6218\u672F\u624B\u518C\u9875\u6570\u4E0A\u9650\u3001\u66F4\u8863\u5BA4\u5EA7\u4F4D\u3002\u53D1\u5E03\u4F1A\u4E09\u660E\u6CBB\u8BF7\u653E\u76D8\u5B50\u4FA7\u8FB9\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 19
+      illustrationIndex2: 5
   - id: mag.season.30
     coverIndex: 24
     publishedWeek: 30
@@ -12863,6 +13055,8 @@ MonoBehaviour:
         chineseSimplified: "\u542C\u5230\u201C\u5927\u573A\u9762\u201D\u201C\u5173\u952E\u5148\u751F\u201D\u201C\u89C1\u8FC7\u4E16\u9762\u201D\uFF0C\u8BF7\u5148\u8C03\u51FA\u4ED6\u7684\u6D6A\u8D39\u673A\u4F1A\u96C6\u9526\u3002"
         english: 
       relatedPlayerId: player.mendez.carlos
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u62A5\u544A"
@@ -12889,6 +13083,8 @@ MonoBehaviour:
         chineseSimplified: "\u6BCF 90 \u5206\u949F\u5C04\u95E8\u8D28\u91CF\uFF1B\u91CD\u5927\u673A\u4F1A\u8F6C\u5316\u7387\uFF1B\u5F3A\u5F3A\u5BF9\u8BDD\u6837\u672C\uFF1B\u6700\u8FD1\u4E00\u4E2A\u5B8C\u6574\u8D5B\u5B63\u3002"
         english: 
       relatedPlayerId: player.mendez.carlos
+      illustrationIndex: 1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u7ECF\u6D4E\u5B66"
@@ -12915,6 +13111,8 @@ MonoBehaviour:
         chineseSimplified: "\u5BA2\u573A\u8FDB\u7403\u540E\u7684\u4E94\u5206\u949F\u7BA1\u7406\uFF1B\u9886\u5148\u540E\u7684\u9635\u578B\u7EAA\u5F8B\uFF1B\u70B9\u7403\u987A\u5E8F\u8868\u63D0\u524D\u5199\u597D\u3002"
         english: 
       relatedPlayerId: player.mendez.carlos
+      illustrationIndex: 12
+      illustrationIndex2: 4
     - layout: 1
       kicker:
         chineseSimplified: "\u51AC\u7A97\u7B2C\u4E09\u5468"
@@ -12941,6 +13139,8 @@ MonoBehaviour:
         chineseSimplified: "\u6E05\u5355\u63D0\u524D\u5B9A\uFF1B\u4EF7\u683C\u4E0A\u9650\u63D0\u524D\u5B9A\uFF1B\u4F20\u771F\u673A\u7EB8\u76D2\u63D0\u524D\u88C5\u6EE1\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 20
+      illustrationIndex2: 18
   - id: mag.season.31
     coverIndex: 25
     publishedWeek: 31
@@ -12978,6 +13178,8 @@ MonoBehaviour:
         chineseSimplified: "\u5B98\u5BA3\u82E5\u5E72\uFF1B\u64A4\u56DE\u4E24\u7B14\uFF1B\u5361\u7EB8\u4E00\u53F0\uFF1B\u201C\u65E9\u5C31\u5728\u8BA1\u5212\u4E2D\u201D\u58F0\u660E\u82E5\u5E72\u2014\u2014\u6700\u540E\u8FD9\u7C7B\u6700\u4E0D\u53EF\u4FE1\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u622A\u6B62\u65E5\u53F2\u8BDD"
@@ -13004,6 +13206,8 @@ MonoBehaviour:
         chineseSimplified: "\u7EB8\u76D2\u592A\u6EE1\u3001\u6587\u4EF6\u592A\u6025\u3001\u7ECF\u7EAA\u4EBA\u5728\u7535\u8BDD\u91CC\u558A\u201C\u9A6C\u4E0A\u5230\u201D\u3002\u4E09\u8005\u540C\u65F6\u51FA\u73B0\uFF0C\u8BF7\u6362\u4E00\u53F0\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 18
+      illustrationIndex2: 0
     - layout: 1
       kicker:
         chineseSimplified: "\u5173\u7A97\u8BED\u8A00\u5B66"
@@ -13030,6 +13234,8 @@ MonoBehaviour:
         chineseSimplified: "\u201C\u7B26\u5408\u957F\u671F\u89C4\u5212\u201D\u201C\u65F6\u673A\u4E0D\u5408\u9002\u201D\u201C\u5C0A\u91CD\u7403\u5458\u610F\u613F\u201D\u2014\u2014\u8BE6\u89C1\u9644\u5F55\uFF0C\u9644\u5F55\u4E0D\u5B58\u5728\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 8
+      illustrationIndex2: 18
     - layout: 2
       kicker:
         chineseSimplified: "\u7A97\u540E\u8BC4\u4F30"
@@ -13056,6 +13262,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E09\u6708\u770B\u51FA\u573A\uFF0C\u56DB\u6708\u770B\u8D21\u732E\uFF0C\u4E94\u6708\u770B\u79EF\u5206\u699C\u3002\u4E00\u6708\u53EA\u770B\u4F20\u771F\u673A\u7EF4\u4FEE\u5355\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 23
+      illustrationIndex2: -1
   - id: mag.season.33
     coverIndex: 26
     publishedWeek: 33
@@ -13093,6 +13301,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B2C\u4E00\u811A\u5411\u524D\u3001\u6700\u8FD1\u961F\u53CB\u7684\u542F\u52A8\u65B9\u5411\u3001\u4E22\u7403\u65B9\u9635\u578B\u5C1A\u672A\u56DE\u5934\u3002\u4E09\u8005\u9F50\u4E86\u5C31\u5FEB\u8DD1\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u5BA4"
@@ -13119,6 +13329,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E09\u79D2\u5185\u51FA\u7403\u6F14\u7EC3\uFF1B\u4E22\u7403\u540E\u4E94\u4EBA\u56F4\u62A2\u7A97\u53E3\uFF1B\u53CD\u51FB\u540E\u7684\u56DE\u9632\u8DEF\u7EBF\u540C\u6837\u8BA1\u65F6\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 3
+      illustrationIndex2: 4
     - layout: 1
       kicker:
         chineseSimplified: "\u6DD8\u6C70\u8D5B\u7B14\u8BB0"
@@ -13145,6 +13357,8 @@ MonoBehaviour:
         chineseSimplified: "\u522B\u628A\u60AC\u5FF5\u5F53\u654C\u4EBA\uFF1B\u522B\u4E3A\u96C6\u9526\u8E22\u5BA2\u573A\uFF1B\u6362\u4EBA\u540D\u989D\u7559\u7ED9\u52A0\u65F6\u8D5B\u7684\u53EF\u80FD\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 3
+      illustrationIndex2: 12
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13171,6 +13385,8 @@ MonoBehaviour:
         chineseSimplified: "\u81F3\u5C11\u4E24\u573A\u5BA2\u573A\uFF1B\u81F3\u5C11\u4E00\u573A\u843D\u540E\u72B6\u6001\uFF1B\u6BD4\u5206\u9886\u5148\u65F6\u7684\u884C\u4E3A\u5355\u72EC\u6807\u8BB0\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
   - id: mag.season.36
     coverIndex: 27
     publishedWeek: 36
@@ -13208,6 +13424,8 @@ MonoBehaviour:
         chineseSimplified: "\u542F\u52A8\u5728\u80A9\u540E\u3001\u8DEF\u7EBF\u7ED5\u76F2\u533A\u3001\u4F20\u7403\u6765\u81EA\u5F31\u4FA7\u3002\u96C6\u9526\u91CC\u901A\u5E38\u53EA\u6709\u6700\u540E\u4E00\u9879\u6709\u753B\u9762\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6218\u672F\u8BFE"
@@ -13234,6 +13452,8 @@ MonoBehaviour:
         chineseSimplified: "\u542F\u52A8\u65F6\u673A\u3001\u5BF9\u4F20\u7403\u8005\u89C6\u7EBF\u7684\u5229\u7528\u3001\u63A5\u7403\u524D\u6700\u540E\u4E24\u6B65\u7684\u89D2\u5EA6\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 3
+      illustrationIndex2: 7
     - layout: 1
       kicker:
         chineseSimplified: "\u65B9\u6CD5\u8BBA"
@@ -13260,6 +13480,8 @@ MonoBehaviour:
         chineseSimplified: "\u8FDB\u7403\u524D\u4E8C\u5341\u79D2\u7684\u65E0\u7403\u4EBA\uFF1B\u4E22\u7403\u65F6\u79BB\u7403\u6700\u8FDC\u7684\u4EBA\uFF1B\u5E86\u795D\u65F6\u5BF9\u65B9\u8C01\u5728\u7CFB\u978B\u5E26\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: 8
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13286,6 +13508,8 @@ MonoBehaviour:
         chineseSimplified: "\u6BCF\u6B21\u65E0\u7403\u7275\u5236\u8BB0\u4E00\u7B14\uFF1B\u6BCF\u534A\u573A\u7EDF\u8BA1\u201C\u4E3A\u961F\u53CB\u817E\u51FA\u7684\u5E73\u65B9\u7C73\u201D\u3002\u6570\u5B57\u662F\u4F30\u7684\uFF0C\u8D8B\u52BF\u662F\u771F\u7684\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
   - id: mag.season.39
     coverIndex: 28
     publishedWeek: 39
@@ -13323,6 +13547,8 @@ MonoBehaviour:
         chineseSimplified: "\u8F6C\u4F1A\u8D39\u9884\u7B97\u4E3A\u96F6\uFF1B\u79DF\u501F\u9884\u7B97\u4E5F\u4E3A\u96F6\uFF1B\u201C\u5185\u90E8\u6316\u6F5C\u201D\u56DB\u4E2A\u5B57\u51FA\u73B0\u5728\u6240\u6709\u4F1A\u8BAE\u7EAA\u8981\u91CC\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u751F\u5B58\u6307\u5357"
@@ -13349,6 +13575,8 @@ MonoBehaviour:
         chineseSimplified: "\u6BCF\u4E2A\u4F4D\u7F6E\u81F3\u5C11\u4E00\u573A\u5B8C\u6574\u5F55\u50CF\uFF1B\u201C\u5BA2\u4E32\u8FC7\u201D\u4E0D\u7B49\u4E8E\u201C\u80FD\u80DC\u4EFB\u201D\uFF1B\u95E8\u5C06\u9664\u5916\uFF0C\u522B\u95EE\u4E3A\u4EC0\u4E48\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 1
+      illustrationIndex2: 3
     - layout: 1
       kicker:
         chineseSimplified: "\u8D22\u653F\u9875"
@@ -13375,6 +13603,8 @@ MonoBehaviour:
         chineseSimplified: "\u538B\u4EF7\u5230\u6700\u540E\u4E00\u5468\uFF1B\u7701\u6389\u4F53\u68C0\uFF1B\u8BA9\u4E3B\u6559\u7EC3\u517C\u804C\u53F8\u673A\u2014\u2014\u7B2C\u4E09\u9879\u5DF2\u6709\u4FF1\u4E50\u90E8\u8BD5\u884C\uFF0C\u7ED3\u679C\u4E0D\u4E88\u520A\u767B\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 1
+      illustrationIndex2: 23
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13401,6 +13631,8 @@ MonoBehaviour:
         chineseSimplified: "\u62A5\u544A\u8D85\u51FA\u4E00\u9875\uFF0C\u8BF4\u660E\u4F60\u8FD8\u6CA1\u51B3\u5B9A\u8981\u95EE\u4EC0\u4E48\uFF1B\u8D85\u8FC7\u4E09\u9875\uFF0C\u8BF4\u660E\u4F60\u5728\u5199\u56DE\u5FC6\u5F55\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
   - id: mag.season.42
     coverIndex: 29
     publishedWeek: 42
@@ -13438,6 +13670,8 @@ MonoBehaviour:
         chineseSimplified: "\u8D5B\u7A0B\u8868\u88AB\u5708\u7EA2\uFF1B\u529E\u516C\u5BA4\u79EF\u5206\u8BA1\u7B97\u5668\u5E38\u5F00\uFF1B\u4EBA\u4EBA\u90FD\u8BF4\u201C\u53EA\u770B\u4E0B\u4E00\u573A\u201D\uFF0C\u6CA1\u4EBA\u4FE1\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u4F53\u80FD\u8D26"
@@ -13464,6 +13698,8 @@ MonoBehaviour:
         chineseSimplified: "\u56DE\u8FFD\u5C11\u534A\u6B65\uFF1B\u4F20\u7403\u9009\u62E9\u53D8\u76F4\uFF1B\u8BAD\u7EC3\u540E\u52A0\u7EC3\u7684\u4EBA\u7A81\u7136\u4E0D\u52A0\u7EC3\u4E86\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 6
+      illustrationIndex2: 13
     - layout: 1
       kicker:
         chineseSimplified: "\u5FC3\u7406\u9875"
@@ -13491,6 +13727,8 @@ MonoBehaviour:
         chineseSimplified: "\u201C\u538B\u529B\u5728\u5BF9\u624B\u90A3\u8FB9\u201D=\u538B\u529B\u5728\u6211\u4EEC\u8FD9\u8FB9\uFF1B\u201C\u8DB3\u7403\u4EC0\u4E48\u90FD\u53EF\u80FD\u53D1\u751F\u201D=\u6211\u4EEC\u843D\u540E\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 13
+      illustrationIndex2: 19
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13517,6 +13755,8 @@ MonoBehaviour:
         chineseSimplified: "\u73B0\u5728\u6807\u8BB0\uFF0C\u590F\u5929\u590D\u6838\uFF1B\u522B\u5728\u51B2\u523A\u671F\u62A5\u4EF7\uFF0C\u60C5\u7EEA\u6EA2\u4EF7\u9AD8\u8FBE\u4E09\u6210\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 23
+      illustrationIndex2: -1
   - id: mag.season.45
     coverIndex: 30
     publishedWeek: 45
@@ -13555,6 +13795,8 @@ MonoBehaviour:
         chineseSimplified: "\u7B2C 12 \u81F3 18 \u4EBA\u7684\u51FA\u573A\u72B6\u6001\uFF1B\u4F4D\u7F6E\u8986\u76D6\uFF1B\u6700\u8FD1\u4E00\u573A\u6BD4\u8D5B\u65E5\u671F\u662F\u5426\u8FD8\u5C5E\u4E8E\u672C\u8D5B\u5B63\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u6DF1\u5EA6\u8BFE"
@@ -13581,6 +13823,8 @@ MonoBehaviour:
         chineseSimplified: "\u5185\u90E8\u5BF9\u6297\u8D5B\u5F3A\u5EA6\uFF1B\u4E2A\u4EBA\u8BAD\u7EC3\u8BA1\u5212\uFF1B\u5BB6\u5C5E\u7968\u522B\u8BA2\u5728\u51B3\u8D5B\u524D\u4E00\u5468\u2014\u2014\u6CE8\u610F\u529B\u4E5F\u662F\u5E93\u5B58\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 9
+      illustrationIndex2: 16
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13607,6 +13851,8 @@ MonoBehaviour:
         chineseSimplified: "\u8BAD\u7EC3\u573A\u8FB9\u7EBF\u6BD4\u65B0\u95FB\u53D1\u5E03\u4F1A\u8BDA\u5B9E\uFF1B\u9752\u5E74\u961F\u6BD4\u8D5B\u5F55\u50CF\uFF1B\u961F\u5185\u5BF9\u6297\u7684\u6280\u672F\u7EDF\u8BA1\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u70B9\u7403\u9884\u544A"
@@ -13633,6 +13879,8 @@ MonoBehaviour:
         chineseSimplified: "\u53EF\u67E5\uFF1A\u6251\u6551\u65B9\u5411\u7EDF\u8BA1\u3002\u4E0D\u53EF\u67E5\uFF1A\u201C\u4ED6\u4ECE\u5C0F\u5C31\u6251\u70B9\u201D\u3002\u5B58\u7591\uFF1A\u4EFB\u4F55\u5E26\u201C\u4F20\u8BF4\u201D\u4E8C\u5B57\u7684\u6750\u6599\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 17
+      illustrationIndex2: 11
   - id: mag.season.48
     coverIndex: 31
     publishedWeek: 48
@@ -13670,6 +13918,8 @@ MonoBehaviour:
         chineseSimplified: "\u51B7\u9759=\u9886\u5148\uFF1B\u5947\u8FF9=\u843D\u540E\uFF1B\u65B0\u7403\u8863=\u65E2\u6CA1\u9886\u5148\u4E5F\u6CA1\u843D\u540E\uFF0C\u53EA\u5269\u5E93\u5B58\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u51B7\u9759\u5B66"
@@ -13696,6 +13946,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E13\u8BBF\u5A49\u62D2\uFF1B\u793E\u5A92\u6258\u7BA1\uFF1B\u5408\u540C\u8C08\u5224\u51BB\u7ED3\uFF1B\u201C\u68A6\u5E7B\u8D5B\u5B63\u201D\u56DB\u4E2A\u5B57\u7981\u6B62\u4F7F\u7528\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 12
+      illustrationIndex2: 9
     - layout: 1
       kicker:
         chineseSimplified: "\u5947\u8FF9\u5B66"
@@ -13722,6 +13974,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E00\u4E2A\u65E9\u8FDB\u7403\uFF1B\u4E00\u5F20\u672A\u51FA\u7684\u6362\u4EBA\u724C\uFF1B\u4E00\u4F4D\u5FD8\u4E86\u81EA\u5DF1\u8BE5\u7D27\u5F20\u7684\u5E74\u8F7B\u4EBA\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 4
+      illustrationIndex2: 19
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13748,6 +14002,8 @@ MonoBehaviour:
         chineseSimplified: "\u51B3\u8D5B\u8868\u73B0\u8FDB\u6863\u6848\uFF0C\u4F46\u4E0D\u8BB8\u72EC\u5360\u6863\u6848\uFF1B\u5956\u676F\u5408\u5F71\u4E0D\u4EE3\u8868\u7EED\u7EA6\u7406\u7531\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
   - id: mag.season.49
     coverIndex: 32
     publishedWeek: 49
@@ -13785,6 +14041,8 @@ MonoBehaviour:
         chineseSimplified: "\u7761\u7720\u4F18\u5148\uFF1B\u4E0D\u770B\u5931\u8BEF\u96C6\u9526\uFF1B\u4E0D\u4E0E\u70B9\u7403\u624B\u5BF9\u89C6\u8D85\u8FC7\u4E09\u79D2\uFF1B\u624B\u5957\u591A\u5907\u4E00\u526F\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u5341\u4E8C\u7801"
@@ -13811,6 +14069,8 @@ MonoBehaviour:
         chineseSimplified: "\u52A9\u8DD1\u8282\u594F\u53D8\u5316\u3001\u652F\u6491\u811A\u65B9\u5411\u3001\u773C\u795E\u505C\u7559\u3002\u4EE5\u53CA\uFF1A\u7559\u610F\u8C01\u7A81\u7136\u7CFB\u8D77\u4E86\u978B\u5E26\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 11
+      illustrationIndex2: 17
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u65B9\u6CD5"
@@ -13838,6 +14098,8 @@ MonoBehaviour:
           85 \u5206\u949F\u9886\u5148\u65F6\u7684\u51FA\u51FB\u9009\u62E9\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 17
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u95E8\u5C06\u6587\u5316"
@@ -13864,6 +14126,8 @@ MonoBehaviour:
         chineseSimplified: "\u4E0D\u8BC4\u4EF7\u5BF9\u65B9\u70B9\u7403\u624B\u5FC3\u7406\uFF1B\u4E0D\u627F\u8BFA\u96F6\u5C01\uFF1B\u4E0D\u5728\u5468\u4E09\u8C08\u8BBA\u547D\u8FD0\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 17
+      illustrationIndex2: 8
   - id: mag.season.51
     coverIndex: 33
     publishedWeek: 51
@@ -13901,6 +14165,8 @@ MonoBehaviour:
         chineseSimplified: "\u91D1\u4FDD\u6E29\u676F\u5956\u3001\u6700\u4F73\u7EDF\u8BA1\u53E3\u5F84\u5956\u3001\u5E74\u5EA6\u75C5\u5047\u5956\u3001\u6700\u4F73\u906E\u6321\u5956\u3001\u5E74\u5EA6\u6587\u4E66\u5956\uFF0C\u4EE5\u53CA\u4E94\u4E2A\u6B63\u7ECF\u5956\u9879\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: -1
+      illustrationIndex2: -1
     - layout: 1
       kicker:
         chineseSimplified: "\u9881\u5956\u8BCD\xB7\u4E0A"
@@ -13927,6 +14193,8 @@ MonoBehaviour:
         chineseSimplified: "\u4FDD\u6E29\u676F\uFF1A\u201C\u6C34\u8FD8\u662F\u6E29\u7684\u3002\u201D\u4E09\u660E\u6CBB\uFF1A\u7F3A\u5E2D\uFF0C\u7531\u5BB6\u5C5E\u4EE3\u9886\u3002\u4F20\u771F\u673A\uFF1A\u7EF4\u4FEE\u4E2D\uFF0C\u65E0\u6CD5\u5230\u573A\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 12
+      illustrationIndex2: 19
     - layout: 1
       kicker:
         chineseSimplified: "\u9881\u5956\u8BCD\xB7\u4E0B"
@@ -13953,6 +14221,8 @@ MonoBehaviour:
         chineseSimplified: "\u201C\u54EA\u91CC\u7F3A\u4EBA\u8865\u54EA\u91CC\u201D\u5148\u751F\u3001\u9A6C\u62C9\u677E\u578B\u4E2D\u573A\uFF0C\u4EE5\u53CA\u6240\u6709\u5728\u4EB2\u5C5E\u63A8\u8350\u680F\u586B\u8868\u7684\u4EBA\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 12
+      illustrationIndex2: 8
     - layout: 2
       kicker:
         chineseSimplified: "\u7403\u63A2\u81EA\u67E5"
@@ -13979,5 +14249,8 @@ MonoBehaviour:
         chineseSimplified: "\u65B0\u8D5B\u5B63\u6E05\u5355\uFF1A\u65B0\u7684\u6570\u5B57\u3001\u65B0\u7684\u676F\u5B50\u3001\u65B0\u7684\u4F20\u771F\u673A\u3002\u672C\u520A\u7F16\u8F91\u90E8\u5C06\u6301\u7EED\u7F3A\u89C9\u3002"
         english: 
       relatedPlayerId: 
+      illustrationIndex: 7
+      illustrationIndex2: -1
   playerPortraitAtlas: {fileID: 2800000, guid: 54971507a216ca94e9243dec33f6306b, type: 3}
   magazineCoverAtlas: {fileID: 2800000, guid: 4460e017038d7484897863269a61bf84, type: 3}
+  magazineIllustrationAtlas: {fileID: 2800000, guid: f2052dae2e804b54aaff98b9975823f0, type: 3}

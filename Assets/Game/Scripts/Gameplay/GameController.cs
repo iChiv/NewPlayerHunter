@@ -32,6 +32,15 @@ namespace NewPlayerHunter.Gameplay
         private const int PlayerAtlasRows = 8;
         private const int CoverAtlasColumns = 6;
         private const int CoverAtlasRows = 6;
+        private const int IllustrationAtlasColumns = 6;
+        private const int IllustrationAtlasRows = 6;
+        private static readonly string[] IllustrationCaptions =
+        {
+            "转会窗", "合同与佣金", "伤病室", "战术板", "夜场", "酒馆",
+            "训练场", "球探席", "编辑部", "更衣室", "装备静物", "哨与牌",
+            "奖杯", "雨战", "金元足球", "街头青训", "老将更衣柜", "门将手套",
+            "截止日传真", "看台", "冬窗", "体检室", "经纪人来电", "数据板"
+        };
         private static readonly DateTime SeasonStartDate = new DateTime(2026, 7, 6);
 
         private static readonly Color PanelLightColor =
@@ -125,6 +134,9 @@ namespace NewPlayerHunter.Gameplay
         private readonly Dictionary<Transform, Coroutine> _punchCoroutines =
             new Dictionary<Transform, Coroutine>();
         private RawImage _coverImage;
+        private RectTransform _featureIllustration;
+        private RectTransform _featureIllustration2;
+        private RectTransform _scoutReportIllustration;
         private Button _informationTabButton;
         private Button _assignmentTabButton;
         private Button _mailFilterButton;
@@ -662,6 +674,12 @@ namespace NewPlayerHunter.Gameplay
                 "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/ScoutReportLayout");
             _coverImage = RequireSceneComponent<RawImage>(
                 "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/CoverLayout/CoverImage/Image");
+            _featureIllustration = RequireSceneComponent<RectTransform>(
+                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/FeatureLayout/Illustration");
+            _featureIllustration2 = RequireSceneComponent<RectTransform>(
+                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/FeatureLayout/Illustration2");
+            _scoutReportIllustration = RequireSceneComponent<RectTransform>(
+                "GameCanvas/Background/InformationWorkspace/MagazineBrowser/PagePanel/ScoutReportLayout/Illustration");
             _eventLogText = RequireSceneComponent<TextMeshProUGUI>(
                 "GameCanvas/Background/Footer/EventLog");
             _statusText = RequireSceneComponent<TextMeshProUGUI>(
@@ -1673,7 +1691,171 @@ namespace NewPlayerHunter.Gameplay
                 SetText(layout, "PullQuote", Resolve(page.pullQuote));
                 SetText(layout, "SidebarTitle", Resolve(page.sidebarTitle));
                 SetText(layout, "SidebarBody", Resolve(page.sidebarBody));
+                if (page.layout == MagazinePageLayout.Feature)
+                {
+                    BindFeatureFigures(layout, page);
+                }
+                else
+                {
+                    BindScoutReportFigure(layout, page);
+                }
             }
+        }
+
+        private void BindFeatureFigures(RectTransform layout, MagazinePageContent page)
+        {
+            var atlas = contentCatalog.MagazineIllustrationAtlas;
+            _featureIllustration.gameObject.SetActive(false);
+            _featureIllustration2.gameObject.SetActive(false);
+            if (page.illustrationIndex < 0 || atlas == null)
+            {
+                return;
+            }
+
+            Canvas.ForceUpdateCanvases();
+            var left = layout.Find("BodyLeft").GetComponent<TextMeshProUGUI>();
+            var right = layout.Find("BodyRight").GetComponent<TextMeshProUGUI>();
+            var layoutRect = layout.rect;
+            if (layoutRect.height <= 0f || layoutRect.width <= 0f)
+            {
+                return;
+            }
+
+            const float margin = 0.03f;
+            const float bottom = 0.02f;
+            var leftBottom = TextBottom(left, layoutRect.height);
+            var rightBottom = TextBottom(right, layoutRect.height);
+            if (page.illustrationIndex2 >= 0)
+            {
+                PlaceFigure(
+                    _featureIllustration, left.rectTransform,
+                    leftBottom - margin, bottom, page.illustrationIndex);
+                PlaceFigure(
+                    _featureIllustration2, right.rectTransform,
+                    rightBottom - margin, bottom, page.illustrationIndex2);
+                return;
+            }
+
+            var top = Mathf.Min(leftBottom, rightBottom) - margin;
+            if (top - bottom < 0.12f)
+            {
+                return;
+            }
+
+            SetFigureRect(
+                _featureIllustration,
+                left.rectTransform.anchorMin.x, bottom,
+                right.rectTransform.anchorMax.x, top);
+            ShowFigure(_featureIllustration, page.illustrationIndex);
+        }
+
+        private void BindScoutReportFigure(RectTransform layout, MagazinePageContent page)
+        {
+            var atlas = contentCatalog.MagazineIllustrationAtlas;
+            _scoutReportIllustration.gameObject.SetActive(false);
+            if (page.illustrationIndex < 0 || atlas == null)
+            {
+                return;
+            }
+
+            Canvas.ForceUpdateCanvases();
+            var right = layout.Find("BodyRight").GetComponent<TextMeshProUGUI>();
+            var layoutRect = layout.rect;
+            if (layoutRect.height <= 0f || layoutRect.width <= 0f)
+            {
+                return;
+            }
+
+            var top = TextBottom(right, layoutRect.height) - 0.03f;
+            const float bottom = 0.32f;
+            if (top - bottom < 0.12f)
+            {
+                return;
+            }
+
+            SetFigureRect(
+                _scoutReportIllustration,
+                right.rectTransform.anchorMin.x, bottom,
+                right.rectTransform.anchorMax.x, top);
+            ShowFigure(_scoutReportIllustration, page.illustrationIndex);
+        }
+
+        private void PlaceFigure(
+            RectTransform figure, RectTransform column, float top, float bottom, int index)
+        {
+            if (top - bottom < 0.12f)
+            {
+                return;
+            }
+
+            SetFigureRect(figure, column.anchorMin.x, bottom, column.anchorMax.x, top);
+            ShowFigure(figure, index);
+        }
+
+        private static float TextBottom(TextMeshProUGUI text, float layoutHeight)
+        {
+            return text.rectTransform.anchorMax.y - text.preferredHeight / layoutHeight;
+        }
+
+        private static void SetFigureRect(
+            RectTransform figure, float minX, float minY, float maxX, float maxY)
+        {
+            figure.anchorMin = new Vector2(minX, minY);
+            figure.anchorMax = new Vector2(maxX, maxY);
+            figure.offsetMin = Vector2.zero;
+            figure.offsetMax = Vector2.zero;
+        }
+
+        private void ShowFigure(RectTransform figure, int index)
+        {
+            figure.gameObject.SetActive(true);
+            ApplyAtlasImageCropped(
+                figure.Find("Frame/Image").GetComponent<RawImage>(),
+                contentCatalog.MagazineIllustrationAtlas,
+                index, IllustrationAtlasColumns, IllustrationAtlasRows);
+            var caption = IllustrationCaptions[
+                Mathf.Clamp(index, 0, IllustrationCaptions.Length - 1)];
+            figure.Find("Caption").GetComponent<TextMeshProUGUI>().text = "插图 · " + caption;
+        }
+
+        private static void ApplyAtlasImageCropped(
+            RawImage image, Texture texture, int index, int columns, int rows)
+        {
+            image.texture = texture;
+            if (texture == null)
+            {
+                image.color = new Color(0.18f, 0.22f, 0.25f, 1f);
+                image.uvRect = new Rect(0f, 0f, 1f, 1f);
+                return;
+            }
+
+            image.color = Color.white;
+            var clamped = Mathf.Clamp(index, 0, (columns * rows) - 1);
+            var column = clamped % columns;
+            var rowFromTop = clamped / columns;
+            var cellWidth = 1f / columns;
+            var cellHeight = 1f / rows;
+            var inset = cellWidth * 0.02f;
+            var x = (column * cellWidth) + inset;
+            var w = cellWidth - (inset * 2f);
+            var yBottom = 1f - ((rowFromTop + 1) * cellHeight) + inset;
+            var h = cellHeight - (inset * 2f);
+            var rect = image.rectTransform.rect;
+            var aspect = rect.height > 0.01f ? rect.width / rect.height : 1.5f;
+            if (aspect > 1f)
+            {
+                var visible = h / aspect;
+                yBottom += (h - visible) * 0.5f;
+                h = visible;
+            }
+            else if (aspect < 1f)
+            {
+                var visible = w * aspect;
+                x += (w - visible) * 0.5f;
+                w = visible;
+            }
+
+            image.uvRect = new Rect(x, yBottom, w, h);
         }
 
         private void EnsureSelectedIssue()

@@ -24,7 +24,9 @@
         "pullQuote": "应急招聘签的是下周，不是下赛季。",
         "sidebarTitle": "来信摘要",
         "sidebarBody": "黑麦酒馆：前锋一名，能醒着上场即可。法罗灯塔：后卫一名，要求关键时刻心率正常。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "transfer_window",
+        "illustration2": "pub"
       },
       {
         "layout": "ScoutReport",
@@ -36,7 +38,8 @@
         "pullQuote": "速度能过他，传球未必找得到他。",
         "sidebarTitle": "样本说明",
         "sidebarBody": "基于三季公开录像与两场现场。经纪人集锦已按本刊规矩丢弃。与首期“41球”同理：数字先找出处，再谈感情。",
-        "relatedPlayerId": "player.mendes.kyle"
+        "relatedPlayerId": "player.mendes.kyle",
+        "illustration": "boots_ball"
       },
       {
         "layout": "ScoutReport",
@@ -48,7 +51,8 @@
         "pullQuote": "他不是天才，他只是没放弃，这更贵。",
         "sidebarTitle": "核对口径",
         "sidebarBody": "“经验丰富”请折算成最近两季出场分钟再阅读。保级队来信要求“关键时刻站出来”，他的样本恰好够。",
-        "relatedPlayerId": "player.ferreira.antonio"
+        "relatedPlayerId": "player.ferreira.antonio",
+        "illustration": "veteran"
       }
     ]
   },
@@ -77,7 +81,9 @@
         "pullQuote": "遮住名字看数据，遮住数据看名字，两遍都要看。",
         "sidebarTitle": "名词解释",
         "sidebarBody": "名气资产：按热搜计价，按分钟折旧。家谱优势：尚未被任何体测项目收录。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "media",
+        "illustration2": "gold_desert"
       },
       {
         "layout": "ScoutReport",
@@ -89,7 +95,8 @@
         "pullQuote": "天赋不遗传，训练量更不遗传。",
         "sidebarTitle": "证据等级",
         "sidebarBody": "自述：家族遗传。佐证：邻居。可核实材料：青年联赛片段若干。本刊评级：按传闻处理。",
-        "relatedPlayerId": "player.rosales.diego"
+        "relatedPlayerId": "player.rosales.diego",
+        "illustration": "gold_desert"
       },
       {
         "layout": "ScoutReport",
@@ -101,7 +108,8 @@
         "pullQuote": "零封先问防线，再问门将——他两项都经得起问。",
         "sidebarTitle": "口径核对",
         "sidebarBody": "零封第一：已核。样本：完整赛季。参照：格斯“第五次扑点”那年的抽查口径。结论：真实，可买，要带说明书。",
-        "relatedPlayerId": "player.mora.victor"
+        "relatedPlayerId": "player.mora.victor",
+        "illustration": "goalkeeper"
       }
     ]
   },
@@ -130,7 +138,9 @@
         "pullQuote": "保温杯里的东西不重要，重要的是杯主还在场上。",
         "sidebarTitle": "神话分级",
         "sidebarBody": "一级：轶事型（保温杯）。二级：数据型（马拉松名次）。三级：绰号型（坦克、永动机）。采购前请确认等级。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "training",
+        "illustration2": "medical"
       },
       {
         "layout": "ScoutReport",
@@ -142,7 +152,8 @@
         "pullQuote": "坦克没有倒挡，这是优点，也是报价的一部分。",
         "sidebarTitle": "样本说明",
         "sidebarBody": "证词三源互证，集锦另存。“时速200公里”系修辞，本刊实测栏目拒绝为形容词出具证明。",
-        "relatedPlayerId": "player.costa.bruno"
+        "relatedPlayerId": "player.costa.bruno",
+        "illustration": "tactics_board"
       },
       {
         "layout": "ScoutReport",
@@ -154,7 +165,8 @@
         "pullQuote": "他能跑九十分钟，问题是你让他跑向哪儿。",
         "sidebarTitle": "匹配提示",
         "sidebarBody": "工业联本周问“他容易受伤吗”，这类球员就是最好的广告。需求与供给罕见对齐，价格仍建议慢慢谈。",
-        "relatedPlayerId": "player.silva.marco"
+        "relatedPlayerId": "player.silva.marco",
+        "illustration": "training"
       }
     ]
   },
@@ -183,7 +195,9 @@
         "pullQuote": "情怀负责到场，体检报告负责上场。",
         "sidebarTitle": "本周风向",
         "sidebarBody": "橙色球队：寻组织型门将。东亚方向：寻“90分钟后还能跑”的前锋。招聘启事越来越像体测通知。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "goalkeeper",
+        "illustration2": "stadium_night"
       },
       {
         "layout": "ScoutReport",
@@ -195,7 +209,8 @@
         "pullQuote": "他的脚解决了你的出球，谁来解决你的扑救？",
         "sidebarTitle": "适配检测",
         "sidebarBody": "先答三问再买：你的中卫能顶到中线吗？你的教练接受门将传球失误吗？你的替补门将是什么类型？",
-        "relatedPlayerId": "player.onaku.andre"
+        "relatedPlayerId": "player.onaku.andre",
+        "illustration": "goalkeeper"
       },
       {
         "layout": "ScoutReport",
@@ -207,7 +222,8 @@
         "pullQuote": "别为记忆付顶薪，为分钟付工资。",
         "sidebarTitle": "核实进度",
         "sidebarBody": "技术：已核，属实。身体：待核，关键项。心态：自述“还想踢”，建议在合同里量化这个“想”。",
-        "relatedPlayerId": "player.rivas.j"
+        "relatedPlayerId": "player.rivas.j",
+        "illustration": "veteran"
       }
     ]
   },
@@ -236,7 +252,9 @@
         "pullQuote": "上限让球迷买票，下限让教练睡觉。",
         "sidebarTitle": "汇率说明",
         "sidebarBody": "青年队高光：按对手年龄折算。低级别全勤：按联赛强度折算。领导力：暂无公式，按嗓门实测。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "youth",
+        "illustration2": "veteran"
       },
       {
         "layout": "ScoutReport",
@@ -248,7 +266,8 @@
         "pullQuote": "天赋是真的，日历也是真的。",
         "sidebarTitle": "样本说明",
         "sidebarBody": "公开画面：青年队比赛，可靠性较高。缺失项：成年联赛样本，零场。报价请按期货逻辑，不按现货。",
-        "relatedPlayerId": "player.vieira.lucas"
+        "relatedPlayerId": "player.vieira.lucas",
+        "illustration": "youth"
       },
       {
         "layout": "ScoutReport",
@@ -260,7 +279,8 @@
         "pullQuote": "他跑不动的距离，用喊话补上。",
         "sidebarTitle": "使用建议",
         "sidebarBody": "适用：领先后的最后二十分钟、更衣室、客场雨战。不适用：对攻、冲刺反击、任何需要回追三十米的时刻。",
-        "relatedPlayerId": "player.ferreira.jose"
+        "relatedPlayerId": "player.ferreira.jose",
+        "illustration": "veteran"
       }
     ]
   },
@@ -289,7 +309,9 @@
         "pullQuote": "把波动拆开看，有的是风险，有的是折扣。",
         "sidebarTitle": "三种波动",
         "sidebarBody": "环境型：换队可解，放心买。随机型：无法预测，按均价买。伪波动：样本被切碎，其实是赚了。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "data_chart",
+        "illustration2": "contract_money"
       },
       {
         "layout": "ScoutReport",
@@ -301,7 +323,8 @@
         "pullQuote": "他不追球，他去未来等球。",
         "sidebarTitle": "核查清单",
         "sidebarBody": "金靴：已核。所在级别：第四级。更高级别样本：无。结论：产出真实，成色请按联赛级别折算。",
-        "relatedPlayerId": "player.ortega.carlos"
+        "relatedPlayerId": "player.ortega.carlos",
+        "illustration": "stadium_night"
       },
       {
         "layout": "ScoutReport",
@@ -313,7 +336,8 @@
         "pullQuote": "签闪电的正确姿势：按灯泡的寿命谈价。",
         "sidebarTitle": "背景调查",
         "sidebarBody": "九队履历：已核。离队原因：九个版本，互不重合。建议面谈时直接问他：第十支球队想听什么。",
-        "relatedPlayerId": "player.herrera.luis"
+        "relatedPlayerId": "player.herrera.luis",
+        "illustration": "transfer_window"
       }
     ]
   },
@@ -342,7 +366,9 @@
         "pullQuote": "一张是跑出来的肺，一张是扛出来的背。",
         "sidebarTitle": "体检提示",
         "sidebarBody": "第二人生球员的体检要加两页：足球前的职业史、足球外的运动史。损耗和天赋可能来自同一个地方。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "training",
+        "illustration2": "veteran"
       },
       {
         "layout": "ScoutReport",
@@ -354,7 +380,8 @@
         "pullQuote": "马拉松不考传控，但职业足球考。",
         "sidebarTitle": "样本说明",
         "sidebarBody": "马拉松名次：公开可查，已核。半职业联赛画面：若干，强度有限。结论：肺是真的，其余按半成品计价。",
-        "relatedPlayerId": "player.cooper.liam"
+        "relatedPlayerId": "player.cooper.liam",
+        "illustration": "training"
       },
       {
         "layout": "ScoutReport",
@@ -366,7 +393,8 @@
         "pullQuote": "他不惊艳任何人，也不背叛任何人。",
         "sidebarTitle": "适配提示",
         "sidebarBody": "适合：铸铁队本周“干脏活”岗位。不适合：要求后卫第一脚出球穿透两条线的体系。说明书随人附赠。",
-        "relatedPlayerId": "player.turner.jack"
+        "relatedPlayerId": "player.turner.jack",
+        "illustration": "tactics_board"
       }
     ]
   },
@@ -395,7 +423,9 @@
         "pullQuote": "市场最大的偏见，是把别人的结论当自己的考察。",
         "sidebarTitle": "重审清单",
         "sidebarBody": "前任放弃他的理由是什么？该理由在你的体系里还成立吗？有没有数据反证？三问之后，再谈价格。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "tactics_board",
+        "illustration2": "referee"
       },
       {
         "layout": "ScoutReport",
@@ -407,7 +437,8 @@
         "pullQuote": "他不创造机会，也不创造灾难。",
         "sidebarTitle": "信息核实",
         "sidebarBody": "教练评语“很少让别人创造机会”未经独立核实，但与比赛画面对得上。证据等级：可信，待强度复测。",
-        "relatedPlayerId": "player.bianchi.franco"
+        "relatedPlayerId": "player.bianchi.franco",
+        "illustration": "tactics_board"
       },
       {
         "layout": "ScoutReport",
@@ -419,7 +450,8 @@
         "pullQuote": "身高是体检表给的，出击榜是他自己挣的。",
         "sidebarTitle": "折扣系数",
         "sidebarBody": "第三级别数据按惯例打折，但“出击成功率第一”打折后仍是第一。建议实测：连续三天，只练传中。",
-        "relatedPlayerId": "player.navarro.miguel"
+        "relatedPlayerId": "player.navarro.miguel",
+        "illustration": "goalkeeper"
       }
     ]
   },
@@ -448,7 +480,9 @@
         "pullQuote": "当年的41球教会我们：大数字都要配上出处。",
         "sidebarTitle": "本刊评级",
         "sidebarBody": "粉丝四百万：真实，与足球无关。助攻很多：待核。队友喜欢：与转会无关，与食堂有关。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "media",
+        "illustration2": "agent_phone"
       },
       {
         "layout": "ScoutReport",
@@ -460,7 +494,8 @@
         "pullQuote": "他能卖出门票，问题是谁来赢下比赛。",
         "sidebarTitle": "证据等级",
         "sidebarBody": "账号数据：平台可查，已核。比赛样本：无。证据等级：未验证。建议流程：先公开试训，再开发布会。",
-        "relatedPlayerId": "player.hayes.robert"
+        "relatedPlayerId": "player.hayes.robert",
+        "illustration": "media"
       },
       {
         "layout": "ScoutReport",
@@ -472,7 +507,8 @@
         "pullQuote": "人缘帮你进更衣室，防守让你留在名单里。",
         "sidebarTitle": "成本测算",
         "sidebarBody": "签约成本：低。验证成本：两场公开试训。潜在收益：一位会传中的轮换。潜在风险：一条开放的边路走廊。",
-        "relatedPlayerId": "player.moreira.andre.amateur"
+        "relatedPlayerId": "player.moreira.andre.amateur",
+        "illustration": "pub"
       }
     ]
   },
@@ -501,7 +537,9 @@
         "pullQuote": "级别之间的汇率，只有上场才结算。",
         "sidebarTitle": "本周联动",
         "sidebarBody": "未来之星俱乐部在找二十岁上下、值得长期培养的中场。本期两位都不在该货架，但换算表通用。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "stadium_night",
+        "illustration2": "boots_ball"
       },
       {
         "layout": "ScoutReport",
@@ -513,7 +551,8 @@
         "pullQuote": "魔法是真的，施法范围待测。",
         "sidebarTitle": "实测方案",
         "sidebarBody": "第一周：体能基线。第二周：对抗赛。第三周：连续两场。三项达标再进大名单，顺序别乱。",
-        "relatedPlayerId": "player.pereira.diogo"
+        "relatedPlayerId": "player.pereira.diogo",
+        "illustration": "boots_ball"
       },
       {
         "layout": "ScoutReport",
@@ -525,7 +564,8 @@
         "pullQuote": "他不许诺惊喜，他只重复到账。",
         "sidebarTitle": "口径核对",
         "sidebarBody": "五季上双：逐季核对，属实。点球占比：正常区间。对手强度：西3标准。结论：数字干净，折算后可下单。",
-        "relatedPlayerId": "player.fuentes.carlos"
+        "relatedPlayerId": "player.fuentes.carlos",
+        "illustration": "data_chart"
       }
     ]
   },
@@ -554,7 +594,9 @@
         "pullQuote": "谜题留给档案室，跑动留给计步器。",
         "sidebarTitle": "尽调清单",
         "sidebarBody": "注册文件：合规，已查。早年记录：缺失。身体报告：需授权。结论：可签，但请为“谜”留一个条款。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "medical",
+        "illustration2": "agent_phone"
       },
       {
         "layout": "ScoutReport",
@@ -566,7 +608,8 @@
         "pullQuote": "他踢了多久不重要，还能踢多久才重要——而这恰恰不知道。",
         "sidebarTitle": "证据等级",
         "sidebarBody": "自述：“比你们知道的更久”。佐证：队友转述。档案：合规但空白。评级：中等，合同年限请自行加保险。",
-        "relatedPlayerId": "player.hassan.ali"
+        "relatedPlayerId": "player.hassan.ali",
+        "illustration": "stadium_night"
       },
       {
         "layout": "ScoutReport",
@@ -578,7 +621,8 @@
         "pullQuote": "他跑的不是距离，是对手的处理时间。",
         "sidebarTitle": "样本说明",
         "sidebarBody": "18公里：追踪数据，已核。覆盖赛季：最近两季。待查项：密集赛程下的强度曲线。复测窗口：冬歇前。",
-        "relatedPlayerId": "player.reed.thomas"
+        "relatedPlayerId": "player.reed.thomas",
+        "illustration": "training"
       }
     ]
   },
@@ -607,7 +651,9 @@
         "pullQuote": "钟表不惊艳，但它从不迟到。",
         "sidebarTitle": "核算公式",
         "sidebarBody": "缺席成本＝替补溢价＋应急预案＋更衣室焦虑。全能折现＝位置数×单位置均价÷体能上限。请自行代入。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "data_chart",
+        "illustration2": "training"
       },
       {
         "layout": "ScoutReport",
@@ -619,7 +665,8 @@
         "pullQuote": "买他不为惊喜，为不用想。",
         "sidebarTitle": "核查记录",
         "sidebarBody": "九季出场：逐季核对，属实。体检：异常健康，原文如此。缺席历史：近乎空白。结论：可签，年限从短。",
-        "relatedPlayerId": "player.faria.luis"
+        "relatedPlayerId": "player.faria.luis",
+        "illustration": "data_chart"
       },
       {
         "layout": "ScoutReport",
@@ -631,7 +678,8 @@
         "pullQuote": "他能填任何坑，前提是你别把坑挖太大。",
         "sidebarTitle": "验收方法",
         "sidebarBody": "逐位置核对分钟数与对手级别，“都能踢”按最弱一环定价。友情提示：门将位置不在其列，别被热情冲昏头。",
-        "relatedPlayerId": "player.fuentes.marcus"
+        "relatedPlayerId": "player.fuentes.marcus",
+        "illustration": "contract_money"
       }
     ]
   },
@@ -660,7 +708,9 @@
         "pullQuote": "替补的价值平时看不见，看台看得最清。",
         "sidebarTitle": "成本公式",
         "sidebarBody": "第二门将价值＝主力缺阵概率×赛季权重。黄牌成本＝停赛场次×对手强度−侵略性收益。滚动核算。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "goalkeeper",
+        "illustration2": "dressing_room"
       },
       {
         "layout": "ScoutReport",
@@ -672,7 +722,8 @@
         "pullQuote": "他指挥了整条防线，除了自己的出场时间。",
         "sidebarTitle": "适配说明",
         "sidebarBody": "适合：有主力门将、要竞争与保险的球队。不适合：需要他立刻场场首发的球队。预热两场，然后放心。",
-        "relatedPlayerId": "player.harris.owen"
+        "relatedPlayerId": "player.harris.owen",
+        "illustration": "veteran"
       },
       {
         "layout": "ScoutReport",
@@ -684,7 +735,8 @@
         "pullQuote": "他的犯规都懂战术，停赛也懂——专挑关键场次。",
         "sidebarTitle": "风险评估",
         "sidebarBody": "黄牌纪录：连续两季，已核。禁赛场次：可量化。裁判印象分：不可量化但真实存在。预算请预留替补方案。",
-        "relatedPlayerId": "player.cardoso.rui"
+        "relatedPlayerId": "player.cardoso.rui",
+        "illustration": "referee"
       }
     ]
   },
@@ -713,7 +765,9 @@
         "pullQuote": "过人失败九次不可怕，可怕的是位置不对。",
         "sidebarTitle": "核查清单",
         "sidebarBody": "拳击冠军：青少年重量级，已核。过人成功率：一成，属实。关键变量：尝试位置分布图，签约前务必索取。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "referee",
+        "illustration2": "stadium_night"
       },
       {
         "layout": "ScoutReport",
@@ -725,7 +779,8 @@
         "pullQuote": "他在拳台学会了不怕，在禁区学会了不抱。",
         "sidebarTitle": "体检提示",
         "sidebarBody": "重点核对：手部、肋部、鼻梁。拳击旧伤不是减分项，是知情项。冠军证书：青少年重量级，已核。",
-        "relatedPlayerId": "player.kelly.ryan"
+        "relatedPlayerId": "player.kelly.ryan",
+        "illustration": "stadium_night"
       },
       {
         "layout": "ScoutReport",
@@ -737,7 +792,8 @@
         "pullQuote": "让他下注可以，筹码必须是他自己的奖金。",
         "sidebarTitle": "尽调重点",
         "sidebarBody": "场上数据：尝试分布图必查。场下背景：“赌性”边界必查。前者定价格，后者定能不能谈。",
-        "relatedPlayerId": "player.mendes.ricardo"
+        "relatedPlayerId": "player.mendes.ricardo",
+        "illustration": "data_chart"
       }
     ]
   }

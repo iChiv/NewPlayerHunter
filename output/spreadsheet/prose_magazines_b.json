@@ -24,7 +24,9 @@
         "pullQuote": "“末轮最重要的技术动作，是把比分牌看住。”",
         "sidebarTitle": "末轮症状",
         "sidebarBody": "同时偷看另一块场地的比分；第 80 分钟全员心算净胜球；赛后发布会准备两套稿子。",
-        "relatedPlayerId": "player.grant.thomas"
+        "relatedPlayerId": "player.grant.thomas",
+        "illustration": "data_chart",
+        "illustration2": "tactics_board"
       },
       {
         "layout": "ScoutReport",
@@ -36,7 +38,8 @@
         "pullQuote": "“给他空间是你的失误，不给他空间是你的工作。”",
         "sidebarTitle": "适配条件",
         "sidebarBody": "反击体系、边路纵深、有中锋牵制。避免：全场围攻却无人能拉开宽度的阵地战。",
-        "relatedPlayerId": "player.carvalho.andre"
+        "relatedPlayerId": "player.carvalho.andre",
+        "illustration": "boots_ball"
       },
       {
         "layout": "ScoutReport",
@@ -48,7 +51,8 @@
         "pullQuote": "“队长袖标不能回追，但能让别人提前回追。”",
         "sidebarTitle": "风险",
         "sidebarBody": "高位防线勿试；连续客场需轮换；速度评价请以今年录像为准，勿引用回忆录。",
-        "relatedPlayerId": "player.grant.thomas"
+        "relatedPlayerId": "player.grant.thomas",
+        "illustration": "veteran"
       }
     ]
   },
@@ -77,7 +81,9 @@
         "pullQuote": "“全勤是一种能力，前提是打卡机没让别人代按。”",
         "sidebarTitle": "核查顺序",
         "sidebarBody": "出场记录→伤病记录→训练出勤→推荐人与球员的确切亲属关系。",
-        "relatedPlayerId": "player.novak.filip"
+        "relatedPlayerId": "player.novak.filip",
+        "illustration": "injury",
+        "illustration2": "medical"
       },
       {
         "layout": "ScoutReport",
@@ -89,7 +95,8 @@
         "pullQuote": "“他的录像像钟表说明书——准确，但请确认你要的是钟表。”",
         "sidebarTitle": "观察重点",
         "sidebarBody": "接球前观察次数；由守转攻第一脚方向；被贴身后的处理。",
-        "relatedPlayerId": "player.novak.filip"
+        "relatedPlayerId": "player.novak.filip",
+        "illustration": "data_chart"
       },
       {
         "layout": "ScoutReport",
@@ -101,7 +108,8 @@
         "pullQuote": "“每个天才都曾是某人的侄子，但不是每个侄子都是天才。”",
         "sidebarTitle": "建议",
         "sidebarBody": "先看他踢球，再吃烤肉。两个场合请安排在不同日期。",
-        "relatedPlayerId": "player.moreira.andre.cousin"
+        "relatedPlayerId": "player.moreira.andre.cousin",
+        "illustration": "agent_phone"
       }
     ]
   },
@@ -130,7 +138,8 @@
         "pullQuote": "“手术刀负责切开防线，管理层负责别让自己先失血。”",
         "sidebarTitle": "核查路径",
         "sidebarBody": "训练出勤记录、教练访谈、客场纪律记录。八卦版面仅供预警，不作结论。",
-        "relatedPlayerId": "player.rinaldi.matteo"
+        "relatedPlayerId": "player.rinaldi.matteo",
+        "illustration": "tactics_board"
       },
       {
         "layout": "ScoutReport",
@@ -142,7 +151,8 @@
         "pullQuote": "“最年轻的纪录说明他开始得早，不说明他已经到终点。”",
         "sidebarTitle": "保护条款",
         "sidebarBody": "分钟数上限、连续首发限制、媒体隔离。少年球员的赛程表需要成年人签字。",
-        "relatedPlayerId": "player.morel.lucas"
+        "relatedPlayerId": "player.morel.lucas",
+        "illustration": "youth"
       },
       {
         "layout": "Feature",
@@ -154,7 +164,9 @@
         "pullQuote": "“先问纪录全称，再问价格。”",
         "sidebarTitle": "本周提醒",
         "sidebarBody": "“之一”两个字通常藏在第五段；“队史最年轻”和“联赛最年轻”差着一个档案馆。",
-        "relatedPlayerId": "player.morel.lucas"
+        "relatedPlayerId": "player.morel.lucas",
+        "illustration": "youth",
+        "illustration2": "data_chart"
       }
     ]
   },
@@ -183,7 +195,9 @@
         "pullQuote": "“免费球员的工资单从不免费。”",
         "sidebarTitle": "成本清单",
         "sidebarBody": "签字费、佣金、工资、体检、融入时间。最后一项没有发票，但最贵。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "contract_money",
+        "illustration2": "scouting"
       },
       {
         "layout": "ScoutReport",
@@ -195,7 +209,8 @@
         "pullQuote": "“试训能验证怀疑，不能替代怀疑。”",
         "sidebarTitle": "建议结构",
         "sidebarBody": "短约优先；出场条款挂钩；冬窗签约请给春天下调空间。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       },
       {
         "layout": "Feature",
@@ -207,7 +222,9 @@
         "pullQuote": "“球衣不会施法，号码也不会，请把注意力放在球员身上。”",
         "sidebarTitle": "融入清单",
         "sidebarBody": "住房、翻译、战术手册页数上限、更衣室座位。发布会三明治请放盘子侧边。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "fans",
+        "illustration2": "pub"
       }
     ]
   },
@@ -236,7 +253,8 @@
         "pullQuote": "“终结者的集锦很漂亮，集锦的剪辑师也很忙。”",
         "sidebarTitle": "必查",
         "sidebarBody": "每 90 分钟射门质量；重大机会转化率；强强对话样本；最近一个完整赛季。",
-        "relatedPlayerId": "player.mendez.carlos"
+        "relatedPlayerId": "player.mendez.carlos",
+        "illustration": "contract_money"
       },
       {
         "layout": "Feature",
@@ -248,7 +266,9 @@
         "pullQuote": "“淘汰赛不相信平均数，它只认这一次。”",
         "sidebarTitle": "值钱经验",
         "sidebarBody": "客场进球后的五分钟管理；领先后的阵型纪律；点球顺序表提前写好。",
-        "relatedPlayerId": "player.mendez.carlos"
+        "relatedPlayerId": "player.mendez.carlos",
+        "illustration": "trophy",
+        "illustration2": "stadium_night"
       },
       {
         "layout": "Feature",
@@ -260,7 +280,9 @@
         "pullQuote": "“截止日不买紧迫感，只买清单上原来就有的名字。”",
         "sidebarTitle": "买方守则",
         "sidebarBody": "清单提前定；价格上限提前定；传真机纸盒提前装满。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "winter_window",
+        "illustration2": "deadline_fax"
       }
     ]
   },
@@ -289,7 +311,9 @@
         "pullQuote": "“技术会进步，卡纸会找到新的形式。”",
         "sidebarTitle": "卡纸前兆",
         "sidebarBody": "纸盒太满、文件太急、经纪人在电话里喊“马上到”。三者同时出现，请换一台。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "deadline_fax",
+        "illustration2": "transfer_window"
       },
       {
         "layout": "Feature",
@@ -301,7 +325,9 @@
         "pullQuote": "“每份关窗声明都应附一份诚实度附录。”",
         "sidebarTitle": "常见句式",
         "sidebarBody": "“符合长期规划”“时机不合适”“尊重球员意愿”——详见附录，附录不存在。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "media",
+        "illustration2": "deadline_fax"
       },
       {
         "layout": "ScoutReport",
@@ -313,7 +339,8 @@
         "pullQuote": "“冬窗评分在五月公布，一月公布的叫心情。”",
         "sidebarTitle": "复核日期",
         "sidebarBody": "三月看出场，四月看贡献，五月看积分榜。一月只看传真机维修单。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "data_chart"
       }
     ]
   },
@@ -342,7 +369,9 @@
         "pullQuote": "“最快的反击，在对方射门之前就开始了。”",
         "sidebarTitle": "训练要点",
         "sidebarBody": "三秒内出球演练；丢球后五人围抢窗口；反击后的回防路线同样计时。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "tactics_board",
+        "illustration2": "stadium_night"
       },
       {
         "layout": "Feature",
@@ -354,7 +383,9 @@
         "pullQuote": "“淘汰赛不淘汰运气，只淘汰没有预案的人。”",
         "sidebarTitle": "首回合守则",
         "sidebarBody": "别把悬念当敌人；别为集锦踢客场；换人名额留给加时赛的可能。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "tactics_board",
+        "illustration2": "trophy"
       },
       {
         "layout": "ScoutReport",
@@ -366,7 +397,8 @@
         "pullQuote": "“淘汰赛的录像要看到第八十九分钟，包括替补席。”",
         "sidebarTitle": "样本纪律",
         "sidebarBody": "至少两场客场；至少一场落后状态；比分领先时的行为单独标记。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       }
     ]
   },
@@ -395,7 +427,9 @@
         "pullQuote": "“最好的跑位，是让对方后卫怀疑自己的余光。”",
         "sidebarTitle": "观察指标",
         "sidebarBody": "启动时机、对传球者视线的利用、接球前最后两步的角度。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "tactics_board",
+        "illustration2": "scouting"
       },
       {
         "layout": "Feature",
@@ -407,7 +441,9 @@
         "pullQuote": "“球在左边，比赛常常在右边。”",
         "sidebarTitle": "二刷清单",
         "sidebarBody": "进球前二十秒的无球人；丢球时离球最远的人；庆祝时对方谁在系鞋带。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting",
+        "illustration2": "media"
       },
       {
         "layout": "ScoutReport",
@@ -419,7 +455,8 @@
         "pullQuote": "“最好的牵制，是让数据表上多出一名不存在的队友。”",
         "sidebarTitle": "记录法",
         "sidebarBody": "每次无球牵制记一笔；每半场统计“为队友腾出的平方米”。数字是估的，趋势是真的。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       }
     ]
   },
@@ -448,7 +485,9 @@
         "pullQuote": "“能补所有位置的人，最怕被安排补所有位置。”",
         "sidebarTitle": "核对重点",
         "sidebarBody": "每个位置至少一场完整录像；“客串过”不等于“能胜任”；门将除外，别问为什么。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "contract_money",
+        "illustration2": "tactics_board"
       },
       {
         "layout": "Feature",
@@ -460,7 +499,9 @@
         "pullQuote": "“穷不是问题，让对手知道你穷才是。”",
         "sidebarTitle": "省钱误区",
         "sidebarBody": "压价到最后一周；省掉体检；让主教练兼职司机——第三项已有俱乐部试行，结果不予刊登。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "contract_money",
+        "illustration2": "data_chart"
       },
       {
         "layout": "ScoutReport",
@@ -472,7 +513,8 @@
         "pullQuote": "“预算紧张时，每一行废话都是支出。”",
         "sidebarTitle": "一页原则",
         "sidebarBody": "报告超出一页，说明你还没决定要问什么；超过三页，说明你在写回忆录。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       }
     ]
   },
@@ -501,7 +543,9 @@
         "pullQuote": "“跑得动是体能，知道什么时候跑是体能管理。”",
         "sidebarTitle": "预警指标",
         "sidebarBody": "回追少半步；传球选择变直；训练后加练的人突然不加练了。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "training",
+        "illustration2": "rain_match"
       },
       {
         "layout": "Feature",
@@ -513,7 +557,9 @@
         "pullQuote": "“榜首和榜尾的区别，只是望远镜的方向。”",
         "sidebarTitle": "话术对照",
         "sidebarBody": "“压力在对手那边”=压力在我们这边；“足球什么都可能发生”=我们落后。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "rain_match",
+        "illustration2": "fans"
       },
       {
         "layout": "ScoutReport",
@@ -525,7 +571,8 @@
         "pullQuote": "“四月的录像有利息，一月再取。”",
         "sidebarTitle": "归档建议",
         "sidebarBody": "现在标记，夏天复核；别在冲刺期报价，情绪溢价高达三成。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "data_chart"
       }
     ]
   },
@@ -554,7 +601,9 @@
         "pullQuote": "“好替补不是耐心的人，是随时不耐烦但准备好了的人。”",
         "sidebarTitle": "状态保鲜",
         "sidebarBody": "内部对抗赛强度；个人训练计划；家属票别订在决赛前一周——注意力也是库存。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "dressing_room",
+        "illustration2": "veteran"
       },
       {
         "layout": "ScoutReport",
@@ -566,7 +615,8 @@
         "pullQuote": "“板凳长度可以量，板凳温度要伸手。”",
         "sidebarTitle": "信息源",
         "sidebarBody": "训练场边线比新闻发布会诚实；青年队比赛录像；队内对抗的技术统计。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       },
       {
         "layout": "Feature",
@@ -578,7 +628,9 @@
         "pullQuote": "“点球大战是掷硬币，但有人把硬币练出了汗。”",
         "sidebarTitle": "档案标签",
         "sidebarBody": "可查：扑救方向统计。不可查：“他从小就扑点”。存疑：任何带“传说”二字的材料。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "goalkeeper",
+        "illustration2": "referee"
       }
     ]
   },
@@ -607,7 +659,9 @@
         "pullQuote": "“冷静是一种排程：把激动留给赛后发布会。”",
         "sidebarTitle": "静默清单",
         "sidebarBody": "专访婉拒；社媒托管；合同谈判冻结；“梦幻赛季”四个字禁止使用。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "trophy",
+        "illustration2": "dressing_room"
       },
       {
         "layout": "Feature",
@@ -619,7 +673,9 @@
         "pullQuote": "“奇迹不接待没有准备的人，抽签也一样。”",
         "sidebarTitle": "奇迹要素",
         "sidebarBody": "一个早进球；一张未出的换人牌；一位忘了自己该紧张的年轻人。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "stadium_night",
+        "illustration2": "fans"
       },
       {
         "layout": "ScoutReport",
@@ -631,7 +687,8 @@
         "pullQuote": "“决赛能放大真相，也能放大滤镜。”",
         "sidebarTitle": "笔记规则",
         "sidebarBody": "决赛表现进档案，但不许独占档案；奖杯合影不代表续约理由。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       }
     ]
   },
@@ -660,7 +717,9 @@
         "pullQuote": "“扑点不是靠猜，是靠让对方以为自己被猜中了。”",
         "sidebarTitle": "读人清单",
         "sidebarBody": "助跑节奏变化、支撑脚方向、眼神停留。以及：留意谁突然系起了鞋带。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "referee",
+        "illustration2": "goalkeeper"
       },
       {
         "layout": "ScoutReport",
@@ -672,7 +731,8 @@
         "pullQuote": "“评估门将请看失球之后，而不是零封之中。”",
         "sidebarTitle": "必看场景",
         "sidebarBody": "先丢球后的指挥；连续角球；第 85 分钟领先时的出击选择。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "goalkeeper"
       },
       {
         "layout": "Feature",
@@ -684,7 +744,9 @@
         "pullQuote": "“最好的门将采访只有三句：球来了，我扑了，吃晚饭了。”",
         "sidebarTitle": "发言红线",
         "sidebarBody": "不评价对方点球手心理；不承诺零封；不在周三谈论命运。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "goalkeeper",
+        "illustration2": "media"
       }
     ]
   },
@@ -713,7 +775,9 @@
         "pullQuote": "“本赛季的每个笑话都在同一条战线上：先核实，再刊登。”",
         "sidebarTitle": "获奖感言",
         "sidebarBody": "保温杯：“水还是温的。”三明治：缺席，由家属代领。传真机：维修中，无法到场。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "trophy",
+        "illustration2": "fans"
       },
       {
         "layout": "Feature",
@@ -725,7 +789,9 @@
         "pullQuote": "“人物会过气，问题不会：明年还会有新的四十一球。”",
         "sidebarTitle": "提名遗珠",
         "sidebarBody": "“哪里缺人补哪里”先生、马拉松型中场，以及所有在亲属推荐栏填表的人。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "trophy",
+        "illustration2": "media"
       },
       {
         "layout": "ScoutReport",
@@ -737,7 +803,8 @@
         "pullQuote": "“最后一条核查清单永远写着：检查核查者。”",
         "sidebarTitle": "明年见",
         "sidebarBody": "新赛季清单：新的数字、新的杯子、新的传真机。本刊编辑部将持续缺觉。",
-        "relatedPlayerId": ""
+        "relatedPlayerId": "",
+        "illustration": "scouting"
       }
     ]
   }

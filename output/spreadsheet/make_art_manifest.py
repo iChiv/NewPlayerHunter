@@ -26,6 +26,40 @@ COVER_STYLE = (
     "no real person likeness. Scene: "
 )
 
+ILLUSTRATION_SCENES = {
+    "transfer_window": "a half-open office window with transfer papers and pens on the sill, summer light",
+    "contract_money": "a fountain pen signing a football contract surrounded by coin stacks and a calculator",
+    "injury": "a bandaged football boot, crutches and ice packs leaning against a treatment table",
+    "tactics_board": "a chalk tactics board with arrows and magnets in a dim dressing room",
+    "stadium_night": "an empty small stadium under floodlights at night, mist over the pitch",
+    "pub": "a cozy old football pub interior with scarves on the wall and a chalkboard team lineup",
+    "training": "cones, training bibs and footballs scattered on a wet morning training pitch",
+    "scouting": "a scout's notebook, binoculars and a thermos on a windy grandstand seat",
+    "media": "a pile of football newspapers with a coffee cup and a buzzing telephone",
+    "dressing_room": "a quiet dressing room with hanging plain jerseys and wooden benches",
+    "boots_ball": "a worn pair of football boots next to a scuffed ball on grass, still life",
+    "referee": "a referee's whistle with yellow and red cards on a dark table",
+    "trophy": "a silver trophy on a pedestal with confetti drifting through spotlight beams",
+    "rain_match": "silhouettes of players sliding in heavy rain on a muddy pitch",
+    "gold_desert": "gold coins and luxury suitcases on a desk, a desert skyline through the window",
+    "youth": "kids playing street football between parked bicycles, laundry lines overhead",
+    "veteran": "an aging player's locker with taped knee supports, old photos and a captain's armband",
+    "goalkeeper": "goalkeeper gloves hanging on a goal net at dusk",
+    "deadline_fax": "a jammed fax machine spitting out transfer papers at midnight, a clock near twelve",
+    "fans": "a crowd of supporters with raised scarves in a small grandstand",
+    "winter_window": "a frosty shop window with football boots behind iced glass, snow falling outside",
+    "medical": "a club medical room with a body scanner, a stopwatch and heart-rate printouts",
+    "agent_phone": "a mobile phone showing many missed calls next to a suitcase and a boarding pass",
+    "data_chart": "hand-drawn performance charts and numbered magnets pinned on a corkboard",
+}
+
+ILLUSTRATION_STYLE = (
+    "Original painterly oil-illustration magazine spot illustration, square 1:1 composition. "
+    "Moody football (soccer) editorial scene, muted navy teal and burnt orange palette, soft brush strokes, "
+    "cinematic lighting, metaphorical composition. Absolutely no text, no letters, no typography, no logos, "
+    "no badges, no watermark, no real person likeness. Scene: "
+)
+
 COVER_BRIEFS = {
     "mag.season.07": "a footballer in a navy kit running onto a pitch carrying a fire extinguisher, transfer papers flying in the summer wind, dawn light over a small stadium",
     "mag.season.08": "a footballer silhouette standing atop a desert dune made of gold coins, a distant palace skyline, a second shadowy figure with a question mark above his head",
@@ -66,6 +100,8 @@ def main():
     for i in DESIGN["issues"]:
         fname = f"covers/{i['id'].replace('mag.', '').replace('.', '_')}.png"
         lines.append((fname, COVER_STYLE + COVER_BRIEFS[i["id"]]))
+    for key, scene in ILLUSTRATION_SCENES.items():
+        lines.append((f"illustrations/{key}.png", ILLUSTRATION_STYLE + scene))
     out = ART / "manifest.tsv"
     with out.open("w", encoding="utf-8", newline="\n") as f:
         for fname, prompt in lines:

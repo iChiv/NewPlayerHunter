@@ -44,7 +44,7 @@
 1. `python output/spreadsheet/extract_batch.py <xlsx>`：提取内容人员 Excel 并打印校验报告。
 2. 编辑 `content_design.json`（结构字段）与 prose JSON（文案）。
 3. `python output/spreadsheet/build_factory.py`：重新生成 `LateSeasonContentFactory.cs`。
-4. 美术：`make_art_manifest.py` 生成清单 → `bash output/art_raw/gen_art_serial.sh` 调本地 grok 批量生图 → `python output/spreadsheet/rebuild_atlases.py` 合成 8×8 肖像与 6×6 封面图集。
+4. 美术：`make_art_manifest.py` 生成清单（肖像、封面、期刊题图）→ `bash output/art_raw/gen_art_serial.sh` 调本地 grok 批量生图（注意先建好对应子目录）→ `python output/spreadsheet/rebuild_atlases.py` 合成 8×8 肖像、6×6 封面与 6×6 题图图集。期刊内容页在 prose JSON 中用 `illustration` 主题键标注，`build_factory.py` 映射为图集索引。
 5. Unity 菜单 Tools/New Player Hunter/Rebuild Game Scene 重建正式场景（会同时刷新内容目录资产），然后跑 EditMode/PlayMode 测试。
 
 ## 测试与已知环境问题

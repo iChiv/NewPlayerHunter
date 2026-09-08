@@ -2,7 +2,7 @@
 
 - 当前阶段：M1-B 内容与存档主体完成；内容批次 01 已覆盖全部 52 周
 - 当前状态：51 名球员、193 封目录邮件、34 期杂志、读信解锁、有效期、利益事件、52 周年度循环、自动存档、俱乐部结果回函（含伤病/冲突/意外变体）、可切换多委托列表与转场/点击反馈均可在 Unity Editor 中运行
-- 最近更新：2026-09-07
+- 最近更新：2026-09-08
 
 ## 当前项目快照
 
@@ -15,6 +15,23 @@
 - Easy Save 3 与 GUI Pro - Casual Game 已导入项目。
 
 ## 已完成
+
+### 2026-09-08：期刊内容页题图与界面文本清理
+
+- [x] 建立 24 张共享主题题图（转会、合同、伤病、战术板、球场、酒馆等），grok 本地批量生成，合成 6×6 `MagazineIllustrationAtlas.png`。
+- [x] `MagazinePageContent` 新增 `illustrationIndex`；28 期后段期刊在 prose JSON 以主题键标注、`build_factory.py` 映射索引，前 6 期在 `SixWeekContentFactory` 直接指定；封面页恒为 -1。
+- [x] Feature / ScoutReport 版式按杂志版式接入题图：Feature 页双横版图（`illustrationIndex2`，未标则通栏横幅），ScoutReport 页右栏下单图；全部带墨色细框与主题图注（"插图 · xxx"），按每页正文实际渲染高度动态摆放，不足 12% 版高自动隐藏。
+- [x] 清理界面开发阶段与元描述文本：页脚默认状态"开发语言：中文"、收件箱标签"真实收件箱"、封面默认导语"真实电子杂志式"。
+- [x] 内容文案全量扫描，未发现 AI 套话（"值得注意的是/综上所述/赋能/闭环"等零命中）与英文残留。
+- [x] 回退 Editor 自动安装的 com.unity.ai.assistant / com.unity.ai.inference 及其设置变更。
+- [x] `gen_art_serial.sh` 支持指定清单文件与 PID 隔离临时文件，可安全多开；`make_art_manifest.py` 与 `rebuild_atlases.py` 覆盖题图管线。
+
+验证：
+
+- Unity 脚本编译：通过（Pipeline recompile_status completed, failed=false）。
+- EditMode：36 项全部通过（新增 `MagazineContentPages_ReferenceValidIllustrationSlots`）。
+- PlayMode：7 项全部通过（新增 Feature 页题图槽位激活且纹理非空断言）。
+- 实际 Play Mode：双图/通栏/单图版式、墨框图注与长文隐藏兜底均经用户目检确认。
 
 ### 2026-08-10：项目发现与设计确认
 

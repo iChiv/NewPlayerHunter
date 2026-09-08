@@ -140,6 +140,8 @@ namespace NewPlayerHunter.Gameplay
         public LocalizedText sidebarTitle;
         public LocalizedText sidebarBody;
         public string relatedPlayerId;
+        public int illustrationIndex = -1;
+        public int illustrationIndex2 = -1;
     }
 
     [Serializable]
@@ -171,6 +173,7 @@ namespace NewPlayerHunter.Gameplay
             new List<MagazineIssueContent>();
         [SerializeField] private Texture2D playerPortraitAtlas;
         [SerializeField] private Texture2D magazineCoverAtlas;
+        [SerializeField] private Texture2D magazineIllustrationAtlas;
 
         public GameLanguage DevelopmentLanguage => developmentLanguage;
 
@@ -185,6 +188,8 @@ namespace NewPlayerHunter.Gameplay
         public Texture2D PlayerPortraitAtlas => playerPortraitAtlas;
 
         public Texture2D MagazineCoverAtlas => magazineCoverAtlas;
+
+        public Texture2D MagazineIllustrationAtlas => magazineIllustrationAtlas;
 
         public bool IsConfigured =>
             players.Count > 0 &&
@@ -206,10 +211,12 @@ namespace NewPlayerHunter.Gameplay
             EnsureMailTimestamps();
         }
 
-        public void ConfigureArt(Texture2D portraits, Texture2D magazineCovers)
+        public void ConfigureArt(
+            Texture2D portraits, Texture2D magazineCovers, Texture2D magazineIllustrations)
         {
             playerPortraitAtlas = portraits;
             magazineCoverAtlas = magazineCovers;
+            magazineIllustrationAtlas = magazineIllustrations;
         }
 
         public bool EnsureMailTimestamps()
